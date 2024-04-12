@@ -14,8 +14,23 @@ import {
 
 import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
-import asociaciones from '@assets/data/asociaciones.json';
 import { Router } from '@angular/router';
+import { SupabaseService } from '@services/supabase.service';
+
+interface IAsociaciones {
+	id: number;
+	created_at: string; // Asumiendo que siempre recibes la fecha como cadena
+	nombre: string;
+	rma: number;
+	presidente: string;
+	sede: string;
+	barrio: string | null; // 'null' explicitado como posible valor
+	telefono: string | null;
+	contacto: string;
+	email: string | null;
+	email1: string | null;
+	distrito: string;
+}
 
 @Component({
 	selector: 'app-asociaciones',
@@ -31,12 +46,22 @@ export default class AsociacionesComponent implements OnInit {
 	private _gridApi: GridApi;
 	private _columnApi: ColumnApi;
 	private _router = inject(Router);
+	private _supabaseService = inject(SupabaseService);
+	private data1: IAsociaciones[];
+	public isGridReady = true;
+	private asociaciones: any = null;
 
 	async ngOnInit(): Promise<void> {
-		this._loadTable();
+		this.fetchData();
 	}
 
-	private async _loadTable() {
+	async fetchData() {
+		try {
+			this.data1 = await this._supabaseService.fetchData('asociaciones');
+			this.asociaciones = JSON.parse(JSON.stringify(this.data1)); // Si necesitas convertirlo para uso en ag-grid
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		}
 		this._setColumnDefs();
 		this._setGridOptions();
 	}
@@ -66,6 +91,7 @@ export default class AsociacionesComponent implements OnInit {
 	}
 
 	_setGridOptions() {
+		this.asociaciones = JSON.parse(JSON.stringify(this.data1)); // Si necesitas convertirlo para uso en ag-grid
 		this.gridOptions = {
 			defaultColDef: {
 				width: 130,
@@ -90,7 +116,7 @@ export default class AsociacionesComponent implements OnInit {
 				}
 			},
 
-			rowData: asociaciones,
+			rowData: this.asociaciones,
 			columnDefs: this._columnDefs,
 			groupDisplayType: 'custom',
 			groupIncludeTotalFooter: true,
@@ -106,6 +132,7 @@ export default class AsociacionesComponent implements OnInit {
 	}
 
 	onGridReady(params: GridReadyEvent) {
+		this.isGridReady = true;
 		this._gridApi = params.api;
 		this._columnApi = params.columnApi;
 

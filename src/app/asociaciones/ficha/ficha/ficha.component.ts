@@ -37,7 +37,6 @@ export default class FichaComponent implements OnInit {
 	ngOnInit(): void {
 		console.log('id', this.id);
 		this.fetchData();
-
 		this.asociacionForm = new FormGroup({
 			id: new FormControl(null),
 			created_at: new FormControl(''),

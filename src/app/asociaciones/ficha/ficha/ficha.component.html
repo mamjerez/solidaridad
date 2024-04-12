@@ -1,6 +1,7 @@
 <main>
-	<form [formGroup]="asociacionForm">
-		<!-- <div>
+	@if (data[0]) {
+		<form [formGroup]="asociacionForm">
+			<!-- <div>
 			<label for="id">ID:</label>
 			<input type="number" id="id" formControlName="id" />
 		</div>
@@ -8,47 +9,48 @@
 			<label for="created_at">Fecha de Creación:</label>
 			<input type="text" id="created_at" formControlName="created_at" />
 		</div> -->
-		<div>
-			<label for="nombre">Nombre:</label>
-			<input type="text" id="nombre" formControlName="nombre" placeholder="{{ data[0].nombre }}" />
-		</div>
-		<div>
-			<label for="rma">Número en Registro Municipal de Asociaciones:</label>
-			<input type="number" id="rma" formControlName="rma" placeholder="{{ data[0].rma }}" />
-		</div>
-		<div>
-			<label for="presidente">Presidente/a:</label>
-			<input type="text" id="presidente" formControlName="presidente" placeholder="{{ data[0].presidente }}" />
-		</div>
-		<div>
-			<label for="sede">Sede:</label>
-			<input type="text" id="sede" formControlName="sede" placeholder="{{ data[0].sede }}" />
-		</div>
-		<div>
-			<label for="distrito">Distrito:</label>
-			<input type="text" id="distrito" formControlName="distrito" placeholder="{{ data[0].distrito }}" />
-		</div>
-		<div>
-			<label for="barrio">Barrio:</label>
-			<input type="text" id="barrio" formControlName="barrio" placeholder="{{ data[0].barrio }}" />
-		</div>
-		<div>
-			<label for="telefono">Teléfono:</label>
-			<input type="text" id="telefono" formControlName="telefono" placeholder="{{ data[0].telefono }}" />
-		</div>
-		<div>
-			<label for="contacto">Teléfono alternativo:</label>
-			<input type="text" id="contacto" formControlName="contacto" placeholder="{{ data[0].contacto }}" />
-		</div>
-		<div>
-			<label for="email">Email:</label>
-			<input type="email" id="email" formControlName="email" placeholder="{{ data[0].email }}" />
-		</div>
-		<div>
-			<label for="email1">Email Alternativo:</label>
-			<input type="email" id="email1" formControlName="email1" placeholder="{{ data[0].email1 }}" />
-		</div>
+			<div>
+				<label for="nombre">Nombre:</label>
+				<input type="text" id="nombre" formControlName="nombre" placeholder="{{ data[0].nombre }}" />
+			</div>
+			<div>
+				<label for="rma">Número en Registro Municipal de Asociaciones:</label>
+				<input type="number" id="rma" formControlName="rma" placeholder="{{ data[0].rma }}" />
+			</div>
+			<div>
+				<label for="presidente">Presidente/a:</label>
+				<input type="text" id="presidente" formControlName="presidente" placeholder="{{ data[0].presidente }}" />
+			</div>
+			<div>
+				<label for="sede">Sede:</label>
+				<input type="text" id="sede" formControlName="sede" placeholder="{{ data[0].sede }}" />
+			</div>
+			<div>
+				<label for="distrito">Distrito:</label>
+				<input type="text" id="distrito" formControlName="distrito" placeholder="{{ data[0].distrito }}" />
+			</div>
+			<div>
+				<label for="barrio">Barrio:</label>
+				<input type="text" id="barrio" formControlName="barrio" placeholder="{{ data[0].barrio }}" />
+			</div>
+			<div>
+				<label for="telefono">Teléfono:</label>
+				<input type="text" id="telefono" formControlName="telefono" placeholder="{{ data[0].telefono }}" />
+			</div>
+			<div>
+				<label for="contacto">Teléfono alternativo:</label>
+				<input type="text" id="contacto" formControlName="contacto" placeholder="{{ data[0].contacto }}" />
+			</div>
+			<div>
+				<label for="email">Email:</label>
+				<input type="email" id="email" formControlName="email" placeholder="{{ data[0].email }}" />
+			</div>
+			<div>
+				<label for="email1">Email Alternativo:</label>
+				<input type="email" id="email1" formControlName="email1" placeholder="{{ data[0].email1 }}" />
+			</div>
 
-		<!-- <button type="submit">Guardar Cambios</button> -->
-	</form>
+			<!-- <button type="submit">Guardar Cambios</button> -->
+		</form>
+	}
 </main>
