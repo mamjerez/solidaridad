@@ -32,8 +32,8 @@ export default class HomeComponent implements OnInit {
 				tag,
 				rutaImagen: `${environment.pathImgSupabase}${tag}.jpg`,
 				funcion:
-					tag === 'presupuesto'
-						? () => this._router.navigateByUrl(`detalle`)
+					tag === 'asociaciones'
+						? () => this._router.navigateByUrl(`asociaciones`)
 						: () => this._router.navigateByUrl(`level1/${tag}`)
 			}));
 		} catch (error) {

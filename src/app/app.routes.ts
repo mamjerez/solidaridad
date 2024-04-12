@@ -21,6 +21,14 @@ export default [
 		path: 'levelLast/:tag',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
+	{
+		path: 'asociaciones',
+		loadComponent: () => import('./asociaciones/asociaciones/asociaciones.component')
+	},
+	{
+		path: 'ficha/:id',
+		loadComponent: () => import('./asociaciones/ficha/ficha/ficha.component')
+	},
 
 	{
 		path: 'addNew/:tag',

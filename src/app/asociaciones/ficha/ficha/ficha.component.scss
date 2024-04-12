@@ -1,0 +1,17 @@
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 30px;
+}
+
+label {
+	display: block;
+	font-weight: bold;
+	font-size: medium;
+}
+
+input {
+	width: 600px;
+	margin-bottom: 10px;
+}
