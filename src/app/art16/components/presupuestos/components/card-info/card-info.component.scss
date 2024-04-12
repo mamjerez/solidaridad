@@ -1,0 +1,40 @@
+@use 'typography';
+
+@media screen and (max-width: 3399.98px) {
+	.cardInfo {
+		display: flex;
+		flex-direction: column;
+		border-radius: 10px;
+		background: #f5f5f5;
+		margin: 10px;
+		&__title,
+		&__subtitle {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			color: black;
+			padding: 10px;
+		}
+		&__title {
+			font-weight: 600;
+			font-size: 2rem;
+		}
+
+		&__subtitle {
+			font-size: 1.2rem;
+		}
+	}
+}
+
+@media screen and (max-width: 575.98px) {
+	.cardInfo {
+		&__title {
+			font-size: 12px;
+			padding: 4px;
+		}
+		&__subtitle {
+			font-size: 10px;
+			padding: 4px;
+		}
+	}
+}

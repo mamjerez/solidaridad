@@ -1,0 +1,21 @@
+<div class="OCM-dark-teme OCM-flex OCM-flex--center">
+	<form [formGroup]="stepForm" (ngSubmit)="guardar()">
+		<fieldset class="OCM-Fieldset">
+			<header class="OCM-subtitle-dark">Añadir step en {{ tag }}</header>
+
+			<label for="date" class="OCM-label-dark">Fecha</label>
+			<input type="date" class="OCMInputDate" id="date" formControlName="date" />
+			@if (stepForm?.get('date')?.invalid && stepForm?.get('date')?.touched) {
+				<div class="OCM-alert">Fecha es requerida.</div>
+			}
+
+			<label for="emisor" class="OCM-label-dark">Step</label>
+			<input type="text" class="OCMInputMedia" id="step" formControlName="step" />
+			@if (stepForm?.get('step')?.invalid && stepForm?.get('step')?.touched) {
+				<div class="OCM-alert">Medio es requerido.</div>
+			}
+
+			<button type="submit" [disabled]="!stepForm.valid" class="OCM-button-container OCM-button">Grabar</button>
+		</fieldset>
+	</form>
+</div>

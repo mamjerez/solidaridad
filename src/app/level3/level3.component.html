@@ -1,0 +1,39 @@
+<main class="OCM-dark-teme">
+	<header class="OCM-subtitle-dark">{{ title }}</header>
+
+	@if (isComisiones) {
+		<header class="OCM-title-dark">Permanentes</header>
+		<section class="OCM-gridMenu">
+			@for (menu of menuOptions.slice(0, 5); track menu) {
+				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+			}
+		</section>
+		<header class="OCM-title-dark">Especiales</header>
+		<section class="OCM-gridMenu">
+			@for (menu of menuOptions.slice(5, 11); track menu) {
+				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+			}
+		</section>
+	} @else {
+		<section class="OCM-gridMenu">
+			@for (menu of menuOptions; track menu) {
+				@if (subTag === 'consejos') {
+					<app-card-menu [titulo]="menu.title" (click)="menu.funcion()" />
+				} @else {
+					<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+				}
+			}
+		</section>
+	}
+
+	@if (docs.length > 0) {
+		<app-documentos [docs]="docs" />
+	}
+	@if (news.length > 0) {
+		<app-noticias [news]="news" />
+	}
+
+	@if (coms.length > 0) {
+		<app-comentarios [coms]="coms" />
+	}
+</main>

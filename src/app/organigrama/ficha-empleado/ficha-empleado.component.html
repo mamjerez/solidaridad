@@ -1,0 +1,76 @@
+<body style="background-color: #15202b">
+	<header class="OCM-subtitle-dark">Ficha empleado</header>
+	<section class="OCM-containerTable">
+		<table class="tableDataPersona">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>1er apellido</th>
+					<th>2º apellido</th>
+					<th>Observaciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of dataBasic">
+					<td>{{ item.nombre }}</td>
+					<td>{{ item.apellido_1 }}</td>
+					<td>{{ item.apellido_2 }}</td>
+					<td>{{ item.obs }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
+	<div class="containerContactos">
+		<section class="OCM-containerTable">
+			<table class="tableDataPersona">
+				<thead>
+					<tr>
+						<th>Telefono</th>
+						<th>Observaciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let item of dataTelefonos">
+						<td>{{ item.telefono }}</td>
+						<td>{{ item.obs }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section class="OCM-containerTable">
+			<table class="tableDataPersona">
+				<thead>
+					<tr>
+						<th>Movíl</th>
+						<th>Observaciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let item of dataMoviles">
+						<td>{{ item.movil }}</td>
+						<td>{{ item.obs }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section class="OCM-containerTable">
+			<table class="tableDataPersona">
+				<thead>
+					<tr>
+						<th>eMail</th>
+						<th>Observaciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let item of dataEmails">
+						<td>{{ item.email }}</td>
+						<td>{{ item.obs }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</div>
+</body>

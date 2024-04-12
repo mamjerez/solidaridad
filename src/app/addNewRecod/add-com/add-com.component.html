@@ -1,0 +1,39 @@
+<div class="OCM-dark-teme OCM-flex OCM-flex--center">
+	<form [formGroup]="comForm" (ngSubmit)="guardar()">
+		<fieldset class="OCM-Fieldset">
+			<header class="OCM-subtitle-dark">Añadir comentario en {{ tag }}</header>
+
+			<label for="date" class="OCM-label-dark">Fecha</label>
+			<input type="date" class="OCMInputDate" id="date" formControlName="date" />
+			@if (comForm?.get('date')?.invalid && comForm?.get('date')?.touched) {
+				<div class="OCM-alert">Fecha es requerida.</div>
+			}
+
+			<label for="sender" class="OCM-label-dark">Emisor</label>
+			<input type="text" class="OCMInputMedia" id="media" formControlName="sender" />
+			@if (comForm?.get('sender')?.invalid && comForm?.get('sender')?.touched) {
+				<div class="OCM-alert">Emisor es requerido.</div>
+			}
+
+			<label for="texto" class="OCM-label-dark">Titulo</label>
+			<input type="text" class="OCMInputLong" id="text" formControlName="text" />
+			@if (comForm?.get('text')?.invalid && comForm?.get('text')?.touched) {
+				<div class="OCM-alert">titulo es requerido.</div>
+			}
+
+			<label for="confidencial" class="OCM-label-dark OCM-label-dark--marginTop">¿Es confidencial?</label>
+			<input
+				type="checkbox"
+				style="width: auto"
+				class="OCM-flex OCM-flex--left"
+				id="confidencial"
+				formControlName="confidencial"
+			/>
+			@if (comForm?.get('confidencial')?.invalid && comForm?.get('confidencial')?.touched) {
+				<span class="OCM-alert">¿Es confidencial? es requerido.</span>
+			}
+
+			<button type="submit" [disabled]="!comForm.valid" class="OCM-button-container OCM-button">Grabar</button>
+		</fieldset>
+	</form>
+</div>

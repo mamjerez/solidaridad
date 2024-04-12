@@ -1,0 +1,31 @@
+@media screen and (max-width: 3399.98px) {
+	.tabs {
+		display: flex;
+		justify-content: center;
+	}
+
+	.tab {
+		width: 130px;
+		text-align: center;
+		padding: 2px;
+		cursor: pointer;
+		color: black;
+		border-style: solid;
+		border-width: 1px;
+		border-radius: 15px 30px 0 0;
+		&--selected {
+			border-top: 4px solid blue;
+			color: blue;
+			background-color: rgb(212, 227, 243);
+		}
+		&__title {
+			font-size: clamp(0.7rem, 2vw + 0.2rem, 1.2rem);
+		}
+	}
+}
+
+@media screen and (max-width: 750px) {
+}
+
+@media screen and (max-width: 575.98px) {
+}

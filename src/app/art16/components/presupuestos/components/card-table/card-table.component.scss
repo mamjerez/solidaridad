@@ -1,0 +1,39 @@
+@media screen and (max-width: 3399.98px) {
+	.table {
+		margin: 10px;
+		thead {
+			text-align: center;
+			font-size: 1.5rem;
+			font-weight: bold;
+			color: #ffffff;
+			background: #003df6;
+			border-collapse: collapse;
+			th:first-child {
+				border-right: 2px solid #ffffff;
+				width: 80%;
+			}
+		}
+		tbody {
+			font-size: 1.4rem;
+			text-align: right;
+			tr:nth-child(even) {
+				background: #84c4c8;
+			}
+			td:first-child {
+				text-align: left;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 575.98px) {
+	.table {
+		margin: 4px;
+		thead {
+			font-size: 1rem;
+		}
+		tbody {
+			font-size: 1rem;
+		}
+	}
+}

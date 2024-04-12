@@ -1,0 +1,10 @@
+@if (rutaImagen) {
+	<div class="cardMenu">
+		<img src="{{ rutaImagen }}" alt="global" class="cardMenu__image" />
+		<span class="cardMenu__title">{{ titulo }}</span>
+	</div>
+} @else {
+	<div class="cardMenuNoImagen">
+		<span class="cardMenu__title">{{ titulo }}</span>
+	</div>
+}

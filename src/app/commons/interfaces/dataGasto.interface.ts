@@ -1,0 +1,31 @@
+export interface IDataGasto {
+	appPresupuestaria?: string;
+	CodAre?: number;
+	CodArt?: number;
+	CodCap?: string;
+	CodCon?: number;
+	CodEco?: string;
+	CodGru?: number;
+	CodOrg?: string;
+	CodPol?: number;
+	CodPro?: string;
+	DesAre?: string;
+	DesArt?: string;
+	DesCap?: string;
+	DesCon?: string;
+	DesEco?: string;
+	DesGru?: string;
+	DesOrg?: string;
+	DesPol?: string;
+	DesPro?: string;
+	Definitivas?: number;
+	Definitivas1?: number;
+	GastosComprometidos?: number;
+	Iniciales?: number;
+	Modificaciones?: number;
+	ObligacionesPendientePago?: number;
+	ObligacionesReconocidasNetas?: number;
+	Pagos?: number;
+	Pagos1?: number;
+	RemanenteCredito?: number;
+}

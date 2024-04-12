@@ -1,0 +1,45 @@
+<div class="OCM-dark-teme OCM-flex OCM-flex--center">
+	<form [formGroup]="docForm" (ngSubmit)="guardar()">
+		<fieldset class="OCM-Fieldset">
+			<header class="OCM-subtitle-dark">Añadir documento en {{ tag }}</header>
+
+			<label for="date" class="OCM-label-dark">Fecha</label>
+			<input type="date" class="OCMInputDate" id="date" formControlName="date" />
+			@if (docForm?.get('date')?.invalid && docForm?.get('date')?.touched) {
+				<div class="OCM-alert">Fecha es requerida.</div>
+			}
+
+			<label for="emisor" class="OCM-label-dark">Emisor</label>
+			<input type="text" class="OCMInputMedia" id="emisor" formControlName="emisor" />
+			@if (docForm?.get('emisor')?.invalid && docForm?.get('emisor')?.touched) {
+				<div class="OCM-alert">Emisor es requerido.</div>
+			}
+
+			<label for="title" class="OCM-label-dark">Titulo</label>
+			<input type="text" class="OCMInputLong" id="title" formControlName="title" />
+			@if (docForm?.get('title')?.invalid && docForm?.get('title')?.touched) {
+				<div class="OCM-alert">Titulo es requerido.</div>
+			}
+
+			<label for="url_doc" class="OCM-label-dark">URL</label>
+			<input type="url" class="OCMInputLong" id="url_doc" formControlName="url_doc" />
+			@if (docForm?.get('url_doc')?.invalid && docForm?.get('url_doc')?.touched) {
+				<div class="OCM-alert">URL es requerido.</div>
+			}
+
+			<label for="confidencial" class="OCM-label-dark OCM-label-dark--marginTop">¿Es confidencial?</label>
+			<input
+				type="checkbox"
+				style="width: auto"
+				class="OCM-flex OCM-flex--left"
+				id="confidencial"
+				formControlName="confidencial"
+			/>
+			@if (docForm?.get('confidencial')?.invalid && docForm?.get('confidencial')?.touched) {
+				<span class="OCM-alert">¿Es confidencial? es requerido.</span>
+			}
+
+			<button type="submit" [disabled]="!docForm.valid" class="OCM-button-container OCM-button">Grabar</button>
+		</fieldset>
+	</form>
+</div>

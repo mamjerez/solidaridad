@@ -1,0 +1,22 @@
+{
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
+  "recommendations": [
+    "angular.ng-template",
+    "github.copilot-nightly",
+    "hansu.git-graph-2",
+    "steoates.autoimport",
+    "pflannery.vscode-versionlens",
+    "esbenp.prettier-vscode",
+    "johnpapa.angular2",
+    "formulahendry.auto-close-tag",
+    "in4margaret.compareit",
+    "dbaeumer.vscode-eslint",
+    "github.vscode-github-actions",
+    "github.copilot",
+    "github.copilot-chat",
+    "eamodio.gitlens",
+    "pkief.material-icon-theme",
+    "stalyo.select-quotes",
+    "janisdd.vscode-edit-csv"
+  ]
+}

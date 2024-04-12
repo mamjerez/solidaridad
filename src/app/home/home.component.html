@@ -1,0 +1,5 @@
+<main class="OCM-gridMenu">
+	@for (menu of menuOptions; track menu) {
+		<app-card-menu [rutaImagen]="menu.rutaImagen" [titulo]="menu.title" (click)="menu.funcion()" />
+	}
+</main>

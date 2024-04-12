@@ -1,0 +1,29 @@
+<main class="OCM-dark-teme">
+	<header class="OCM-subtitle-dark">{{ title }}</header>
+	@if (tag === 'distritos') {
+		<div class="OCM-imgGraph OCM-imgGraph--md">
+			<img [src]="pathImg + tag + '.jpg'" alt="Distritos" />
+		</div>
+	}
+
+	<section class="OCM-gridMenu">
+		@for (menu of menuOptions; track menu) {
+			@if (tag !== 'distritos') {
+				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
+			} @else {
+				<app-card-menu [titulo]="menu.title" (click)="menu.funcion()" />
+			}
+		}
+	</section>
+
+	@if (docs.length > 0) {
+		<app-documentos [docs]="docs" />
+	}
+	@if (news.length > 0) {
+		<app-noticias [news]="news" />
+	}
+
+	@if (coms.length > 0) {
+		<app-comentarios [coms]="coms" />
+	}
+</main>

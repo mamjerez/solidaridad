@@ -1,0 +1,13 @@
+<header class="OCM-title-dark">Presupuestos</header>
+<main class="gridMain">
+	<section class="gridInfo">
+		<app-card-info-home />
+		<app-card-table-home />
+	</section>
+
+	<section class="OCM-flex OCM-flex--center">
+		@for (menu of cardMenus; track menu) {
+			<app-card-menu [rutaImagen]="menu.rutaImagen" [titulo]="menu.titulo" (click)="menu.funcion()" />
+		}
+	</section>
+</main>

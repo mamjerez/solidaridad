@@ -1,0 +1,25 @@
+<section class="OCM-flex OCM-flex--right">
+	<button type="button" class="OCM-button" (click)="volver()">Volver</button>
+</section>
+
+<header class="OCM-subtitle">{{ programa }}</header>
+<header class="OCM-subtitle">Presupuestado por capitulo de gastos</header>
+
+<div id="chart-capitulosGastos"></div>
+
+<div class="OCM-button-group">
+	@for (capitulo of capitulos; track capitulo) {
+		<button
+			type="button"
+			class="OCM-button"
+			(click)="changeGraph(capitulo.codigo)"
+			[ngClass]="{ active: capitulo.codigo === activeButton }"
+		>
+			Capítulo {{ capitulo.name }}
+		</button>
+	}
+</div>
+
+<div id="graph"></div>
+
+```
