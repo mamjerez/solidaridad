@@ -38,6 +38,8 @@ export default class Level1Component implements OnInit {
 
 	async ngOnInit() {
 		const data = await this._supabaseService.fetchDataByLevel('level1', this.tag);
+		console.log('data', data);
+
 		this.menuOptions = data.map((item: IMenuItem) => {
 			const modifiedItem = {
 				...item,
@@ -49,7 +51,7 @@ export default class Level1Component implements OnInit {
 
 		await this.ensureTitle();
 
-		[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
+		// [this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 	}
 
 	createCardMenu(item: IMenuItem) {

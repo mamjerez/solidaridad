@@ -165,6 +165,6 @@ export default class LevelLastComponent implements OnInit {
 			}
 		}
 
-		[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
+		// [this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 	}
 }

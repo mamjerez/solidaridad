@@ -107,7 +107,7 @@ export class SupabaseService {
 
 	async fetchDataByLevel(level: string, tag?: string): Promise<any> {
 		const { data, error } = await this._supabase.from('tag_title').select('*').eq('level', level);
-		const dataFiltered = tag ? data.filter((item) => item['level-up'] === tag) : data;
+		const dataFiltered = tag ? data.filter((item) => item['levelUp'] === tag) : data;
 
 		if (error) throw error;
 		return dataFiltered.sort((a, b) => a.order - b.order);

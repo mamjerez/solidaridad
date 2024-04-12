@@ -65,7 +65,7 @@ export default class Level3Component implements OnInit {
 
 		await this.ensureTitle();
 
-		[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
+		// [this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 	}
 
 	createCardMenu(item: IMenuItem) {
