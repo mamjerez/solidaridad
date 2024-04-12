@@ -10,11 +10,12 @@
 		height: 50px;
 		caret-color: transparent;
 		&__logo {
-			background: url('#{vars.$imgPath}/logoOCM.png');
+			background: url('#{vars.$imgPath}/logo.jpg');
 			height: 40px;
-			width: 184px;
+			width: 100px;
 			margin-left: 20px;
 			background-size: cover;
+			border-radius: 20px;
 		}
 		&__title {
 			@include m.OCM-text;
