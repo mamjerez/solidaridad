@@ -1,7 +1,14 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import 'ag-grid-enterprise';
-import { ColDef, ColumnState, GridOptions, GridReadyEvent, ISetFilterParams } from 'ag-grid-community/main';
+import {
+	ColDef,
+	ColumnState,
+	GridOptions,
+	GridReadyEvent,
+	ISetFilterParams,
+	RowClickedEvent
+} from 'ag-grid-community/main';
 
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { Router } from '@angular/router';
@@ -9,12 +16,12 @@ import { SupabaseService } from '@services/supabase.service';
 
 interface IAsociaciones {
 	id: number;
-	created_at: string; // Asumiendo que siempre recibes la fecha como cadena
+	created_at: string;
 	nombre: string;
 	rma: number;
 	presidente: string;
 	sede: string;
-	barrio: string | null; // 'null' explicitado como posible valor
+	barrio: string | null;
 	telefono: string | null;
 	contacto: string;
 	email: string | null;
@@ -56,20 +63,20 @@ export default class AsociacionesComponent implements OnInit {
 			{
 				headerName: 'Nombre',
 				field: 'nombre',
-				filter: 'agSetColumnFilter',
-				width: 425,
-				applyMiniFilterWhileTyping: true
+				// filter: 'agSetColumnFilter',
+				width: 425
+				// applyMiniFilterWhileTyping: true
 			} as ISetFilterParams,
 			{
 				headerName: 'Distrito',
 				field: 'distrito',
-				filter: true,
+				// filter: true,
 				width: 135
 			},
 			{
 				headerName: 'Barrio',
 				field: 'barrio',
-				filter: true,
+				// filter: true,
 				width: 200
 			}
 		];
@@ -111,7 +118,7 @@ export default class AsociacionesComponent implements OnInit {
 			rowSelection: 'single',
 			localeText: localeTextESPes,
 			pagination: true,
-			paginationPageSize: 50
+			paginationPageSize: 25
 		} as GridOptions;
 	}
 
@@ -126,7 +133,7 @@ export default class AsociacionesComponent implements OnInit {
 		params.columnApi.applyColumnState({ state: defaultSortModel });
 	}
 
-	onRowClicked(event: any) {
+	onRowClicked(event: RowClickedEvent) {
 		this._router.navigate(['ficha/' + event.data.id]);
 	}
 }
