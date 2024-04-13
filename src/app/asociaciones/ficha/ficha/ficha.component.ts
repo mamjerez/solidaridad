@@ -8,7 +8,9 @@ import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 import { INew } from '@interfaces/new.interface';
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
+
 import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
+import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
 
 interface IAsociaciones {
 	id: number;
@@ -29,7 +31,7 @@ interface IAsociaciones {
 @Component({
 	selector: 'app-ficha',
 	standalone: true,
-	imports: [CommonModule, FormsModule, ReactiveFormsModule, ComentariosComponent],
+	imports: [CommonModule, FormsModule, ReactiveFormsModule, ComentariosComponent, DocumentosComponent],
 	templateUrl: './ficha.component.html',
 	styleUrl: './ficha.component.scss'
 })

@@ -35,7 +35,7 @@ export default class AddDocComponent implements OnInit {
 			};
 
 			try {
-				await this._supabaseService.insertRow('documents', formData);
+				await this._supabaseService.insertRow('documentos', formData);
 				this._location.back();
 			} catch (error) {
 				console.error('Error al insertar datos:', error);

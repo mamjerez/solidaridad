@@ -1,6 +1,7 @@
 <div class="OCM-flex OCM-flex--center">
 	<header class="OCM-subtitle-dark">Comentarios ({{ coms.length }})</header>
-	<button class="OCM-buttonInvisible" (click)="admin()">+ admin</button>
+	<!-- <button class="OCM-buttonInvisible" (click)="admin()">+ admin</button> -->
+	<button class="OCM-buttonInvisible" (click)="admin()"></button>
 </div>
 
 <section class="OCM-containerTable">
@@ -23,7 +24,7 @@
 								<td>{{ com.text }}</td>
 							}
 						}
-						@case (null) {
+						@case (false) {
 							<td>{{ com.date }}</td>
 							<td>{{ com.sender }}</td>
 							<td>{{ com.text }}</td>
