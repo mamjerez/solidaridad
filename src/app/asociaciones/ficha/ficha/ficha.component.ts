@@ -1,8 +1,15 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { SupabaseService } from '@services/supabase.service';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { SupabaseService } from '@services/supabase.service';
+import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
+
+import { INew } from '@interfaces/new.interface';
+import { ICom } from '@interfaces/com.interface';
+import { IDoc } from '@interfaces/doc.interface';
+import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
 
 interface IAsociaciones {
 	id: number;
@@ -17,21 +24,26 @@ interface IAsociaciones {
 	email: string | null;
 	email1: string | null;
 	distrito: string;
+	tag: string;
 }
 
 @Component({
 	selector: 'app-ficha',
 	standalone: true,
-	imports: [CommonModule, FormsModule, ReactiveFormsModule],
+	imports: [CommonModule, FormsModule, ReactiveFormsModule, ComentariosComponent],
 	templateUrl: './ficha.component.html',
 	styleUrl: './ficha.component.scss'
 })
 export default class FichaComponent implements OnInit {
 	@Input() id: number;
 	private _router = inject(Router);
+	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	private _supabaseService = inject(SupabaseService);
 	asociacionForm: FormGroup;
 	activeTab = 1;
+	public coms: ICom[] = [];
+	public docs: IDoc[] = [];
+	public news: INew[] = [];
 
 	public data: IAsociaciones = null;
 
@@ -58,9 +70,12 @@ export default class FichaComponent implements OnInit {
 	async fetchData() {
 		try {
 			this.data = await this._supabaseService.fetchDataById('asociaciones', this.id);
+			console.log('data:', this.data);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
+		[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.data[0].tag);
+		console.log('coms:', this.coms);
 	}
 
 	selectTab(tabIndex: number) {

@@ -36,7 +36,7 @@ export default class AddComComponent implements OnInit {
 			};
 
 			try {
-				await this._supabaseService.insertRow('comments', formData);
+				await this._supabaseService.insertRow('comentarios', formData);
 				// this._modalService.close(); // NO FUNCIONA
 				this._location.back();
 			} catch (error) {
