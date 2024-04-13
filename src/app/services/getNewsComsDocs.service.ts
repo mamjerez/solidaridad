@@ -1,4 +1,3 @@
-// data-fetching.service.ts
 import { Injectable, inject } from '@angular/core';
 import { SupabaseService } from './supabase.service';
 
@@ -9,9 +8,7 @@ export class GetNewsComsDocs {
 	private _supabaseService = inject(SupabaseService);
 
 	async fetchDataFromSupabase(tag: string) {
-		console.log('tag:', tag);
-
-		const dataTypes = ['news', 'comentarios', 'documentos'];
+		const dataTypes = ['comentarios', 'documentos'];
 
 		return Promise.all(
 			dataTypes.map((type) =>

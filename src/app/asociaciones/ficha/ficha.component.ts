@@ -1,11 +1,10 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SupabaseService } from '@services/supabase.service';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
-import { INew } from '@interfaces/new.interface';
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 
@@ -44,7 +43,6 @@ export default class FichaComponent implements OnInit {
 	activeTab = 1;
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
-	public news: INew[] = [];
 
 	public data: IAsociaciones = null;
 
@@ -67,34 +65,15 @@ export default class FichaComponent implements OnInit {
 			email1: [null],
 			distrito: [null]
 		});
-
-		// this.asociacionForm = new FormGroup({
-		// 	id: new FormControl(null),
-		// 	created_at: new FormControl(''),
-		// 	nombre: new FormControl(''),
-		// 	activa: new FormControl(null),
-		// 	rma: new FormControl(null),
-		// 	presidente: new FormControl(''),
-		// 	sede: new FormControl(''),
-		// 	barrio: new FormControl(''),
-		// 	federacion: new FormControl(''),
-		// 	telefono: new FormControl(''),
-		// 	contacto: new FormControl(''),
-		// 	email: new FormControl(''),
-		// 	email1: new FormControl(''),
-		// 	distrito: new FormControl('')
-		// });
 	}
 
 	async fetchData() {
 		try {
 			this.data = await this._supabaseService.fetchDataById('asociaciones', this.id);
-			console.log('data:', this.data);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
-		[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.data[0].tag);
-		console.log('coms:', this.coms);
+		[this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.data[0].tag);
 	}
 
 	selectTab(tabIndex: number) {

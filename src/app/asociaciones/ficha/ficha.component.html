@@ -1,14 +1,14 @@
-<main [ngClass]="{ 'solidaridad-style': data[0].federacion === 'solidaridad' }">
-	@if (data[0].federacion === 'solidaridad') {
-		<div class="tab-titles">
-			<button class="tab-link" (click)="selectTab(1)" [ngClass]="{ active: activeTab === 1 }">Datos</button>
-			<button class="tab-link" (click)="selectTab(2)" [ngClass]="{ active: activeTab === 2 }">Pagos</button>
-			<!-- <button class="tab-link" (click)="selectTab(3)" [ngClass]="{ active: activeTab === 3 }">Tab 3</button> -->
-		</div>
-	}
+@if (data) {
+	<main [ngClass]="{ 'solidaridad-style': data[0].federacion === 'solidaridad' }">
+		@if (data[0].federacion === 'solidaridad') {
+			<div class="tab-titles">
+				<button class="tab-link" (click)="selectTab(1)" [ngClass]="{ active: activeTab === 1 }">Datos</button>
+				<button class="tab-link" (click)="selectTab(2)" [ngClass]="{ active: activeTab === 2 }">Pagos</button>
+				<!-- <button class="tab-link" (click)="selectTab(3)" [ngClass]="{ active: activeTab === 3 }">Tab 3</button> -->
+			</div>
+		}
 
-	<div class="tab-content" *ngIf="activeTab === 1">
-		@if (data) {
+		<div class="tab-content" *ngIf="activeTab === 1">
 			<form [formGroup]="asociacionForm">
 				<div class="containerAsociacion">
 					<!-- <div>
@@ -126,14 +126,14 @@
 
 			<app-documentos [docs]="docs" />
 			<app-comentarios [coms]="coms" />
-		}
-	</div>
-
-	<div class="tab-content" *ngIf="activeTab === 2">
-		<div>
-			<h2>{{ data[0].nombre }}</h2>
 		</div>
-		<h1 [ngClass]="{ 'pagada-style': data[0].cuota2023 }">Cuota 2023</h1>
-		<h1 [ngClass]="{ 'pagada-style': data[0].cuota2024 }">Cuota 2024</h1>
-	</div>
-</main>
+
+		<div class="tab-content" *ngIf="activeTab === 2">
+			<div>
+				<h2>{{ data[0].nombre }}</h2>
+			</div>
+			<h1 [ngClass]="{ 'pagada-style': data[0].cuota2023 }">Cuota 2023</h1>
+			<h1 [ngClass]="{ 'pagada-style': data[0].cuota2024 }">Cuota 2024</h1>
+		</div>
+	</main>
+}

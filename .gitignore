@@ -3,6 +3,7 @@
 # Compiled output
 /dist
 /tmp
+/environments
 /out-tsc
 /bazel-out
 
@@ -42,4 +43,3 @@ testem.log
 Thumbs.db
 
 
-src/assets/licitaciones/~$licitaciones.xlsx
