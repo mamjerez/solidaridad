@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SupabaseService } from '@services/supabase.service';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
@@ -36,9 +35,9 @@ interface IAsociaciones {
 })
 export default class FichaComponent implements OnInit {
 	@Input() id: number;
-	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	private _supabaseService = inject(SupabaseService);
+	private _formBuilder = inject(FormBuilder);
 	asociacionForm: FormGroup;
 	activeTab = 1;
 	public coms: ICom[] = [];
@@ -49,22 +48,40 @@ export default class FichaComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.fetchData();
-		this.asociacionForm = new FormGroup({
-			id: new FormControl(null),
-			created_at: new FormControl(''),
-			nombre: new FormControl(''),
-			activa: new FormControl(null),
-			rma: new FormControl(null),
-			presidente: new FormControl(''),
-			sede: new FormControl(''),
-			barrio: new FormControl(''),
-			federacion: new FormControl(''),
-			telefono: new FormControl(''),
-			contacto: new FormControl(''),
-			email: new FormControl(''),
-			email1: new FormControl(''),
-			distrito: new FormControl('')
+
+		this.asociacionForm = this._formBuilder.group({
+			id: [null],
+			created_at: [null],
+			nombre: [null],
+			activa: [null],
+			rma: [null],
+			presidente: [null],
+			sede: [null],
+			barrio: [null],
+			federacion: [null],
+			telefono: [null],
+			contacto: [null],
+			email: [null],
+			email1: [null],
+			distrito: [null]
 		});
+
+		// this.asociacionForm = new FormGroup({
+		// 	id: new FormControl(null),
+		// 	created_at: new FormControl(''),
+		// 	nombre: new FormControl(''),
+		// 	activa: new FormControl(null),
+		// 	rma: new FormControl(null),
+		// 	presidente: new FormControl(''),
+		// 	sede: new FormControl(''),
+		// 	barrio: new FormControl(''),
+		// 	federacion: new FormControl(''),
+		// 	telefono: new FormControl(''),
+		// 	contacto: new FormControl(''),
+		// 	email: new FormControl(''),
+		// 	email1: new FormControl(''),
+		// 	distrito: new FormControl('')
+		// });
 	}
 
 	async fetchData() {
