@@ -147,7 +147,6 @@ export default class AsociacionesComponent implements OnInit {
 	}
 
 	onRowClicked(event: any) {
-		console.log('Row data:', event.data);
 		this._router.navigate(['ficha/' + event.data.id]);
 	}
 }
