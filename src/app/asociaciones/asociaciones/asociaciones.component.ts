@@ -1,18 +1,8 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import 'ag-grid-enterprise';
-import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
-import {
-	ColDef,
-	ColumnApi,
-	ColumnState,
-	GridApi,
-	GridOptions,
-	GridReadyEvent,
-	ISetFilterParams
-} from 'ag-grid-community/main';
+import { ColDef, ColumnState, GridOptions, GridReadyEvent, ISetFilterParams } from 'ag-grid-community/main';
 
-import { CellRendererOCM } from '@ag-grid/CellRendererOCM';
 import localeTextESPes from '@assets/data/localeTextESPes.json';
 import { Router } from '@angular/router';
 import { SupabaseService } from '@services/supabase.service';
@@ -43,22 +33,17 @@ export default class AsociacionesComponent implements OnInit {
 	@ViewChild('agGrid') agGrid: AgGridAngular;
 	public gridOptions: GridOptions;
 	private _columnDefs: ColDef[];
-	private _gridApi: GridApi;
-	private _columnApi: ColumnApi;
 	private _router = inject(Router);
 	private _supabaseService = inject(SupabaseService);
-	private data1: IAsociaciones[];
-	public isGridReady = true;
-	private asociaciones: any = null;
+	private _data: IAsociaciones[];
 
-	async ngOnInit(): Promise<void> {
+	ngOnInit(): void {
 		this.fetchData();
 	}
 
 	async fetchData() {
 		try {
-			this.data1 = await this._supabaseService.fetchData('asociaciones');
-			this.asociaciones = JSON.parse(JSON.stringify(this.data1)); // Si necesitas convertirlo para uso en ag-grid
+			this._data = await this._supabaseService.fetchData('asociaciones');
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
@@ -91,7 +76,6 @@ export default class AsociacionesComponent implements OnInit {
 	}
 
 	_setGridOptions() {
-		this.asociaciones = JSON.parse(JSON.stringify(this.data1)); // Si necesitas convertirlo para uso en ag-grid
 		this.gridOptions = {
 			defaultColDef: {
 				width: 130,
@@ -116,7 +100,7 @@ export default class AsociacionesComponent implements OnInit {
 				}
 			},
 
-			rowData: this.asociaciones,
+			rowData: JSON.parse(JSON.stringify(this._data)),
 			columnDefs: this._columnDefs,
 			groupDisplayType: 'custom',
 			groupIncludeTotalFooter: true,
@@ -132,10 +116,6 @@ export default class AsociacionesComponent implements OnInit {
 	}
 
 	onGridReady(params: GridReadyEvent) {
-		this.isGridReady = true;
-		this._gridApi = params.api;
-		this._columnApi = params.columnApi;
-
 		const defaultSortModel: ColumnState[] = [
 			{
 				colId: 'distrito',
