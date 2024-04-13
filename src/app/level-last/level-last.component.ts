@@ -8,26 +8,17 @@ import DocumentosComponent from '@commons/components/level/documentos/documentos
 import NoticiasComponent from '@commons/components/level/noticias/noticias.component';
 
 import { SupabaseService } from '@services/supabase.service';
-// import { EnsureTitleService } from '@services/ensureTitle.service';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
-// import { IStep } from '@interfaces/step.interface';
 import { first } from 'rxjs';
 
 interface IOption {
 	data: string;
 	value: string;
 	URL?: string;
-}
-
-interface IStepSubvencion {
-	descripcion: string;
-	observaciones: string;
-	cuantia: string;
-	isFinish?: string;
 }
 
 interface IBarrio {
@@ -55,7 +46,6 @@ export default class LevelLastComponent implements OnInit {
 	public data: IOption[] = [];
 	// public steps: IStep[] = [];
 	public barrios: IBarrio[] = [];
-	public stepsSubvencion: IStepSubvencion[] = [];
 	public imgURL: string;
 	public descripcion: string;
 	public isLicitacion = false;

@@ -7,21 +7,6 @@
 		</div>
 	}
 
-	@switch (tag) {
-		@case ('deudaTotal') {
-			<img class="OCM-imgGraph" [src]="deudaTotalImgURL" alt="Grafico deuda total" />
-		}
-		@case ('deudaViva') {
-			<img class="OCM-imgGraph" [src]="deudaVivaImgURL" alt="Grafico deuda viva" />
-		}
-		@case ('pmp') {
-			<img class="OCM-imgGraph" [src]="pmpURL" alt="Grafico PMP" />
-		}
-		@case ('opa') {
-			<img class="OCM-imgGraph" [src]="opaURL" alt="Grafico OPA" />
-		}
-	}
-
 	@if (docs.length > 0) {
 		<app-documentos [docs]="docs" />
 	}

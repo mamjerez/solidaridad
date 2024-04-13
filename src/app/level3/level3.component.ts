@@ -8,7 +8,6 @@ import ComentariosComponent from '@commons/components/level/comentarios/comentar
 import DocumentosComponent from '@commons/components/level/documentos/documentos.component';
 import NoticiasComponent from '@commons/components/level/noticias/noticias.component';
 
-// import { EnsureTitleService } from '@services/ensureTitle.service';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
@@ -26,7 +25,6 @@ import { SupabaseService } from '@services/supabase.service';
 export default class Level3Component implements OnInit {
 	@Input() tag: string;
 	private _supabaseService = inject(SupabaseService);
-	// private _ensureTitleService = inject(EnsureTitleService);
 	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	public menuOptions: IMenuItem[] = [];
@@ -38,8 +36,6 @@ export default class Level3Component implements OnInit {
 	public subTag = '';
 
 	async ngOnInit() {
-		// const tag = this._tagStoreService.getTag();
-		// const path = this._pathStoreService.getPath();
 		this.subTag = this.tag.substring(0, 8);
 		this.tag === 'comisiones' ? (this.isComisiones = true) : (this.isComisiones = false);
 		const data = await this._supabaseService.fetchDataByLevel('level3', this.tag);
@@ -51,8 +47,6 @@ export default class Level3Component implements OnInit {
 			};
 			return this.createCardMenu(modifiedItem);
 		});
-
-		// await this.ensureTitle();
 
 		// [this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 	}
@@ -66,10 +60,4 @@ export default class Level3Component implements OnInit {
 			}
 		};
 	}
-
-	// async ensureTitle() {
-	// 	if (!this.title) {
-	// 		this.title = await this._ensureTitleService.ensureTitle(this.tag);
-	// 	}
-	// }
 }

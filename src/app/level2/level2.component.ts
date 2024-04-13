@@ -8,7 +8,6 @@ import ComentariosComponent from '@app/commons/components/level/comentarios/come
 import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
 import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
 
-// import { EnsureTitleService } from '@services/ensureTitle.service';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 import { SupabaseService } from '@services/supabase.service';
 
@@ -25,7 +24,6 @@ import { INew } from '@interfaces/new.interface';
 export default class Level2Component implements OnInit {
 	@Input() tag: string;
 	private _supabaseService = inject(SupabaseService);
-	// private _ensureTitleService = inject(EnsureTitleService);
 	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	public menuOptions: IMenuItem[] = [];
@@ -47,31 +45,11 @@ export default class Level2Component implements OnInit {
 			return this.createCardMenu(modifiedItem);
 		});
 
-		// await this.ensureTitle();
-
 		// [this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 	}
 
 	createCardMenu(item: IMenuItem) {
-		let URL = item.isLastLevel ? 'levelLast/' + item.tag : 'level3/' + item.tag;
-
-		switch (item.tag) {
-			case 'retribuciones2022':
-				URL = 'retribuciones2022';
-				break;
-			case 'rpt':
-				URL = 'rpt';
-				break;
-			case 'organigramaPolitico':
-				URL = 'organigramaPolitico';
-				break;
-			case 'organigramaOrganizativo':
-				URL = 'organigramaOrganizativo';
-				break;
-			case 'subvencionesDiputacion':
-				URL = 'subvencionesDiputacion';
-				break;
-		}
+		const URL = item.isLastLevel ? 'levelLast/' + item.tag : 'level3/' + item.tag;
 
 		return {
 			...item,
@@ -80,10 +58,4 @@ export default class Level2Component implements OnInit {
 			}
 		};
 	}
-
-	// async ensureTitle() {
-	// 	if (!this.title) {
-	// 		this.title = await this._ensureTitleService.ensureTitle(this.tag);
-	// 	}
-	// }
 }
