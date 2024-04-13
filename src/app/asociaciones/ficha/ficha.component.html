@@ -1,4 +1,5 @@
-@if (data) {
+<!-- @if (data) { -->
+@defer (when data) {
 	<main [ngClass]="{ 'solidaridad-style': data[0].federacion === 'solidaridad' }">
 		@if (data[0].federacion === 'solidaridad') {
 			<div class="tab-titles">
