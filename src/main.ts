@@ -1,17 +1,15 @@
-import { enableProdMode, importProvidersFrom } from '@angular/core';
-import { LOCALE_ID } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy, registerLocaleData } from '@angular/common';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import localeDe from '@angular/common/locales/de';
-import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
+import { LOCALE_ID, enableProdMode, importProvidersFrom } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
 
-import { AvalaibleYearsService } from '@services/avalaibleYears.service';
-import { AppComponent } from './app/app.component';
-import { environment } from './environments/environment';
-import APP_ROUTES from './app/app.routes';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { AppComponent } from './app/app.component';
+import APP_ROUTES from './app/app.routes';
+import { environment } from './environments/environment';
 
 registerLocaleData(localeDe, 'de-DE');
 
@@ -27,7 +25,6 @@ bootstrapApplication(AppComponent, {
 			provide: LocationStrategy,
 			useClass: HashLocationStrategy
 		},
-		AvalaibleYearsService,
 		provideHttpClient(withInterceptorsFromDi()),
 		{ provide: LOCALE_ID, useValue: 'de-DE' }
 	]

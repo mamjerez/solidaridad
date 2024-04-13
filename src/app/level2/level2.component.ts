@@ -4,18 +4,18 @@ import { Router } from '@angular/router';
 import { environment } from '@environments/environment';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
-import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
 import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
+import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
 
-import { EnsureTitleService } from '@services/ensureTitle.service';
-import { SupabaseService } from '@services/supabase.service';
+// import { EnsureTitleService } from '@services/ensureTitle.service';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
+import { SupabaseService } from '@services/supabase.service';
 
-import { IMenuItem } from '@interfaces/menu.interface';
-import { INew } from '@interfaces/new.interface';
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
+import { IMenuItem } from '@interfaces/menu.interface';
+import { INew } from '@interfaces/new.interface';
 @Component({
 	selector: 'app-level2',
 	standalone: true,
@@ -25,7 +25,7 @@ import { IDoc } from '@interfaces/doc.interface';
 export default class Level2Component implements OnInit {
 	@Input() tag: string;
 	private _supabaseService = inject(SupabaseService);
-	private _ensureTitleService = inject(EnsureTitleService);
+	// private _ensureTitleService = inject(EnsureTitleService);
 	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	public menuOptions: IMenuItem[] = [];
@@ -47,7 +47,7 @@ export default class Level2Component implements OnInit {
 			return this.createCardMenu(modifiedItem);
 		});
 
-		await this.ensureTitle();
+		// await this.ensureTitle();
 
 		// [this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 	}
@@ -81,9 +81,9 @@ export default class Level2Component implements OnInit {
 		};
 	}
 
-	async ensureTitle() {
-		if (!this.title) {
-			this.title = await this._ensureTitleService.ensureTitle(this.tag);
-		}
-	}
+	// async ensureTitle() {
+	// 	if (!this.title) {
+	// 		this.title = await this._ensureTitleService.ensureTitle(this.tag);
+	// 	}
+	// }
 }

@@ -11,7 +11,7 @@ import NoticiasComponent from '@commons/components/level/noticias/noticias.compo
 import SeguimientoSubvencionComponent from '@commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
 
 import { SupabaseService } from '@services/supabase.service';
-import { EnsureTitleService } from '@services/ensureTitle.service';
+// import { EnsureTitleService } from '@services/ensureTitle.service';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
@@ -54,7 +54,7 @@ interface IBarrio {
 })
 export default class LevelLastComponent implements OnInit {
 	@Input() tag: string;
-	private _ensureTitleService = inject(EnsureTitleService);
+	// private _ensureTitleService = inject(EnsureTitleService);
 	private _supabaseService = inject(SupabaseService);
 	private _activatedRoute = inject(ActivatedRoute);
 	private _router = inject(Router);
@@ -98,7 +98,7 @@ export default class LevelLastComponent implements OnInit {
 
 	async fetchDataFromSupabase(tag: string, path: string) {
 		if (!this.title) {
-			this.title = await this._ensureTitleService.ensureTitle(this.tag);
+			// this.title = await this._ensureTitleService.ensureTitle(this.tag);
 		}
 
 		if (path === 'licitaciones') {

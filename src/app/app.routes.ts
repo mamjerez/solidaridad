@@ -47,20 +47,9 @@ export default [
 		loadComponent: () => import('./addNewRecod/add-card/add-card.component')
 	},
 	{
-		path: 'addNewLicitacion',
-		loadComponent: () => import('./addNewRecod/add-licitacion/add-licitacion.component')
-	},
-	{
-		path: 'updateLicitacion/:tag',
-		loadComponent: () => import('./addNewRecod/update-licitacion-form/update-licitacion-form.component')
-	},
-	{
 		path: 'addStep/:tag',
 		loadComponent: () => import('./addNewRecod/add-step/add-step.component')
 	},
-	{
-		path: 'addEmpleado',
-		loadComponent: () => import('./addNewRecod/empleado/empleado.component')
-	},
+
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }
 ] as Routes;

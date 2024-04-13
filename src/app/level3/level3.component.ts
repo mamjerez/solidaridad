@@ -11,13 +11,13 @@ import EstadoLicitacionComponent from '@commons/components/level/estado-licitaci
 import NoticiasComponent from '@commons/components/level/noticias/noticias.component';
 import SeguimientoSubvencionComponent from '@commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
 
-import { EnsureTitleService } from '@services/ensureTitle.service';
+// import { EnsureTitleService } from '@services/ensureTitle.service';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
-import { INew } from '@interfaces/new.interface';
 import { IMenuItem } from '@interfaces/menu.interface';
+import { INew } from '@interfaces/new.interface';
 import { SupabaseService } from '@services/supabase.service';
 
 @Component({
@@ -37,7 +37,7 @@ import { SupabaseService } from '@services/supabase.service';
 export default class Level3Component implements OnInit {
 	@Input() tag: string;
 	private _supabaseService = inject(SupabaseService);
-	private _ensureTitleService = inject(EnsureTitleService);
+	// private _ensureTitleService = inject(EnsureTitleService);
 	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	public menuOptions: IMenuItem[] = [];
@@ -63,7 +63,7 @@ export default class Level3Component implements OnInit {
 			return this.createCardMenu(modifiedItem);
 		});
 
-		await this.ensureTitle();
+		// await this.ensureTitle();
 
 		// [this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 	}
@@ -78,9 +78,9 @@ export default class Level3Component implements OnInit {
 		};
 	}
 
-	async ensureTitle() {
-		if (!this.title) {
-			this.title = await this._ensureTitleService.ensureTitle(this.tag);
-		}
-	}
+	// async ensureTitle() {
+	// 	if (!this.title) {
+	// 		this.title = await this._ensureTitleService.ensureTitle(this.tag);
+	// 	}
+	// }
 }
