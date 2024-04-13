@@ -1,7 +1,7 @@
 <!-- @if (data) { -->
 @defer (when data) {
-	<main [ngClass]="{ 'solidaridad-style': data[0].federacion === 'solidaridad' }">
-		@if (data[0].federacion === 'solidaridad') {
+	<main [ngClass]="{ 'solidaridad-style': data.federacion === 'solidaridad' }">
+		@if (data.federacion === 'solidaridad') {
 			<div class="tab-titles">
 				<button class="tab-link" (click)="selectTab(1)" [ngClass]="{ active: activeTab === 1 }">Datos</button>
 				<button class="tab-link" (click)="selectTab(2)" [ngClass]="{ active: activeTab === 2 }">Pagos</button>
@@ -15,7 +15,7 @@
 					<div class="containerAsociacion">
 						<!-- <div>
 						<label for="id">ID:</label>
-						<input type="number" id="id" formControlName="id" placeholder="{{ data[0].id }}" />
+						<input type="number" id="id" formControlName="id" placeholder="{{ data.id }}" />
 					</div> -->
 						<div class="nombre">
 							<label for="nombre">Nombre:</label>
@@ -24,7 +24,7 @@
 								type="text"
 								id="nombre"
 								formControlName="nombre"
-								placeholder="{{ data[0].nombre }}"
+								placeholder="{{ data.nombre }}"
 							/>
 						</div>
 						<div class="activa">
@@ -34,7 +34,7 @@
 								type="text"
 								id="activa"
 								formControlName="activa"
-								placeholder="{{ data[0].activa }}"
+								placeholder="{{ data.activa }}"
 							/>
 						</div>
 						<div class="rma">
@@ -46,16 +46,16 @@
 								type="number"
 								id="rma"
 								formControlName="rma"
-								placeholder="{{ data[0].rma }}"
+								placeholder="{{ data.rma }}"
 							/>
 						</div>
 						<div class="presidente">
 							<label for="presidente">Presidente/a:</label>
-							<input type="text" id="presidente" formControlName="presidente" placeholder="{{ data[0].presidente }}" />
+							<input type="text" id="presidente" formControlName="presidente" placeholder="{{ data.presidente }}" />
 						</div>
 						<div class="sede">
 							<label for="sede">Sede:</label>
-							<input type="text" id="sede" formControlName="sede" placeholder="{{ data[0].sede }}" />
+							<input type="text" id="sede" formControlName="sede" placeholder="{{ data.sede }}" />
 						</div>
 						<div class="distrito">
 							<label for="distrito">Distrito:</label>
@@ -64,7 +64,7 @@
 								type="text"
 								id="distrito"
 								formControlName="distrito"
-								placeholder="{{ data[0].distrito }}"
+								placeholder="{{ data.distrito }}"
 							/>
 						</div>
 						<div class="barrio">
@@ -74,13 +74,13 @@
 								type="text"
 								id="barrio"
 								formControlName="barrio"
-								placeholder="{{ data[0].barrio }}"
+								placeholder="{{ data.barrio }}"
 							/>
 						</div>
 
 						<div class="federacion">
 							<label for="barrio">Federación:</label>
-							<input type="text" id="federacion" formControlName="federacion" placeholder="{{ data[0].federacion }}" />
+							<input type="text" id="federacion" formControlName="federacion" placeholder="{{ data.federacion }}" />
 						</div>
 						<div class="telefono">
 							<label for="telefono">Teléfono:</label>
@@ -89,7 +89,7 @@
 								type="text"
 								id="telefono"
 								formControlName="telefono"
-								placeholder="{{ data[0].telefono }}"
+								placeholder="{{ data.telefono }}"
 							/>
 						</div>
 						<div class="telefono1">
@@ -99,7 +99,7 @@
 								type="text"
 								id="contacto"
 								formControlName="contacto"
-								placeholder="{{ data[0].contacto }}"
+								placeholder="{{ data.contacto }}"
 							/>
 						</div>
 						<div class="email">
@@ -109,7 +109,7 @@
 								type="text"
 								id="email"
 								formControlName="email"
-								placeholder="{{ data[0].email }}"
+								placeholder="{{ data.email }}"
 							/>
 						</div>
 						<div class="email1">
@@ -119,7 +119,7 @@
 								type="text"
 								id="email1"
 								formControlName="email1"
-								placeholder="{{ data[0].email1 }}"
+								placeholder="{{ data.email1 }}"
 							/>
 						</div>
 					</div>
@@ -134,10 +134,10 @@
 		@if (activeTab === 2) {
 			<div class="tab-content">
 				<div>
-					<h2>{{ data[0].nombre }}</h2>
+					<h2>{{ data.nombre }}</h2>
 				</div>
-				<h1 [ngClass]="{ 'pagada-style': data[0].cuota2023 }">Cuota 2023</h1>
-				<h1 [ngClass]="{ 'pagada-style': data[0].cuota2024 }">Cuota 2024</h1>
+				<h1 [ngClass]="{ 'pagada-style': data.cuota2023 }">Cuota 2023</h1>
+				<h1 [ngClass]="{ 'pagada-style': data.cuota2024 }">Cuota 2024</h1>
 			</div>
 		}
 	</main>

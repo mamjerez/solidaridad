@@ -1,8 +1,7 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { SupabaseService } from '@services/supabase.service';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
@@ -10,6 +9,7 @@ import { IDoc } from '@interfaces/doc.interface';
 
 import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
+import { Router } from '@angular/router';
 
 interface IAsociaciones {
 	id: number;
@@ -25,6 +25,10 @@ interface IAsociaciones {
 	email1: string | null;
 	distrito: string;
 	tag: string;
+	activa: boolean;
+	federacion: string;
+	cuota2023: boolean;
+	cuota2024: boolean;
 }
 
 @Component({
@@ -35,15 +39,21 @@ interface IAsociaciones {
 	styleUrl: './ficha.component.scss'
 })
 export default class FichaComponent implements OnInit {
-	@Input() id: number;
+	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
-	private _supabaseService = inject(SupabaseService);
 	private _formBuilder = inject(FormBuilder);
+
 	asociacionForm: FormGroup;
 	activeTab = 1;
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public data: IAsociaciones = null;
+
+	constructor() {
+		// Hay que hacerlo en el constructor de lo contrario no funciona
+		const navigation = this._router.getCurrentNavigation();
+		this.data = navigation?.extras.state?.['data'];
+	}
 
 	ngOnInit(): void {
 		this.fetchData();
@@ -67,12 +77,7 @@ export default class FichaComponent implements OnInit {
 	}
 
 	async fetchData() {
-		try {
-			this.data = await this._supabaseService.fetchDataById('asociaciones', this.id);
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
-		[this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.data[0].tag);
+		[this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.data.tag);
 	}
 
 	selectTab(tabIndex: number) {

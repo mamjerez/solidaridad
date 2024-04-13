@@ -26,7 +26,7 @@ export default [
 		loadComponent: () => import('./asociaciones/asociaciones/asociaciones.component')
 	},
 	{
-		path: 'ficha/:id',
+		path: 'ficha',
 		loadComponent: () => import('./asociaciones/ficha/ficha.component')
 	},
 
