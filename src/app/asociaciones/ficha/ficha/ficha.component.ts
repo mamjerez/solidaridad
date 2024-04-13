@@ -31,20 +31,22 @@ export default class FichaComponent implements OnInit {
 	private _router = inject(Router);
 	private _supabaseService = inject(SupabaseService);
 	asociacionForm: FormGroup;
+	activeTab = 1;
 
 	public data: IAsociaciones = null;
 
 	ngOnInit(): void {
-		console.log('id', this.id);
 		this.fetchData();
 		this.asociacionForm = new FormGroup({
 			id: new FormControl(null),
 			created_at: new FormControl(''),
 			nombre: new FormControl(''),
+			activa: new FormControl(null),
 			rma: new FormControl(null),
 			presidente: new FormControl(''),
 			sede: new FormControl(''),
 			barrio: new FormControl(''),
+			federacion: new FormControl(''),
 			telefono: new FormControl(''),
 			contacto: new FormControl(''),
 			email: new FormControl(''),
@@ -56,9 +58,12 @@ export default class FichaComponent implements OnInit {
 	async fetchData() {
 		try {
 			this.data = await this._supabaseService.fetchDataById('asociaciones', this.id);
-			console.log('dataBasic:', this.data[0]);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
+	}
+
+	selectTab(tabIndex: number) {
+		this.activeTab = tabIndex;
 	}
 }
