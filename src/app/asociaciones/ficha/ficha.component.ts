@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SupabaseService } from '@services/supabase.service';
@@ -30,7 +30,7 @@ interface IAsociaciones {
 @Component({
 	selector: 'app-ficha',
 	standalone: true,
-	imports: [CommonModule, FormsModule, ReactiveFormsModule, ComentariosComponent, DocumentosComponent],
+	imports: [NgClass, FormsModule, ReactiveFormsModule, ComentariosComponent, DocumentosComponent],
 	templateUrl: './ficha.component.html',
 	styleUrl: './ficha.component.scss'
 })
@@ -43,7 +43,6 @@ export default class FichaComponent implements OnInit {
 	activeTab = 1;
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
-
 	public data: IAsociaciones = null;
 
 	ngOnInit(): void {
