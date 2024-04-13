@@ -46,10 +46,5 @@ export default [
 		path: 'addCard/:tag',
 		loadComponent: () => import('./addNewRecod/add-card/add-card.component')
 	},
-	{
-		path: 'addStep/:tag',
-		loadComponent: () => import('./addNewRecod/add-step/add-step.component')
-	},
-
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }
 ] as Routes;

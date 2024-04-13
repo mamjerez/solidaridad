@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { FooterComponent } from './layouts/footer/footer.component';
@@ -10,8 +10,4 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 	standalone: true,
 	imports: [NavbarComponent, RouterOutlet, FooterComponent]
 })
-export class AppComponent implements OnInit {
-	ngOnInit(): void {
-		localStorage.removeItem('selected_years');
-	}
-}
+export class AppComponent {}

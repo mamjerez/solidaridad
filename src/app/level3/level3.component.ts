@@ -5,11 +5,8 @@ import { environment } from '@environments/environment';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 import ComentariosComponent from '@commons/components/level/comentarios/comentarios.component';
-import DataGeneralComponent from '@commons/components/level/data-general/data-general.component';
 import DocumentosComponent from '@commons/components/level/documentos/documentos.component';
-import EstadoLicitacionComponent from '@commons/components/level/estado-licitacion/estado-licitacion.component';
 import NoticiasComponent from '@commons/components/level/noticias/noticias.component';
-import SeguimientoSubvencionComponent from '@commons/components/level/seguimiento-subvencion/seguimiento-subvencion.component';
 
 // import { EnsureTitleService } from '@services/ensureTitle.service';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
@@ -23,15 +20,7 @@ import { SupabaseService } from '@services/supabase.service';
 @Component({
 	selector: 'app-level3',
 	standalone: true,
-	imports: [
-		CardMenuComponent,
-		EstadoLicitacionComponent,
-		DataGeneralComponent,
-		SeguimientoSubvencionComponent,
-		DocumentosComponent,
-		ComentariosComponent,
-		NoticiasComponent
-	],
+	imports: [CardMenuComponent, DocumentosComponent, ComentariosComponent, NoticiasComponent],
 	templateUrl: './level3.component.html'
 })
 export default class Level3Component implements OnInit {
