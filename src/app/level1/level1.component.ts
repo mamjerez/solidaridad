@@ -9,7 +9,7 @@ import DocumentosComponent from '@app/commons/components/level/documentos/docume
 import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
 
 import { SupabaseService } from '@services/supabase.service';
-// import { EnsureTitleService } from '@services/ensureTitle.service';
+import { EnsureTitleService } from '@services/ensureTitle.service';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
@@ -26,7 +26,7 @@ import { INew } from '@interfaces/new.interface';
 export default class Level1Component implements OnInit {
 	@Input() tag: string;
 	private _supabaseService = inject(SupabaseService);
-	// private _ensureTitleService = inject(EnsureTitleService);
+	private _ensureTitleService = inject(EnsureTitleService);
 	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	public menuOptions: IMenuItem[] = [];
@@ -38,8 +38,6 @@ export default class Level1Component implements OnInit {
 
 	async ngOnInit() {
 		const data = await this._supabaseService.fetchDataByLevel('level1', this.tag);
-		console.log('data', data);
-
 		this.menuOptions = data.map((item: IMenuItem) => {
 			const modifiedItem = {
 				...item,
@@ -49,9 +47,9 @@ export default class Level1Component implements OnInit {
 			return this.createCardMenu(modifiedItem);
 		});
 
-		// await this.ensureTitle();
+		await this.ensureTitle();
 
-		// [this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
+		[this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.tag);
 	}
 
 	createCardMenu(item: IMenuItem) {
@@ -71,9 +69,9 @@ export default class Level1Component implements OnInit {
 		};
 	}
 
-	// async ensureTitle() {
-	// 	if (!this.title) {
-	// 		this.title = await this._ensureTitleService.ensureTitle(this.tag);
-	// 	}
-	// }
+	async ensureTitle() {
+		if (!this.title) {
+			this.title = await this._ensureTitleService.ensureTitle(this.tag);
+		}
+	}
 }

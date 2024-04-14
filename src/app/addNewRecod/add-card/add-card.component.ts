@@ -22,7 +22,7 @@ export default class AddCardComponent implements OnInit {
 			title: ['', Validators.required],
 			tag: ['', Validators.required],
 			level: ['', Validators.required],
-			['level-up']: [''],
+			['levelUp']: [''],
 			isLastLevel: [true, Validators.required],
 			order: ['']
 		});
@@ -32,7 +32,7 @@ export default class AddCardComponent implements OnInit {
 		if (this.cardForm?.valid) {
 			const formData = {
 				...this.cardForm.value,
-				['level-up']: this.tag
+				['levelUp']: this.tag
 			};
 
 			try {

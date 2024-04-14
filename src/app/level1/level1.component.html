@@ -8,7 +8,7 @@
 
 	<section class="OCM-gridMenu">
 		@for (menu of menuOptions; track menu) {
-			@if (tag !== 'distritos') {
+			@if (tag !== 'proyectos') {
 				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />
 			} @else {
 				<app-card-menu [titulo]="menu.title" (click)="menu.funcion()" />
@@ -19,6 +19,7 @@
 	@if (docs.length > 0) {
 		<app-documentos [docs]="docs" />
 	}
+
 	@if (news.length > 0) {
 		<app-noticias [news]="news" />
 	}
