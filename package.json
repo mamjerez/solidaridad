@@ -1,6 +1,6 @@
 {
 	"name": "solidaridad",
-	"version": "1.04.14",
+	"version": "1.04.14a",
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve",
