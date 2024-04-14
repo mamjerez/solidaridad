@@ -26,6 +26,10 @@ export default [
 		loadComponent: () => import('./asociaciones/asociaciones/asociaciones.component')
 	},
 	{
+		path: 'federaciones',
+		loadComponent: () => import('./federaciones/federaciones.component')
+	},
+	{
 		path: 'ficha',
 		loadComponent: () => import('./asociaciones/ficha/ficha.component')
 	},
