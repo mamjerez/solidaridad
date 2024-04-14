@@ -1,12 +1,13 @@
 <nav class="navbar">
 	<div class="navbar__logo"></div>
-	<div class="navbar__title">Federación Solidaridad</div>
+	<div class="navbar__title">Federación Local de Asociaciones Vecinales de Jerez "SOLIDARIDAD"</div>
 
 	@if (router.url === '/home') {
 		<div></div>
 	} @else {
 		<div class="navbar__home">
 			@if (canAddRowSupabase) {
+				<button class="OCM-button" (click)="addNew()">+ noticia</button>
 				<button class="OCM-button" (click)="addCom()">+ comentario</button>
 				<button class="OCM-button" (click)="addDoc()">+ documento</button>
 				<button class="OCM-button" (click)="addCard()">+ card</button>

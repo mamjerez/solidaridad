@@ -8,7 +8,7 @@
 
 	<section class="OCM-gridMenu">
 		@for (menu of menuOptions; track menu) {
-			@if (subTag === 'distrito' || tag === 'subvenciones' || subTag.includes('parques')) {
+			@if (subTag === 'distrito' || tag === 'consejosTerritorialesDistrito' || subTag.includes('parques')) {
 				<app-card-menu [titulo]="menu.title" (click)="menu.funcion()" />
 			} @else {
 				<app-card-menu [titulo]="menu.title" [rutaImagen]="menu.rutaImagen" (click)="menu.funcion()" />

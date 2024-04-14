@@ -8,7 +8,7 @@ export class GetNewsComsDocs {
 	private _supabaseService = inject(SupabaseService);
 
 	async fetchDataFromSupabase(tag: string) {
-		const dataTypes = ['comentarios', 'documentos'];
+		const dataTypes = ['news', 'comentarios', 'documentos'];
 
 		return Promise.all(
 			dataTypes.map((type) =>

@@ -31,6 +31,13 @@ export class NavbarComponent {
 		this.tag = urlSegments[urlSegments.length - 1];
 	}
 
+	addNew(): void {
+		// this._tagStoreService.getTag();
+		this.getTag();
+		this.router.navigateByUrl('addNew/' + this.tag);
+		// this.useModal();
+	}
+
 	addCom(): void {
 		this.getTag();
 		this.router.navigateByUrl('addCom/' + this.tag);
