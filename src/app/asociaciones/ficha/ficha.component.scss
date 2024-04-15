@@ -1,144 +1,158 @@
-form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 30px;
+@media screen and (max-width: 4200px) {
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 4px;
+	}
+
+	label {
+		display: block;
+		font-weight: bold;
+		font-size: medium;
+	}
+
+	input {
+		width: 600px;
+		margin-bottom: 10px;
+	}
+
+	.solidaridad-style {
+		background-color: rgb(177, 240, 165); /* Ejemplo de color de fondo */
+	}
+
+	.pagada-style {
+		background-color: rgb(37, 172, 11); /* Ejemplo de color de fondo */
+	}
+
+	.tab-titles {
+		display: flex;
+		justify-content: start;
+		padding: 20px;
+	}
+
+	.tab-link {
+		padding: 10px;
+		cursor: pointer;
+		border: 1px solid transparent;
+		background-color: #f0f0f0;
+		margin-right: 2px;
+	}
+
+	.tab-link.active {
+		border-color: #e92222;
+		border-bottom: none;
+		background-color: rgb(240, 179, 179);
+	}
+
+	.tab-content {
+		border: 1px solid #ccc;
+		padding: 10px;
+		margin-top: -1px;
+	}
+
+	h1 {
+		margin: 20px;
+		width: 150px;
+		border: black 1px solid;
+		background-color: rgb(223, 8, 36);
+		border-radius: 20px;
+		padding: 10px;
+		text-align: center;
+	}
+
+	.containerAsociacion {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-rows: 62px;
+		// grid-auto-columns: 1fr;
+		gap: 5px 2px;
+		grid-auto-flow: row;
+		grid-template-areas:
+			'nombre .'
+			'activa rma'
+			'presidente .'
+			'sede sede'
+			'distrito barrio'
+			'federacion federacion'
+			'telefono telefono1'
+			'email email1';
+
+		width: 660px;
+		margin: 0 auto;
+		caret-color: white;
+	}
+
+	.nombre {
+		grid-area: nombre;
+		&__input {
+			width: 360px;
+		}
+	}
+
+	.activa {
+		grid-area: activa;
+		// width: 150px;
+	}
+
+	.rma {
+		grid-area: rma;
+		// width: 150px;
+	}
+
+	.presidente {
+		grid-area: presidente;
+		width: 320px;
+		&__input {
+			width: 360px;
+		}
+	}
+
+	.sede {
+		grid-area: sede;
+		&__input {
+			width: 360px;
+		}
+	}
+
+	.distrito {
+		grid-area: distrito;
+		// width: 150px;
+	}
+
+	.barrio {
+		grid-area: barrio;
+		// width: 150px;
+	}
+
+	.federacion {
+		grid-area: federacion;
+		width: 150px;
+		&__input {
+			width: 360px;
+		}
+	}
+
+	.telefono {
+		grid-area: telefono;
+		// width: 150px;
+	}
+
+	.telefono1 {
+		grid-area: telefono1;
+		// width: 150px;
+	}
+
+	.email {
+		grid-area: email;
+		// width: 150px;
+	}
+
+	.email1 {
+		grid-area: email1;
+		// width: 150px;
+	}
 }
 
-label {
-	display: block;
-	font-weight: bold;
-	font-size: medium;
-}
-
-input {
-	width: 600px;
-	margin-bottom: 10px;
-}
-
-.solidaridad-style {
-	background-color: rgb(177, 240, 165); /* Ejemplo de color de fondo */
-}
-
-.pagada-style {
-	background-color: rgb(37, 172, 11); /* Ejemplo de color de fondo */
-}
-
-.tab-titles {
-	display: flex;
-	justify-content: start;
-	padding: 20px;
-}
-
-.tab-link {
-	padding: 10px;
-	cursor: pointer;
-	border: 1px solid transparent;
-	background-color: #f0f0f0;
-	margin-right: 2px;
-}
-
-.tab-link.active {
-	border-color: #e92222;
-	border-bottom: none;
-	background-color: rgb(240, 179, 179);
-}
-
-.tab-content {
-	border: 1px solid #ccc;
-	padding: 10px;
-	margin-top: -1px;
-}
-
-h1 {
-	margin: 20px;
-	width: 150px;
-	border: black 1px solid;
-	background-color: rgb(223, 8, 36);
-	border-radius: 20px;
-	padding: 10px;
-	text-align: center;
-}
-
-.containerAsociacion {
-	display: grid;
-	grid-template-columns: 300px 300px;
-	grid-template-rows: 62px;
-	grid-auto-columns: 1fr;
-	gap: 5px 2px;
-	grid-auto-flow: row;
-	grid-template-areas:
-		'nombre .'
-		'activa rma'
-		'presidente .'
-		'sede sede'
-		'distrito barrio'
-		'federacion federacion'
-		'telefono telefono1'
-		'email email1';
-
-	width: 660px;
-	margin: 0 auto;
-	caret-color: white;
-}
-
-.nombre {
-	grid-area: nombre;
-	// background-color: red;
-	// width: 20rem;
-}
-
-.activa {
-	grid-area: activa;
-	// width: 150px;
-}
-
-.rma {
-	grid-area: rma;
-	// width: 150px;
-}
-
-.presidente {
-	grid-area: presidente;
-	width: 150px;
-}
-
-.sede {
-	grid-area: sede;
-	// width: 150px;
-}
-
-.distrito {
-	grid-area: distrito;
-	// width: 150px;
-}
-
-.barrio {
-	grid-area: barrio;
-	// width: 150px;
-}
-
-.federacion {
-	grid-area: federacion;
-	// width: 150px;
-}
-
-.telefono {
-	grid-area: telefono;
-	// width: 150px;
-}
-
-.telefono1 {
-	grid-area: telefono1;
-	// width: 150px;
-}
-
-.email {
-	grid-area: email;
-	// width: 150px;
-}
-
-.email1 {
-	grid-area: email1;
-	// width: 150px;
+@media screen and (max-width: 570px) {
 }

@@ -20,7 +20,7 @@
 						<div class="nombre">
 							<label for="nombre">Nombre:</label>
 							<input
-								style="width: 600px"
+								class="nombre__input"
 								type="text"
 								id="nombre"
 								formControlName="nombre"
@@ -38,39 +38,47 @@
 							/>
 						</div>
 						<div class="rma">
-							<label style="width: 500px; margin-left: -125px" for="rma"
-								>Número en Registro Municipal de Asociaciones:</label
-							>
+							<label style="width: 500px; margin-left: -70px" for="rma">Número en RMA:</label>
 							<input
-								style="width: 130px; margin-left: -25px"
+								style="width: 130px; margin-left: -70px"
 								type="number"
 								id="rma"
 								formControlName="rma"
 								placeholder="{{ data.rma }}"
 							/>
 						</div>
+
 						<div class="presidente">
 							<label for="presidente">Presidente/a:</label>
-							<input type="text" id="presidente" formControlName="presidente" placeholder="{{ data.presidente }}" />
+							<input
+								class="presidente__input"
+								type="text"
+								id="presidente"
+								formControlName="presidente"
+								placeholder="{{ data.presidente }}"
+							/>
 						</div>
+
 						<div class="sede">
 							<label for="sede">Sede:</label>
-							<input type="text" id="sede" formControlName="sede" placeholder="{{ data.sede }}" />
+							<input class="sede__input" type="text" id="sede" formControlName="sede" placeholder="{{ data.sede }}" />
 						</div>
+
 						<div class="distrito">
 							<label for="distrito">Distrito:</label>
 							<input
-								style="width: 294px"
+								style="width: 194px"
 								type="text"
 								id="distrito"
 								formControlName="distrito"
 								placeholder="{{ data.distrito }}"
 							/>
 						</div>
+
 						<div class="barrio">
 							<label for="barrio">Barrio:</label>
 							<input
-								style="width: 294px"
+								style="width: 150px"
 								type="text"
 								id="barrio"
 								formControlName="barrio"
@@ -79,13 +87,20 @@
 						</div>
 
 						<div class="federacion">
-							<label for="barrio">Federación:</label>
-							<input type="text" id="federacion" formControlName="federacion" placeholder="{{ data.federacion }}" />
+							<label for="federacion">Federación:</label>
+							<input
+								class="federacion__input"
+								type="text"
+								id="federacion"
+								formControlName="federacion"
+								placeholder="{{ data.federacion }}"
+							/>
 						</div>
+
 						<div class="telefono">
 							<label for="telefono">Teléfono:</label>
 							<input
-								style="width: 294px"
+								style="width: 194px"
 								type="text"
 								id="telefono"
 								formControlName="telefono"
@@ -95,7 +110,7 @@
 						<div class="telefono1">
 							<label for="contacto">Teléfono alternativo:</label>
 							<input
-								style="width: 294px"
+								style="width: 154px"
 								type="text"
 								id="contacto"
 								formControlName="contacto"
@@ -105,7 +120,7 @@
 						<div class="email">
 							<label for="email">Email:</label>
 							<input
-								style="width: 294px"
+								style="width: 194px"
 								type="text"
 								id="email"
 								formControlName="email"
@@ -115,7 +130,7 @@
 						<div class="email1">
 							<label for="email1">Email alternativo:</label>
 							<input
-								style="width: 294px"
+								style="width: 150px"
 								type="text"
 								id="email1"
 								formControlName="email1"
