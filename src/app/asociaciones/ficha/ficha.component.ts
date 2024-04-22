@@ -10,6 +10,7 @@ import { IDoc } from '@interfaces/doc.interface';
 import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
 import { Router } from '@angular/router';
+import { INew } from '@interfaces/new.interface';
 
 interface IAsociaciones {
 	id: number;
@@ -45,6 +46,7 @@ export default class FichaComponent implements OnInit {
 
 	asociacionForm: FormGroup;
 	activeTab = 1;
+	public news: INew[] = [];
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public data: IAsociaciones = null;
@@ -59,8 +61,8 @@ export default class FichaComponent implements OnInit {
 		this.fetchData();
 
 		this.asociacionForm = this._formBuilder.group({
-			id: [null],
-			created_at: [null],
+			// id: [null],
+			// created_at: [null],
 			nombre: [null],
 			activa: [null],
 			rma: [null],
@@ -77,7 +79,7 @@ export default class FichaComponent implements OnInit {
 	}
 
 	async fetchData() {
-		[this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.data.tag);
+		[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.data.tag);
 	}
 
 	selectTab(tabIndex: number) {

@@ -225,7 +225,10 @@
 	// MD Samsung Note apaisado
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 840px) {
+	.OCM-gridMenu {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
 }
 
 @media screen and (max-width: 576px) {

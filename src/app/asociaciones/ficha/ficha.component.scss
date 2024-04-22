@@ -64,14 +64,13 @@
 	.containerAsociacion {
 		display: grid;
 		grid-template-columns: 200px 200px;
-		grid-template-rows: 62px;
-		// grid-auto-columns: 1fr;
-		gap: 5px 2px;
+		grid-template-rows: 2px;
+		gap: 2px 2px;
 		grid-auto-flow: row;
 		grid-template-areas:
-			'nombre .'
+			'nombre nombre'
 			'activa rma'
-			'presidente .'
+			'presidente presidente'
 			'sede sede'
 			'distrito barrio'
 			'federacion federacion'
@@ -85,8 +84,11 @@
 
 	.nombre {
 		grid-area: nombre;
+		background-color: red;
+		height: 100px;
 		&__input {
 			width: 360px;
+			background-color: red;
 		}
 	}
 
