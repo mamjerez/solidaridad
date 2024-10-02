@@ -1,7 +1,7 @@
 <!-- @if (data) { -->
 @defer (when data) {
 	<main [ngClass]="{ 'solidaridad-style': data.federacion === 'solidaridad' }">
-		@if (data.federacion === 'solidaridad') {
+		@if (data.solidaridad) {
 			<div class="tab-titles">
 				<button class="tab-link" (click)="selectTab(1)" [ngClass]="{ active: activeTab === 1 }">Datos</button>
 				<button class="tab-link" (click)="selectTab(2)" [ngClass]="{ active: activeTab === 2 }">Pagos</button>
@@ -142,9 +142,6 @@
 					</div>
 					<!-- <button type="submit">Guardar Cambios</button> -->
 				</form>
-
-				<app-documentos [docs]="docs" />
-				<app-comentarios [coms]="coms" />
 			</div>
 		}
 
@@ -154,10 +151,8 @@
 					<h2>{{ data.nombre }}</h2>
 				</div>
 
-				@if (data.cuota2023) {
-					<h1 [ngClass]="{ 'pagada-style': data.cuota2023 }">Cuota 2023</h1>
-				}
-				<h1 [ngClass]="{ 'pagada-style': data.cuota2024 }">Cuota 2024</h1>
+				<h1 [ngClass]="getCuotaClass(data.cuota2023)">Cuota 2023</h1>
+				<h1 [ngClass]="getCuotaClass(data.cuota2024)">Cuota 2024</h1>
 			</div>
 		}
 	</main>

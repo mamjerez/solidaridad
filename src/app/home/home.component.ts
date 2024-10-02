@@ -27,6 +27,8 @@ export default class HomeComponent implements OnInit {
 	async createCardMenu() {
 		try {
 			const data = await this._supabaseService.fetchDataByLevel('home');
+			console.log('data', data);
+
 			this.menuOptions = data.map(({ tag, ...item }: IMenuItem) => ({
 				...item,
 				tag,

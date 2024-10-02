@@ -53,14 +53,8 @@ export default class Level1Component implements OnInit {
 	}
 
 	createCardMenu(item: IMenuItem) {
-		let URL = item.isLastLevel ? 'levelLast/' + item.tag : 'level2/' + item.tag;
+		const URL = item.isLastLevel ? 'levelLast/' + item.tag : 'level2/' + item.tag;
 
-		if (item.tag === 'licitaciones') {
-			URL = 'licitaciones';
-		}
-		if (item.tag === 'presupuestos') {
-			URL = 'presupuestos';
-		}
 		return {
 			...item,
 			funcion: () => {

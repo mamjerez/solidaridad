@@ -105,12 +105,26 @@ export class SupabaseService {
 		return data;
 	}
 
+	// async fetchDataByLevel(level: string, tag?: string): Promise<any> {
+	// 	const { data, error } = await this._supabase.from('tag_title').select('*').eq('level', level);
+	// 	const dataFiltered = tag ? data.filter((item) => item['levelUp'] === tag) : data;
+
+	// 	if (error) throw error;
+	// 	return dataFiltered.sort((a, b) => a.order - b.order);
+	// }
+
 	async fetchDataByLevel(level: string, tag?: string): Promise<any> {
-		const { data, error } = await this._supabase.from('tag_title').select('*').eq('level', level);
-		const dataFiltered = tag ? data.filter((item) => item['levelUp'] === tag) : data;
+		const { data, error } = await this._supabase
+			.from('solidaridad_menu_cards')
+			.select('id,tag,title,level,has_imagen,is_last_level,is_visible,orden,level_up,url_externa')
+			.eq('level', level);
+		const dataFiltered = data
+			.filter((item) => item.is_visible === true)
+			.filter((item) => (tag ? item['level_up'] === tag : true));
 
 		if (error) throw error;
-		return dataFiltered.sort((a, b) => a.order - b.order);
+
+		return dataFiltered.sort((a, b) => a.orden - b.orden);
 	}
 
 	async fetchDataByFinanciacion(financiacion: string): Promise<any> {

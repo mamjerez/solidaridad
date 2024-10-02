@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
+// import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
@@ -28,6 +28,7 @@ interface IAsociaciones {
 	tag: string;
 	activa: boolean;
 	federacion: string;
+	solidaridad: boolean;
 	cuota2023: boolean;
 	cuota2024: boolean;
 }
@@ -41,7 +42,7 @@ interface IAsociaciones {
 })
 export default class FichaComponent implements OnInit {
 	private _router = inject(Router);
-	private _getNewsComsDocs = inject(GetNewsComsDocs);
+	// private _getNewsComsDocs = inject(GetNewsComsDocs);
 	private _formBuilder = inject(FormBuilder);
 
 	asociacionForm: FormGroup;
@@ -58,7 +59,7 @@ export default class FichaComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.fetchData();
+		// this.fetchData();
 
 		this.asociacionForm = this._formBuilder.group({
 			// id: [null],
@@ -78,11 +79,15 @@ export default class FichaComponent implements OnInit {
 		});
 	}
 
-	async fetchData() {
-		[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.data.tag);
-	}
+	// async fetchData() {
+	// 	[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.data.tag);
+	// }
 
 	selectTab(tabIndex: number) {
 		this.activeTab = tabIndex;
+	}
+
+	getCuotaClass(cuota: boolean): string {
+		return cuota ? 'pagada-style' : 'no-pagada-style';
 	}
 }

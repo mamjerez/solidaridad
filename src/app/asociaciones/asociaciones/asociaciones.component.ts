@@ -50,7 +50,7 @@ export default class AsociacionesComponent implements OnInit {
 
 	async fetchData() {
 		try {
-			this._data = await this._supabaseService.fetchData('asociaciones');
+			this._data = await this._supabaseService.fetchData('solidaridad_asociaciones');
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
@@ -61,6 +61,11 @@ export default class AsociacionesComponent implements OnInit {
 	_setColumnDefs() {
 		this._columnDefs = [
 			{
+				headerName: 'id',
+				field: 'id',
+				width: 42
+			},
+			{
 				headerName: 'Nombre',
 				field: 'nombre',
 				// filter: 'agSetColumnFilter',
@@ -68,16 +73,59 @@ export default class AsociacionesComponent implements OnInit {
 				// applyMiniFilterWhileTyping: true
 			} as ISetFilterParams,
 			{
+				headerName: 'Presidente/a',
+				field: 'presidente',
+				width: 210
+			},
+			{
+				headerName: 'Teléfono',
+				field: 'telefono',
+				width: 140
+			},
+			{
+				headerName: 'Solidaridad',
+				field: 'solidaridad',
+				width: 105
+			},
+			{
+				headerName: 'Junta Directiva',
+				field: 'junta_directiva',
+				width: 70
+			},
+			{
+				headerName: 'WhatsApp',
+				field: 'whatsapp',
+				width: 90
+			},
+			{
+				headerName: 'Vocal',
+				field: 'representante_junta_solidaridad',
+				width: 210
+			},
+			{
+				headerName: 'Teléfono Vocal',
+				field: 'telefono_representante',
+				width: 90
+			},
+			{
 				headerName: 'Distrito',
 				field: 'distrito',
-				// filter: true,
 				width: 135
 			},
 			{
 				headerName: 'Barrio',
 				field: 'barrio',
-				// filter: true,
 				width: 200
+			},
+			{
+				headerName: 'Cuota2023',
+				field: 'cuota2023',
+				width: 100
+			},
+			{
+				headerName: 'Cuota2024',
+				field: 'cuota2024',
+				width: 100
 			}
 		];
 	}
@@ -89,7 +137,7 @@ export default class AsociacionesComponent implements OnInit {
 				suppressMovable: true,
 				lockPosition: 'left',
 				sortable: true,
-				resizable: false,
+				resizable: true,
 				filter: true,
 				headerComponentParams: {
 					template:
