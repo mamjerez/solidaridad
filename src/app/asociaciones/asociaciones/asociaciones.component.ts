@@ -83,6 +83,36 @@ export default class AsociacionesComponent implements OnInit {
 				width: 140
 			},
 			{
+				headerName: 'Mail',
+				field: 'mail',
+				width: 175
+			},
+			{
+				headerName: 'WEB',
+				field: 'web',
+				width: 175
+			},
+			{
+				headerName: 'Facebook',
+				field: 'facebook',
+				width: 175
+			},
+			{
+				headerName: 'Instagram',
+				field: 'instagram',
+				width: 175
+			},
+			{
+				headerName: 'Twitter',
+				field: 'twitter',
+				width: 175
+			},
+			{
+				headerName: 'Adscrita',
+				field: 'adscrita',
+				width: 175
+			},
+			{
 				headerName: 'Solidaridad',
 				field: 'solidaridad',
 				width: 105
