@@ -16,18 +16,20 @@ interface IAsociaciones {
 	id: number;
 	created_at: string; // Asumiendo que siempre recibes la fecha como cadena
 	nombre: string;
+	is_activa: boolean;
 	rma: number;
 	presidente: string;
 	sede: string;
 	barrio: string | null; // 'null' explicitado como posible valor
 	telefono: string | null;
+	telefono_representante: string | null;
 	contacto: string;
 	email: string | null;
 	email1: string | null;
 	distrito: string;
 	tag: string;
 	activa: boolean;
-	federacion: string;
+	id_federacion: string;
 	solidaridad: boolean;
 	cuota2023: boolean;
 	cuota2024: boolean;
@@ -65,12 +67,12 @@ export default class FichaComponent implements OnInit {
 			// id: [null],
 			// created_at: [null],
 			nombre: [null],
-			activa: [null],
+			is_activa: [this.data.is_activa],
 			rma: [null],
 			presidente: [null],
 			sede: [null],
 			barrio: [null],
-			federacion: [null],
+			federacion: [this.data.id_federacion],
 			telefono: [null],
 			contacto: [null],
 			email: [null],

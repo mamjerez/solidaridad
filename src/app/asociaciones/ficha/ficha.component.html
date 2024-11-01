@@ -1,6 +1,6 @@
 <!-- @if (data) { -->
 @defer (when data) {
-	<main [ngClass]="{ 'solidaridad-style': data.federacion === 'solidaridad' }">
+	<main [ngClass]="{ 'solidaridad-style': data.solidaridad }">
 		@if (data.solidaridad) {
 			<div class="tab-titles">
 				<button class="tab-link" (click)="selectTab(1)" [ngClass]="{ active: activeTab === 1 }">Datos</button>
@@ -26,25 +26,19 @@
 						</div> -->
 
 						<div class="activa">
-							<label for="activa">¿Esta activa?:</label>
+							<label for="is_activa">¿Esta activa?:</label>
 							<input
-								style="width: 100px"
-								type="text"
-								id="activa"
-								formControlName="activa"
-								placeholder="{{ data.activa }}"
+								class="activa__input"
+								type="checkbox"
+								id="is_activa"
+								formControlName="is_activa"
+								placeholder="{{ data.is_activa }}"
 							/>
 						</div>
 
 						<div class="rma">
-							<label style="width: 500px; margin-left: -70px" for="rma">Número en RMA:</label>
-							<input
-								style="width: 130px; margin-left: -70px"
-								type="number"
-								id="rma"
-								formControlName="rma"
-								placeholder="{{ data.rma }}"
-							/>
+							<label class="rma__label" for="rma">Número en RMA:</label>
+							<input type="text" class="rma__input" id="rma" formControlName="rma" placeholder="{{ data.rma }}" />
 						</div>
 
 						<div class="presidente">
@@ -55,6 +49,17 @@
 								id="presidente"
 								formControlName="presidente"
 								placeholder="{{ data.presidente }}"
+							/>
+						</div>
+
+						<div class="telefono">
+							<label class="telefono__label" for="telefono">Teléfono:</label>
+							<input
+								class="telefono__input"
+								type="text"
+								id="telefono"
+								formControlName="telefono"
+								placeholder="{{ data.telefono }}"
 							/>
 						</div>
 
@@ -77,7 +82,7 @@
 						<div class="barrio">
 							<label for="barrio">Barrio:</label>
 							<input
-								style="width: 150px"
+								class="barrio__input"
 								type="text"
 								id="barrio"
 								formControlName="barrio"
@@ -92,36 +97,25 @@
 								type="text"
 								id="federacion"
 								formControlName="federacion"
-								placeholder="{{ data.federacion }}"
-							/>
-						</div>
-
-						<div class="telefono">
-							<label for="telefono">Teléfono:</label>
-							<input
-								style="width: 194px"
-								type="text"
-								id="telefono"
-								formControlName="telefono"
-								placeholder="{{ data.telefono }}"
+								placeholder="{{ data.id_federacion }}"
 							/>
 						</div>
 
 						<div class="telefono1">
-							<label for="contacto">Teléfono alternativo:</label>
+							<label class="telefono1__label" for="contacto">Teléfono alternativo:</label>
 							<input
-								style="width: 154px"
+								class="telefono1__input"
 								type="text"
-								id="contacto"
-								formControlName="contacto"
-								placeholder="{{ data.contacto }}"
+								id="telefono1"
+								formControlName="telefono1"
+								placeholder="{{ data.telefono_representante }}"
 							/>
 						</div>
 
 						<div class="email">
 							<label for="email">Email:</label>
 							<input
-								style="width: 194px"
+								class="email__input"
 								type="text"
 								id="email"
 								formControlName="email"
@@ -130,9 +124,9 @@
 						</div>
 
 						<div class="email1">
-							<label for="email1">Email alternativo:</label>
+							<label for="email1" class="email1__label">Email alternativo:</label>
 							<input
-								style="width: 150px"
+								class="email1__input"
 								type="text"
 								id="email1"
 								formControlName="email1"

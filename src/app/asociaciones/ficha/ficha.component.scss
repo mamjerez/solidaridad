@@ -13,8 +13,7 @@
 	}
 
 	input {
-		width: 600px;
-		margin-bottom: 10px;
+		padding: 14px;
 	}
 
 	.solidaridad-style {
@@ -70,11 +69,11 @@
 		grid-template-areas:
 			'nombre nombre'
 			'activa rma'
-			'presidente presidente'
+			'presidente telefono'
 			'sede sede'
 			'distrito barrio'
 			'federacion federacion'
-			'telefono telefono1'
+			'telefono1 telefono1'
 			'email email1';
 
 		width: 660px;
@@ -94,26 +93,34 @@
 
 	.activa {
 		grid-area: activa;
-		// width: 150px;
+		&__input {
+			width: 100px;
+		}
 	}
 
 	.rma {
 		grid-area: rma;
-		// width: 150px;
+		&__label {
+			width: 125px;
+		}
+		&__input {
+			width: 75px;
+			text-align: center;
+		}
 	}
 
 	.presidente {
 		grid-area: presidente;
-		width: 320px;
+		width: 300px;
 		&__input {
-			width: 360px;
+			width: 300px;
 		}
 	}
 
 	.sede {
 		grid-area: sede;
 		&__input {
-			width: 360px;
+			width: 560px;
 		}
 	}
 
@@ -124,7 +131,9 @@
 
 	.barrio {
 		grid-area: barrio;
-		// width: 150px;
+		&__input {
+			width: 360px;
+		}
 	}
 
 	.federacion {
@@ -137,22 +146,45 @@
 
 	.telefono {
 		grid-area: telefono;
-		// width: 150px;
+		&__label {
+			width: 280px;
+			margin-left: 130px;
+		}
+		&__input {
+			width: 125px;
+			margin-left: 140px;
+		}
 	}
 
 	.telefono1 {
 		grid-area: telefono1;
-		// width: 150px;
+		&__label {
+			width: 280px;
+			margin-left: -50px;
+		}
+		&__input {
+			width: 125px;
+			margin-left: -40px;
+		}
 	}
 
 	.email {
 		grid-area: email;
-		// width: 150px;
+		&__input {
+			width: 280px;
+		}
 	}
 
 	.email1 {
 		grid-area: email1;
-		// width: 150px;
+		&__label {
+			width: 280px;
+			margin-left: 90px;
+		}
+		&__input {
+			width: 280px;
+			margin-left: 100px;
+		}
 	}
 }
 

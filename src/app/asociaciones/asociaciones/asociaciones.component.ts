@@ -196,7 +196,7 @@ export default class AsociacionesComponent implements OnInit {
 			rowSelection: 'single',
 			localeText: localeTextESPes,
 			pagination: true,
-			paginationPageSize: 25
+			paginationPageSize: 50
 		} as GridOptions;
 	}
 
@@ -212,6 +212,8 @@ export default class AsociacionesComponent implements OnInit {
 	}
 
 	onRowClicked(event: RowClickedEvent) {
+		console.log('event', event.data);
+
 		this._router.navigate(['ficha'], { state: { data: event.data } });
 	}
 }
