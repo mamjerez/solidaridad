@@ -6,12 +6,13 @@ import { Router } from '@angular/router';
 import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
 import CargosComponent from '../cargos/cargos.component';
-// import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
+import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { SupabaseService } from '@services/supabase.service';
+import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
 
 interface IAsociaciones {
 	id: number;
@@ -51,7 +52,15 @@ interface ICargo {
 @Component({
 	selector: 'app-ficha',
 	standalone: true,
-	imports: [NgClass, FormsModule, ReactiveFormsModule, ComentariosComponent, DocumentosComponent, CargosComponent],
+	imports: [
+		NgClass,
+		FormsModule,
+		ReactiveFormsModule,
+		ComentariosComponent,
+		DocumentosComponent,
+		NoticiasComponent,
+		CargosComponent
+	],
 	templateUrl: './ficha.component.html',
 	styleUrl: './ficha.component.scss'
 })
@@ -59,7 +68,7 @@ export default class FichaComponent implements OnInit {
 	private readonly _supabaseService = inject(SupabaseService);
 
 	private _router = inject(Router);
-	// private _getNewsComsDocs = inject(GetNewsComsDocs);
+	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	private _formBuilder = inject(FormBuilder);
 
 	asociacionForm: FormGroup;
@@ -78,6 +87,7 @@ export default class FichaComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.completaCargos();
+		this.fetchData();
 
 		this.asociacionForm = this._formBuilder.group({
 			nombre: [null],
@@ -91,9 +101,11 @@ export default class FichaComponent implements OnInit {
 		});
 	}
 
-	// async fetchData() {
-	// 	[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase(this.data.tag);
-	// }
+	async fetchData() {
+		console.log('this.data.id', this.data.id);
+
+		[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase('11');
+	}
 
 	selectTab(tabIndex: number) {
 		this.activeTab = tabIndex;

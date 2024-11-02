@@ -1,5 +1,5 @@
 // https://supabase.com/docs/guides/getting-started/tutorials/with-angular
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
 
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
