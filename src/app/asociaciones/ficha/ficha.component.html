@@ -101,7 +101,7 @@
 							/>
 						</div>
 
-						<div class="telefono1">
+						<!-- <div class="telefono1">
 							<label class="telefono1__label" for="contacto">Teléfono alternativo:</label>
 							<input
 								class="telefono1__input"
@@ -110,7 +110,7 @@
 								formControlName="telefono1"
 								placeholder="{{ data.telefono_representante }}"
 							/>
-						</div>
+						</div> -->
 
 						<div class="email">
 							<label for="email">Email:</label>
@@ -137,6 +137,8 @@
 					<!-- <button type="submit">Guardar Cambios</button> -->
 				</form>
 			</div>
+
+			<app-cargos [cargos]="cargos" />
 		}
 
 		@if (activeTab === 2) {

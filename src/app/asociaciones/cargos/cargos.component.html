@@ -1,0 +1,31 @@
+<div class="OCM-flex OCM-flex--center">
+	<header class="OCM-subtitle-dark">Cargos</header>
+	<button class="OCM-buttonInvisible" (click)="admin()">+ admin</button>
+</div>
+
+<section class="OCM-containerTable">
+	<table class="OCM-table-cargos">
+		<thead>
+			<tr>
+				<th>Cargo</th>
+				<th>Nombre</th>
+				<th>1er apellido</th>
+				<th>2º apellido</th>
+				<th>Teléfono</th>
+				<th>email</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for (cargo of cargos; track cargo.persona_id) {
+				<tr>
+					<td>{{ cargo.cargo }}</td>
+					<td>{{ cargo.nombre_cargo }}</td>
+					<td>{{ cargo.apellido1 }}</td>
+					<td>{{ cargo.apellido2 }}</td>
+					<td>{{ cargo.telefono }}</td>
+					<td>{{ cargo.email }}</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</section>
