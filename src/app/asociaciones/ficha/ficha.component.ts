@@ -80,19 +80,13 @@ export default class FichaComponent implements OnInit {
 		this.completaCargos();
 
 		this.asociacionForm = this._formBuilder.group({
-			// id: [null],
-			// created_at: [null],
 			nombre: [null],
 			is_activa: [this.data.is_activa],
 			rma: [null],
-			presidente: [null],
 			sede: [null],
 			barrio: [null],
 			federacion: [this.data.id_federacion],
-			telefono: [null],
-			contacto: [null],
-			email: [null],
-			email1: [null],
+
 			distrito: [null]
 		});
 	}
@@ -112,9 +106,9 @@ export default class FichaComponent implements OnInit {
 	async completaCargos() {
 		// const entidades = await this._supabaseService.fetchDataByParameter('entidades', 'nombre', this.title);
 		this.cargos = await this._supabaseService.fetchDataFromViewAsociaciones(
-			'view_solidaridad_asociaciones_cargos2',
+			'view_solidaridad_asociaciones_cargos3',
 			'id_asociacion',
-			11
+			this.data.id
 		);
 	}
 }
