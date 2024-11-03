@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 // import { IDoc } from '@interfaces/doc.interface';
 
 @Component({
@@ -8,15 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 	imports: [CommonModule],
 	templateUrl: './documentos.component.html'
 })
-export default class DocumentosComponent implements OnInit {
+export default class DocumentosComponent {
 	// TODO: Typar
 	@Input() docs: any[];
 
 	public canViewConfidencial = false;
-
-	ngOnInit(): void {
-		console.log('this.docs', this.docs);
-	}
 
 	admin(): void {
 		this.canViewConfidencial = !this.canViewConfidencial;
