@@ -107,7 +107,9 @@ export default class FichaComponent implements OnInit {
 
 	async fetchData() {
 		console.log('this.data.id', this.data.id);
-		[this.news, this.coms, this.docs, this.gestiones] = await this._getNewsComsDocs.fetchDataFromSupabase('11');
+		[this.news, this.coms, this.docs, this.gestiones] = await this._getNewsComsDocs.fetchDataFromSupabase(
+			this.data.id.toString()
+		);
 		console.log('this.news', this.news);
 		console.log('this.coms', this.coms);
 		console.log('this.docs', this.docs);
