@@ -90,7 +90,6 @@ export default class FichaComponent implements OnInit {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		const navigation = this._router.getCurrentNavigation();
 		this.data = navigation?.extras.state?.['data'];
-		console.log('data', this.data);
 	}
 
 	ngOnInit(): void {
@@ -137,7 +136,6 @@ export default class FichaComponent implements OnInit {
 			'id_asociacion',
 			this.data.id
 		);
-		console.log('datosFederacion', this.datosFederacion);
 		this.nombreFederacion = this.datosFederacion[0].nombre_federacion;
 	}
 }
