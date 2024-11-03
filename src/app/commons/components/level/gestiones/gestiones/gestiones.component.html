@@ -1,0 +1,35 @@
+<div class="OCM-flex OCM-flex--center">
+	<header style="font-size: 32px">Gestiones ({{ gestiones.length }})</header>
+</div>
+
+<section class="OCM-containerTable">
+	<table class="OCM-tableComentarios">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Gestor</th>
+				<th>texto</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for (gestion of gestiones; track gestion.gestor) {
+				<tr>
+					@switch (gestion.confidencial) {
+						@case (true) {
+							@if (canViewConfidencial) {
+								<td>{{ gestion.date | date: 'd-MM-yyyy' }}</td>
+								<td style="color: red">CONFIDENCIAL {{ gestion.gestor }}</td>
+								<td>{{ gestion.text }}</td>
+							}
+						}
+						@case (false) {
+							<td>{{ gestion.date }}</td>
+							<td>{{ gestion.gestor }}</td>
+							<td>{{ gestion.text }}</td>
+						}
+					}
+				</tr>
+			}
+		</tbody>
+	</table>
+</section>

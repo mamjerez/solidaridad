@@ -95,6 +95,13 @@
 			@if (coms.length > 0) {
 				<app-comentarios [coms]="coms" />
 			}
+
+			@if (gestiones.length > 0) {
+				<app-gestiones [gestiones]="gestiones" />
+			}
+
+			<!-- <app-social-media [socialMediaSignals]="socialMediaSignals" /> -->
+			<app-social-media></app-social-media>
 		}
 
 		@if (activeTab === 2) {

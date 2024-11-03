@@ -3,16 +3,20 @@ import { NgClass } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
 import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
+import GestionesComponent from '@app/commons/components/level/gestiones/gestiones/gestiones.component';
 import CargosComponent from '../cargos/cargos.component';
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
+import { IGestion } from '@interfaces/gestion.interface';
+
 import { SupabaseService } from '@services/supabase.service';
-import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
+import { SocialMediaComponent } from '@app/commons/components/social-media/social-media.component';
 
 interface IAsociaciones {
 	id: number;
@@ -59,23 +63,24 @@ interface ICargo {
 		ComentariosComponent,
 		DocumentosComponent,
 		NoticiasComponent,
-		CargosComponent
+		GestionesComponent,
+		CargosComponent,
+		SocialMediaComponent
 	],
 	templateUrl: './ficha.component.html',
 	styleUrl: './ficha.component.scss'
 })
 export default class FichaComponent implements OnInit {
 	private readonly _supabaseService = inject(SupabaseService);
-
 	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	private _formBuilder = inject(FormBuilder);
-
 	asociacionForm: FormGroup;
 	activeTab = 1;
 	public news: INew[] = [];
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
+	public gestiones: IGestion[] = [];
 	public data: IAsociaciones = null;
 	public cargos: ICargo[] = [];
 
@@ -96,15 +101,17 @@ export default class FichaComponent implements OnInit {
 			sede: [null],
 			barrio: [null],
 			federacion: [this.data.id_federacion],
-
 			distrito: [null]
 		});
 	}
 
 	async fetchData() {
 		console.log('this.data.id', this.data.id);
-
-		[this.news, this.coms, this.docs] = await this._getNewsComsDocs.fetchDataFromSupabase('11');
+		[this.news, this.coms, this.docs, this.gestiones] = await this._getNewsComsDocs.fetchDataFromSupabase('11');
+		console.log('this.news', this.news);
+		console.log('this.coms', this.coms);
+		console.log('this.docs', this.docs);
+		console.log('this.gestiones', this.gestiones);
 	}
 
 	selectTab(tabIndex: number) {
@@ -116,7 +123,6 @@ export default class FichaComponent implements OnInit {
 	}
 
 	async completaCargos() {
-		// const entidades = await this._supabaseService.fetchDataByParameter('entidades', 'nombre', this.title);
 		this.cargos = await this._supabaseService.fetchDataFromViewAsociaciones(
 			'view_solidaridad_asociaciones_cargos3',
 			'id_asociacion',

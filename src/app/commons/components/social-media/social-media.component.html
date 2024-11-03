@@ -1,0 +1,13 @@
+<nav class="social-nav">
+	<h2>Redes sociales</h2>
+	<ul class="social-list">
+		@for (social of socialMediaLinks; track social.name) {
+			<li>
+				<a [href]="social.url" target="_blank" rel="noopener noreferrer" class="social-link">
+					<span class="icon">{{ social.icon }}</span>
+					{{ social.name }}
+				</a>
+			</li>
+		}
+	</ul>
+</nav>
