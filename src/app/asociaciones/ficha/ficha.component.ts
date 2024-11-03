@@ -83,16 +83,20 @@ export default class FichaComponent implements OnInit {
 	public gestiones: IGestion[] = [];
 	public data: IAsociaciones = null;
 	public cargos: ICargo[] = [];
+	public datosFederacion: any[] = [];
+	public nombreFederacion: string;
 
 	constructor() {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		const navigation = this._router.getCurrentNavigation();
 		this.data = navigation?.extras.state?.['data'];
+		console.log('data', this.data);
 	}
 
 	ngOnInit(): void {
 		this.completaCargos();
 		this.fetchData();
+		this.completaFederacion();
 
 		this.asociacionForm = this._formBuilder.group({
 			nombre: [null],
@@ -100,20 +104,15 @@ export default class FichaComponent implements OnInit {
 			rma: [null],
 			sede: [null],
 			barrio: [null],
-			federacion: [this.data.id_federacion],
+			federacion: [null],
 			distrito: [null]
 		});
 	}
 
 	async fetchData() {
-		console.log('this.data.id', this.data.id);
 		[this.news, this.coms, this.docs, this.gestiones] = await this._getNewsComsDocs.fetchDataFromSupabase(
 			this.data.id.toString()
 		);
-		console.log('this.news', this.news);
-		console.log('this.coms', this.coms);
-		console.log('this.docs', this.docs);
-		console.log('this.gestiones', this.gestiones);
 	}
 
 	selectTab(tabIndex: number) {
@@ -130,5 +129,15 @@ export default class FichaComponent implements OnInit {
 			'id_asociacion',
 			this.data.id
 		);
+	}
+
+	async completaFederacion() {
+		this.datosFederacion = await this._supabaseService.fetchDataFromViewAsociaciones(
+			'view_solidaridad_federacion',
+			'id_asociacion',
+			this.data.id
+		);
+		console.log('datosFederacion', this.datosFederacion);
+		this.nombreFederacion = this.datosFederacion[0].nombre_federacion;
 	}
 }

@@ -36,8 +36,7 @@ export class SupabaseService {
 	async fetchDataFromViewAsociaciones(view: string, itemQuery: string, id: number | string): Promise<any> {
 		const { data, error } = await this._supabase.from(view).select('*').eq(itemQuery, id);
 		if (error) throw error;
-		console.log(JSON.stringify(data));
-
+		// console.log(JSON.stringify(data));
 		return data;
 	}
 
