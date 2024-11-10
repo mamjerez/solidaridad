@@ -1,4 +1,24 @@
-<nav class="navbar">
+<header class="main-header">
+	<div class="top-bar">
+		<div class="logo">
+			<img src="assets/img/logo.jpg" alt="Logo Solidaridad" />
+		</div>
+		<nav class="main-nav">
+			<ul>
+				<li><a routerLink="/">Inicio</a></li>
+				<li><a routerLink="/quienes-somos">Quiénes Somos</a></li>
+				<li><a routerLink="/proyectos">Proyectos</a></li>
+				<li><a routerLink="/noticias">Noticias</a></li>
+				<li><a routerLink="asociaciones">Asociaciones</a></li>
+				<li><a routerLink="/noticias">Nuestra historia</a></li>
+				<li><a routerLink="/contacto">Contacto</a></li>
+			</ul>
+		</nav>
+	</div>
+	<router-outlet></router-outlet>
+</header>
+
+<!-- <nav class="navbar">
 	<div class="navbar__logo"></div>
 	<div class="navbar__title">Federación Local de Asociaciones Vecinales de Jerez "SOLIDARIDAD"</div>
 
@@ -16,4 +36,4 @@
 			<a class="navbar__logoHome" (click)="navigateTo()"></a>
 		</div>
 	}
-</nav>
+</nav> -->

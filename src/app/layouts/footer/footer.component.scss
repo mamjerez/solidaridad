@@ -2,6 +2,56 @@
 @use 'mixins' as m;
 
 // https://javascript.plainenglish.io/5-steps-to-adding-a-sticky-footer-to-your-angular-11-application-6c185c2ed99f
+p {
+	font-size: 1.5rem;
+}
+
+a {
+	font-size: 1.5rem;
+}
+
+.main-footer {
+	background: #333;
+	color: white;
+	padding: 3rem 0 0;
+}
+.footer-content {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 2rem;
+	padding: 0 1rem;
+}
+.footer-section h4 {
+	color: #fff;
+	margin-bottom: 1rem;
+}
+.footer-section ul {
+	list-style: none;
+	padding: 0;
+}
+.footer-section ul li {
+	margin-bottom: 0.5rem;
+}
+.footer-section a {
+	color: #fff;
+	text-decoration: none;
+	transition: color 0.3s;
+}
+.footer-section a:hover {
+	color: #e74c3c;
+}
+.social-links {
+	display: flex;
+	gap: 1rem;
+}
+.footer-bottom {
+	text-align: center;
+	padding: 1rem;
+	margin-top: 2rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
 .footer {
 	a {
 		text-decoration: none;

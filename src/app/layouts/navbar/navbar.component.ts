@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, ElementRef, ViewChild, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 import NewsFormComponent from '@app/addNewRecod/add-new/add-new.component';
 
@@ -13,7 +13,7 @@ import { ModalService } from '../modal/modal.service';
 	templateUrl: './navbar.component.html',
 	styleUrls: ['./navbar.component.scss'],
 	standalone: true,
-	imports: []
+	imports: [RouterOutlet, RouterLink, RouterLinkActive]
 })
 export class NavbarComponent {
 	@ViewChild('modal')
