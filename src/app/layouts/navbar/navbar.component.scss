@@ -78,10 +78,13 @@
 @media screen and (max-width: 570px) {
 	.navbar {
 		&__logo {
-			height: 25px;
-			width: 90px;
+			height: 15px;
+			width: 60px;
 			margin-left: 6px;
 		}
+	}
+	.logo img {
+		height: 30px;
 	}
 
 	a {

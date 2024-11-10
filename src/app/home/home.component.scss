@@ -19,8 +19,8 @@
 	margin-bottom: 1rem;
 }
 .featured-section {
-	padding: 2rem 0;
-	background: #f9f9f9;
+	padding: 1rem;
+	// background: #bd1717;
 }
 .container {
 	max-width: 1200px;
@@ -87,7 +87,10 @@
 	}
 
 	.featured-grid {
-		// gap: 1rem;
+		display: flex;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
+		gap: 0.5rem;
+		// margin-top: 2rem;
 	}
 
 	.icon {
