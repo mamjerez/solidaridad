@@ -5,14 +5,14 @@
 <!-- </div>
 </div> -->
 <div class="hero">
-	<div class="hero-content">
-		<div class="slider">
-			@for (image of images; track image) {
-				@if (currentImageIndex === images.indexOf(image)) {
-					<img [src]="image" alt="Slider image" class="hero-image" />
-				}
+	<!-- <div class="hero-content"> -->
+	<div class="slider">
+		@for (image of images; track image) {
+			@if (currentImageIndex === images.indexOf(image)) {
+				<img [src]="image" alt="Slider image" class="hero-image" />
 			}
-		</div>
+		}
+		<!-- </div> -->
 	</div>
 </div>
 
