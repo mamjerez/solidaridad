@@ -1,3 +1,4 @@
+import { HeaderAgGridComponent } from './../ag-grid/header-ag-grid/header-ag-grid.component';
 import { Component, OnInit, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 
@@ -18,7 +19,7 @@ import { IMenuItem } from '@interfaces/menu.interface';
 		`
 			.hero {
 				// background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/img/juntaDirectiva.jpg');
-				background: url('/assets/img/juntaDirectiva.jpg');
+				// background: url('/assets/img/juntaDirectiva.jpg');
 				background-size: cover;
 				background-position: center;
 				height: 500px;
@@ -29,8 +30,9 @@ import { IMenuItem } from '@interfaces/menu.interface';
 				color: white;
 			}
 			.hero-content {
-				max-width: 800px;
-				padding: 2rem;
+				max-width: 100%;
+				height: 500px;
+				// padding: 2rem;
 			}
 			.hero h1 {
 				font-size: 3rem;
@@ -62,6 +64,21 @@ import { IMenuItem } from '@interfaces/menu.interface';
 				font-size: 2.5rem;
 				margin-bottom: 1rem;
 			}
+			.slider {
+				position: relative;
+				width: 100%;
+				height: 500px;
+				overflow: hidden;
+			}
+
+			.hero-image.active {
+				display: block;
+			}
+			.hero-image {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
 		`
 	]
 })
@@ -69,9 +86,22 @@ export default class HomeComponent implements OnInit {
 	private _supabaseService = inject(SupabaseService);
 	private _router = inject(Router);
 	public menuOptions: IMenuItem[] = [];
+	public images = [
+		'/assets/img/juntaDirectiva.jpg',
+		'/assets/img/Alcaldesa___Reunion_Federacion_Solidaridad___04.jpg',
+		'/assets/img/Alcaldesa_Federacion_Solidaridad.jpg'
+	];
+	public currentImageIndex = 0;
 
 	ngOnInit() {
 		this.createCardMenu();
+		this.startSlider();
+	}
+
+	startSlider() {
+		setInterval(() => {
+			this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
+		}, 3000); // Cambia cada 3 segundos
 	}
 
 	async createCardMenu() {

@@ -1,7 +1,18 @@
+<!-- <div class="hero">
+	<div class="hero-content"> -->
+<!-- <h1>Construyendo un Futuro Solidario</h1>
+		<p>Trabajamos por la inclusión social y laboral</p> -->
+<!-- </div>
+</div> -->
 <div class="hero">
 	<div class="hero-content">
-		<!-- <h1>Construyendo un Futuro Solidario</h1>
-		<p>Trabajamos por la inclusión social y laboral</p> -->
+		<div class="slider">
+			@for (image of images; track image) {
+				@if (currentImageIndex === images.indexOf(image)) {
+					<img [src]="image" alt="Slider image" class="hero-image" />
+				}
+			}
+		</div>
 	</div>
 </div>
 
