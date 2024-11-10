@@ -6,6 +6,23 @@ export default [
 		loadComponent: () => import('./home/home.component')
 	},
 	{
+		path: 'asociaciones',
+		loadComponent: () => import('./asociaciones/asociaciones/asociaciones.component')
+	},
+	{
+		path: 'quienesSomos',
+		loadComponent: () => import('./pages/quienes-somos/quienes-somos.component')
+	},
+	{
+		path: 'historia',
+		loadComponent: () => import('./pages/historia/historia.component')
+	},
+	{
+		path: 'contacto',
+		loadComponent: () => import('./pages/contacto/contacto.component')
+	},
+
+	{
 		path: 'level1/:tag',
 		loadComponent: () => import('./level1/level1.component')
 	},
@@ -21,10 +38,7 @@ export default [
 		path: 'levelLast/:tag',
 		loadComponent: () => import('./level-last/level-last.component')
 	},
-	{
-		path: 'asociaciones',
-		loadComponent: () => import('./asociaciones/asociaciones/asociaciones.component')
-	},
+
 	{
 		path: 'federaciones',
 		loadComponent: () => import('./federaciones/federaciones.component')
