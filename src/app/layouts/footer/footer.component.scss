@@ -1,7 +1,6 @@
 @use 'variables' as vars;
 @use 'mixins' as m;
 
-// https://javascript.plainenglish.io/5-steps-to-adding-a-sticky-footer-to-your-angular-11-application-6c185c2ed99f
 p {
 	font-size: 1.5rem;
 }
@@ -14,101 +13,62 @@ a {
 	background: #333;
 	color: white;
 	padding: 2rem 0 0;
-}
+	margin-top: 40px;
 
-.footer-content {
-	max-width: 1200px;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 2rem;
-	padding: 0 1rem;
-}
-.footer-section h4 {
-	color: #fff;
-	margin-bottom: 1rem;
-}
-.footer-section ul {
-	list-style: none;
-	padding: 0;
-}
-.footer-section ul li {
-	margin-bottom: 0.5rem;
-}
-.footer-section a {
-	color: #fff;
-	text-decoration: none;
-	transition: color 0.3s;
-}
-.footer-section-enlaces a {
-	color: #fff;
-	text-decoration: none;
-	transition: color 0.3s;
-}
+	.footer-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+		padding: 0 1rem;
+	}
 
-.footer-section a:hover {
-	color: #e74c3c;
+	.footer-section {
+		h4 {
+			color: #fff;
+			margin-bottom: 1rem;
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+
+			li {
+				margin-bottom: 0.5rem;
+			}
+		}
+
+		a {
+			color: #fff;
+			text-decoration: none;
+			transition: color 0.3s;
+
+			&:hover {
+				color: #e74c3c;
+			}
+		}
+	}
+
+	.footer-section-enlaces a {
+		color: #fff;
+		text-decoration: none;
+		transition: color 0.3s;
+
+		&:hover {
+			color: #e74c3c;
+		}
+	}
+
+	.social-links {
+		display: flex;
+		gap: 1rem;
+	}
 }
 
 .social-links {
 	display: flex;
 	gap: 1rem;
-}
-.footer-bottom {
-	text-align: center;
-	padding: 1rem;
-	margin-top: 2rem;
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-.footer {
-	a {
-		text-decoration: none;
-		color: white;
-	}
-
-	display: flex;
-	justify-content: space-between;
-	flex-flow: row wrap;
-	width: 100%;
-	height: 50px;
-	background-color: map-get(vars.$OCM-colors, navBarBackground);
-	&--text {
-		@include m.OCM-text;
-		font-size: 18px;
-		margin-left: 10px;
-	}
-	&--rrss {
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		align-items: center;
-
-		.logoWWW {
-			@include m.OCM-logo;
-			background: url('#{vars.$imgPath}/www.svg') no-repeat center center;
-		}
-
-		.logoFacebook {
-			@include m.OCM-logo;
-			background: url('#{vars.$imgPath}/facebook.svg') no-repeat center center;
-		}
-
-		.logoTwitter {
-			@include m.OCM-logo;
-			background: url('#{vars.$imgPath}/twitter.svg') no-repeat center center;
-		}
-	}
-
-	&--mail {
-		@include m.OCM-text;
-		text-decoration-style: none;
-		margin-right: 20px;
-		font-size: 18px;
-
-		a:hover {
-			transform: scale(1.2);
-		}
-	}
 }
 
 @media screen and (max-width: 844px) {
