@@ -6,34 +6,13 @@
 		<nav class="main-nav">
 			<ul>
 				<li><a routerLink="/">Inicio</a></li>
-				<li><a routerLink="/quienesSomos">Quiénes Somos</a></li>
-				<li><a routerLink="/proyectos">Proyectos</a></li>
-				<li><a routerLink="/noticias">Noticias</a></li>
+				<li><a routerLink="quienesSomos">Quiénes Somos</a></li>
+				<li><a routerLink="proyectos">Proyectos</a></li>
 				<li><a routerLink="asociaciones">Asociaciones</a></li>
-				<li><a routerLink="/historia">Nuestra historia</a></li>
-				<li><a routerLink="/contacto">Contacto</a></li>
+				<li><a routerLink="historia">Nuestra historia</a></li>
+				<li><a routerLink="contacto">Contacto</a></li>
 			</ul>
 		</nav>
 	</div>
 	<router-outlet></router-outlet>
 </header>
-
-<!-- <nav class="navbar">
-	<div class="navbar__logo"></div>
-	<div class="navbar__title">Federación Local de Asociaciones Vecinales de Jerez "SOLIDARIDAD"</div>
-
-	@if (router.url === '/home') {
-		<div></div>
-	} @else {
-		<div class="navbar__home">
-			@if (canAddRowSupabase) {
-				<button class="OCM-button" (click)="addNew()">+ noticia</button>
-				<button class="OCM-button" (click)="addCom()">+ comentario</button>
-				<button class="OCM-button" (click)="addDoc()">+ documento</button>
-				<button class="OCM-button" (click)="addCard()">+ card</button>
-			}
-			<a class="navbar__logoVolver" (click)="volver()"></a>
-			<a class="navbar__logoHome" (click)="navigateTo()"></a>
-		</div>
-	}
-</nav> -->
