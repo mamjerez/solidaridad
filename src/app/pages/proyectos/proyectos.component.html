@@ -1,0 +1,16 @@
+<main class="container">
+	<section class="hero">
+		<h2>Nuestros Proyectos</h2>
+	</section>
+
+	<section class="grid grid-3">
+		@for (project of filteredProjects; track project.id) {
+			<app-projectos-card [project]="project"></app-projectos-card>
+		}
+	</section>
+	<!-- 
+	<section class="cta">
+		<h3>¿Tienes una idea para la comunidad?</h3>
+		<p>Nos encantaría escuchar tus propuestas para mejorar nuestro barrio</p>
+	</section> -->
+</main>
