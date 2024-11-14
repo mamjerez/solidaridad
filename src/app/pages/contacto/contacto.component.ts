@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+
 @Component({
 	selector: 'app-contacto',
 	standalone: true,
@@ -24,9 +26,46 @@ export default class ContactoComponent {
 
 	onSubmit() {
 		if (this.contactForm.valid) {
-			console.log(this.contactForm.value);
-			// Here you would typically send the form data to your backend
-			this.contactForm.reset();
+			// const serviceID = 'YOUR_SERVICE_ID';
+			// const templateID = 'YOUR_TEMPLATE_ID';
+			const templateParams = {
+				name: this.contactForm.value.name,
+				email: this.contactForm.value.email,
+				phone: this.contactForm.value.phone,
+				organization: this.contactForm.value.organization,
+				message: this.contactForm.value.message
+			};
+
+			// emailjs.send(serviceID, templateID, templateParams).then(
+			// 	(response) => {
+			// 		console.log('Email sent successfully', response.status, response.text);
+			// 		this.contactForm.reset();
+			// 	},
+			// 	(error) => {
+			// 		console.error('Error sending email', error);
+			// 	}
+			// );
+			this.sendEmail(event);
 		}
+	}
+
+	public sendEmail(e: Event) {
+		const templateParams = {
+			name: this.contactForm.value.name,
+			email: this.contactForm.value.email,
+			phone: this.contactForm.value.phone,
+			organization: this.contactForm.value.organization,
+			message: this.contactForm.value.message
+		};
+		e.preventDefault();
+		// emailjs.sendForm('service_bexblvo', 'template_06gx2s8', e.target as HTMLFormElement, 'jruEZYrH0HWzWhXDm').then(
+		emailjs.send('service_bexblvo', 'template_06gx2s8', templateParams, 'jruEZYrH0HWzWhXDm').then(
+			(result: EmailJSResponseStatus) => {
+				console.log(result.text);
+			},
+			(error) => {
+				console.log(error.text);
+			}
+		);
 	}
 }
