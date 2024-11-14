@@ -16,8 +16,8 @@ export default class ContactoComponent {
 
 	constructor(private fb: FormBuilder) {
 		this.contactForm = this.fb.group({
-			name: ['', [Validators.required, Validators.minLength(2)]],
-			email: ['', [Validators.required, Validators.email]],
+			name: ['', [Validators.minLength(2)]],
+			email: ['', [Validators.email]],
 			phone: ['', [Validators.pattern('^[0-9]{9}$')]],
 			organization: [''],
 			message: ['', [Validators.required, Validators.minLength(10)]]
@@ -26,25 +26,6 @@ export default class ContactoComponent {
 
 	onSubmit() {
 		if (this.contactForm.valid) {
-			// const serviceID = 'YOUR_SERVICE_ID';
-			// const templateID = 'YOUR_TEMPLATE_ID';
-			const templateParams = {
-				name: this.contactForm.value.name,
-				email: this.contactForm.value.email,
-				phone: this.contactForm.value.phone,
-				organization: this.contactForm.value.organization,
-				message: this.contactForm.value.message
-			};
-
-			// emailjs.send(serviceID, templateID, templateParams).then(
-			// 	(response) => {
-			// 		console.log('Email sent successfully', response.status, response.text);
-			// 		this.contactForm.reset();
-			// 	},
-			// 	(error) => {
-			// 		console.error('Error sending email', error);
-			// 	}
-			// );
 			this.sendEmail(event);
 		}
 	}
