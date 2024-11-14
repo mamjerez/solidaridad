@@ -1,17 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DialogComponent } from '@app/commons/components/dialog/dialog.component';
 
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+import { DialogService } from '@services/dialog.service';
 
 @Component({
 	selector: 'app-contacto',
 	standalone: true,
-	imports: [CommonModule, ReactiveFormsModule],
+	imports: [CommonModule, ReactiveFormsModule, DialogComponent],
 	templateUrl: './contacto.component.html',
 	styleUrl: './contacto.component.scss'
 })
 export default class ContactoComponent {
+	@ViewChild('dialogComponent', { static: false }) dialogComponent!: DialogComponent;
+	private readonly _dialogService = inject(DialogService);
+
 	contactForm: FormGroup;
 
 	constructor(private fb: FormBuilder) {
@@ -42,11 +47,17 @@ export default class ContactoComponent {
 		// emailjs.sendForm('service_bexblvo', 'template_06gx2s8', e.target as HTMLFormElement, 'jruEZYrH0HWzWhXDm').then(
 		emailjs.send('service_bexblvo', 'template_06gx2s8', templateParams, 'jruEZYrH0HWzWhXDm').then(
 			(result: EmailJSResponseStatus) => {
+				this.mostrarDialog('Correo enviado correctamente', false, 4000);
 				console.log(result.text);
+				this.contactForm.reset();
 			},
 			(error) => {
 				console.log(error.text);
 			}
 		);
+	}
+
+	private mostrarDialog(mensaje: string, hasError: boolean, timeout?: number): void {
+		this._dialogService.openDialog(mensaje, hasError, timeout);
 	}
 }
