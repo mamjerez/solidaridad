@@ -7,11 +7,11 @@ export default [
 	},
 	{
 		path: 'asociaciones',
-		loadComponent: () => import('./asociaciones/asociaciones/asociaciones.component')
+		loadComponent: () => import('./pages/asociaciones/asociaciones/asociaciones.component')
 	},
 	{
 		path: 'ficha',
-		loadComponent: () => import('./asociaciones/ficha/ficha.component')
+		loadComponent: () => import('./pages/asociaciones/ficha/ficha.component')
 	},
 	{
 		path: 'quienesSomos',
