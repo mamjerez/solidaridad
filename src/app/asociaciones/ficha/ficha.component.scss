@@ -71,7 +71,8 @@
 			'activa rma'
 			'sede sede'
 			'distrito barrio'
-			'federacion federacion';
+			'federacion federacion'
+			'email email';
 		width: 660px;
 		margin: 0 auto;
 		caret-color: white;
@@ -126,6 +127,14 @@
 
 	.federacion {
 		grid-area: federacion;
+		width: 150px;
+		&__input {
+			width: 400px;
+		}
+	}
+
+	.email {
+		grid-area: email;
 		width: 150px;
 		&__input {
 			width: 400px;
