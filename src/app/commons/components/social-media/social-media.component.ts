@@ -30,11 +30,6 @@ export class SocialMediaComponent {
 			name: 'Instagram',
 			url: 'https://instagram.com/tuasociacion',
 			icon: '📸'
-		},
-		{
-			name: 'LinkedIn',
-			url: 'https://linkedin.com/company/tuasociacion',
-			icon: '💼'
 		}
 	];
 }
