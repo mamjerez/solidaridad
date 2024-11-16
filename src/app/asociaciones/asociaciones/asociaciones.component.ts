@@ -69,7 +69,7 @@ export default class AsociacionesComponent implements OnInit {
 				headerName: 'Nombre',
 				field: 'nombre',
 				// filter: 'agSetColumnFilter',
-				width: 425
+				width: 375
 				// applyMiniFilterWhileTyping: true
 			} as ISetFilterParams,
 			{
@@ -80,82 +80,82 @@ export default class AsociacionesComponent implements OnInit {
 			{
 				headerName: 'Teléfono',
 				field: 'telefono',
-				width: 140
+				width: 90
 			},
 			{
 				headerName: 'Mail',
-				field: 'mail',
+				field: 'email',
 				width: 175
 			},
-			{
-				headerName: 'WEB',
-				field: 'web',
-				width: 175
-			},
-			{
-				headerName: 'Facebook',
-				field: 'facebook',
-				width: 175
-			},
-			{
-				headerName: 'Instagram',
-				field: 'instagram',
-				width: 175
-			},
-			{
-				headerName: 'Twitter',
-				field: 'twitter',
-				width: 175
-			},
-			{
-				headerName: 'Adscrita',
-				field: 'adscrita',
-				width: 175
-			},
+			// {
+			// 	headerName: 'WEB',
+			// 	field: 'web',
+			// 	width: 175
+			// },
+			// {
+			// 	headerName: 'Facebook',
+			// 	field: 'facebook',
+			// 	width: 175
+			// },
+			// {
+			// 	headerName: 'Instagram',
+			// 	field: 'instagram',
+			// 	width: 175
+			// },
+			// {
+			// 	headerName: 'Twitter',
+			// 	field: 'twitter',
+			// 	width: 175
+			// },
+			// {
+			// 	headerName: 'Adscrita',
+			// 	field: 'adscrita',
+			// 	width: 175
+			// },
 			{
 				headerName: 'Solidaridad',
 				field: 'solidaridad',
-				width: 105
+				width: 65
 			},
 			{
-				headerName: 'Junta Directiva',
+				headerName: 'JD',
 				field: 'junta_directiva',
-				width: 70
+				width: 65
 			},
-			{
-				headerName: 'WhatsApp',
-				field: 'whatsapp',
-				width: 90
-			},
-			{
-				headerName: 'Vocal',
-				field: 'representante_junta_solidaridad',
-				width: 210
-			},
-			{
-				headerName: 'Teléfono Vocal',
-				field: 'telefono_representante',
-				width: 90
-			},
+			// {
+			// 	headerName: 'WhatsApp',
+			// 	field: 'whatsapp',
+			// 	width: 90
+			// },
+			// {
+			// 	headerName: 'Vocal',
+			// 	field: 'representante_junta_solidaridad',
+			// 	width: 210
+			// },
+			// {
+			// 	headerName: 'Teléfono Vocal',
+			// 	field: 'telefono_representante',
+			// 	width: 90
+			// },
 			{
 				headerName: 'Distrito',
 				field: 'distrito',
-				width: 135
+				width: 100
 			},
 			{
 				headerName: 'Barrio',
 				field: 'barrio',
-				width: 200
+				width: 160
 			},
 			{
-				headerName: 'Cuota2023',
+				headerName: '2023',
 				field: 'cuota2023',
-				width: 100
+				width: 80
 			},
 			{
-				headerName: 'Cuota2024',
+				headerName: '2024',
 				field: 'cuota2024',
-				width: 100
+				width: 90
 			}
 		];
 	}
