@@ -10,6 +10,10 @@ export default [
 		loadComponent: () => import('./asociaciones/asociaciones/asociaciones.component')
 	},
 	{
+		path: 'ficha',
+		loadComponent: () => import('./asociaciones/ficha/ficha.component')
+	},
+	{
 		path: 'quienesSomos',
 		loadComponent: () => import('./pages/quienes-somos/quienes-somos.component')
 	},
