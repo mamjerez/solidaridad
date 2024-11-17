@@ -8,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 	imports: []
 })
 export default class HomeComponent implements OnInit {
-	public images = ['/assets/img/juntaDirectiva.jpg', '/assets/img/2024Pelayo.jpg', '/assets/img/2022Mamen.jpg'];
+	public images = [
+		'/assets/img/inicio/juntaDirectiva.jpg',
+		'/assets/img/inicio/2024Pelayo.jpg',
+		'/assets/img/inicio/2022Mamen.jpg'
+	];
 	public currentImageIndex = 0;
 
 	ngOnInit() {

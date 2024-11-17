@@ -20,7 +20,7 @@
 	}
 
 	.main-nav a {
-		font-size: clamp(10px, 2vw, 16px);
+		font-size: clamp(8px, 2vw, 16px);
 		color: #333;
 		text-decoration: none;
 		font-weight: 500;
@@ -39,5 +39,19 @@
 
 	.logo img {
 		height: 30px;
+	}
+
+	@media screen and (max-width: 360px) {
+		.top-bar {
+			width: 360px;
+		}
+
+		.logo img {
+			height: 30px;
+		}
+
+		.main-nav ul {
+			gap: 12px;
+		}
 	}
 }
