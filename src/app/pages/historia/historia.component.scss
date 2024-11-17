@@ -35,11 +35,25 @@ p {
 	padding: 4px 0;
 }
 
-.mission-values {
+.memoria {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 30px;
+	margin-left: 0px;
+	&__img {
+		flex: 1 1 150px;
+	}
+}
+
+.logros {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 30px;
+	&__img {
+		flex: 1 1 150px;
+	}
 }
 
 .text-primary {
@@ -52,4 +66,46 @@ p {
 
 .mb-4 {
 	margin-bottom: 1.5rem;
+}
+
+/* masonry */
+.masonry-container {
+	max-width: 1200px;
+	margin: 20px;
+	column-count: 4;
+	column-gap: 15px;
+}
+
+/* Estilos de las tarjetas */
+.masonry-item {
+	background-color: #fff;
+	margin-bottom: 15px;
+	display: inline-block;
+	width: 100%;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	break-inside: avoid;
+}
+
+.masonry-item img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+@media (max-width: 768px) {
+	.fotoCabecera {
+		justify-content: center;
+		width: 80%;
+	}
+	.masonry-container {
+		column-count: 3;
+	}
+
+	.memoria {
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		gap: 2px;
+	}
 }
