@@ -1,39 +1,39 @@
-<section class="hero">
-	<h1>Nuestra historia</h1>
-</section>
+<main class="main">
+	<section>
+		<h1 class="cabecera">Nuestra historia</h1>
+	</section>
 
-<section class="content-section">
-	<div class="container">
+	<section class="descripcion">
 		<p>
 			Constituida en el año 1988 registrada en la Unidad Registral de Cádiz, sección segunda, de Federaciones y
 			Confederaciones, registrada el 23/05/1988 con el numero 11-2-35.
 		</p>
-	</div>
-</section>
+	</section>
 
-<h1 class="text-primary text-center mb-4">En nuestra memoria</h1>
-<section class="memoria">
-	@for (image of memoriaImages; track image.src) {
-		<div>
-			<img [src]="image.src" [alt]="image.alt" />
-		</div>
-	}
-</section>
+	<h1 class="titulo">En nuestra memoria</h1>
+	<section class="memoria">
+		@for (image of memoriaImages; track image.src) {
+			<div>
+				<img [src]="image.src" [alt]="image.alt" />
+			</div>
+		}
+	</section>
 
-<h1 class="text-primary text-center mb-4">Logros</h1>
-<section class="logros">
-	@for (image of logrosImages; track image.src) {
-		<div>
-			<img [src]="image.src" [alt]="image.alt" />
-		</div>
-	}
-</section>
+	<h1 class="titulo">Logros</h1>
+	<section class="logros">
+		@for (image of logrosImages; track image.src) {
+			<div>
+				<img [src]="image.src" [alt]="image.alt" />
+			</div>
+		}
+	</section>
 
-<h1 class="text-primary text-center mb-4">Recuerdos</h1>
-<section class="masonry-container">
-	@for (image of recuerdosImages; track image.src) {
-		<div class="masonry-item">
-			<img [src]="image.src" [alt]="image.alt" />
-		</div>
-	}
-</section>
+	<h1 class="titulo">Recuerdos</h1>
+	<section class="masonry-container">
+		@for (image of recuerdosImages; track image.src) {
+			<div class="masonry-item">
+				<img [src]="image.src" [alt]="image.alt" />
+			</div>
+		}
+	</section>
+</main>
