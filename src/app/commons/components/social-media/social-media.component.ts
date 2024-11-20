@@ -20,16 +20,16 @@ export class SocialMediaComponent {
 			name: 'Facebook',
 			url: 'https://facebook.com/tuasociacion',
 			icon: '📘'
-		},
-		{
-			name: 'Twitter',
-			url: 'https://twitter.com/tuasociacion',
-			icon: '🐦'
-		},
-		{
-			name: 'Instagram',
-			url: 'https://instagram.com/tuasociacion',
-			icon: '📸'
 		}
+		// {
+		// 	name: 'Twitter',
+		// 	url: 'https://twitter.com/tuasociacion',
+		// 	icon: '🐦'
+		// },
+		// {
+		// 	name: 'Instagram',
+		// 	url: 'https://instagram.com/tuasociacion',
+		// 	icon: '📸'
+		// }
 	];
 }
