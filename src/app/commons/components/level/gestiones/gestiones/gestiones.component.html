@@ -3,7 +3,7 @@
 </div>
 
 <section class="OCM-containerTable">
-	<table class="OCM-tableComentarios">
+	<table class="OCM-tableGestiones">
 		<thead>
 			<tr>
 				<th>Fecha</th>
@@ -23,7 +23,7 @@
 							}
 						}
 						@case (false) {
-							<td>{{ gestion.date }}</td>
+							<td>{{ gestion.date | date: 'd-MM-yyyy' }}</td>
 							<td>{{ gestion.gestor }}</td>
 							<td>{{ gestion.text }}</td>
 						}
