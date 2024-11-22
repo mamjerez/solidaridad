@@ -46,7 +46,9 @@
                         "outputPath": "dist/solidaridad",
                         "index": "src/index.html",
                         "browser": "src/main.ts",
-                        "polyfills": ["src/polyfills.ts"],
+                        "polyfills": [
+                            "src/polyfills.ts"
+                        ],
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
                         "stylePreprocessorOptions": {
@@ -59,7 +61,8 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "src/styles/index.scss"
+                            "src/styles/index.scss",
+                            "node_modules/vanilla-cookieconsent/dist/cookieconsent.css"
                         ],
                         "scripts": [],
                         "allowedCommonJsDependencies": [
