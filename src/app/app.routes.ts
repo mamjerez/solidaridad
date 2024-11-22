@@ -6,6 +6,10 @@ export default [
 		loadComponent: () => import('./pages/home/home.component')
 	},
 	{
+		path: 'auth',
+		loadComponent: () => import('./pages/auth/auth.component')
+	},
+	{
 		path: 'asociaciones',
 		loadComponent: () => import('./pages/asociaciones/asociaciones/asociaciones.component')
 	},

@@ -3,15 +3,29 @@
 		<div class="logo">
 			<img src="assets/img/logo.png" alt="Logo Solidaridad" />
 		</div>
+
 		<nav class="main-nav">
 			<ul>
 				<li><a routerLink="/">Inicio</a></li>
 				<li><a routerLink="quienesSomos">Quiénes Somos</a></li>
 				<li><a routerLink="proyectos">Proyectos</a></li>
-				<li><a routerLink="asociaciones">Asociaciones</a></li>
+				@if (isAdmin) {
+					<li><a routerLink="asociaciones">Asociaciones</a></li>
+				}
 				<li><a routerLink="historia">Nuestra historia</a></li>
 				<li><a routerLink="contacto">Contacto</a></li>
 			</ul>
 		</nav>
+		@if (router.url === '/home') {
+			<div>
+				<img
+					(click)="auth()"
+					class="avatar-button img"
+					[src]="isAdmin ? 'assets/img/mam.png' : 'assets/img/anom.png'"
+					alt="Avatar"
+				/>
+			</div>
+		}
 	</div>
+	<app-dialog></app-dialog>
 </main>
