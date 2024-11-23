@@ -3,6 +3,7 @@
 
 p {
 	font-size: 1.5rem;
+	color: #f7eeee;
 }
 
 a {
@@ -10,10 +11,11 @@ a {
 }
 
 .main-footer {
-	background: #333;
-	color: white;
+	// background: #333;
+	background-image: url('/assets/footer.png');
+	// color: white;
 	padding: 2rem 0 0;
-	margin-top: 40px;
+	// margin-top: 4px;
 	max-width: 1200px;
 
 	.footer-content {
@@ -27,7 +29,7 @@ a {
 
 	.footer-section {
 		h4 {
-			color: #fff;
+			color: #1b0202;
 			margin-bottom: 1rem;
 		}
 
@@ -41,7 +43,7 @@ a {
 		}
 
 		a {
-			color: #fff;
+			color: #f5efef;
 			text-decoration: none;
 			transition: color 0.3s;
 
@@ -52,7 +54,7 @@ a {
 	}
 
 	.footer-section-enlaces a {
-		color: #fff;
+		color: #f8f3f3;
 		text-decoration: none;
 		transition: color 0.3s;
 

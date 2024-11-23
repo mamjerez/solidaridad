@@ -1,3 +1,12 @@
+.fondo {
+	background-image: url('/assets/ondasAzules1.png');
+	// background-size: cover;
+	// height: 100%;
+	// background-repeat: no-çrepeat;
+	// background-attachment: fixed;
+	// background-position: center;
+}
+
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
@@ -13,22 +22,24 @@ h1 {
 p {
 	font-size: 1.5rem;
 	line-height: 2rem;
+	color: white;
+	// margin: 0 auto;
 }
 
 .hero {
-	background-color: #004a99;
+	// background-color: #004a99;
 	color: white;
 	// padding: 60px 0;
 	text-align: center;
 }
 
 .content-section {
-	padding: 40px 0;
+	padding: 4px 0;
 }
 
 .mission-values {
-	background-color: #f5f5f5;
-	padding: 40px 0;
+	// background-color: #f5f5f5;
+	padding: 10px 0;
 }
 
 .grid {
@@ -39,14 +50,17 @@ p {
 }
 
 .card {
-	background: white;
+	// background: white;
+	color: white;
+	background-image: url('/assets/ondasAzules.png');
+	// background-size: cover;
 	padding: 20px;
 	border-radius: 8px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .text-primary {
-	color: #004a99;
+	color: white;
 }
 
 .text-center {
@@ -55,4 +69,8 @@ p {
 
 .mb-4 {
 	margin-bottom: 1.5rem;
+}
+
+.mb-8 {
+	font-size: 1.8rem;
 }
