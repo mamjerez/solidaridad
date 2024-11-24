@@ -33,6 +33,10 @@ export default [
 		path: 'contacto',
 		loadComponent: () => import('./pages/contacto/contacto.component')
 	},
+	{
+		path: 'resumenPrensa',
+		loadComponent: () => import('./pages/resumen-prensa/resumen-prensa.component')
+	},
 
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }
 ] as Routes;

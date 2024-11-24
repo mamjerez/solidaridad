@@ -18,6 +18,22 @@ export class SupabaseService {
 		this._supabase = createClient(supabaseUrl, supabaseKey);
 	}
 
+	async getTodayNews(): Promise<any[]> {
+		const today = new Date();
+		const yesterday = new Date();
+		yesterday.setDate(today.getDate() - 1);
+
+		const todayStr = today.toISOString().split('T')[0];
+		const yesterdayStr = yesterday.toISOString().split('T')[0];
+
+		const { data, error } = await this._supabase.from('news').select('*').in('date', [todayStr, yesterdayStr]);
+
+		if (error) throw error;
+		console.log('data', data);
+
+		return data || [];
+	}
+
 	async fetchData1(): Promise<any> {
 		const { data, error } = await this._supabase.rpc('obtener_detalle_entidad_organizativa', {
 			p_id_entidad_organizativa: 10

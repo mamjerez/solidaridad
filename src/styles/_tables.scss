@@ -76,6 +76,8 @@
 	.OCM-tableNoticiasDocumentos {
 		@extend .OCM-tableBase;
 		width: 97%;
+		margin-top: 20px;
+		max-width: 1200px;
 
 		td {
 			&:nth-child(1) {
