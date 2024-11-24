@@ -12,12 +12,6 @@ import NoticiasComponent from '@app/commons/components/level/noticias/noticias.c
 })
 export default class ResumenPrensaComponent implements OnInit {
 	public news: INew[] = [];
-	masonryOptions = {
-		gutter: 20,
-		fitWidth: true,
-		columnWidth: 350
-	};
-
 	constructor(private supabaseService: SupabaseService) {}
 
 	async ngOnInit() {
