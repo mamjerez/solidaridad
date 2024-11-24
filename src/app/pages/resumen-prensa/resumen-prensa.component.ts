@@ -1,14 +1,12 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { SupabaseService } from '@services/supabase.service';
-import { NgxMasonryModule } from 'ngx-masonry';
 import { INew } from '@interfaces/new.interface';
 import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
 
 @Component({
 	selector: 'app-resumen-prensa',
 	standalone: true,
-	imports: [CommonModule, NgxMasonryModule, NoticiasComponent],
+	imports: [NoticiasComponent],
 	templateUrl: './resumen-prensa.component.html',
 	styleUrl: './resumen-prensa.component.scss'
 })
