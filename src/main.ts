@@ -5,8 +5,6 @@ import { LOCALE_ID, enableProdMode, importProvidersFrom } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
-
-import { HighchartsChartModule } from 'highcharts-angular';
 import { AppComponent } from './app/app.component';
 import APP_ROUTES from './app/app.routes';
 import { environment } from './environments/environment';
@@ -20,7 +18,7 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
 	providers: [
 		provideRouter(APP_ROUTES, withComponentInputBinding(), withViewTransitions()),
-		importProvidersFrom(BrowserModule, FormsModule, ReactiveFormsModule, HighchartsChartModule),
+		importProvidersFrom(BrowserModule, FormsModule, ReactiveFormsModule),
 		{
 			provide: LocationStrategy,
 			useClass: HashLocationStrategy
