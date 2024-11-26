@@ -30,7 +30,7 @@
 
 	<h1 class="titulo">Recuerdos</h1>
 	<section class="masonry-container">
-		@for (image of recuerdosImages; track image.src) {
+		@for (image of recuerdosImages; track image.id) {
 			<div class="masonry-item">
 				<img [src]="image.src" [alt]="image.alt" />
 			</div>
