@@ -16,7 +16,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@for (cargo of cargos; track cargo.persona_id) {
+			@for (cargo of cargos; track cargo.cargo) {
 				<tr>
 					<td>{{ cargo.cargo }}</td>
 					<td>{{ cargo.nombre_cargo }}</td>
