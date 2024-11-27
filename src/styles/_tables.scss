@@ -81,15 +81,18 @@
 
 		td {
 			&:nth-child(1) {
-				width: 15%;
+				width: 14%;
+				text-align: center;
 			}
 
 			&:nth-child(2) {
 				width: 15%;
+				padding-left: 5px;
 			}
 
 			&:nth-child(3) {
-				width: 64%;
+				width: 70%;
+				line-height: 12px;
 			}
 
 			&:nth-child(4) {
