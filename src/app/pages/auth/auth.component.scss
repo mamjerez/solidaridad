@@ -1,4 +1,4 @@
-.a {
+.password {
 	margin: 0 auto;
 	width: 50%;
 	text-align: center;
@@ -6,11 +6,15 @@
 }
 
 input {
-	width: 100%;
 	padding: 10px;
 	margin: 0 auto;
-	display: block;
 	width: 20%;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
+	margin-bottom: 20px;
+}
+
+@media screen and (max-width: 570px) {
+	input {
+		width: 100%;
+		margin-bottom: 10px;
+	}
 }
