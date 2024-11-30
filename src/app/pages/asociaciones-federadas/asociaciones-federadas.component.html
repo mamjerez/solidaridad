@@ -7,5 +7,20 @@
 			</li>
 		}
 	</ul>
-	<p>Version 26 noviembre 2024</p>
 </div>
+
+<main class="agGrid">
+	<header class="OCM-title">Relación Asociaciones federadas</header>
+	@if (gridOptions) {
+		<ag-grid-angular
+			#agGrid
+			style="width: 86vw; height: 90vh; margin: 20px"
+			class="ag-theme-balham"
+			[gridOptions]="gridOptions"
+			(gridReady)="onGridReady($event)"
+			(rowClicked)="onRowClicked($event)"
+		>
+			>
+		</ag-grid-angular>
+	}
+</main>

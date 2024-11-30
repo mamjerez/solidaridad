@@ -80,6 +80,19 @@ export class SupabaseService {
 		return dataFiltered.sort((a, b) => a.orden - b.orden);
 	}
 
+	async fetchDataFederadas(): Promise<any> {
+		const { data, error } = await this._supabase
+			.from('solidaridad_asociaciones')
+			.select('id,nombre,distrito,barrio,solidaridad,tag');
+
+		const dataFiltered = data.filter((item) => item.solidaridad === true);
+		console.log(dataFiltered);
+
+		if (error) throw error;
+
+		return dataFiltered;
+	}
+
 	async insertRow(tableName: string, dataForm: any): Promise<any> {
 		const { data, error } = await this._supabase.from(tableName).insert([dataForm]).select();
 
