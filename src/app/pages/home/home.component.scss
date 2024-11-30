@@ -6,8 +6,10 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	gap: 2rem;
-	margin-top: 2rem;
+	margin-top: 4rem;
+	margin-bottom: 4rem;
 }
+
 .featured-item {
 	text-align: center;
 	background: white;
@@ -24,9 +26,9 @@
 }
 
 .text-primary {
-	color: rgb(8, 0, 0);
-	font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem);
-	font-weight: 500;
+	color: rgb(19, 16, 167);
+	font-size: clamp(1.333rem, 1vw + 3rem, 7.133rem);
+	font-weight: 600;
 	line-height: 3rem;
 	text-align: center;
 	margin: 10px;

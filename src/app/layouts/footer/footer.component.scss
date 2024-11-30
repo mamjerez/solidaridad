@@ -3,16 +3,25 @@
 
 p {
 	font-size: 1.5rem;
-	color: #181717;
+	color: #0f0101;
+	font-weight: 500;
 }
 
 a {
 	font-size: 1.5rem;
+	color: #0f0101;
+	font-weight: 500;
+}
+
+h2 {
+	font-size: 1.5rem;
+	color: #ece9e9;
+	font-weight: 600;
 }
 
 .main-footer {
-	// background: #333;
-	background-image: url('/assets/ondasAzules3.png');
+	background: #8f8d8d;
+	// background-image: url('/assets/ondasAzules3.png');
 	// color: white;
 	padding: 2rem 0 0;
 	// margin-top: 4px;
@@ -29,7 +38,7 @@ a {
 
 	.footer-section {
 		h4 {
-			color: #1b0202;
+			color: #0a0000;
 			margin-bottom: 1rem;
 		}
 
@@ -54,7 +63,7 @@ a {
 	}
 
 	.footer-section-enlaces a {
-		color: #1a1818;
+		color: #080000;
 		text-decoration: none;
 		transition: color 0.3s;
 
