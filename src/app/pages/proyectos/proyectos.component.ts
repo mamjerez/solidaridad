@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { Project } from './components/proyectos.model';
+import { Component, inject } from '@angular/core';
 import { PROJECTS } from './components/proyectos.data';
 import { ProjectCardComponent } from './components/proyectos-card.component';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-proyectos',
@@ -11,6 +11,7 @@ import { ProjectCardComponent } from './components/proyectos-card.component';
 	styleUrl: './proyectos.component.scss'
 })
 export default class ProyectosCardComponent {
+	private readonly _router = inject(Router);
 	projects = PROJECTS;
 	filteredProjects = PROJECTS;
 	showProjectForm = false;
@@ -18,5 +19,9 @@ export default class ProyectosCardComponent {
 	onFilterChange(status: string) {
 		this.filteredProjects =
 			status === 'Todos' ? this.projects : this.projects.filter((project) => project.status === status);
+	}
+
+	navigateTo(path: string) {
+		this._router.navigate([path]);
 	}
 }

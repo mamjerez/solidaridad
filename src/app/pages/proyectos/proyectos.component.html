@@ -1,16 +1,34 @@
 <main class="container">
-	<section class="hero">
-		<h2>Nuestros Proyectos</h2>
-	</section>
+	<div>
+		<p class="text-primary">Nuestros proyectos</p>
+	</div>
 
-	<section class="grid grid-3">
+	<!-- <section class="grid grid-3">
 		@for (project of filteredProjects; track project.id) {
 			<app-projectos-card [project]="project"></app-projectos-card>
 		}
-	</section>
+	</section> -->
 	<!-- 
 	<section class="cta">
 		<h3>¿Tienes una idea para la comunidad?</h3>
 		<p>Nos encantaría escuchar tus propuestas para mejorar nuestro barrio</p>
 	</section> -->
+
+	<div class="featured-grid">
+		<div class="featured-item" (click)="navigateTo('/asociacionesFederadas')">
+			<img
+				src="https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/solidaridad/planEstrategicoSubvenciones2024-2026.jpg?t=2024-11-30T18%3A37%3A38.954Z"
+			/>
+		</div>
+		<div class="featured-item">
+			<img
+				src="https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/solidaridad/facultadCienciasSociales.jpg?t=2024-11-30T18%3A53%3A18.662Z"
+			/>
+		</div>
+		<div class="featured-item">
+			<img
+				src="https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/solidaridad/ateneoSigloXXI.jpg?t=2024-11-30T18%3A53%3A36.012Z"
+			/>
+		</div>
+	</div>
 </main>
