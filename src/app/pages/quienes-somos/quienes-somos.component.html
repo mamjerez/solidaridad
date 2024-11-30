@@ -1,4 +1,4 @@
-<main class="fondo">
+<!-- <main class="fondo">
 	<section class="hero">
 		<h1>Quiénes Somos</h1>
 	</section>
@@ -40,4 +40,50 @@
 			</div>
 		</div>
 	</section>
+</main> -->
+
+<main class="container">
+	<div>
+		<h3 class="text-primary">¿Quiénes somos?</h3>
+	</div>
+
+	<!-- <section class="grid grid-3">
+		@for (project of filteredProjects; track project.id) {
+			<app-projectos-card [project]="project"></app-projectos-card>
+		}
+	</section> -->
+	<!-- 
+	<section class="cta">
+		<h3>¿Tienes una idea para la comunidad?</h3>
+		<p>Nos encantaría escuchar tus propuestas para mejorar nuestro barrio</p>
+	</section> -->
+
+	<div class="featured-grid">
+		<!-- https://www.svgrepo.com/ -->
+		<div class="featured-item" (click)="navigateTo('/asociacionesFederadas')">
+			<object data="assets/img/mision.svg" type="image/svg+xml" class="icon" width="48" height="48"></object>
+			<h3>Misión</h3>
+			<p>Promover el desarrollo de la participación ciudadana a través de las Asociaciones Vecinales.</p>
+		</div>
+		<div class="featured-item">
+			<object data="assets/img/vision.svg" type="image/svg+xml" class="icon" width="48" height="48"></object>
+			<h3>Visión</h3>
+			<p>
+				Aspiramos a ser un referente en la construcción de una sociedad más equitativa, donde todas las personas tengan
+				las mismas oportunidades.
+			</p>
+		</div>
+
+		<div class="featured-item" (click)="navigateTo('/plataformas')">
+			<object data="assets/img/valores.svg" type="image/svg+xml" class="icon" width="48" height="48"></object>
+			<h3>Valores</h3>
+			<p>
+				• Solidaridad<br />
+				• Transparencia<br />
+				• Compromiso social<br />
+				• Innovación<br />
+				• Profesionalidad
+			</p>
+		</div>
+	</div>
 </main>
