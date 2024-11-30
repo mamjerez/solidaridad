@@ -19,15 +19,12 @@ export class DialogService {
 	dialogConfig$ = this.dialogConfig.asObservable();
 
 	openDialog(mensaje: string, isError: boolean, isBack: boolean, timeout?: number) {
-		console.log('openDialog', mensaje, isError, isBack, timeout);
-
+		// console.log('openDialog', mensaje, isError, isBack, timeout);
 		this.dialogConfig.next({ mensaje, isError, isBack, timeout });
 		this.dialogVisibility.next(true);
 	}
 
 	closeDialog() {
-		console.log('closeDialog');
-
 		this.dialogVisibility.next(false);
 	}
 }

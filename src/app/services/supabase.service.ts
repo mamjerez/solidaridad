@@ -86,10 +86,8 @@ export class SupabaseService {
 			.select('id,nombre,distrito,barrio,solidaridad,tag');
 
 		const dataFiltered = data.filter((item) => item.solidaridad === true);
-		console.log(dataFiltered);
 
 		if (error) throw error;
-
 		return dataFiltered;
 	}
 
