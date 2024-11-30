@@ -18,6 +18,10 @@ export default [
 		loadComponent: () => import('./pages/asociaciones-federadas/asociaciones-federadas.component')
 	},
 	{
+		path: 'plataformas',
+		loadComponent: () => import('./pages/plataformas/plataformas.component')
+	},
+	{
 		path: 'sanEnrique',
 		loadComponent: () => import('./pages/asociaciones-federadas/san-enrique/san-enrique.component')
 	},

@@ -93,6 +93,16 @@ export class SupabaseService {
 		return data || [];
 	}
 
+	async fetchDataPlataformas(): Promise<any[]> {
+		const { data, error } = await this._supabase.from('solidaridad_plataformas').select('*');
+		if (error) {
+			console.error('Error fetching data:', error);
+			throw error;
+		}
+
+		return data || [];
+	}
+
 	async insertRow(tableName: string, dataForm: any): Promise<any> {
 		const { data, error } = await this._supabase.from(tableName).insert([dataForm]).select();
 

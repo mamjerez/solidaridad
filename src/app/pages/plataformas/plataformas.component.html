@@ -1,0 +1,17 @@
+<main class="agGrid">
+	<header class="OCM-title">Relación plataformas</header>
+	<div>
+		@if (gridOptions) {
+			<ag-grid-angular
+				#agGrid
+				style="width: 62vw; height: 66vh"
+				class="ag-theme-balham"
+				[gridOptions]="gridOptions"
+				(gridReady)="onGridReady($event)"
+				(rowClicked)="onRowClicked($event)"
+			>
+				>
+			</ag-grid-angular>
+		}
+	</div>
+</main>
