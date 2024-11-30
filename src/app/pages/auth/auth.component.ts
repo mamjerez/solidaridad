@@ -34,15 +34,15 @@ export default class AuthComponent implements OnInit {
 		if (this.password === this.correctPassword) {
 			this._isAdminService.setIsAdmin(true);
 			this.mensaje = 'Ahora eres administrador';
-			this.mostrarDialog('Ahora eres administrador', false);
+			this.mostrarDialog('Ahora eres administrador', false, true);
 		} else {
 			this.mensaje = 'Contraseña incorrecta';
-			this.mostrarDialog('Contraseña incorrecta', true);
+			this.mostrarDialog('Contraseña incorrecta', true, false);
 		}
 	}
 
-	private mostrarDialog(mensaje: string, hasError: boolean, timeout?: number): void {
-		this._dialogService.openDialog(mensaje, hasError, timeout);
+	private mostrarDialog(mensaje: string, hasError: boolean, isBack: boolean, timeout?: number): void {
+		this._dialogService.openDialog(mensaje, hasError, isBack, timeout);
 		// La lógica de cierre y navegación ahora está manejada por DialogComponent
 	}
 }

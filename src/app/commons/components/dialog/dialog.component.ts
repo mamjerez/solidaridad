@@ -20,7 +20,7 @@ export class DialogComponent implements AfterViewInit, OnDestroy {
 	@ViewChild('dialog') dialog!: ElementRef<HTMLDialogElement>;
 	private _subscriptions = new Subscription();
 	private _timeoutSubscription?: Subscription;
-	public config = { mensaje: '', isError: false, timeout: 2000 };
+	public config = { mensaje: '', isError: false, isBack: false, timeout: 2000 };
 
 	constructor(
 		private dialogService: DialogService,
@@ -36,9 +36,9 @@ export class DialogComponent implements AfterViewInit, OnDestroy {
 				const timeoutDuration = this.config.timeout ?? 2000; // Si timeout es undefined, usa 2000ms
 				this._timeoutSubscription = timer(timeoutDuration).subscribe(() => {
 					this.dialogService.closeDialog();
-					// if (!this.config.isError) {
-					// this.location.back();
-					// }
+					if (this.config.isBack) {
+						this.location.back();
+					}
 				});
 			} else {
 				this.dialog.nativeElement.close();

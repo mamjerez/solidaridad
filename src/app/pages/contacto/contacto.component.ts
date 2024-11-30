@@ -47,7 +47,7 @@ export default class ContactoComponent {
 		// emailjs.sendForm('service_bexblvo', 'template_06gx2s8', e.target as HTMLFormElement, 'jruEZYrH0HWzWhXDm').then(
 		emailjs.send('service_bexblvo', 'template_06gx2s8', templateParams, 'jruEZYrH0HWzWhXDm').then(
 			(result: EmailJSResponseStatus) => {
-				this.mostrarDialog('Correo enviado correctamente', false, 4000);
+				this.mostrarDialog('Correo enviado correctamente', false, false, 4000);
 				console.log(result.text);
 				this.contactForm.reset();
 			},
@@ -57,7 +57,7 @@ export default class ContactoComponent {
 		);
 	}
 
-	private mostrarDialog(mensaje: string, hasError: boolean, timeout?: number): void {
-		this._dialogService.openDialog(mensaje, hasError, timeout);
+	private mostrarDialog(mensaje: string, hasError: boolean, isBack: boolean, timeout?: number): void {
+		this._dialogService.openDialog(mensaje, hasError, isBack, timeout);
 	}
 }

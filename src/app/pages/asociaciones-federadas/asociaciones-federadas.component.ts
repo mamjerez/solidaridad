@@ -165,7 +165,7 @@ export default class AsociacionesFederadasComponent implements OnInit {
 	onRowClicked(event: RowClickedEvent) {
 		console.log('Row clicked:', event);
 		if (!event.data.tag) {
-			this.mostrarDialog('Asociacion sin datos de momento', true);
+			this.mostrarDialog('Asociacion sin datos de momento', true, false, 2000);
 			console.log('No tag:', event.data);
 
 			this._router.navigate(['asociacionesFederadas']);
@@ -175,7 +175,7 @@ export default class AsociacionesFederadasComponent implements OnInit {
 		}
 	}
 
-	private mostrarDialog(mensaje: string, hasError: boolean, timeout?: number): void {
-		this._dialogService.openDialog(mensaje, hasError, timeout);
+	private mostrarDialog(mensaje: string, hasError: boolean, isBack: boolean, timeout?: number): void {
+		this._dialogService.openDialog(mensaje, hasError, isBack, timeout);
 	}
 }

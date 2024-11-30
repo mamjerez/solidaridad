@@ -10,17 +10,18 @@ export class DialogService {
 	dialogVisible$ = this.dialogVisibility.asObservable();
 
 	// BehaviorSubject para gestionar el contenido del diálogo
-	private dialogConfig = new BehaviorSubject<{ mensaje: string; isError: boolean; timeout?: number }>({
+	private dialogConfig = new BehaviorSubject<{ mensaje: string; isError: boolean; isBack: boolean; timeout?: number }>({
 		mensaje: '',
-		isError: false
+		isError: false,
+		isBack: false
 		// Dejamos timeout opcional
 	});
 	dialogConfig$ = this.dialogConfig.asObservable();
 
-	openDialog(mensaje: string, isError: boolean, timeout?: number) {
-		console.log('openDialog', mensaje, isError, timeout);
+	openDialog(mensaje: string, isError: boolean, isBack: boolean, timeout?: number) {
+		console.log('openDialog', mensaje, isError, isBack, timeout);
 
-		this.dialogConfig.next({ mensaje, isError, timeout });
+		this.dialogConfig.next({ mensaje, isError, isBack, timeout });
 		this.dialogVisibility.next(true);
 	}
 
