@@ -37,7 +37,7 @@ export class DialogComponent implements AfterViewInit, OnDestroy {
 				this._timeoutSubscription = timer(timeoutDuration).subscribe(() => {
 					this.dialogService.closeDialog();
 					// if (!this.config.isError) {
-					this.location.back();
+					// this.location.back();
 					// }
 				});
 			} else {

@@ -1,4 +1,4 @@
-<div class="footer-section-enlaces">
+<!-- <div class="footer-section-enlaces">
 	<h2>Asociciones Vecinales federadas</h2>
 	<ul>
 		@for (asociacion of asociaciones; track asociacion) {
@@ -7,20 +7,34 @@
 			</li>
 		}
 	</ul>
-</div>
+</div> -->
 
 <main class="agGrid">
 	<header class="OCM-title">Relación Asociaciones federadas</header>
-	@if (gridOptions) {
-		<ag-grid-angular
-			#agGrid
-			style="width: 86vw; height: 90vh; margin: 20px"
-			class="ag-theme-balham"
-			[gridOptions]="gridOptions"
-			(gridReady)="onGridReady($event)"
-			(rowClicked)="onRowClicked($event)"
-		>
+	<div>
+		@if (gridOptions) {
+			<ag-grid-angular
+				#agGrid
+				style="width: 62vw; height: 66vh"
+				class="ag-theme-balham"
+				[gridOptions]="gridOptions"
+				(gridReady)="onGridReady($event)"
+				(rowClicked)="onRowClicked($event)"
 			>
-		</ag-grid-angular>
-	}
+				>
+			</ag-grid-angular>
+		}
+	</div>
 </main>
+
+<dialog #dialog>
+	@if (mensaje === 'Contraseña incorrecta') {
+		<div class="error">
+			{{ mensaje }}
+		</div>
+	} @else {
+		<div class="success">
+			{{ mensaje }}
+		</div>
+	}
+</dialog>

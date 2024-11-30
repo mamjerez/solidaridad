@@ -25,6 +25,8 @@ export class DialogService {
 	}
 
 	closeDialog() {
+		console.log('closeDialog');
+
 		this.dialogVisibility.next(false);
 	}
 }
