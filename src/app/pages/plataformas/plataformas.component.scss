@@ -2,3 +2,15 @@ div {
 	display: flex;
 	justify-content: center;
 }
+
+.md {
+	width: 62vw;
+	height: 66vh;
+}
+
+@media screen and (max-width: 570px) {
+	.md {
+		width: 100vw;
+		height: 66vh;
+	}
+}

@@ -4,8 +4,7 @@
 		@if (gridOptions) {
 			<ag-grid-angular
 				#agGrid
-				style="width: 62vw; height: 66vh"
-				class="ag-theme-balham"
+				class="ag-theme-balham md"
 				[gridOptions]="gridOptions"
 				(gridReady)="onGridReady($event)"
 				(rowClicked)="onRowClicked($event)"

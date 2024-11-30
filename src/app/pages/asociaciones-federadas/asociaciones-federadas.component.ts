@@ -50,12 +50,6 @@ export default class AsociacionesFederadasComponent implements OnInit {
 	private readonly _dialogService = inject(DialogService);
 	private _data: IAsociaciones[];
 
-	// asociaciones = [
-	// 	{ nombre: 'San Enrique', ruta: '/sanEnrique' },
-	// 	{ nombre: 'Albarizuela', ruta: 'https://albarizuela.org/home' },
-	// 	{ nombre: 'La Granja', ruta: '/la-granja' }
-	// ];
-
 	navigateTo(path: string) {
 		if (path.startsWith('http')) {
 			window.open(path, '_blank');
@@ -80,11 +74,11 @@ export default class AsociacionesFederadasComponent implements OnInit {
 
 	_setColumnDefs() {
 		this._columnDefs = [
-			{
-				headerName: 'id',
-				field: 'id',
-				width: 42
-			},
+			// {
+			// 	headerName: 'id',
+			// 	field: 'id',
+			// 	width: 42
+			// },
 			{
 				headerName: 'Nombre',
 				field: 'nombre',
