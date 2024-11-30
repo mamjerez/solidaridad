@@ -52,6 +52,34 @@ export class SupabaseService {
 		return data;
 	}
 
+	async fetchDataByLevel(level: string, tag?: string): Promise<any> {
+		const { data, error } = await this._supabase
+			.from('albarizuela_menu_cards')
+			.select('id,tag,title,level,has_imagen,is_last_level,is_visible,orden,level_up,url_externa')
+			.eq('level', level);
+		const dataFiltered = data
+			.filter((item) => item.is_visible === true)
+			.filter((item) => (tag ? item['level_up'] === tag : true));
+
+		if (error) throw error;
+
+		return dataFiltered.sort((a, b) => a.orden - b.orden);
+	}
+
+	async fetchDataHomeSanEnrique(level: string, tag?: string): Promise<any> {
+		const { data, error } = await this._supabase
+			.from('sanenrique_menu_cards')
+			.select('id,tag,title,level,has_imagen,is_last_level,is_visible,orden,level_up,url_externa')
+			.eq('level', level);
+		const dataFiltered = data
+			.filter((item) => item.is_visible === true)
+			.filter((item) => (tag ? item['level_up'] === tag : true));
+
+		if (error) throw error;
+
+		return dataFiltered.sort((a, b) => a.orden - b.orden);
+	}
+
 	async insertRow(tableName: string, dataForm: any): Promise<any> {
 		const { data, error } = await this._supabase.from(tableName).insert([dataForm]).select();
 

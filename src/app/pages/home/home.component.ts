@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-home',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 	imports: []
 })
 export default class HomeComponent implements OnInit {
+	private readonly _router = inject(Router);
 	public images = [
 		'/assets/img/inicio/juntaDirectiva.jpg',
 		'/assets/img/inicio/2024Pelayo.jpg',
@@ -23,5 +25,9 @@ export default class HomeComponent implements OnInit {
 		setInterval(() => {
 			this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
 		}, 3000);
+	}
+
+	navigateTo(path: string) {
+		this._router.navigate([path]);
 	}
 }

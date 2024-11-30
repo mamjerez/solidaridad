@@ -1,0 +1,11 @@
+<div class="footer-section-enlaces">
+	<h2>Asociciones Vecinales federadas</h2>
+	<ul>
+		@for (asociacion of asociaciones; track asociacion) {
+			<li>
+				<button (click)="navigateTo(asociacion.ruta)">{{ asociacion.nombre }}</button>
+			</li>
+		}
+	</ul>
+	<p>Version 26 noviembre 2024</p>
+</div>

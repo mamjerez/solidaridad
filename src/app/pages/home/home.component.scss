@@ -23,6 +23,24 @@
 	font-size: 2.5rem;
 }
 
+.text-primary {
+	color: rgb(8, 0, 0);
+	font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+	font-weight: 500;
+	line-height: 3rem;
+	text-align: center;
+	margin: 10px;
+}
+
+.featured-item {
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+.featured-item:hover {
+	transform: scale(1.05);
+}
+
 @media (max-width: 768px) {
 	.hero {
 		height: 160px;

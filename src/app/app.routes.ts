@@ -14,6 +14,14 @@ export default [
 		loadComponent: () => import('./pages/asociaciones/asociaciones/asociaciones.component')
 	},
 	{
+		path: 'asociacionesFederadas',
+		loadComponent: () => import('./pages/asociaciones-federadas/asociaciones-federadas.component')
+	},
+	{
+		path: 'sanEnrique',
+		loadComponent: () => import('./pages/asociaciones-federadas/san-enrique/san-enrique.component')
+	},
+	{
 		path: 'ficha',
 		loadComponent: () => import('./pages/asociaciones/ficha/ficha.component')
 	},
