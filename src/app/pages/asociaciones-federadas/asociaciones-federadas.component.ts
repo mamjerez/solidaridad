@@ -162,7 +162,11 @@ export default class AsociacionesFederadasComponent implements OnInit {
 			this._router.navigate(['asociacionesFederadas']);
 			// return;
 		} else {
-			this._router.navigate([event.data.tag], { state: { data: event.data } });
+			if (event.data.tag === 'albarizuela') {
+				window.open('https://albarizuela.org/', '_blank');
+			} else {
+				this._router.navigate([event.data.tag], { state: { data: event.data } });
+			}
 		}
 	}
 
