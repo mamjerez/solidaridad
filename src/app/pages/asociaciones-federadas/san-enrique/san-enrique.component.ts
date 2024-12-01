@@ -24,7 +24,7 @@ export default class SanEnriqueComponent implements OnInit {
 
 	async createCardMenu() {
 		try {
-			const data = await this._supabaseService.fetchDataHomeSanEnrique('home');
+			const data = await this._supabaseService.fetchDataHomeAVV('sanenrique_menu_cards');
 			this.cards = data.map((card) => ({
 				...card,
 				rutaImagen: `${environment.pathImgSupabase}${card.tag}.jpg`,
