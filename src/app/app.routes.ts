@@ -26,6 +26,10 @@ export default [
 		loadComponent: () => import('./pages/asociaciones-federadas/san-enrique/san-enrique.component')
 	},
 	{
+		path: 'laPlata',
+		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/la-plata.component')
+	},
+	{
 		path: 'ficha',
 		loadComponent: () => import('./pages/asociaciones/ficha/ficha.component')
 	},
