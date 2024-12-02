@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 import { ICard } from '@interfaces/card.interface';
 import { SupabaseService } from '@services/supabase.service';
-import { environment } from '@environments/environment';
 
 @Component({
 	selector: 'app-la-plata',
@@ -15,6 +14,7 @@ import { environment } from '@environments/environment';
 export default class LaPlataComponent implements OnInit {
 	private readonly _supabaseService = inject(SupabaseService);
 	private readonly _router = inject(Router);
+	private _pathImage = 'https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/laPlata/';
 	public cards: ICard[] = [];
 
 	ngOnInit() {
@@ -26,7 +26,7 @@ export default class LaPlataComponent implements OnInit {
 			const data = await this._supabaseService.fetchDataHomeAVV('laplata_menu_cards');
 			this.cards = data.map((card) => ({
 				...card,
-				rutaImagen: `${environment.pathImgSupabase}${card.tag}.jpg`,
+				rutaImagen: `${this._pathImage}${card.tag}.jpg`,
 				funcion: () => this._router.navigateByUrl(card.tag)
 			}));
 		} catch (error) {

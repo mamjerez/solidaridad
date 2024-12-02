@@ -103,6 +103,33 @@ export class SupabaseService {
 		return data || [];
 	}
 
+	async fetchFotosByTagOrder(tableName: string, tag: string): Promise<any> {
+		const { data, error } = await this._supabase
+			.from(tableName)
+			.select('*')
+			.eq('tag', tag)
+			.order('orden', { ascending: true });
+		if (error) throw error;
+		return data;
+	}
+
+	async fetchNews(startDate?: string, endDate?: string): Promise<any[]> {
+		// let query = this._supabase.from('news').select('*').order('date', { ascending: false }).limit(20);
+		let query = this._supabase
+			.from('news')
+			.select('date, media, title, url_new, tag')
+			.order('date', { ascending: false });
+
+		if (startDate && endDate) {
+			query = query.gte('date', startDate).lte('date', endDate);
+		}
+
+		const { data, error } = await query;
+
+		if (error) throw new Error(error.message);
+		return data;
+	}
+
 	async insertRow(tableName: string, dataForm: any): Promise<any> {
 		const { data, error } = await this._supabase.from(tableName).insert([dataForm]).select();
 

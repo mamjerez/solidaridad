@@ -1,0 +1,50 @@
+h1 {
+	text-align: center;
+	color: #333;
+}
+
+p {
+	text-align: center;
+	color: #333;
+	font-size: medium;
+	margin: 0;
+}
+
+/* Contenedor principal */
+.masonry-container {
+	max-width: 1200px;
+	margin: 20px;
+	column-count: 4;
+	column-gap: 15px;
+}
+
+/* Estilos de las tarjetas */
+.masonry-item {
+	background-color: #fff;
+	margin-bottom: 15px;
+	display: inline-block;
+	width: 100%;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	break-inside: avoid;
+}
+
+.masonry-item img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.caption {
+	padding: 15px;
+	font-size: 14px;
+	color: #555;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+	.masonry-container {
+		column-count: 3;
+	}
+}

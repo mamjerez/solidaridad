@@ -30,6 +30,10 @@ export default [
 		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/la-plata.component')
 	},
 	{
+		path: 'aparcamientoLaPlata',
+		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/aparcamiento/aparcamiento.component')
+	},
+	{
 		path: 'ficha',
 		loadComponent: () => import('./pages/asociaciones/ficha/ficha.component')
 	},

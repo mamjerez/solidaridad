@@ -1,0 +1,36 @@
+<div class="OCM-flex OCM-flex--center">
+	<header class="OCM-subtitle-dark">Comentarios ({{ coms.length }})</header>
+	<!-- <button class="OCM-buttonInvisible" (click)="admin()">+ admin</button> -->
+</div>
+
+<section class="OCM-containerTable">
+	<table class="OCM-tableComentarios">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Emisor</th>
+				<th>texto</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for (com of coms; track com.text) {
+				<tr>
+					@switch (com.confidencial) {
+						@case (true) {
+							@if (canViewConfidencial) {
+								<td>{{ com.date | date: 'd-MM-yyyy' }}</td>
+								<td style="color: red">CONFIDENCIAL {{ com.sender }}</td>
+								<td>{{ com.text }}</td>
+							}
+						}
+						@case (null) {
+							<td>{{ com.date }}</td>
+							<td>{{ com.sender }}</td>
+							<td>{{ com.text }}</td>
+						}
+					}
+				</tr>
+			}
+		</tbody>
+	</table>
+</section>

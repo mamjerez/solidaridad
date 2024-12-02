@@ -1,66 +1,13 @@
-div {
-	margin: 20px;
-}
+@media screen and (max-width: 4200px) {
+	div {
+		margin: 20px;
+	}
 
-img {
-	display: block;
-	align-content: center;
-}
+	img {
+		display: block;
+		align-content: center;
+	}
 
-.cabecera {
-	display: none;
-}
-
-.fotoCabecera {
-	width: 50%;
-	height: 25%;
-	border-radius: 10px;
-	margin: auto;
-}
-
-.problemas {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	font-weight: bold;
-	line-height: 40px;
-	background-color: #2f8dcc;
-	color: white;
-	border-radius: 10px;
-	padding-left: 20px;
-}
-
-.headerHome {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	font-size: clamp(0.667rem, 2vw + 0.25rem, 2.583rem);
-	font-weight: bold;
-	line-height: 40px;
-	background-color: #2f8dcc;
-}
-
-p {
-	font-size: 14px;
-	line-height: 16px;
-	padding: 25px;
-}
-
-video {
-	width: 100%;
-	height: auto;
-	border-radius: 10px;
-	margin: 10px;
-}
-
-span {
-	font-size: clamp(0.667rem, 2vw + 0.25rem, 1.583rem);
-}
-
-/* Mostrar el div sólo en pantallas grandes (e.g., más de 1024px de ancho) */
-@media (min-width: 1024px) {
 	.cabecera {
 		display: flex;
 		align-items: center;
@@ -73,5 +20,63 @@ span {
 		color: white;
 		border-radius: 10px;
 		padding-left: 20px;
+	}
+
+	.fotoCabecera {
+		width: 50%;
+		height: 25%;
+		border-radius: 10px;
+		margin: auto;
+	}
+
+	.problemas {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		font-weight: bold;
+		line-height: 40px;
+		background-color: #2f8dcc;
+		color: white;
+		border-radius: 10px;
+		padding-left: 20px;
+	}
+
+	.headerHome {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		font-size: clamp(0.667rem, 2vw + 0.25rem, 2.583rem);
+		font-weight: bold;
+		line-height: 40px;
+		background-color: #2f8dcc;
+	}
+
+	p {
+		font-size: 14px;
+		line-height: 16px;
+		padding: 25px;
+	}
+
+	video {
+		width: 100%;
+		height: auto;
+		border-radius: 10px;
+		margin: 10px;
+	}
+
+	span {
+		font-size: clamp(0.667rem, 2vw + 0.25rem, 1.583rem);
+	}
+}
+/* Mostrar el div sólo en pantallas grandes (e.g., más de 1024px de ancho) */
+@media (max-width: 570px) {
+	.cabecera {
+		padding-left: 4px;
+	}
+
+	p {
+		display: none;
 	}
 }

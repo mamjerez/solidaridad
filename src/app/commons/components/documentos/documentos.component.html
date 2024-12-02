@@ -1,0 +1,54 @@
+<div class="OCM-flex OCM-flex--center">
+	<header class="OCM-subtitle-dark">Documentos ({{ docs.length }})</header>
+</div>
+
+<section class="OCM-containerTable">
+	<table class="OCM-table">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Emisor</th>
+				<th>Título</th>
+				<th>URL</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for (doc of docs; track doc.title) {
+				<tr>
+					@switch (doc.confidencial) {
+						@case (true) {
+							@if (canViewConfidencial) {
+								<td>{{ doc.date | date: 'd-MM-yyyy' }}</td>
+								<td>{{ doc.emisor }}</td>
+								<td style="color: red">{{ doc.title }}</td>
+								@if (doc.isPath) {
+									<td><a href="#" (click)="handleLinkClick(doc.url_doc, $event)">Copiar al portapapeles</a></td>
+								} @else {
+									<td><a href="#" (click)="handleLinkClick(doc.url_doc, $event)">Enlace</a></td>
+								}
+							}
+						}
+						@case (false) {
+							<td>{{ doc.date | date: 'd-MM-yyyy' }}</td>
+							<td>{{ doc.emisor }}</td>
+							<td>{{ doc.title }}</td>
+							<td><a href="{{ doc.url_doc }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+						}
+					}
+				</tr>
+			}
+		</tbody>
+	</table>
+
+	<dialog #dialog>
+		@if (isError) {
+			<div class="error">
+				{{ mensaje }}
+			</div>
+		} @else {
+			<div class="success">
+				{{ mensaje }}
+			</div>
+		}
+	</dialog>
+</section>
