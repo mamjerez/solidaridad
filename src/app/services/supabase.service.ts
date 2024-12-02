@@ -113,10 +113,10 @@ export class SupabaseService {
 		return data;
 	}
 
-	async fetchNews(startDate?: string, endDate?: string): Promise<any[]> {
+	async fetchNews(tag: string, startDate?: string, endDate?: string): Promise<any[]> {
 		// let query = this._supabase.from('news').select('*').order('date', { ascending: false }).limit(20);
 		let query = this._supabase
-			.from('news')
+			.from('solidaridad_news')
 			.select('date, media, title, url_new, tag')
 			.order('date', { ascending: false });
 

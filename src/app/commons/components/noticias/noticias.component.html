@@ -1,9 +1,9 @@
 @if (news) {
-	<header class="OCM-subtitle-dark">Noticias ({{ news.length }})</header>
+	<header>Noticias ({{ news.length }})</header>
 }
 
 <section class="OCM-containerTable">
-	<table class="OCM-table">
+	<table class="OCM-tableNoticiasDocumentos">
 		<thead>
 			<tr>
 				<th>Fecha</th>
@@ -15,10 +15,10 @@
 		<tbody>
 			@for (new of news; track new.title) {
 				<tr>
-					<td>{{ new.date }}</td>
+					<td>{{ new.date | date: 'd-MM-yyyy' }}</td>
 					<td>{{ new.medio }}</td>
 					<td>{{ new.title }}</td>
-					<!-- <td><a href="{{ new.url_new }}" target="_blank" rel="noopener noreferrer">Enlace</a></td> -->
+					<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
 				</tr>
 			}
 		</tbody>
