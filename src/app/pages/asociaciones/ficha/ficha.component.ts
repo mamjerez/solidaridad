@@ -39,6 +39,7 @@ interface IAsociaciones {
 	solidaridad: boolean;
 	cuota2023: boolean;
 	cuota2024: boolean;
+	NIF: string;
 }
 
 interface ICargo {
@@ -102,6 +103,7 @@ export default class FichaComponent implements OnInit {
 			is_activa: [this.data.is_activa],
 			rma: [null],
 			sede: [null],
+			nif: [null],
 			barrio: [null],
 			federacion: [null],
 			distrito: [null],

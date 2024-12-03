@@ -69,7 +69,7 @@
 		grid-template-areas:
 			'nombre nombre'
 			'activa rma'
-			'sede sede'
+			'sede nif'
 			'distrito barrio'
 			'federacion federacion'
 			'email email';
@@ -109,7 +109,20 @@
 	.sede {
 		grid-area: sede;
 		&__input {
-			width: 560px;
+			width: 360px;
+		}
+	}
+
+	.nif {
+		grid-area: nif;
+		&__label {
+			width: 75px;
+			margin-left: 190px;
+		}
+		&__input {
+			width: 125px;
+			margin-left: 200px;
+			text-align: center;
 		}
 	}
 

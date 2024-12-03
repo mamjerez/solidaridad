@@ -32,6 +32,8 @@ export class SupabaseService {
 	async fetchData(tableName: string): Promise<any> {
 		const { data, error } = await this._supabase.from(tableName).select('*');
 		if (error) throw error;
+		console.log(data);
+
 		return data;
 	}
 
