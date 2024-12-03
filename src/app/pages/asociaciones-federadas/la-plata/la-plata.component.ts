@@ -27,7 +27,7 @@ export default class LaPlataComponent implements OnInit {
 			this.cards = data.map((card) => ({
 				...card,
 				rutaImagen: `${this._pathImage}${card.tag}.jpg`,
-				funcion: () => this._router.navigateByUrl(card.tag)
+				funcion: () => this._router.navigateByUrl(card.tag, { state: { avv: 'laPlata' } })
 			}));
 		} catch (error) {
 			console.error('Error fetching data:', error);

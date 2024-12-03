@@ -7,7 +7,7 @@ import { SupabaseService } from './supabase.service';
 export class GetNewsComsDocs {
 	private _supabaseService = inject(SupabaseService);
 
-	async fetchDataFromSupabase(tag: string) {
+	async fetchDataFromSupabase(avv: string) {
 		const dataTypes = [
 			'solidaridad_news',
 			'solidaridad_comentarios',
@@ -17,7 +17,7 @@ export class GetNewsComsDocs {
 
 		return Promise.all(
 			dataTypes.map((type) =>
-				this._supabaseService.fetchDataByTagOrder(type, tag, false).catch((error) => {
+				this._supabaseService.fetchDataByTagOrder(type, avv, false).catch((error) => {
 					console.error(`Error fetching ${type}:`, error);
 				})
 			)

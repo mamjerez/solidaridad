@@ -1,26 +1,26 @@
-@if (news) {
+@if (news.length > 0) {
 	<header>Noticias ({{ news.length }})</header>
-}
 
-<section class="OCM-containerTable">
-	<table class="OCM-tableNoticiasDocumentos">
-		<thead>
-			<tr>
-				<th>Fecha</th>
-				<th>Medio</th>
-				<th>Título</th>
-				<th>URL</th>
-			</tr>
-		</thead>
-		<tbody>
-			@for (new of news; track new.title) {
+	<section class="OCM-containerTable">
+		<table class="OCM-tableNoticiasDocumentos">
+			<thead>
 				<tr>
-					<td>{{ new.date | date: 'd-MM-yyyy' }}</td>
-					<td>{{ new.medio }}</td>
-					<td>{{ new.title }}</td>
-					<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+					<th>Fecha</th>
+					<th>Medio</th>
+					<th>Título</th>
+					<th>URL</th>
 				</tr>
-			}
-		</tbody>
-	</table>
-</section>
+			</thead>
+			<tbody>
+				@for (new of news; track new.title) {
+					<tr>
+						<td>{{ new.date | date: 'd-MM-yyyy' }}</td>
+						<td>{{ new.medio }}</td>
+						<td>{{ new.title }}</td>
+						<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</section>
+}
