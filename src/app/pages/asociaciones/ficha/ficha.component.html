@@ -13,19 +13,13 @@
 					<header class="OCM-title">{{ data.nombre }}</header>
 					<div class="containerAsociacion">
 						<div class="activa">
-							<label class="activa__label" for="is_activa">¿Esta activa?</label>
-							<input
-								class="activa__input"
-								type="checkbox"
-								id="is_activa"
-								formControlName="is_activa"
-								placeholder="{{ data.is_activa }}"
-							/>
+							<label for="is_activa">¿Esta activa?</label>
+							<input type="checkbox" id="is_activa" formControlName="is_activa" placeholder="{{ data.is_activa }}" />
 						</div>
 
 						<div class="rma">
 							<label for="rma">Número en RMA</label>
-							<input type="text" class="rma__input" id="rma" formControlName="rma" placeholder="{{ data.rma }}" />
+							<input type="text" id="rma" formControlName="rma" placeholder="{{ data.rma }}" />
 						</div>
 
 						<div class="nif">
@@ -45,35 +39,17 @@
 
 						<div class="barrio">
 							<label for="barrio">Barrio</label>
-							<input
-								class="barrio__input"
-								type="text"
-								id="barrio"
-								formControlName="barrio"
-								placeholder="{{ data.barrio }}"
-							/>
+							<input type="text" id="barrio" formControlName="barrio" placeholder="{{ data.barrio }}" />
 						</div>
 
 						<div class="federacion">
 							<label for="federacion">Federación</label>
-							<input
-								class="federacion__input"
-								type="text"
-								id="federacion"
-								formControlName="federacion"
-								placeholder="{{ nombreFederacion }}"
-							/>
+							<input type="text" id="federacion" formControlName="federacion" placeholder="{{ nombreFederacion }}" />
 						</div>
 
 						<div class="email">
 							<label for="email">email</label>
-							<input
-								class="email__input"
-								type="text"
-								id="email"
-								formControlName="email"
-								placeholder="{{ data.email }}"
-							/>
+							<input type="text" id="email" formControlName="email" placeholder="{{ data.email }}" />
 						</div>
 					</div>
 				</form>

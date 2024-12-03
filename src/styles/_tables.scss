@@ -171,7 +171,6 @@
 
 	.OCM-tableCargos {
 		@extend .OCM-tableBase;
-		width: 77%;
 
 		td {
 			&:nth-child(1) {
@@ -184,19 +183,23 @@
 			}
 
 			&:nth-child(3) {
-				width: 10%;
+				width: 20%;
+				padding-left: 10px;
 			}
 
 			&:nth-child(4) {
-				width: 10%;
+				width: 20%;
+				text-align: left;
+				padding-left: 10px;
 			}
 
 			&:nth-child(5) {
-				width: 12%;
+				width: 20%;
 			}
 
 			&:nth-child(6) {
-				// width: 14%;
+				text-align: left;
+				padding-left: 4px;
 			}
 		}
 	}

@@ -3,17 +3,18 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin: 4px;
+		padding: 20px;
 	}
 
 	label {
 		display: block;
 		font-weight: bold;
-		font-size: medium;
+		font-size: clamp(0.5rem, 1vw + 0.75rem, 6.6rem);
 	}
 
 	input {
-		padding: 14px;
+		padding: 4px;
+		font-size: clamp(0.5rem, 1vw + 0.75rem, 6.6rem);
 	}
 
 	.solidaridad-style {
@@ -45,9 +46,7 @@
 	}
 
 	.tab-content {
-		border: 1px solid #ccc;
-		padding: 10px;
-		margin-top: -1px;
+		margin: 10px;
 	}
 
 	h1 {
@@ -62,90 +61,66 @@
 
 	.containerAsociacion {
 		display: grid;
-		grid-template-columns: 15vw 15vw 15vw 15vw 15vw 15vw;
+		grid-template-columns: 16vw 16vw 16vw 16vw 16vw 16vw;
 		justify-content: center;
 		// grid-template-rows: 2px;
 		// gap: 2px 2px;
 		grid-auto-flow: row;
+		grid-template-areas:
+			'activa rma nif vacia vacia vacia'
+			'sede sede sede sede sede sede'
+			'distrito distrito barrio barrio barrio barrio'
+			'federacion federacion federacion federacion federacion federacion'
+			'email email email email email email';
+		// width: 50vw;
+		margin-left: 40px;
+		// caret-color: white;
+	}
+
+	.vacia {
+		grid-area: vacia;
+	}
+	.activa {
+		grid-area: activa;
+	}
+
+	.rma {
+		grid-area: rma;
+	}
+
+	.nif {
+		grid-area: nif;
+	}
+
+	.sede {
+		grid-area: sede;
+	}
+
+	.distrito {
+		grid-area: distrito;
+	}
+
+	.barrio {
+		grid-area: barrio;
+	}
+
+	.federacion {
+		grid-area: federacion;
+	}
+
+	.email {
+		grid-area: email;
+	}
+}
+
+@media screen and (max-width: 570px) {
+	.containerAsociacion {
 		grid-template-areas:
 			'activa activa rma rma nif nif'
 			'sede sede sede sede sede sede'
 			'distrito distrito barrio barrio barrio barrio'
 			'federacion federacion federacion federacion federacion federacion'
 			'email email email email email email';
-		// width: 50vw;
-		// margins: 0 auto;
-		caret-color: white;
-	}
-
-	.activa {
-		grid-area: activa;
-		// width: 10vw;
-
-		&__label {
-			// width: 10vw;
-		}
-		&__input {
-			// width: 10vw;
-		}
-	}
-
-	.rma {
-		grid-area: rma;
-		&__label {
-			// width: 15vw;
-		}
-		&__input {
-			// width: 10vw;
-			text-align: center;
-		}
-	}
-
-	.nif {
-		grid-area: nif;
-		&__label {
-			// width: 10vw;
-			// margin-left: 190px;
-		}
-		&__input {
-			// width: 10vw;
-			// margin-left: 200px;
-			text-align: center;
-		}
-	}
-
-	.sede {
-		grid-area: sede;
-		&__input {
-			// width: 45vw;
-		}
-	}
-
-	.distrito {
-		grid-area: distrito;
-		// width: 25vw;
-	}
-
-	.barrio {
-		grid-area: barrio;
-		&__input {
-			// width: 27vw;
-		}
-	}
-
-	.federacion {
-		grid-area: federacion;
-		// width: 45vw;
-		&__input {
-			// width: 45vw;
-		}
-	}
-
-	.email {
-		grid-area: email;
-		// width: 45vw;
-		&__input {
-			// width: 45vw;
-		}
+		margin-left: 0px;
 	}
 }

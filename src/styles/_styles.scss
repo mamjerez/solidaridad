@@ -96,8 +96,9 @@
 		font-family: var(--fuente-principal);
 		font-size: 4rem;
 		text-align: center;
-		margin-top: 30px;
-		margin-bottom: 20px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		background-color: transparent;
 	}
 
 	.OCM-title-dark {
@@ -267,6 +268,7 @@
 
 	.OCM-title {
 		margin-top: 0px;
+		margin-bottom: 0px;
 		font-weight: 600 !important;
 		font-size: 16px;
 	}
