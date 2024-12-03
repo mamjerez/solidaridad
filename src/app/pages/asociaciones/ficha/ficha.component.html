@@ -13,7 +13,7 @@
 					<header class="OCM-title">{{ data.nombre }}</header>
 					<div class="containerAsociacion">
 						<div class="activa">
-							<label for="is_activa">¿Esta activa?</label>
+							<label class="activa__label" for="is_activa">¿Esta activa?</label>
 							<input
 								class="activa__input"
 								type="checkbox"
@@ -24,7 +24,7 @@
 						</div>
 
 						<div class="rma">
-							<label class="rma__label" for="rma">Número en RMA</label>
+							<label for="rma">Número en RMA</label>
 							<input type="text" class="rma__input" id="rma" formControlName="rma" placeholder="{{ data.rma }}" />
 						</div>
 
@@ -38,15 +38,9 @@
 							<input class="sede__input" type="text" id="sede" formControlName="sede" placeholder="{{ data.sede }}" />
 						</div>
 
-						<div class="distrito">
+						<div class="distrito" class="distrito">
 							<label for="distrito">Distrito</label>
-							<input
-								style="width: 194px"
-								type="text"
-								id="distrito"
-								formControlName="distrito"
-								placeholder="{{ data.distrito }}"
-							/>
+							<input type="text" id="distrito" formControlName="distrito" placeholder="{{ data.distrito }}" />
 						</div>
 
 						<div class="barrio">

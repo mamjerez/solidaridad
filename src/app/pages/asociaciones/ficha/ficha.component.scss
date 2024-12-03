@@ -62,35 +62,54 @@
 
 	.containerAsociacion {
 		display: grid;
-		grid-template-columns: 200px 200px 200px;
+		grid-template-columns: 15vw 15vw 15vw 15vw 15vw 15vw;
+		justify-content: center;
 		// grid-template-rows: 2px;
-		gap: 2px 2px;
+		// gap: 2px 2px;
 		grid-auto-flow: row;
 		grid-template-areas:
-			'activa rma nif'
-			'sede sede sede'
-			'distrito barrio barrio'
-			'federacion federacion federacion'
-			'email email email';
-		width: 660px;
-		margin: 0 auto;
+			'activa activa rma rma nif nif'
+			'sede sede sede sede sede sede'
+			'distrito distrito barrio barrio barrio barrio'
+			'federacion federacion federacion federacion federacion federacion'
+			'email email email email email email';
+		// width: 50vw;
+		// margins: 0 auto;
 		caret-color: white;
 	}
 
 	.activa {
 		grid-area: activa;
+		// width: 10vw;
+
+		&__label {
+			// width: 10vw;
+		}
 		&__input {
-			width: 100px;
+			// width: 10vw;
 		}
 	}
 
 	.rma {
 		grid-area: rma;
 		&__label {
-			width: 125px;
+			// width: 15vw;
 		}
 		&__input {
-			width: 75px;
+			// width: 10vw;
+			text-align: center;
+		}
+	}
+
+	.nif {
+		grid-area: nif;
+		&__label {
+			// width: 10vw;
+			// margin-left: 190px;
+		}
+		&__input {
+			// width: 10vw;
+			// margin-left: 200px;
 			text-align: center;
 		}
 	}
@@ -98,51 +117,35 @@
 	.sede {
 		grid-area: sede;
 		&__input {
-			width: 540px;
-		}
-	}
-
-	.nif {
-		grid-area: nif;
-		&__label {
-			width: 75px;
-			// margin-left: 190px;
-		}
-		&__input {
-			width: 125px;
-			// margin-left: 200px;
-			text-align: center;
+			// width: 45vw;
 		}
 	}
 
 	.distrito {
 		grid-area: distrito;
-		// width: 150px;
+		// width: 25vw;
 	}
 
 	.barrio {
 		grid-area: barrio;
 		&__input {
-			width: 335px;
+			// width: 27vw;
 		}
 	}
 
 	.federacion {
 		grid-area: federacion;
-		width: 150px;
+		// width: 45vw;
 		&__input {
-			width: 400px;
+			// width: 45vw;
 		}
 	}
 
 	.email {
 		grid-area: email;
-		width: 150px;
+		// width: 45vw;
 		&__input {
-			width: 400px;
+			// width: 45vw;
 		}
 	}
-}
-
-@media screen and (max-width: 570px) {
 }
