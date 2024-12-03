@@ -17,11 +17,11 @@
 	}
 
 	.solidaridad-style {
-		background-color: rgb(177, 240, 165); /* Ejemplo de color de fondo */
+		background-color: rgb(177, 240, 165);
 	}
 
 	.pagada-style {
-		background-color: rgb(37, 172, 11); /* Ejemplo de color de fondo */
+		background-color: rgb(37, 172, 11);
 	}
 
 	.tab-titles {
@@ -62,30 +62,19 @@
 
 	.containerAsociacion {
 		display: grid;
-		grid-template-columns: 200px 200px;
-		grid-template-rows: 2px;
+		grid-template-columns: 200px 200px 200px;
+		// grid-template-rows: 2px;
 		gap: 2px 2px;
 		grid-auto-flow: row;
 		grid-template-areas:
-			'nombre nombre'
-			'activa rma'
-			'sede nif'
-			'distrito barrio'
-			'federacion federacion'
-			'email email';
+			'activa rma nif'
+			'sede sede sede'
+			'distrito barrio barrio'
+			'federacion federacion federacion'
+			'email email email';
 		width: 660px;
 		margin: 0 auto;
 		caret-color: white;
-	}
-
-	.nombre {
-		grid-area: nombre;
-		background-color: red;
-		height: 100px;
-		&__input {
-			width: 360px;
-			background-color: red;
-		}
 	}
 
 	.activa {
@@ -109,7 +98,7 @@
 	.sede {
 		grid-area: sede;
 		&__input {
-			width: 360px;
+			width: 540px;
 		}
 	}
 
@@ -117,11 +106,11 @@
 		grid-area: nif;
 		&__label {
 			width: 75px;
-			margin-left: 190px;
+			// margin-left: 190px;
 		}
 		&__input {
 			width: 125px;
-			margin-left: 200px;
+			// margin-left: 200px;
 			text-align: center;
 		}
 	}
@@ -134,7 +123,7 @@
 	.barrio {
 		grid-area: barrio;
 		&__input {
-			width: 360px;
+			width: 335px;
 		}
 	}
 

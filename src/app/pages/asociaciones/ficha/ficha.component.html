@@ -1,11 +1,9 @@
-<!-- @if (data) { -->
 @defer (when data) {
 	<main [ngClass]="{ 'solidaridad-style': data.solidaridad }">
 		@if (data.solidaridad) {
 			<div class="tab-titles">
 				<button class="tab-link" (click)="selectTab(1)" [ngClass]="{ active: activeTab === 1 }">Datos</button>
 				<button class="tab-link" (click)="selectTab(2)" [ngClass]="{ active: activeTab === 2 }">Pagos</button>
-				<!-- <button class="tab-link" (click)="selectTab(3)" [ngClass]="{ active: activeTab === 3 }">Tab 3</button> -->
 			</div>
 		}
 
@@ -14,17 +12,6 @@
 				<form [formGroup]="asociacionForm">
 					<header class="OCM-title">{{ data.nombre }}</header>
 					<div class="containerAsociacion">
-						<!-- <div class="nombre">
-							<label for="nombre">Nombre:</label>
-							<input
-								class="nombre__input"
-								type="text"
-								id="nombre"
-								formControlName="nombre"
-								placeholder="{{ data.nombre }}"
-							/>
-						</div> -->
-
 						<div class="activa">
 							<label for="is_activa">¿Esta activa?</label>
 							<input
@@ -41,14 +28,14 @@
 							<input type="text" class="rma__input" id="rma" formControlName="rma" placeholder="{{ data.rma }}" />
 						</div>
 
-						<div class="sede">
-							<label for="sede">Sede</label>
-							<input class="sede__input" type="text" id="sede" formControlName="sede" placeholder="{{ data.sede }}" />
-						</div>
-
 						<div class="nif">
 							<label class="nif__label" for="rma">NIF</label>
 							<input type="text" class="nif__input" id="rma" formControlName="nif" placeholder="{{ data.NIF }}" />
+						</div>
+
+						<div class="sede">
+							<label for="sede">Sede</label>
+							<input class="sede__input" type="text" id="sede" formControlName="sede" placeholder="{{ data.sede }}" />
 						</div>
 
 						<div class="distrito">
@@ -95,7 +82,6 @@
 							/>
 						</div>
 					</div>
-					<!-- <button type="submit">Guardar Cambios</button> -->
 				</form>
 			</div>
 

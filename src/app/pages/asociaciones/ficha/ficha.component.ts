@@ -99,7 +99,7 @@ export default class FichaComponent implements OnInit {
 		this.completaFederacion();
 
 		this.asociacionForm = this._formBuilder.group({
-			nombre: [null],
+			// nombre: [null],
 			is_activa: [this.data.is_activa],
 			rma: [null],
 			sede: [null],
