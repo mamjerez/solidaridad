@@ -18,7 +18,7 @@ export class SocialMediaComponent {
 	socialMediaLinks: SocialMedia[] = [
 		{
 			name: 'Facebook',
-			url: 'https://facebook.com/tuasociacion',
+			url: 'https://www.facebook.com/laalbarizuela/',
 			icon: '📘'
 		}
 		// {
