@@ -55,8 +55,7 @@ p {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	gap: 2rem;
-	margin-top: 10rem;
-	margin-bottom: 40px;
+	margin: 20px;
 }
 
 .featured-item {
@@ -76,7 +75,7 @@ p {
 
 .text-primary {
 	color: rgb(19, 16, 167);
-	font-size: clamp(1.333rem, 1vw + 3rem, 7.133rem);
+	font-size: clamp(1.4rem, 1vw + 0.75rem, 6.6rem);
 	font-weight: 600;
 	line-height: 3rem;
 	text-align: center;
@@ -96,7 +95,7 @@ p {
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 570px) {
 	.hero {
 		height: 160px;
 	}
@@ -112,7 +111,8 @@ p {
 
 	.featured-grid {
 		display: flex;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
-		gap: 0.5rem;
+		flex-direction: row;
+		justify-content: center;
+		margin: 10px;
 	}
 }
