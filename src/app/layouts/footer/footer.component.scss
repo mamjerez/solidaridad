@@ -2,7 +2,7 @@
 @use 'mixins' as m;
 
 p {
-	font-size: 1.5rem;
+	font-size: clamp(1rem, 1vw + 0.75rem, 6.6rem);
 	color: #0f0101;
 	font-weight: 500;
 }
@@ -21,10 +21,7 @@ h2 {
 
 .main-footer {
 	background: #8f8d8d;
-	// background-image: url('/assets/ondasAzules3.png');
-	// color: white;
 	padding: 2rem 0 0;
-	// margin-top: 4px;
 	max-width: 1200px;
 
 	.footer-content {
@@ -83,7 +80,7 @@ h2 {
 	gap: 1rem;
 }
 
-@media screen and (max-width: 844px) {
+@media screen and (max-width: 570px) {
 	.footer-section-enlaces {
 		display: none;
 	}
