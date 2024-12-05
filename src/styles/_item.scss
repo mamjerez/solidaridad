@@ -1,0 +1,13 @@
+.featured-item {
+	text-align: center;
+	background: white;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	margin-top: 10px;
+	padding: 10px;
+	&:hover {
+		box-shadow: 0 16px 32px 0 rgba(151, 4, 4, 0.82);
+		transform: scale(1.1);
+		cursor: pointer;
+	}
+}
