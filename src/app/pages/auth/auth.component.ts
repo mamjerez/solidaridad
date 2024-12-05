@@ -6,6 +6,7 @@ import { DialogComponent } from '@app/commons/components/dialog/dialog.component
 
 import { IsAdminService } from '@services/isAdmin.service';
 import { DialogService } from '@services/dialog.service';
+import { IsSecretariaService } from '@services/isSecretaria.service';
 
 @Component({
 	standalone: true,
@@ -17,10 +18,12 @@ import { DialogService } from '@services/dialog.service';
 export default class AuthComponent implements OnInit {
 	@ViewChild('dialogComponent', { static: false }) dialogComponent!: DialogComponent;
 	private _isAdminService = inject(IsAdminService);
+	private _isSecretariaService = inject(IsSecretariaService);
 	private readonly _dialogService = inject(DialogService);
 	private _location = inject(Location);
 	password = '';
 	correctPassword = 'trucha0121';
+	correctSecretarias = 's';
 	public mensaje = '';
 
 	ngOnInit(): void {
@@ -36,8 +39,14 @@ export default class AuthComponent implements OnInit {
 			this.mensaje = 'Ahora eres administrador';
 			this.mostrarDialog('Ahora eres administrador', false, true);
 		} else {
-			this.mensaje = 'Contraseña incorrecta';
-			this.mostrarDialog('Contraseña incorrecta', true, false);
+			if (this.password === this.correctSecretarias) {
+				this._isSecretariaService.setIsSecretaria(true);
+				this.mensaje = 'Ahora eres secretaria';
+				this.mostrarDialog('Ahora eres secretaria', false, true);
+			} else {
+				this.mensaje = 'Contraseña incorrecta';
+				this.mostrarDialog('Contraseña incorrecta', true, false);
+			}
 		}
 	}
 

@@ -1,6 +1,7 @@
 export const commonEnvironment = {
     production: false,
     isAdmin: false,
+    isSecretaria: false,
     canAddRowSupabase: false,
         
     supabaseUrl: 'https://cswdadlxiubwdzvqzywc.supabase.co',

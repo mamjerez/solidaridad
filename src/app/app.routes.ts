@@ -14,6 +14,15 @@ export default [
 		loadComponent: () => import('./pages/asociaciones/asociaciones/asociaciones.component')
 	},
 	{
+		path: 'secretarias',
+		loadComponent: () => import('./pages/secretarias/secretarias.component')
+	},
+
+	{
+		path: 'secretariasReuniones',
+		loadComponent: () => import('./pages/secretarias-reuniones/secretarias-reuniones.component')
+	},
+	{
 		path: 'asociacionesFederadas',
 		loadComponent: () => import('./pages/asociaciones-federadas/asociaciones-federadas.component')
 	},
