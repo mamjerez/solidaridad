@@ -44,23 +44,24 @@ export default class AddComComponent implements OnInit {
 			confidencial: [false, Validators.required]
 		});
 
-		try {
-			this.data = await this._supabaseService.fetchDataById('asociaciones', this.tag);
-			console.log('data:', this.data);
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
+		// try {
+		// 	this.data = await this._supabaseService.fetchDataById('asociaciones', this.tag);
+		// 	console.log('data:', this.data);
+		// } catch (error) {
+		// 	console.error('Error fetching data:', error);
+		// }
 	}
 
 	async guardar(): Promise<void> {
 		if (this.comForm?.valid) {
 			const formData = {
 				...this.comForm.value,
-				tag: this.data[0].tag
+				// tag: this.data[0].tag
+				avv: '20241210'
 			};
 
 			try {
-				await this._supabaseService.insertRow('comentarios', formData);
+				await this._supabaseService.insertRow('solidaridad_comentarios', formData);
 				// this._modalService.close(); // NO FUNCIONA
 				this._location.back();
 			} catch (error) {

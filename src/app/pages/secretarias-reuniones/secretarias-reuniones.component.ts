@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { InformacionesComponent } from '@app/commons/components/informaciones/informaciones.component';
 
 @Component({
@@ -9,5 +10,11 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 	styleUrl: './secretarias-reuniones.component.scss'
 })
 export default class SecretariasReunionesComponent {
+	private readonly router = inject(Router);
+
 	public tag = '20241210';
+
+	addCom(): void {
+		this.router.navigateByUrl('addCom/' + this.tag);
+	}
 }

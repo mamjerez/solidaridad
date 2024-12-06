@@ -66,6 +66,9 @@ export default [
 		path: 'resumenPrensa',
 		loadComponent: () => import('./pages/resumen-prensa/resumen-prensa.component')
 	},
-
+	{
+		path: 'addCom/:tag',
+		loadComponent: () => import('./addNewRecod/add-com/add-com.component')
+	},
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }
 ] as Routes;

@@ -29,5 +29,6 @@ export class InformacionesComponent implements OnInit {
 		const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDataFromSupabase(this.tag())]);
 
 		[this.news, this.coms, this.docs] = newsComsDocs;
+		console.log(this.news, this.coms, this.docs);
 	}
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 import { DialogComponent } from '@app/commons/components/dialog/dialog.component';
 
@@ -20,6 +21,7 @@ export default class AuthComponent implements OnInit {
 	private _isAdminService = inject(IsAdminService);
 	private _isSecretariaService = inject(IsSecretariaService);
 	private readonly _dialogService = inject(DialogService);
+	private readonly router = inject(Router);
 	private _location = inject(Location);
 	password = '';
 	correctPassword = 'trucha0121';
@@ -42,7 +44,8 @@ export default class AuthComponent implements OnInit {
 			if (this.password === this.correctSecretarias) {
 				this._isSecretariaService.setIsSecretaria(true);
 				this.mensaje = 'Ahora eres secretaria';
-				this.mostrarDialog('Ahora eres secretaria', false, true);
+				this.mostrarDialog('Ahora eres secretaria', false, false);
+				this.router.navigate(['/secretariasReuniones']);
 			} else {
 				this.mensaje = 'Contraseña incorrecta';
 				this.mostrarDialog('Contraseña incorrecta', true, false);
