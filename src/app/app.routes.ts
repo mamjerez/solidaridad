@@ -17,10 +17,13 @@ export default [
 		path: 'secretarias',
 		loadComponent: () => import('./pages/secretarias/secretarias.component')
 	},
-
 	{
 		path: 'secretariasReuniones',
 		loadComponent: () => import('./pages/secretarias-reuniones/secretarias-reuniones.component')
+	},
+	{
+		path: 'OndaJerezRadio',
+		loadComponent: () => import('./pages/onda-jerez-radio/onda-jerez-radio.component')
 	},
 	{
 		path: 'Fecha20241210',
