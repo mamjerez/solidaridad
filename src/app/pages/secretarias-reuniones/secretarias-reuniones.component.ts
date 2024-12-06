@@ -14,7 +14,11 @@ export default class SecretariasReunionesComponent {
 
 	public tag = '20241210';
 
-	addCom(): void {
-		this.router.navigateByUrl('addCom/' + this.tag);
+	navigateToPage(): void {
+		this.router.navigate(['/Fecha20241210']);
 	}
+
+	// addCom(): void {
+	// 	this.router.navigateByUrl('addCom/' + this.tag);
+	// }
 }

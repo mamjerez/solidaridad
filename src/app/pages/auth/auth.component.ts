@@ -45,7 +45,7 @@ export default class AuthComponent implements OnInit {
 				this._isSecretariaService.setIsSecretaria(true);
 				this.mensaje = 'Ahora eres secretaria';
 				this.mostrarDialog('Ahora eres secretaria', false, false);
-				this.router.navigate(['/secretariasReuniones']);
+				this.router.navigate(['/secretarias']);
 			} else {
 				this.mensaje = 'Contraseña incorrecta';
 				this.mostrarDialog('Contraseña incorrecta', true, false);
