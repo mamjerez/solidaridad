@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export default class SecretariasComponent {
 	private readonly router = inject(Router);
 
-	navigateToPage(): void {
-		this.router.navigate(['/secretariasReuniones']);
+	navigateToPage(page: string): void {
+		this.router.navigate([page]);
 	}
 }
