@@ -22,7 +22,7 @@ export default class NoticiasComponent implements OnInit {
 		// si no se hace en el constructoir no funciona
 		const navigation = this._router.getCurrentNavigation();
 		this.avv = navigation?.extras?.state?.['avv'] || null;
-		console.log('avv desde estado en constructor:', this.avv);
+		// console.log('avv desde estado en constructor:', this.avv);
 	}
 
 	ngOnInit(): void {

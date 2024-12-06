@@ -10,7 +10,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@for (com of coms; track com.text) {
+			@for (com of coms; track com.id) {
 				<tr>
 					@switch (com.confidencial) {
 						@case (true) {
@@ -21,7 +21,7 @@
 							}
 						}
 						@case (false) {
-							<td>{{ com.date }}</td>
+							<td>{{ com.date | date: 'd-MM-yyyy' }}</td>
 							<td>{{ com.sender }}</td>
 							<td>{{ com.text }}</td>
 						}

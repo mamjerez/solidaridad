@@ -18,3 +18,14 @@ OCM-Fieldset {
 	width: 300px;
 	margin: 20px;
 }
+
+@media screen and (max-width: 576px) {
+	.OCMInputLong {
+		max-width: 300px;
+		width: 300px;
+	}
+	OCM-Fieldset {
+		width: 150px;
+		margin: 10px;
+	}
+}

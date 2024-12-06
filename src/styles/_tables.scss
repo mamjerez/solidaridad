@@ -217,6 +217,26 @@
 		margin: 4px;
 
 		td {
+			&:nth-child(1) {
+				width: 13%;
+			}
+			&:nth-child(2) {
+				width: 20%;
+			}
+
+			&:nth-child(3) {
+				width: 59%;
+			}
+		}
+	}
+
+	.OCM-tableComentariosGestiones {
+		margin: 4px;
+
+		td {
+			&:nth-child(1) {
+				width: 13%;
+			}
 			&:nth-child(2) {
 				width: 20%;
 			}
