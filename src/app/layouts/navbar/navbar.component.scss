@@ -2,6 +2,7 @@
 	container-type: inline-size;
 	max-width: 1200px;
 	min-width: 250px;
+	background-color: #3c3d3d;
 
 	.navbar {
 		display: flex;
@@ -42,7 +43,7 @@
 
 .navbar a {
 	font-size: clamp(8px, 2vw, 16px);
-	color: #333;
+	color: #f5f0f0;
 	text-decoration: none;
 	font-weight: 500;
 	transition: color 0.3s;
@@ -62,7 +63,7 @@
 	cursor: pointer;
 	transition: background-color 0.2s ease;
 	&:hover {
-		background-color: #f0f0f0;
+		background-color: #3c3d3d;
 	}
 }
 

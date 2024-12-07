@@ -1,11 +1,11 @@
+<!-- https://www.svgrepo.com/ -->
 <img [src]="images[currentImageIndex]" alt="Slider image" class="hero-image" />
 
 <div>
-	<p class="text-primary">Nuestras áreas de trabajo</p>
+	<p class="OCM-title-dark">Nuestras áreas de trabajo</p>
 </div>
 
-<div class="featured-grid">
-	<!-- https://www.svgrepo.com/ -->
+<!-- <div class="featured-grid">
 	<div class="featured-item" (click)="navigateTo('/asociacionesFederadas')">
 		<object data="assets/img/asociaciones.svg" type="image/svg+xml" class="icon"></object>
 		<h1 class="item-title">Asociaciones</h1>
@@ -13,8 +13,8 @@
 	</div>
 	<div class="featured-item">
 		<object data="assets/img/sanidad.svg" type="image/svg+xml" class="icon"></object>
-		<h1 class="item-title">Sanidad</h1>
-		<p class="item-subtitle">Reindivicación constante de una sanidad pública de calidad.</p>
+		<h1 class="item-title">Mesas y consejos</h1>
+		<p class="item-subtitle">Participamos en mesas y consejos institucionales.</p>
 	</div>
 
 	<div class="featured-item" (click)="navigateTo('/plataformas')">
@@ -22,4 +22,30 @@
 		<h1 class="item-title">Plataformas</h1>
 		<p class="item-subtitle">Participamos en plataformas ciudadanas.</p>
 	</div>
-</div>
+</div> -->
+
+<main class="OCM-gridMenu">
+	<app-card-menu
+		rutaImagen="assets/img/asociaciones255.svg"
+		titulo="Asociaciones vecinales federadas"
+		(click)="navigateTo('/asociacionesFederadas')"
+	/>
+
+	<app-card-menu
+		rutaImagen="assets/img/ayto255.svg"
+		titulo="Mesas y consejos institucionales"
+		(click)="navigateTo('/asociacionesFederadas')"
+	/>
+
+	<app-card-menu
+		rutaImagen="assets/img/plataformas255.svg"
+		titulo="Plataformas ciudadanas"
+		(click)="navigateTo('/plataformas')"
+	/>
+
+	<app-card-menu
+		rutaImagen="assets/img/reindivicaciones255.svg"
+		titulo="Reivindicaciones"
+		(click)="navigateTo('/plataformas')"
+	/>
+</main>

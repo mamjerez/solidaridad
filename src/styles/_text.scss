@@ -7,6 +7,66 @@
 	margin: 10px;
 }
 
+.OCM-title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100 hw;
+	color: black;
+	font-weight: 700;
+	font-family: var(--fuente-principal);
+	font-size: 4rem;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: transparent;
+}
+
+.OCM-title-dark {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100 hw;
+	color: rgb(250, 248, 248);
+	background-color: #3c3d3d;
+	font-weight: 700;
+	font-family: var(--fuente-principal);
+	font-size: clamp(0.7rem, 3vw + 1rem, 3rem);
+	text-align: center;
+	padding: 20px;
+	margin: 0;
+}
+
+.OCM-subtitle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100 hw;
+	color: black;
+	font-weight: 600;
+	font-family: var(--fuente-principal);
+	font-size: 1.5rem;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.OCM-subtitle-dark {
+	display: flex;
+	justify-content: center;
+	width: 100 hw;
+	color: rgb(248, 248, 248);
+	background-color: #15202b;
+	font-family: var(--fuente-principal);
+	font-size: clamp(0.778rem, 1vw + 1rem, 2.222rem);
+	padding: 20px;
+	&--left {
+		justify-content: left;
+	}
+	&--center {
+		justify-content: center;
+	}
+}
+
 .item-title {
 	text-align: center;
 	font-size: clamp(1.313rem, 2vw + 1rem, 2.563rem);

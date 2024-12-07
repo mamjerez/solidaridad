@@ -1,12 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
 	styleUrls: ['./home.component.scss'],
 	standalone: true,
-	imports: []
+	imports: [CardMenuComponent]
 })
 export default class HomeComponent implements OnInit {
 	private readonly _router = inject(Router);
