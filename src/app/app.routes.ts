@@ -66,6 +66,10 @@ export default [
 		loadComponent: () => import('./pages/plataformas/asta-regia/asta-regia.component')
 	},
 	{
+		path: 'a2003',
+		loadComponent: () => import('./pages/plataformas/a2003/a2003.component')
+	},
+	{
 		path: 'reivindicaciones',
 		loadComponent: () => import('./pages/reivindicaciones/reivindicaciones.component')
 	},
