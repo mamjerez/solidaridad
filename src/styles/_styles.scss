@@ -8,15 +8,6 @@
 @use 'variables' as vars;
 
 @media screen and (max-width: 4200px) {
-	.OCM-gridMenu {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		height: auto;
-		gap: 20px 20px;
-		padding: 20px;
-		background-color: #3c3d3d;
-	}
-
 	.highlight {
 		// Estilos para resaltar la tarjeta
 		border: 8px solid #f20616;
@@ -51,17 +42,6 @@
 		margin-bottom: 10px;
 		padding: 1px;
 		caret-color: transparent;
-	}
-
-	.OCM-grid {
-		display: grid;
-		grid-auto-columns: 1fr;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-		padding: 20px;
-		background-color: #15202b;
-		margin-bottom: 20px;
-		margin-right: 20px;
-		gap: 20px;
 	}
 
 	.OCM-container {

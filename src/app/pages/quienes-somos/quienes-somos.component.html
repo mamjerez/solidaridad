@@ -1,8 +1,12 @@
-<div>
-	<h3 class="text-primary">¿Quiénes somos?</h3>
-</div>
-<div class="container">
-	<div class="featured-item" (click)="navigateTo('/mision')">
+<h3 class="OCM-title-dark">¿Quiénes somos?</h3>
+
+<main class="OCM-flex-dark OCM-flex-dark--center">
+	<app-card-menu rutaImagen="assets/img/mision.svg" titulo="Misión" (click)="navigateTo('/mision')" />
+
+	<app-card-menu rutaImagen="assets/img/vision.svg" titulo="Visión" (click)="navigateTo('/vision')" />
+	<app-card-menu rutaImagen="assets/img/valores.svg" titulo="Valores" (click)="navigateTo('/valores')" />
+
+	<!-- <div class="featured-item" (click)="navigateTo('/mision')">
 		<object data="assets/img/mision.svg" type="image/svg+xml" class="icon"></object>
 		<h1 class="item-title">Misión</h1>
 	</div>
@@ -14,5 +18,5 @@
 	<div class="featured-item" (click)="navigateTo('/valores')">
 		<object data="assets/img/valores.svg" type="image/svg+xml" class="icon"></object>
 		<h1 class="item-title">Valores</h1>
-	</div>
-</div>
+	</div> -->
+</main>

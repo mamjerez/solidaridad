@@ -19,6 +19,25 @@
 		}
 	}
 
+	.OCM-flex-dark {
+		display: flex;
+		width: 100%;
+		background-color: #3c3d3d;
+		&--left {
+			justify-content: flex-start;
+		}
+		&--center {
+			gap: 60px;
+			justify-content: center;
+			align-items: center;
+			padding: 40px;
+		}
+		&--right {
+			justify-content: flex-end;
+			margin-right: 20px;
+		}
+	}
+
 	.OCM-flexEstadoLicitacion {
 		display: flex;
 		flex-wrap: wrap;
