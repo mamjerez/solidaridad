@@ -58,6 +58,14 @@ export default [
 		loadComponent: () => import('./pages/plataformas/plataformas.component')
 	},
 	{
+		path: 'amigosCartuja',
+		loadComponent: () => import('./pages/plataformas/amigos-cartuja/amigos-cartuja.component')
+	},
+	{
+		path: 'astaRegia',
+		loadComponent: () => import('./pages/plataformas/asta-regia/asta-regia.component')
+	},
+	{
 		path: 'reivindicaciones',
 		loadComponent: () => import('./pages/reivindicaciones/reivindicaciones.component')
 	},
@@ -65,10 +73,7 @@ export default [
 		path: 'limpiezaViaria',
 		loadComponent: () => import('./pages/reivindicaciones/limpieza-viaria/limpieza-viaria.component')
 	},
-	{
-		path: 'amigosCartuja',
-		loadComponent: () => import('./pages/plataformas/amigos-cartuja/amigos-cartuja.component')
-	},
+
 	{
 		path: 'sanEnrique',
 		loadComponent: () => import('./pages/asociaciones-federadas/san-enrique/san-enrique.component')
