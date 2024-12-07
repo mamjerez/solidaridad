@@ -11,15 +11,15 @@ export default [
 	},
 	{
 		path: 'mision',
-		loadComponent: () => import('./pages/mision/mision.component')
+		loadComponent: () => import('./pages/quienes-somos/mision/mision.component')
 	},
 	{
 		path: 'vision',
-		loadComponent: () => import('./pages/vision/vision.component')
+		loadComponent: () => import('./pages/quienes-somos/vision/vision.component')
 	},
 	{
 		path: 'valores',
-		loadComponent: () => import('./pages/valores/valores.component')
+		loadComponent: () => import('./pages/quienes-somos/valores/valores.component')
 	},
 	{
 		path: 'asociaciones',
@@ -46,8 +46,24 @@ export default [
 		loadComponent: () => import('./pages/asociaciones-federadas/asociaciones-federadas.component')
 	},
 	{
+		path: 'mesas',
+		loadComponent: () => import('./pages/mesas/mesas.component')
+	},
+	{
+		path: 'mesaTurismo',
+		loadComponent: () => import('./pages/mesas/mesa-turismo/mesa-turismo.component')
+	},
+	{
 		path: 'plataformas',
 		loadComponent: () => import('./pages/plataformas/plataformas.component')
+	},
+	{
+		path: 'reivindicaciones',
+		loadComponent: () => import('./pages/reivindicaciones/reivindicaciones.component')
+	},
+	{
+		path: 'limpiezaViaria',
+		loadComponent: () => import('./pages/reivindicaciones/limpieza-viaria/limpieza-viaria.component')
 	},
 	{
 		path: 'amigosCartuja',
