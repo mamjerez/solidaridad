@@ -54,6 +54,22 @@ export default [
 		loadComponent: () => import('./pages/mesas/mesa-turismo/mesa-turismo.component')
 	},
 	{
+		path: 'mesaMayores',
+		loadComponent: () => import('./pages/mesas/mesa-mayores/mesa-mayores.component')
+	},
+	{
+		path: 'mesaSeguridad',
+		loadComponent: () => import('./pages/mesas/mesa-seguridad/mesa-seguridad.component')
+	},
+	{
+		path: 'mesaCentroHistorico',
+		loadComponent: () => import('./pages/mesas/mesa-centro-historico/mesa-centro-historico.component')
+	},
+	{
+		path: 'consejoSocial',
+		loadComponent: () => import('./pages/mesas/consejo-social/consejo-social.component')
+	},
+	{
 		path: 'plataformas',
 		loadComponent: () => import('./pages/plataformas/plataformas.component')
 	},
@@ -68,6 +84,10 @@ export default [
 	{
 		path: 'a2003',
 		loadComponent: () => import('./pages/plataformas/a2003/a2003.component')
+	},
+	{
+		path: 'a2004',
+		loadComponent: () => import('./pages/plataformas/a2004/a2004.component')
 	},
 	{
 		path: 'reivindicaciones',
