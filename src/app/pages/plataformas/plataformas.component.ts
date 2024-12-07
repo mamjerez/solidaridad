@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 import { SupabaseService } from '@services/supabase.service';
 import { DialogComponent } from '@app/commons/components/dialog/dialog.component';
 import { DialogService } from '@services/dialog.service';
+import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 interface IPlataforma {
 	nombre: string;
@@ -33,7 +34,7 @@ interface IPlataforma {
 @Component({
 	selector: 'app-plataformas',
 	standalone: true,
-	imports: [AgGridModule],
+	imports: [AgGridModule, CardMenuComponent],
 	templateUrl: './plataformas.component.html',
 	styleUrl: './plataformas.component.scss'
 })

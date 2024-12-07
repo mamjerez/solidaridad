@@ -1,3 +1,7 @@
 .hero-image {
 	width: 100%;
 }
+
+.icon {
+	pointer-events: none; /* Asegúrate de que el SVG no capture los eventos de clic */
+}

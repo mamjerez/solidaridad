@@ -10,6 +10,18 @@ export default [
 		loadComponent: () => import('./pages/auth/auth.component')
 	},
 	{
+		path: 'mision',
+		loadComponent: () => import('./pages/mision/mision.component')
+	},
+	{
+		path: 'vision',
+		loadComponent: () => import('./pages/vision/vision.component')
+	},
+	{
+		path: 'valores',
+		loadComponent: () => import('./pages/valores/valores.component')
+	},
+	{
 		path: 'asociaciones',
 		loadComponent: () => import('./pages/asociaciones/asociaciones/asociaciones.component')
 	},
@@ -36,6 +48,10 @@ export default [
 	{
 		path: 'plataformas',
 		loadComponent: () => import('./pages/plataformas/plataformas.component')
+	},
+	{
+		path: 'amigosCartuja',
+		loadComponent: () => import('./pages/plataformas/amigos-cartuja/amigos-cartuja.component')
 	},
 	{
 		path: 'sanEnrique',
