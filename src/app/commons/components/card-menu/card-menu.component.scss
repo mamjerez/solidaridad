@@ -7,7 +7,7 @@
 		border: 1px solid rgb(211, 214, 194);
 		border-radius: 10px;
 		background-color: #4d4e50;
-		padding: 20px;
+		// padding: 20px;
 		&:hover {
 			box-shadow: 0 16px 32px 0 rgba(151, 4, 4, 0.82);
 			transform: scale(1.1);
@@ -18,7 +18,9 @@
 			height: 100%;
 			border-top-right-radius: 10px;
 			border-top-left-radius: 10px;
-			object-fit: cover;
+			object-fit: fill;
+			animation-name: show;
+			animation-duration: 0.5s; /* Especifica la duración de la animación */
 		}
 		&__title {
 			color: rgba(237, 235, 240, 0.913);
