@@ -94,10 +94,9 @@ export default [
 		loadComponent: () => import('./pages/reivindicaciones/reivindicaciones.component')
 	},
 	{
-		path: 'limpiezaViaria',
-		loadComponent: () => import('./pages/reivindicaciones/limpieza-viaria/limpieza-viaria.component')
+		path: 'reivindicaciones/:tag',
+		loadComponent: () => import('./pages/reivindicaciones/reivindicacion/reivindicacion.component')
 	},
-
 	{
 		path: 'sanEnrique',
 		loadComponent: () => import('./pages/asociaciones-federadas/san-enrique/san-enrique.component')

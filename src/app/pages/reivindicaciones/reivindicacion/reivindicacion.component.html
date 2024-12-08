@@ -1,0 +1,14 @@
+<header class="OCM-title-dark">{{ reivindicacion[0].titulo }}. {{ reivindicacion[0].tipo }}</header>
+<div class="OCM-flex OCM-flex--center">
+	<img class="fotoCabecera" src="{{ reivindicacion[0].url_img }}" alt="Slider image" />
+</div>
+
+<div>
+	<header>{{ reivindicacion[0].etiqueta_coordinador }}. {{ reivindicacion[0].coordinador }}</header>
+</div>
+
+<div class="OCM-flex OCM-flex--right">
+	<button class="OCM-button" (click)="addCom()">+ comentario</button>
+</div>
+
+<app-informaciones [tag]="tag"></app-informaciones>

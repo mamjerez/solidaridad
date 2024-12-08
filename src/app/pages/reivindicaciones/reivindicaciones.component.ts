@@ -13,11 +13,12 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 export default class ReivindicacionesComponent {
 	private _router = inject(Router);
 
-	navigateTo(path: string) {
-		if (path.startsWith('http')) {
-			window.open(path, '_blank');
+	navigateTo(tag: string) {
+		if (tag.startsWith('http')) {
+			window.open(tag, '_blank');
 		} else {
-			this._router.navigate([path]);
+			const URL = `reivindicaciones/${tag}`;
+			this._router.navigateByUrl(URL);
 		}
 	}
 }
