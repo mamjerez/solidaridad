@@ -23,4 +23,16 @@ export class GetNewsComsDocs {
 			)
 		);
 	}
+
+	async fetchDatPlataformas(avv: string) {
+		const dataTypes = ['news', 'solidaridad_comentarios', 'solidaridad_documentos', 'solidaridad_gestiones'];
+
+		return Promise.all(
+			dataTypes.map((type) =>
+				this._supabaseService.fetchDataPlataformasInfo(type, 'tag', avv).catch((error) => {
+					console.error(`Error fetching ${type}:`, error);
+				})
+			)
+		);
+	}
 }
