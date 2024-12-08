@@ -1,3 +1,5 @@
+<!-- @defer (on timer(5000ms)) { -->
+<!-- {{ news | json }} -->
 @if (news.length > 0) {
 	<header>Noticias ({{ news.length }})</header>
 
@@ -15,7 +17,7 @@
 				@for (new of news; track new.title) {
 					<tr>
 						<td>{{ new.date | date: 'd-MM-yyyy' }}</td>
-						<td>{{ new.medio }}</td>
+						<td>{{ new.media }}</td>
 						<td>{{ new.title }}</td>
 						<td><a href="{{ new.URL }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
 					</tr>
@@ -24,3 +26,4 @@
 		</table>
 	</section>
 }
+<!-- } -->

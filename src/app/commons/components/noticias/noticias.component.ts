@@ -19,8 +19,10 @@ export default class NoticiasComponent implements OnInit {
 	public news: INew[] = [];
 
 	constructor() {
-		// si no se hace en el constructoir no funciona
+		// si no se hace en el constructor no funciona
 		const navigation = this._router.getCurrentNavigation();
+		console.log(navigation);
+
 		this.avv = navigation?.extras?.state?.['avv'] || null;
 		// console.log('avv desde estado en constructor:', this.avv);
 	}
@@ -30,6 +32,12 @@ export default class NoticiasComponent implements OnInit {
 	}
 
 	private async _loadNews(): Promise<void> {
-		this.news = await this._supabaseService.fetchNews(this.avv);
+		console.log('avv:', this.avv);
+		if (!this.avv) {
+			this.news = await this._supabaseService.fetchNewsOCM('astaRegia');
+			console.log('noticias:', this.news);
+		} else {
+			this.news = await this._supabaseService.fetchNews(this.avv);
+		}
 	}
 }

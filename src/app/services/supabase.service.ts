@@ -32,8 +32,6 @@ export class SupabaseService {
 	async fetchData(tableName: string): Promise<any> {
 		const { data, error } = await this._supabase.from(tableName).select('*');
 		if (error) throw error;
-		console.log(data);
-
 		return data;
 	}
 
@@ -53,7 +51,7 @@ export class SupabaseService {
 	async fetchDataPlataformasInfo(view: string, itemQuery: string, id: number | string): Promise<any> {
 		const { data, error } = await this._supabase.from(view).select('*').eq(itemQuery, id);
 		if (error) throw error;
-		console.log(JSON.stringify(data));
+		// console.log(JSON.stringify(data));
 		return data;
 	}
 
@@ -139,6 +137,19 @@ export class SupabaseService {
 		if (startDate && endDate) {
 			query = query.gte('date', startDate).lte('date', endDate);
 		}
+
+		const { data, error } = await query;
+
+		if (error) throw new Error(error.message);
+		return data;
+	}
+	async fetchNewsOCM(tag: string): Promise<any[]> {
+		// let query = this._supabase.from('news').select('*').order('date', { ascending: false }).limit(20);
+		const query = this._supabase
+			.from('news')
+			.select('date, media, title, url_new, tag')
+			.eq('tag', tag)
+			.order('date', { ascending: false });
 
 		const { data, error } = await query;
 

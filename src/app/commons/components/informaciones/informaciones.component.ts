@@ -9,6 +9,7 @@ import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
+import { IGestion } from '@interfaces/gestion.interface';
 
 @Component({
 	selector: 'app-informaciones',
@@ -24,9 +25,14 @@ export class InformacionesComponent implements OnInit {
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
+	public gestiones: IGestion[] = [];
 
 	async ngOnInit() {
-		const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDataFromSupabase(this.tag())]);
+		// const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDataFromSupabase(this.tag())]);
+		// [this.news, this.coms, this.docs, this.gestiones] = await this._getNewsComsDocs.fetchDatPlataformas('astaRegia');
+		const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDatPlataformas('astaRegia')]);
+
 		[this.news, this.coms, this.docs] = newsComsDocs;
+		console.log(this.news);
 	}
 }
