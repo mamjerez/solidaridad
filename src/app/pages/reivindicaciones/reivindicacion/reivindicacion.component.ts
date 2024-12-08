@@ -23,7 +23,6 @@ export default class LimpiezaViariaComponent implements OnInit {
 	async fecthData() {
 		try {
 			this.reivindicacion = await this._supabaseService.fetchDataByTag('solidaridad_reivindicaciones', this.tag);
-			console.log(this.reivindicacion);
 		} catch (error) {
 			console.error('Error fetching licitaciones:', error);
 		}

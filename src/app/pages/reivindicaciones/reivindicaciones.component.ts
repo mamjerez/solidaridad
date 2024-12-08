@@ -12,6 +12,7 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 })
 export default class ReivindicacionesComponent {
 	private _router = inject(Router);
+	public rutaBase = 'https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/solidaridad/';
 
 	navigateTo(tag: string) {
 		if (tag.startsWith('http')) {

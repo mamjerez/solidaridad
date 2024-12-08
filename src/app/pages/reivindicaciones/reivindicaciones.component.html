@@ -3,22 +3,22 @@
 <h3 class="OCM-title-dark">Competencias de prestación obligatoria</h3>
 <section class="OCM-gridMenu">
 	<app-card-menu
-		rutaImagen="https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/solidaridad/alumbradoPublico.jpg?t=2024-12-08T07%3A14%3A15.962Z"
+		[rutaImagen]="rutaBase + 'alumbradoPublico.jpg?t=2024-12-08T07%3A14%3A15.962Z'"
 		titulo="Alumbrado público"
 		(click)="navigateTo('alumbrado')"
 	/>
 	<app-card-menu
-		rutaImagen="https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/solidaridad/cementerio.jpg?t=2024-12-08T07%3A18%3A38.615Z"
+		[rutaImagen]="rutaBase + 'cementerio.jpg?t=2024-12-08T07%3A18%3A38.615Z'"
 		titulo="Cementerio"
 		(click)="navigateTo('cementerio')"
 	/>
 	<app-card-menu
-		rutaImagen="https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/solidaridad/recogidaResiduos.jpg?t=2024-12-08T07%3A22%3A10.580Z"
+		[rutaImagen]="rutaBase + 'recogidaResiduos.jpg?t=2024-12-08T07%3A22%3A10.580Z'"
 		titulo="Recogida de residuos"
 		(click)="navigateTo('recogidaResiduos')"
 	/>
 	<app-card-menu
-		rutaImagen="https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/solidaridad/limpiezaViaria.jpg?t=2024-12-07T15%3A13%3A15.304Z"
+		[rutaImagen]="rutaBase + 'limpiezaViaria.jpg?t=2024-12-07T15%3A13%3A15.304Z'"
 		titulo="Limpieza viaria"
 		(click)="navigateTo('limpiezaViaria')"
 	/>
