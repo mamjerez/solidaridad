@@ -1,33 +1,35 @@
-<header>Comentarios ({{ coms.length }})</header>
+@if (coms) {
+	<header>Comentarios ({{ coms.length }})</header>
 
-<section class="OCM-containerTable">
-	<table class="OCM-tableComentariosGestiones">
-		<thead>
-			<tr>
-				<th>Fecha</th>
-				<th>Emisor</th>
-				<th>texto</th>
-			</tr>
-		</thead>
-		<tbody>
-			@for (com of coms; track com.id) {
+	<section class="OCM-containerTable">
+		<table class="OCM-tableComentariosGestiones">
+			<thead>
 				<tr>
-					@switch (com.confidencial) {
-						@case (true) {
-							@if (canViewConfidencial) {
+					<th>Fecha</th>
+					<th>Emisor</th>
+					<th>texto</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (com of coms; track com.id) {
+					<tr>
+						@switch (com.confidencial) {
+							@case (true) {
+								@if (canViewConfidencial) {
+									<td>{{ com.date | date: 'd-MM-yyyy' }}</td>
+									<td style="color: red">CONFIDENCIAL {{ com.sender }}</td>
+									<td>{{ com.text }}</td>
+								}
+							}
+							@case (false) {
 								<td>{{ com.date | date: 'd-MM-yyyy' }}</td>
-								<td style="color: red">CONFIDENCIAL {{ com.sender }}</td>
+								<td>{{ com.sender }}</td>
 								<td>{{ com.text }}</td>
 							}
 						}
-						@case (false) {
-							<td>{{ com.date | date: 'd-MM-yyyy' }}</td>
-							<td>{{ com.sender }}</td>
-							<td>{{ com.text }}</td>
-						}
-					}
-				</tr>
-			}
-		</tbody>
-	</table>
-</section>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</section>
+}
