@@ -30,7 +30,7 @@ export class InformacionesComponent implements OnInit {
 	async ngOnInit() {
 		// const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDataFromSupabase(this.tag())]);
 		// [this.news, this.coms, this.docs, this.gestiones] = await this._getNewsComsDocs.fetchDatPlataformas('astaRegia');
-		const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDatPlataformas('astaRegia')]);
+		const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDatPlataformas('this.tag')]);
 
 		[this.news, this.coms, this.docs] = newsComsDocs;
 		console.log(this.news);
