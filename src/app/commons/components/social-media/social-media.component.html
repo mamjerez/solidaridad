@@ -4,8 +4,9 @@
 		@for (social of socialMediaLinks; track social.name) {
 			<li>
 				<a [href]="social.url" target="_blank" rel="noopener noreferrer" class="social-link">
-					<span class="icon">{{ social.icon }}</span>
-					{{ social.name }}
+					<object data="assets/img/facebook.svg" type="image/svg+xml" class="icon"></object>
+					<!-- <span class="icon">{{ social.icon }}</span> -->
+					<!-- {{ social.name }} -->
 				</a>
 			</li>
 		}
