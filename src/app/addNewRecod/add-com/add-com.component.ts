@@ -59,7 +59,7 @@ export default class AddComComponent implements OnInit {
 			const formData = {
 				...this.comForm.value,
 				// tag: this.data[0].tag
-				avv: this.tag
+				tag: this.tag
 			};
 
 			try {

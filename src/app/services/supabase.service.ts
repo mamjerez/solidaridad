@@ -48,18 +48,18 @@ export class SupabaseService {
 		return data;
 	}
 
-	async fetchDataPlataformasInfo(view: string, itemQuery: string, id: number | string): Promise<any> {
-		const { data, error } = await this._supabase.from(view).select('*').eq(itemQuery, id);
-		if (error) throw error;
-		// console.log(JSON.stringify(data));
-		return data;
-	}
+	// async fetchDataPlataformasInfo(view: string, itemQuery: string, id: number | string): Promise<any> {
+	// 	const { data, error } = await this._supabase.from(view).select('*').eq(itemQuery, id);
+	// 	if (error) throw error;
+	// 	// console.log(JSON.stringify(data));
+	// 	return data;
+	// }
 
-	async fetchDataByTagOrder(tableName: string, avv: string, order: boolean): Promise<any> {
+	async fetchDataByTagOrder(tableName: string, tag: string, order: boolean): Promise<any> {
 		const { data, error } = await this._supabase
 			.from(tableName)
 			.select('*')
-			.eq('avv', avv)
+			.eq('tag', tag)
 			.order('date', { ascending: order });
 		if (error) throw error;
 		return data;
@@ -126,12 +126,12 @@ export class SupabaseService {
 		return data;
 	}
 
-	async fetchNews(avv: string, startDate?: string, endDate?: string): Promise<any[]> {
+	async fetchNews(tag: string, startDate?: string, endDate?: string): Promise<any[]> {
 		// let query = this._supabase.from('news').select('*').order('date', { ascending: false }).limit(20);
 		let query = this._supabase
 			.from('solidaridad_news')
-			.select('date, media, title, url_new, avv, problema')
-			.eq('avv', avv)
+			.select('date, media, title, url_new, tag')
+			.eq('tag', tag)
 			.order('date', { ascending: false });
 
 		if (startDate && endDate) {
