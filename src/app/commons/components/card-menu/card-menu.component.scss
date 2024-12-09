@@ -7,7 +7,7 @@
 		border: 1px solid rgb(211, 214, 194);
 		border-radius: 10px;
 		background-color: #4d4e50;
-		// padding: 20px;
+		padding-top: 40px;
 		&:hover {
 			box-shadow: 0 16px 32px 0 rgba(151, 4, 4, 0.82);
 			transform: scale(1.1);
@@ -28,9 +28,10 @@
 			font-size: clamp(1.2rem, 2vw + 0.2rem, 1.4rem);
 			line-height: normal;
 			text-align: center;
-			padding: 1rem;
+			padding-top: 1rem;
 			border-bottom-right-radius: 10px;
 			border-bottom-left-radius: 10px;
+			height: 40px;
 		}
 	}
 
