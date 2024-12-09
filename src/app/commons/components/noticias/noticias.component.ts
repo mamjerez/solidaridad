@@ -25,7 +25,7 @@ export default class NoticiasComponent implements OnInit {
 		// si no se hace en el constructor no funciona
 		const navigation = this._router.getCurrentNavigation();
 		this.avv = navigation?.extras?.state?.['avv'] || null;
-		const path = this._location.path(); // '/#/reivindicaciones/alumbrado'
+		const path = this._location.path();
 		const segments = path.split('/');
 		this._path = segments[segments.length - 1];
 	}
@@ -37,7 +37,6 @@ export default class NoticiasComponent implements OnInit {
 	private async _loadNews(): Promise<void> {
 		if (!this.avv) {
 			this.news = await this._supabaseService.fetchNewsOCM(this._path);
-			console.log('noticias:', this.news);
 		} else {
 			this.news = await this._supabaseService.fetchNews(this.avv);
 		}

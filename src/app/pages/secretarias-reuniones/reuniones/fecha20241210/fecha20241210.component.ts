@@ -11,7 +11,6 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 })
 export default class Fecha20241210Component {
 	private readonly router = inject(Router);
-
 	public tag = '20241210';
 
 	addCom(): void {

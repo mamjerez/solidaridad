@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit } from '@angular/core';
+import { Component, inject, Input, input, OnInit } from '@angular/core';
 
 import ComentariosComponent from '@app/commons/components/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/documentos/documentos.component';
@@ -19,7 +19,9 @@ import { IGestion } from '@interfaces/gestion.interface';
 	styleUrl: './informaciones.component.scss'
 })
 export class InformacionesComponent implements OnInit {
-	tag = input.required<string>();
+	@Input() tag: string;
+	// tag = input.required<string>();
+
 	private readonly _getNewsComsDocs = inject(GetNewsComsDocs);
 
 	public coms: ICom[] = [];
@@ -28,11 +30,15 @@ export class InformacionesComponent implements OnInit {
 	public gestiones: IGestion[] = [];
 
 	async ngOnInit() {
-		// const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDataFromSupabase(this.tag())]);
+		console.log('Tag', this.tag);
+
+		const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDataFromSupabase(this.tag)]);
 		// [this.news, this.coms, this.docs, this.gestiones] = await this._getNewsComsDocs.fetchDatPlataformas('astaRegia');
-		const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDatPlataformas('this.tag')]);
+		// const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDatPlataformas('this.tag')]);
 
 		[this.news, this.coms, this.docs] = newsComsDocs;
-		console.log(this.news);
+		console.log('News', this.news);
+		console.log('Coms', this.coms);
+		console.log('docs', this.docs);
 	}
 }

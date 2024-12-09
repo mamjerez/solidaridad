@@ -2,11 +2,17 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
+
+interface IReivindicacion {
+	rutaImagen: string;
+	titulo: string;
+	tag: string;
+}
+
 @Component({
 	selector: 'app-reivindicaciones',
 	standalone: true,
 	imports: [CardMenuComponent],
-
 	templateUrl: './reivindicaciones.component.html',
 	styleUrl: './reivindicaciones.component.scss'
 })
@@ -14,106 +20,106 @@ export default class ReivindicacionesComponent {
 	private _router = inject(Router);
 	public rutaBase = 'https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/solidaridad/';
 	public rutaBaseOCM = 'https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/imgTodas/';
-	public reivindicaciones: any[] = [
+	public reivindicaciones: IReivindicacion[] = [
 		{
 			rutaImagen: `${this.rutaBase}alumbradoPublico.jpg`,
 			titulo: 'Alumbrado público',
-			path: 'alumbrado'
+			tag: 'alumbrado'
 		},
 		{
 			rutaImagen: `${this.rutaBase}cementerio.jpg`,
 			titulo: 'Cementerio',
-			path: 'cementerio'
+			tag: 'cementerio'
 		},
 		{
 			rutaImagen: `${this.rutaBase}recogidaResiduos.jpg`,
 			titulo: 'Recogida de residuos',
-			path: 'recogidaResiduos'
+			tag: 'recogidaResiduos'
 		},
 		{
 			rutaImagen: `${this.rutaBase}limpiezaViaria.jpg`,
 			titulo: 'Limpieza viaria',
-			path: 'limpiezaViaria'
+			tag: 'limpiezaViaria'
 		},
 		{
 			rutaImagen: `${this.rutaBaseOCM}suministroAgua.jpg`,
 			titulo: 'Abastecimiento domiciliario de agua potable',
-			path: 'abastecimientoAgua'
+			tag: 'abastecimientoAgua'
 		},
 		{
 			rutaImagen: `${this.rutaBase}alcantarillado.jpg`,
 			titulo: 'Alcantarillado',
-			path: 'alcantarillado'
+			tag: 'alcantarillado'
 		},
 		{
 			rutaImagen: `${this.rutaBase}accesoNucleos.jpg`,
 			titulo: 'Acceso a los núcleos de población',
-			path: 'accesoNucleos'
+			tag: 'accesoNucleos'
 		},
 		{
 			rutaImagen: `${this.rutaBase}pavimentacionVias.jpg`,
 			titulo: 'Pavimentación de las vías públicas',
-			path: 'pavimentacionVias'
+			tag: 'pavimentacionVias'
 		},
 		{
 			rutaImagen: `${this.rutaBaseOCM}parques.jpg`,
 			titulo: 'Parques públicos',
-			path: 'parquePublico'
+			tag: 'parquePublico'
 		},
 		{
 			rutaImagen: `${this.rutaBase}bibliotecaPublica.jpg`,
 			titulo: 'Biblioteca pública',
-			path: 'bibliotecaPublica'
+			tag: 'bibliotecaPublica'
 		},
 		{
 			rutaImagen: `${this.rutaBaseOCM}lasCalandrias.jpg`,
 			titulo: 'Tratamiento de residuos',
-			path: 'tratamientoResiduos'
+			tag: 'tratamientoResiduos'
 		},
 		{
 			rutaImagen: `${this.rutaBase}proteccionCivil.jpg`,
 			titulo: 'Protección civil',
-			path: 'proteccionCivil'
+			tag: 'proteccionCivil'
 		},
 		{
 			rutaImagen: `${this.rutaBase}evaluacionNecesidades.jpg`,
 			titulo: 'Evaluación e información de situaciones de necesidad social',
-			path: 'evaluacionNecesidades'
+			tag: 'evaluacionNecesidades'
 		},
 		{
 			rutaImagen: `${this.rutaBase}extincionIncendios.jpg`,
 			titulo: 'Prevención y extinción de incendios',
-			path: 'extincionIncendios'
+			tag: 'extincionIncendios'
 		},
 		{
 			rutaImagen: `${this.rutaBase}instalacionesDeportivas.jpg`,
 			titulo: 'Instalaciones deportivas de uso público',
-			path: 'instalacionesDeportivas'
+			tag: 'instalacionesDeportivas'
 		},
 		{
 			rutaImagen: `${this.rutaBaseOCM}autobuses.jpg`,
 			titulo: 'Transporte colectivo urbano de viajeros',
-			path: 'transporteViajeros'
+			tag: 'transporteViajeros'
 		},
 		{
 			rutaImagen: `${this.rutaBase}medioAmbiente.jpg`,
 			titulo: 'Medio ambiente urbano',
-			path: 'medioAmbiente'
+			tag: 'medioAmbiente'
 		},
 		{
 			rutaImagen: `${this.rutaBase}medioAmbienteParques.jpg`,
 			titulo: 'Medio ambiente urbano: parques y jardines públicos',
-			path: 'medioAmbienteParques'
+			tag: 'medioAmbienteParques'
 		},
 		{
 			rutaImagen: `${this.rutaBase}medioAmbienteResiduos.jpg`,
 			titulo: 'Medio ambiente urbano: gestión de residuos solidos urbanos',
-			path: 'medioAmbienteResiduos'
+			tag: 'medioAmbienteResiduos'
 		},
 		{
 			rutaImagen: `${this.rutaBase}contaminacion.jpg`,
 			titulo: 'Protección contra contaminación acústica, lumínica y atmosferica',
-			path: 'contaminacion'
+			tag: 'contaminacion'
 		}
 	];
 

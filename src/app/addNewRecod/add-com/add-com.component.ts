@@ -28,7 +28,7 @@ interface IAsociaciones {
 	templateUrl: './add-com.component.html'
 })
 export default class AddComComponent implements OnInit {
-	@Input() tag: number;
+	@Input() tag: string;
 	comForm: FormGroup;
 	private _formBuilder = inject(FormBuilder);
 	private _supabaseService = inject(SupabaseService);
@@ -44,6 +44,8 @@ export default class AddComComponent implements OnInit {
 			confidencial: [false, Validators.required]
 		});
 
+		console.log('Tag:', this.tag);
+
 		// try {
 		// 	this.data = await this._supabaseService.fetchDataById('asociaciones', this.tag);
 		// 	console.log('data:', this.data);
@@ -57,7 +59,7 @@ export default class AddComComponent implements OnInit {
 			const formData = {
 				...this.comForm.value,
 				// tag: this.data[0].tag
-				avv: '20241210'
+				avv: this.tag
 			};
 
 			try {
