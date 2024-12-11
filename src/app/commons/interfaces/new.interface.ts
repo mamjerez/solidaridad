@@ -3,5 +3,5 @@ export interface INew {
 	medio: string;
 	media?: string;
 	title: string;
-	URL?: string;
+	url_new?: string;
 }
