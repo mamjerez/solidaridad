@@ -24,7 +24,8 @@ export default class AuthComponent implements OnInit {
 	private readonly router = inject(Router);
 	private _location = inject(Location);
 	password = '';
-	correctPassword = 'trucha0121';
+	correctPassword: string[] = ['mam', 'ramos'];
+
 	correctSecretarias = 's';
 	public mensaje = '';
 
@@ -36,7 +37,7 @@ export default class AuthComponent implements OnInit {
 	}
 
 	checkPassword(): void {
-		if (this.password === this.correctPassword) {
+		if (this.correctPassword.includes(this.password)) {
 			this._isAdminService.setIsAdmin(true);
 			this.mensaje = 'Ahora eres administrador';
 			this.mostrarDialog('Ahora eres administrador', false, true);
