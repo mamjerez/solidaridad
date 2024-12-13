@@ -26,10 +26,10 @@ export default class AuthComponent implements OnInit {
 	private _location = inject(Location);
 	private _userService = inject(UserService);
 	password = '';
-	correctPassword: string[] = ['mam', 'ramos'];
+	correctPassword: string[] = ['mam', '1919'];
 	passwordAvatarMap: { [key: string]: string } = {
 		mam: 'assets/img/mam.png',
-		ramos: 'assets/img/ramos.jpg'
+		1919: 'assets/img/ramos.jpg'
 	};
 
 	correctSecretarias = 's';
