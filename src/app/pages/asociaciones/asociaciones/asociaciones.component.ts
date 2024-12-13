@@ -217,4 +217,8 @@ export default class AsociacionesComponent implements OnInit {
 
 		this._router.navigate(['ficha'], { state: { data: event.data } });
 	}
+
+	onQuickFilterChanged(event: any): void {
+		this.agGrid.api.setQuickFilter(event.target.value);
+	}
 }

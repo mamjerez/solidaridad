@@ -31,7 +31,7 @@
 	background-color: #15202b;
 	font-weight: 700;
 	font-family: var(--fuente-principal);
-	font-size: clamp(0.7rem, 3vw + 1rem, 3rem);
+	font-size: clamp(0.7rem, 1vw + 1rem, 3rem);
 	text-align: center;
 	padding-top: 40px;
 	margin: 0;
@@ -80,7 +80,7 @@
 }
 
 @media (max-width: 570px) {
-	// .item-subtitle {
-	// 	display: none;
-	// }
+	.OCM-title-dark {
+		padding-top: 10px;
+	}
 }

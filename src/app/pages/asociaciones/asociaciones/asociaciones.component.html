@@ -1,15 +1,16 @@
-<main class="agGrid">
-	<header class="OCM-title">Relación Asociaciones vecinales de Jerez de la Frontera</header>
-	@if (gridOptions) {
-		<ag-grid-angular
-			#agGrid
-			style="width: 86vw; height: 90vh; margin: 20px"
-			class="ag-theme-balham"
-			[gridOptions]="gridOptions"
-			(gridReady)="onGridReady($event)"
-			(rowClicked)="onRowClicked($event)"
+<header class="OCM-title-dark">Relación Asociaciones vecinales de Jerez de la Frontera</header>
+
+<input type="text" (input)="onQuickFilterChanged($event)" placeholder="Buscar..." class="buscar" />
+
+@if (gridOptions) {
+	<ag-grid-angular
+		#agGrid
+		style="width: 96vw; height: 90vh; margin: 0 auto"
+		class="ag-theme-balham"
+		[gridOptions]="gridOptions"
+		(gridReady)="onGridReady($event)"
+		(rowClicked)="onRowClicked($event)"
+	>
 		>
-			>
-		</ag-grid-angular>
-	}
-</main>
+	</ag-grid-angular>
+}
