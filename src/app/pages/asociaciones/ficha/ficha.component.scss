@@ -8,12 +8,12 @@
 	label {
 		display: block;
 		font-weight: bold;
-		font-size: clamp(0.5rem, 1vw + 0.75rem, 6.6rem);
+		font-size: clamp(0.5rem, 1vw + 0.75rem, 1.2rem);
 	}
 
 	input {
 		padding: 4px;
-		font-size: clamp(0.5rem, 1vw + 0.75rem, 6.6rem);
+		font-size: clamp(0.5rem, 1vw + 0.75rem, 1.6rem);
 	}
 
 	.solidaridad-style {
@@ -59,7 +59,8 @@
 
 	.containerAsociacion {
 		display: grid;
-		grid-template-columns: 16vw 16vw 16vw 16vw 16vw 16vw;
+		// grid-template-columns: 16vw 16vw 16vw 16vw 16vw 16vw;
+		grid-template-columns: repeat(6, 16%);
 		justify-content: center;
 		grid-auto-flow: row;
 		grid-template-areas:
@@ -68,8 +69,9 @@
 			'distrito distrito barrio barrio barrio barrio'
 			'federacion federacion federacion federacion federacion federacion'
 			'email email email email email email';
-
-		margin-left: 40px;
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
 	}
 
 	.vacia {
