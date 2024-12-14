@@ -34,11 +34,13 @@ export default class AuthComponent implements OnInit {
 
 	correctSecretarias = 's';
 	public mensaje = '';
+	private _intentos = 0;
 
 	ngOnInit(): void {
 		if (this._isAdminService.getIsAdmin()) {
 			this._isAdminService.setIsAdmin(false);
-			this._location.back();
+			this._userService.setAvatar('assets/img/anom.png');
+			// this._location.back();
 		}
 	}
 
@@ -51,12 +53,20 @@ export default class AuthComponent implements OnInit {
 			this.mensaje = 'Ahora eres administrador';
 			this.mostrarDialog('Ahora eres administrador', false, true);
 		} else {
-			if (this.password === this.correctSecretarias) {
+			this._isAdminService.setIsAdmin(false);
+			this._userService.setAvatar('assets/img/anom.png');
+			this._intentos++;
+			if (this._intentos >= 3) {
+				this.mensaje = 'Demasiados intentos';
+				this.mostrarDialog('Demasiados intentos', true, false, 1000);
+				this._location.back();
+			} else if (this.password === this.correctSecretarias) {
 				this._isSecretariaService.setIsSecretaria(true);
 				this.mensaje = 'Ahora eres secretaria';
 				this.mostrarDialog('Ahora eres secretaria', false, false);
 				this.router.navigate(['/secretarias']);
 			} else {
+				this._isSecretariaService.setIsSecretaria(false);
 				this.mensaje = 'Contraseña incorrecta';
 				this.mostrarDialog('Contraseña incorrecta', true, false);
 			}
