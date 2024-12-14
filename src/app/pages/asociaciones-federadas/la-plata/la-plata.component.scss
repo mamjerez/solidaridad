@@ -1,4 +1,9 @@
 @media screen and (max-width: 4200px) {
+	.video-container {
+		display: flex;
+		justify-content: center;
+		margin: 20px 0; /* Opcional: añade margen superior e inferior */
+	}
 	div {
 		margin: 20px;
 	}
