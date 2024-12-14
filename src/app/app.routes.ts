@@ -110,6 +110,10 @@ export default [
 		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/aparcamiento/aparcamiento.component')
 	},
 	{
+		path: 'basuraLaPlata',
+		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/basura/basura.component')
+	},
+	{
 		path: 'ficha',
 		loadComponent: () => import('./pages/asociaciones/ficha/ficha.component')
 	},
