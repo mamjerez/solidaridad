@@ -10,13 +10,13 @@
 				<div class="OCM-alert">Fecha es requerida.</div>
 			}
 
-			<label for="sender" class="OCM-label-dark">Emisor</label>
+			<label for="sender" class="OCM-label-dark">Nombre de quien comenta OPCIONAL</label>
 			<input type="text" class="OCMInputMedia" id="media" formControlName="sender" />
 			@if (comForm?.get('sender')?.invalid && comForm?.get('sender')?.touched) {
 				<div class="OCM-alert">Emisor es requerido.</div>
 			}
 
-			<label for="texto" class="OCM-label-dark">Titulo</label>
+			<label for="texto" class="OCM-label-dark">Texto</label>
 			<input type="text" class="OCMInputLong" id="text" formControlName="text" />
 			@if (comForm?.get('text')?.invalid && comForm?.get('text')?.touched) {
 				<div class="OCM-alert">titulo es requerido.</div>

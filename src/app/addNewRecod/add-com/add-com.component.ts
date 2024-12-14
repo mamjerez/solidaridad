@@ -39,7 +39,7 @@ export default class AddComComponent implements OnInit {
 	async ngOnInit(): Promise<void> {
 		this.comForm = this._formBuilder.group({
 			date: ['', Validators.required],
-			sender: ['', Validators.required],
+			sender: [''],
 			text: ['', Validators.required],
 			confidencial: [false, Validators.required]
 		});

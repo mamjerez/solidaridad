@@ -119,6 +119,10 @@ export default [
 			import('./pages/asociaciones-federadas/la-plata/problemas/casas-abandonadas/casas-abandonadas.component')
 	},
 	{
+		path: 'aceraLaPlata',
+		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/acerado/acerado.component')
+	},
+	{
 		path: 'ficha',
 		loadComponent: () => import('./pages/asociaciones/ficha/ficha.component')
 	},
