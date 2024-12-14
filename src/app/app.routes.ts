@@ -114,6 +114,11 @@ export default [
 		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/basura/basura.component')
 	},
 	{
+		path: 'casaLaPlata',
+		loadComponent: () =>
+			import('./pages/asociaciones-federadas/la-plata/problemas/casas-abandonadas/casas-abandonadas.component')
+	},
+	{
 		path: 'ficha',
 		loadComponent: () => import('./pages/asociaciones/ficha/ficha.component')
 	},

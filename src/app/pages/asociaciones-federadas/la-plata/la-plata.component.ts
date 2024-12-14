@@ -24,8 +24,6 @@ export default class LaPlataComponent implements OnInit {
 	async createCardMenu() {
 		try {
 			const data = await this._supabaseService.fetchDataHomeAVV('laplata_menu_cards');
-			console.log('Data', data);
-
 			this.cards = data.map((card) => ({
 				...card,
 				rutaImagen: `${this._pathImage}${card.tag}.jpg`,
