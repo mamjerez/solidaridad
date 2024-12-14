@@ -12,7 +12,7 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 export default class AmigosCartujaComponent {
 	private readonly router = inject(Router);
 
-	public tag = '20241210';
+	public tag = 'cartuja';
 
 	addCom(): void {
 		this.router.navigateByUrl('addCom/' + this.tag);
