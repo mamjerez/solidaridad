@@ -19,62 +19,79 @@ import { UserService } from '@services/user.service';
 })
 export default class AuthComponent implements OnInit {
 	@ViewChild('dialogComponent', { static: false }) dialogComponent!: DialogComponent;
-	private _isAdminService = inject(IsAdminService);
-	private _isSecretariaService = inject(IsSecretariaService);
-	private readonly _dialogService = inject(DialogService);
+	private readonly isAdminService = inject(IsAdminService);
+	private readonly isSecretariaService = inject(IsSecretariaService);
+	private readonly dialogService = inject(DialogService);
 	private readonly router = inject(Router);
-	private _location = inject(Location);
-	private _userService = inject(UserService);
-	password = '';
-	correctPassword: string[] = ['mam', '1919'];
-	passwordAvatarMap: { [key: string]: string } = {
+	private readonly location = inject(Location);
+	private readonly userService = inject(UserService);
+	private readonly correctPassword: string[] = ['mam', '1919'];
+	private readonly passwordAvatarMap: Record<string, string> = {
 		mam: 'assets/img/mam.png',
 		1919: 'assets/img/ramos.jpg'
 	};
-
-	correctSecretarias = 's';
+	private readonly correctSecretarias = 's';
+	private intentos = 0;
 	public mensaje = '';
-	private _intentos = 0;
+	public password = '';
 
 	ngOnInit(): void {
-		if (this._isAdminService.getIsAdmin()) {
-			this._isAdminService.setIsAdmin(false);
-			this._userService.setAvatar('assets/img/anom.png');
-			// this._location.back();
+		this.resetAdminState();
+	}
+
+	private resetAdminState(): void {
+		if (this.isAdminService.getIsAdmin()) {
+			this.isAdminService.setIsAdmin(false);
+			this.userService.setAvatar('assets/img/anom.png');
 		}
 	}
 
 	checkPassword(): void {
-		if (this.correctPassword.includes(this.password)) {
-			this._isAdminService.setIsAdmin(true);
-			const avatarUrl = this.passwordAvatarMap[this.password];
-			// Guardar el avatar en el servicio
-			this._userService.setAvatar(avatarUrl);
-			this.mensaje = 'Ahora eres administrador';
-			this.mostrarDialog('Ahora eres administrador', false, true);
+		if (this.isPasswordCorrect()) {
+			this.grantAdminAccess();
+		} else if (this.isSecretariaPassword()) {
+			this.grantSecretariaAccess();
 		} else {
-			this._isAdminService.setIsAdmin(false);
-			this._userService.setAvatar('assets/img/anom.png');
-			this._intentos++;
-			if (this._intentos >= 3) {
-				this.mensaje = 'Demasiados intentos';
-				this.mostrarDialog('Demasiados intentos', true, false, 1000);
-				this._location.back();
-			} else if (this.password === this.correctSecretarias) {
-				this._isSecretariaService.setIsSecretaria(true);
-				this.mensaje = 'Ahora eres secretaria';
-				this.mostrarDialog('Ahora eres secretaria', false, false);
-				this.router.navigate(['/secretarias']);
-			} else {
-				this._isSecretariaService.setIsSecretaria(false);
-				this.mensaje = 'Contraseña incorrecta';
-				this.mostrarDialog('Contraseña incorrecta', true, false);
-			}
+			this.handleIncorrectPassword();
+		}
+	}
+
+	private isPasswordCorrect(): boolean {
+		return this.correctPassword.includes(this.password);
+	}
+
+	private isSecretariaPassword(): boolean {
+		return this.password === this.correctSecretarias;
+	}
+
+	private grantAdminAccess(): void {
+		this.isAdminService.setIsAdmin(true);
+		this.userService.setAvatar(this.passwordAvatarMap[this.password]);
+		this.mensaje = 'Ahora eres administrador';
+		this.mostrarDialog('Ahora eres administrador', false, true);
+	}
+
+	private grantSecretariaAccess(): void {
+		this.isSecretariaService.setIsSecretaria(true);
+		this.mensaje = 'Ahora eres secretaria';
+		this.mostrarDialog('Ahora eres secretaria', false, false);
+		this.router.navigate(['/secretarias']);
+	}
+
+	private handleIncorrectPassword(): void {
+		this.intentos++;
+		if (this.intentos >= 3) {
+			this.mensaje = 'Demasiados intentos';
+			this.mostrarDialog('Demasiados intentos', true, false, 1000);
+			this.location.back();
+		} else {
+			this.isSecretariaService.setIsSecretaria(false);
+			this.mensaje = 'Contraseña incorrecta';
+			this.mostrarDialog('Contraseña incorrecta', true, false);
 		}
 	}
 
 	private mostrarDialog(mensaje: string, hasError: boolean, isBack: boolean, timeout?: number): void {
-		this._dialogService.openDialog(mensaje, hasError, isBack, timeout);
-		// La lógica de cierre y navegación ahora está manejada por DialogComponent
+		this.dialogService.openDialog(mensaje, hasError, isBack, timeout);
 	}
 }
