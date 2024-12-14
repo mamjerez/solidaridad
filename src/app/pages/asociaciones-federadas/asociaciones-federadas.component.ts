@@ -173,4 +173,8 @@ export default class AsociacionesFederadasComponent implements OnInit {
 	private mostrarDialog(mensaje: string, hasError: boolean, isBack: boolean, timeout?: number): void {
 		this._dialogService.openDialog(mensaje, hasError, isBack, timeout);
 	}
+
+	onQuickFilterChanged(event: any): void {
+		this.agGrid.api.setQuickFilter(event.target.value);
+	}
 }
