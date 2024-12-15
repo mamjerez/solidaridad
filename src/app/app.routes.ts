@@ -131,6 +131,11 @@ export default [
 		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/circulacion/circulacion.component')
 	},
 	{
+		path: 'fotosHistoricasLaPlata',
+		loadComponent: () =>
+			import('./pages/asociaciones-federadas/la-plata/historia/fotos-historicas/fotos-historicas.component')
+	},
+	{
 		path: 'ficha',
 		loadComponent: () => import('./pages/asociaciones/ficha/ficha.component')
 	},
