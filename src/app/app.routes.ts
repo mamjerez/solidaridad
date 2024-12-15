@@ -136,6 +136,10 @@ export default [
 			import('./pages/asociaciones-federadas/la-plata/historia/fotos-historicas/fotos-historicas.component')
 	},
 	{
+		path: 'detalle-foto/:id',
+		loadComponent: () => import('./commons/components/galeria-fotos/detalle-foto/detalle-foto.component')
+	},
+	{
 		path: 'ficha',
 		loadComponent: () => import('./pages/asociaciones/ficha/ficha.component')
 	},

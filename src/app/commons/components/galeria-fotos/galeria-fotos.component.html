@@ -1,7 +1,7 @@
 <div class="masonry-container">
 	@for (foto of fotos; track foto.id) {
 		<div class="masonry-item">
-			<img [src]="foto.url" alt="{{ foto.descripcion }}" />
+			<img [src]="foto.url" alt="{{ foto.descripcion }}" (click)="irADetalleFoto(foto.id)" />
 			<p>{{ foto.fecha }}</p>
 			<p>{{ foto.descripcion }}</p>
 		</div>

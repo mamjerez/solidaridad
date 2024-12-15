@@ -1,0 +1,9 @@
+<div class="detalle-foto">
+	@if (foto) {
+		<img [src]="url" [alt]="foto.descripcion" class="foto-detalle" />
+		<p>{{ foto.descripcion }}</p>
+		<p>Fecha: {{ id }}</p>
+	} @else {
+		<p>No se encontraron datos de la foto.</p>
+	}
+</div>

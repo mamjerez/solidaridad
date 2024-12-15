@@ -41,6 +41,12 @@ export class SupabaseService {
 		return data;
 	}
 
+	async fetchDataById(tableName: string, id: string): Promise<any> {
+		const { data, error } = await this._supabase.from(tableName).select('*').eq('id', id);
+		if (error) throw error;
+		return data;
+	}
+
 	async fetchDataFromViewAsociaciones(view: string, itemQuery: string, id: number | string): Promise<any> {
 		const { data, error } = await this._supabase.from(view).select('*').eq(itemQuery, id);
 		if (error) throw error;
