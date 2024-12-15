@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SupabaseService } from '@services/supabase.service';
 import { INew } from '@interfaces/new.interface';
 import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
@@ -12,7 +12,9 @@ import NoticiasComponent from '@app/commons/components/level/noticias/noticias.c
 })
 export default class ResumenPrensaComponent implements OnInit {
 	public news: INew[] = [];
-	constructor(private supabaseService: SupabaseService) {}
+	// constructor(private supabaseService: SupabaseService) {}
+
+	private readonly _supabaseService = inject(SupabaseService);
 
 	async ngOnInit() {
 		this.fetchData();
@@ -20,7 +22,7 @@ export default class ResumenPrensaComponent implements OnInit {
 
 	async fetchData() {
 		try {
-			this.news = await this.supabaseService.getTodayNews();
+			this.news = await this._supabaseService.getTodayNews();
 		} catch (error) {
 			console.error('Error fetching news:', error);
 		}
