@@ -127,6 +127,10 @@ export default [
 		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/ascensores/ascensores.component')
 	},
 	{
+		path: 'circulacionLaPlata',
+		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/circulacion/circulacion.component')
+	},
+	{
 		path: 'ficha',
 		loadComponent: () => import('./pages/asociaciones/ficha/ficha.component')
 	},
