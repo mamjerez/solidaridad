@@ -1,6 +1,8 @@
+import { BotonesAddComponent } from '@app/commons/components/botones-add/botones-add.component';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
+import { DatosAsociacionComponent } from '@app/commons/components/datos-asociacion/datos-asociacion.component';
 import { NoticiasAsociacionComponent } from '@app/commons/components/noticias-asociacion/noticias-asociacion.component';
 import { NoticiasBarrioComponent } from '@app/commons/components/noticias-barrio/noticias-barrio.component';
 import { ICard } from '@interfaces/card.interface';
@@ -10,7 +12,13 @@ import { SupabaseService } from '@services/supabase.service';
 @Component({
 	selector: 'app-la-plata',
 	standalone: true,
-	imports: [CardMenuComponent, NoticiasBarrioComponent, NoticiasAsociacionComponent],
+	imports: [
+		BotonesAddComponent,
+		CardMenuComponent,
+		NoticiasBarrioComponent,
+		NoticiasAsociacionComponent,
+		DatosAsociacionComponent
+	],
 	templateUrl: './la-plata.component.html',
 	styleUrl: './la-plata.component.scss'
 })
@@ -23,6 +31,7 @@ export default class LaPlataComponent implements OnInit {
 	public cardsHistoria: ICard[] = [];
 	public newsBarrio: INew[] = [];
 	public newsAsociacion: INew[] = [];
+	public tag = null;
 
 	ngOnInit() {
 		this.createCardMenu();

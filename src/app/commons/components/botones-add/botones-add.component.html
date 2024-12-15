@@ -6,6 +6,8 @@
 		<button class="OCM-button" (click)="addGes()">+ Gestión</button>
 	} @else {
 		<button class="OCM-button-volver" (click)="volver()"></button>
-		<button class="OCM-button" (click)="addCom()">+ comentario</button>
+		@if (tag()) {
+			<button class="OCM-button" (click)="addCom()">+ comentario</button>
+		}
 	}
 </div>
