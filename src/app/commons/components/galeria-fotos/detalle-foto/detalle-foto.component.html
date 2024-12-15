@@ -1,8 +1,8 @@
 <div class="detalle-foto">
 	@if (foto) {
-		<img [src]="url" [alt]="foto.descripcion" class="foto-detalle" />
+		<img [src]="foto.url" [alt]="foto.descripcion" class="foto-detalle" />
 		<p>{{ foto.descripcion }}</p>
-		<p>Fecha: {{ id }}</p>
+		<p>Fecha: {{ foto.fecha }}</p>
 	} @else {
 		<p>No se encontraron datos de la foto.</p>
 	}
