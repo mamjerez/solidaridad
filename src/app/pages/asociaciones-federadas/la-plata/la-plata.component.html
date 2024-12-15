@@ -24,11 +24,35 @@
 	></iframe>
 </div>
 
-<div class="problemas">
-	<span> Principales problemas del barrio</span>
-</div>
-<main class="OCM-gridMenu">
+<header class="problemas">
+	<span> Principales problemas de la barriada</span>
+</header>
+
+<section class="OCM-gridMenu">
 	@for (card of cards; track card.tag) {
 		<app-card-menu [rutaImagen]="card.rutaImagen" [titulo]="card.title" (click)="card.funcion()" />
 	}
-</main>
+</section>
+
+<header class="problemas">
+	<span> Actividades programadas</span>
+</header>
+
+<section class="OCM-gridMenu">
+	@for (card of cardsActividades; track card.tag) {
+		<app-card-menu [rutaImagen]="card.rutaImagen" [titulo]="card.title" (click)="card.funcion()" />
+	}
+</section>
+
+<header class="problemas">
+	<span> Historia de la barriada</span>
+</header>
+
+<section class="OCM-gridMenu">
+	@for (card of cardsHistoria; track card.tag) {
+		<app-card-menu [rutaImagen]="card.rutaImagen" [titulo]="card.title" (click)="card.funcion()" />
+	}
+</section>
+
+<app-noticias-barrio [newsBarrio]="newsBarrio" />
+<app-noticias-asociacion [newsAsociacion]="newsAsociacion" />
