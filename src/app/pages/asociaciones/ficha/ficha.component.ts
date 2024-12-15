@@ -3,7 +3,6 @@ import { NgClass } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import NoticiasComponent from '@app/commons/components/level/noticias/noticias.component';
 import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
 import GestionesComponent from '@app/commons/components/level/gestiones/gestiones/gestiones.component';
@@ -63,7 +62,6 @@ interface ICargo {
 		ReactiveFormsModule,
 		ComentariosComponent,
 		DocumentosComponent,
-		NoticiasComponent,
 		GestionesComponent,
 		CargosComponent,
 		SocialMediaComponent
@@ -91,6 +89,7 @@ export default class FichaComponent implements OnInit {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		const navigation = this._router.getCurrentNavigation();
 		this.data = navigation?.extras.state?.['data'];
+		console.log('Data', this.data);
 	}
 
 	ngOnInit(): void {
