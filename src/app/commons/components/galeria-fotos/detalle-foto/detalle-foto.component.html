@@ -1,3 +1,4 @@
+<app-botones-add [tag]="tag"></app-botones-add>
 <div class="detalle-foto">
 	@if (foto) {
 		<img [src]="foto.url" [alt]="foto.descripcion" class="foto-detalle" />
@@ -7,3 +8,5 @@
 		<p>No se encontraron datos de la foto.</p>
 	}
 </div>
+
+<app-comentarios [coms]="coms"></app-comentarios>
