@@ -35,9 +35,11 @@ export default class NoticiasComponent implements OnInit {
 	}
 
 	private async _loadNews(): Promise<void> {
+		console.log(this._path);
+		console.log(this.avv);
+
 		if (!this.avv) {
 			console.log(this._path);
-
 			this.news = await this._supabaseService.fetchNewsOCM(this._path);
 			console.log(this.news);
 		} else {

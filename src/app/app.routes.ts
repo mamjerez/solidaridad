@@ -123,6 +123,10 @@ export default [
 		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/acerado/acerado.component')
 	},
 	{
+		path: 'ascensorLaPlata',
+		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/ascensores/ascensores.component')
+	},
+	{
 		path: 'ficha',
 		loadComponent: () => import('./pages/asociaciones/ficha/ficha.component')
 	},

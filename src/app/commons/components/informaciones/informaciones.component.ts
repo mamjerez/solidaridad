@@ -1,15 +1,15 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 
-import ComentariosComponent from '@app/commons/components/comentarios/comentarios.component';
-import DocumentosComponent from '@app/commons/components/documentos/documentos.component';
-import NoticiasComponent from '@app/commons/components/noticias/noticias.component';
-
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IGestion } from '@interfaces/gestion.interface';
+
+import ComentariosComponent from '../comentarios/comentarios.component';
+import DocumentosComponent from '../documentos/documentos.component';
+import NoticiasComponent from '../level/noticias/noticias.component';
 
 @Component({
 	selector: 'app-informaciones',
