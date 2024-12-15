@@ -14,13 +14,15 @@ import { CookieConsentComponent } from './commons/components/cookie-consent.comp
 })
 export class AppComponent implements OnInit {
 	private _router = inject(Router);
+	private cadenasOcultarFooter = ['laPlata', 'LaPlata', 'cadenaAdicional'];
+
 	public showFooter = true;
 
 	ngOnInit() {
 		this._router.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
-				const rutasSinFooter = ['/laPlata', '/ruta2']; // Rutas donde se oculta el footer
-				this.showFooter = !rutasSinFooter.includes(event.urlAfterRedirects);
+				const urlActual = event.urlAfterRedirects;
+				this.showFooter = !this.cadenasOcultarFooter.some((cadena) => urlActual.includes(cadena));
 			}
 		});
 	}
