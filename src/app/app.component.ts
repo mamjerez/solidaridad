@@ -14,7 +14,7 @@ import { CookieConsentComponent } from './commons/components/cookie-consent.comp
 })
 export class AppComponent implements OnInit {
 	private _router = inject(Router);
-	private cadenasOcultarFooter = ['laPlata', 'LaPlata', 'cadenaAdicional'];
+	private cadenasOcultarFooter = ['laPlata', 'LaPlata', 'foto'];
 
 	public showFooter = true;
 
