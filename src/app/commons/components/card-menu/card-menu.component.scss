@@ -7,7 +7,7 @@
 		border: 1px solid rgb(211, 214, 194);
 		border-radius: 10px;
 		background-color: #4d4e50;
-		padding-top: 40px;
+
 		&:hover {
 			box-shadow: 0 16px 32px 0 rgba(151, 4, 4, 0.82);
 			transform: scale(1.1);
@@ -20,7 +20,10 @@
 			border-top-left-radius: 10px;
 			object-fit: fill;
 			animation-name: show;
-			animation-duration: 0.5s; /* Especifica la duración de la animación */
+			animation-duration: 0.5s;
+		}
+		&__svg {
+			padding-top: 40px;
 		}
 		&__title {
 			color: rgba(237, 235, 240, 0.913);
@@ -49,7 +52,6 @@
 		}
 		&__title {
 			color: rgba(237, 235, 240, 0.913);
-			// https://modern-fluid-typography.vercel.app?rootFontSize=12&minSize=8&fluidSize=1&relativeSize=0.5&maxSize=20
 			font-size: clamp(0.1rem, 2vw + 0.2rem, 1.4rem);
 			line-height: normal;
 			text-align: center;
@@ -64,7 +66,6 @@
 	.cardMenu {
 		height: 150px;
 		&__image {
-			// padding: 4px;
 			border-radius: 10px;
 		}
 	}

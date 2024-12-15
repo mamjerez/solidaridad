@@ -15,4 +15,8 @@ export class CardMenuComponent {
 	manejarErrorImagen() {
 		this.errorCargaImagen = true;
 	}
+
+	isSvg(ruta: string | null): boolean {
+		return ruta?.toLowerCase().endsWith('.svg') ?? false;
+	}
 }

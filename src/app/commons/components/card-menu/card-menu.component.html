@@ -1,6 +1,10 @@
 @if (rutaImagen) {
 	<div class="cardMenu">
-		<img src="{{ rutaImagen }}" alt="global" class="cardMenu__image" />
+		<img
+			src="{{ rutaImagen }}"
+			alt="global"
+			class="cardMenu__image {{ isSvg(rutaImagen) ? 'cardMenu__svg' : 'cardMenu__image' }}"
+		/>
 		<span class="cardMenu__title">{{ titulo }}</span>
 	</div>
 } @else {
