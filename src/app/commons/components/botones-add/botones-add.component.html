@@ -1,8 +1,11 @@
-@if (isAdmin) {
-	<button class="OCM-button" (click)="addNew()">+ noticia</button>
-	<button class="OCM-button" (click)="addCom()">+ comentario</button>
-	<button class="OCM-button" (click)="addDoc()">+ documento</button>
-	<button class="OCM-button" (click)="addGes()">+ Gestión</button>
-} @else {
-	<button class="OCM-button" (click)="addCom()">+ comentario</button>
-}
+<div class="OCM-button-container">
+	@if (isAdmin) {
+		<button class="OCM-button" (click)="addNew()">+ noticia</button>
+		<button class="OCM-button" (click)="addCom()">+ comentario</button>
+		<button class="OCM-button" (click)="addDoc()">+ documento</button>
+		<button class="OCM-button" (click)="addGes()">+ Gestión</button>
+	} @else {
+		<button class="OCM-button-volver" (click)="volver()"></button>
+		<button class="OCM-button" (click)="addCom()">+ comentario</button>
+	}
+</div>

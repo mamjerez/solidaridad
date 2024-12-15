@@ -1,5 +1,6 @@
 import { Component, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
 	selector: 'app-botones-add',
@@ -11,6 +12,8 @@ import { Router } from '@angular/router';
 export class BotonesAddComponent {
 	tag = input.required<string>();
 	public readonly router = inject(Router);
+	private _location = inject(Location);
+
 	public isAdmin = false;
 
 	addNew(): void {
@@ -27,5 +30,9 @@ export class BotonesAddComponent {
 
 	addGes(): void {
 		this.router.navigateByUrl('addGestion/' + this.tag());
+	}
+
+	volver(): void {
+		this._location.back();
 	}
 }
