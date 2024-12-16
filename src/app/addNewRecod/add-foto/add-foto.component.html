@@ -1,0 +1,20 @@
+<div class="OCM-dark-teme OCM-flex OCM-flex--center">
+	<form [formGroup]="comForm" (ngSubmit)="guardar()">
+		<label class="OCM-label-dark OCM-label-dark--marginTop" for="url">URL:</label>
+		<input id="url" type="text" class="OCMInputLong" formControlName="url" required />
+
+		<label for="fecha" class="OCM-label-dark OCM-label-dark--marginTop">Fecha</label>
+		<input type="date" class="OCMInputDate" id="fecha" formControlName="fecha" />
+		@if (comForm?.get('fecha')?.invalid && comForm?.get('fecha')?.touched) {
+			<span class="OCM-alert">Fecha es requerida.</span>
+		}
+
+		<label class="OCM-label-dark OCM-label-dark--marginTop" for="descripcion">Descripción:</label>
+		<input id="descripcion" type="text" class="OCMInputLong" formControlName="descripcion" />
+
+		<!-- <label class="OCM-label-dark OCM-label-dark--marginTop" for="orden">Orden:</label>
+		<input id="orden" type="number" formControlName="orden" /> -->
+
+		<button type="submit" class="OCM-button-container OCM-button" [disabled]="comForm.invalid">Guardar</button>
+	</form>
+</div>

@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, inject, input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -6,6 +7,7 @@ import { SupabaseService } from '@services/supabase.service';
 @Component({
 	selector: 'app-galeria-fotos',
 	standalone: true,
+	imports: [DatePipe],
 	templateUrl: './galeria-fotos.component.html',
 	styleUrl: './galeria-fotos.component.scss'
 })

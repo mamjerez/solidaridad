@@ -167,5 +167,9 @@ export default [
 		path: 'addCom/:tag',
 		loadComponent: () => import('./addNewRecod/add-com/add-com.component')
 	},
+	{
+		path: 'addFoto/:tag',
+		loadComponent: () => import('./addNewRecod/add-foto/add-foto.component')
+	},
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }
 ] as Routes;

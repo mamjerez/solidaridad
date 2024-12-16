@@ -2,8 +2,8 @@
 <div class="foto">
 	@if (foto) {
 		<img [src]="foto.url" [alt]="foto.descripcion" />
+		<p>Fecha: {{ foto.fecha | date: 'd-MM-yyyy' }}</p>
 		<p>{{ foto.descripcion }}</p>
-		<p>Fecha: {{ foto.fecha }}</p>
 	} @else {
 		<p>No se encontraron datos de la foto.</p>
 	}

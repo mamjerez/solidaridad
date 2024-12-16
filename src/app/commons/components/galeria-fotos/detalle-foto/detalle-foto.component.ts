@@ -3,11 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { SupabaseService } from '@services/supabase.service';
 import { BotonesAddComponent } from '../../botones-add/botones-add.component';
 import ComentariosComponent from '../../comentarios/comentarios.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
 	selector: 'app-detalle-foto',
 	standalone: true,
-	imports: [ComentariosComponent, BotonesAddComponent],
+
+	imports: [ComentariosComponent, BotonesAddComponent, DatePipe],
 
 	templateUrl: './detalle-foto.component.html',
 	styleUrl: './detalle-foto.component.scss'
