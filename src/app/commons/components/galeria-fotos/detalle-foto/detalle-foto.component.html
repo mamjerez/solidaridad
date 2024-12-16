@@ -1,7 +1,7 @@
 <app-botones-add [tag]="tag"></app-botones-add>
-<div class="detalle-foto">
+<div class="foto">
 	@if (foto) {
-		<img [src]="foto.url" [alt]="foto.descripcion" class="foto-detalle" />
+		<img [src]="foto.url" [alt]="foto.descripcion" />
 		<p>{{ foto.descripcion }}</p>
 		<p>Fecha: {{ foto.fecha }}</p>
 	} @else {
