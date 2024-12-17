@@ -1,0 +1,12 @@
+<div class="OCM-button-container">
+	<button class="OCM-button-volver" (click)="volver()"></button>
+	@if (isAdmin) {
+		<button class="addFoto" (click)="addFoto()"></button>
+	}
+</div>
+
+<div>
+	<header>Personas de la barriada La Plata</header>
+</div>
+
+<app-galeria-fotos [tag]="tag"></app-galeria-fotos>
