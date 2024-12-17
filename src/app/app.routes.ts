@@ -136,6 +136,10 @@ export default [
 			import('./pages/asociaciones-federadas/la-plata/historia/fotos-historicas/fotos-historicas.component')
 	},
 	{
+		path: 'personasLaPlata',
+		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/historia/personas/personas.component')
+	},
+	{
 		path: 'detalle-foto/:id',
 		loadComponent: () => import('./commons/components/galeria-fotos/detalle-foto/detalle-foto.component')
 	},
