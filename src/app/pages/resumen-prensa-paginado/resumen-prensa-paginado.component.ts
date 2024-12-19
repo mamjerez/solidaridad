@@ -14,7 +14,7 @@ import { PaginationComponent } from '@app/commons/components/pagination.componen
 export default class ResumenPrensaPaginadoComponent implements OnInit {
 	public news: INew[] = [];
 	currentPage = 1;
-	newsPerPage = 15;
+	newsPerPage = 10;
 	totalPages = 1;
 
 	private readonly _supabaseService = inject(SupabaseService);
