@@ -1,55 +1,62 @@
 @use 'variables' as vars;
 @use 'mixins' as m;
 
-p {
-	font-size: clamp(1rem, 1vw + 0.75rem, 1.6rem);
-	color: #0f0101;
-	font-weight: 500;
-}
-
-a {
-	font-size: 1.5rem;
-	color: #0f0101;
-	font-weight: 500;
-}
-
-h2 {
-	font-size: 1.5rem;
-	color: #ece9e9;
-	font-weight: 600;
-}
-
-.main-footer {
-	background: #8f8d8d;
-	padding: 2rem 0 0;
-	max-width: 1200px;
-
-	.footer-content {
-		max-width: 1200px;
-		margin: 0 auto;
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 2rem;
-		padding: 0 1rem;
+@media screen and (max-width: 4200px) {
+	p {
+		font-size: clamp(1rem, 1vw + 0.75rem, 1.6rem);
+		color: #0f0101;
+		font-weight: 500;
 	}
 
-	.footer-section {
-		h4 {
-			color: #0a0000;
-			margin-bottom: 1rem;
+	a {
+		font-size: 1.5rem;
+		color: #0f0101;
+		font-weight: 500;
+	}
+
+	h2 {
+		font-size: 1.5rem;
+		color: #ece9e9;
+		font-weight: 600;
+	}
+
+	.main-footer {
+		background: #8f8d8d;
+		padding: 2rem 0 0;
+		max-width: 1200px;
+
+		.footer-content {
+			max-width: 1200px;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 2rem;
+			padding: 0 1rem;
 		}
 
-		ul {
-			list-style: none;
-			padding: 0;
+		.footer-section {
+			ul {
+				list-style: none;
+				padding: 0;
 
-			li {
-				margin-bottom: 0.5rem;
+				li {
+					margin-bottom: 0.5rem;
+				}
+			}
+
+			a {
+				color: #0f0f0f;
+				text-decoration: none;
+				transition: color 0.3s;
+
+				&:hover {
+					color: #e74c3c;
+				}
 			}
 		}
 
-		a {
-			color: #0f0f0f;
+		.footer-section-enlaces a {
+			color: #080000;
 			text-decoration: none;
 			transition: color 0.3s;
 
@@ -57,30 +64,24 @@ h2 {
 				color: #e74c3c;
 			}
 		}
-	}
 
-	.footer-section-enlaces a {
-		color: #080000;
-		text-decoration: none;
-		transition: color 0.3s;
-
-		&:hover {
-			color: #e74c3c;
+		.social-links {
+			display: flex;
+			gap: 1rem;
 		}
 	}
-
-	.social-links {
-		display: flex;
-		gap: 1rem;
-	}
-}
-
-.social-links {
-	display: flex;
-	gap: 1rem;
 }
 
 @media screen and (max-width: 570px) {
+	.main-footer {
+		padding: 0;
+
+		.footer-content {
+			gap: 1rem;
+			padding: 0 1rem;
+		}
+	}
+
 	.footer-section-enlaces {
 		display: none;
 	}
