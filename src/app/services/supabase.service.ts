@@ -28,6 +28,20 @@ export class SupabaseService {
 		return data || [];
 	}
 
+	async getNewsPaginadas(page: number, perPage: number) {
+		const start = (page - 1) * perPage;
+		const end = start + perPage - 1;
+		const { data, error, count } = await this._supabase
+			.from('news')
+			.select('*', { count: 'exact' })
+			.range(start, end)
+			.order('date', { ascending: false });
+
+		if (error) throw error;
+
+		return { data, count };
+	}
+
 	// TODO: - Add types
 	async fetchData(tableName: string): Promise<any> {
 		const { data, error } = await this._supabase.from(tableName).select('*');

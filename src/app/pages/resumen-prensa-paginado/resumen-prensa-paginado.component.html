@@ -1,0 +1,33 @@
+<section class="OCM-containerTable">
+	<header>Noticias</header>
+	<table class="OCM-tableNoticiasDocumentos">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Medio</th>
+				<th>Título</th>
+				<th>URL</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for (new of news; track new) {
+				<tr>
+					@if (new.url_new !== '') {
+						<td>{{ new.date | date: 'd-MM-yyyy' }}</td>
+						<td>{{ new.media }}</td>
+						<td>{{ new.title }}</td>
+						@if (new.url_new !== null) {
+							<td new.url_new><a href="{{ new.url_new }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+						}
+					}
+				</tr>
+			}
+		</tbody>
+	</table>
+
+	<app-pagination
+		[currentPage]="currentPage"
+		[totalPages]="totalPages"
+		(pageChange)="changePage($event)"
+	></app-pagination>
+</section>

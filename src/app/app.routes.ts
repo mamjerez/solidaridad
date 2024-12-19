@@ -163,9 +163,13 @@ export default [
 		path: 'contacto',
 		loadComponent: () => import('./pages/contacto/contacto.component')
 	},
+	// {
+	// 	path: 'resumenPrensa',
+	// 	loadComponent: () => import('./pages/resumen-prensa/resumen-prensa.component')
+	// },
 	{
 		path: 'resumenPrensa',
-		loadComponent: () => import('./pages/resumen-prensa/resumen-prensa.component')
+		loadComponent: () => import('./pages/resumen-prensa-paginado/resumen-prensa-paginado.component')
 	},
 	{
 		path: 'addCom/:tag',

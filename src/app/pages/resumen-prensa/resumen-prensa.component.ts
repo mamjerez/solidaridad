@@ -12,8 +12,6 @@ import NoticiasComponent from '@app/commons/components/level/noticias/noticias.c
 })
 export default class ResumenPrensaComponent implements OnInit {
 	public news: INew[] = [];
-	// constructor(private supabaseService: SupabaseService) {}
-
 	private readonly _supabaseService = inject(SupabaseService);
 
 	async ngOnInit() {
