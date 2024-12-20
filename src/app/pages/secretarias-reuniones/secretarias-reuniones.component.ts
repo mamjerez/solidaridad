@@ -1,12 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
-import { InformacionesComponent } from '@app/commons/components/informaciones/informaciones.component';
 
 @Component({
 	selector: 'app-secretarias-reuniones',
 	standalone: true,
-	imports: [CardMenuComponent, InformacionesComponent],
+	imports: [CardMenuComponent],
 	templateUrl: './secretarias-reuniones.component.html',
 	styleUrl: './secretarias-reuniones.component.scss'
 })

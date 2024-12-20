@@ -6,6 +6,7 @@
 // @use '/src/styles/typography';
 // @use '/src/styles/utilities';
 @use 'variables' as vars;
+@use 'sass:map';
 
 @media screen and (max-width: 4200px) {
 	.highlight {
@@ -107,17 +108,17 @@
 			font-size: clamp(1rem, -0.875rem + 8.333vw, 1.5rem);
 		}
 		&--años {
-			color: map-get(vars.$OCM-colors, claro);
+			color: map.get(vars.$OCM-colors, claro);
 			margin-bottom: 0.2rem;
 		}
 		&--ingresos {
-			color: map-get(vars.$OCM-colors, claro);
+			color: map.get(vars.$OCM-colors, claro);
 		}
 		&--gastos {
-			color: map-get(vars.$OCM-colors, claro);
+			color: map.get(vars.$OCM-colors, claro);
 		}
 		&--comparativas {
-			color: map-get(vars.$OCM-colors, claro);
+			color: map.get(vars.$OCM-colors, claro);
 		}
 	}
 

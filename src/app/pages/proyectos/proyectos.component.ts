@@ -1,12 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { PROJECTS } from './components/proyectos.data';
-import { ProjectCardComponent } from './components/proyectos-card.component';
 import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-proyectos',
 	standalone: true,
-	imports: [ProjectCardComponent],
 	templateUrl: './proyectos.component.html',
 	styleUrl: './proyectos.component.scss'
 })
