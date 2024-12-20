@@ -64,7 +64,5 @@ export class DatosAsociacionComponent implements OnInit {
 		this.presidente = this.datosAsociacion[0].presidente;
 		this.telefonoPresidente = this.datosAsociacion[0].telefono_representante;
 		this.email = this.datosAsociacion[0].email;
-
-		console.log('Datos Asociación', this.datosAsociacion);
 	}
 }

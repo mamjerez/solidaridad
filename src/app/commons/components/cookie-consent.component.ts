@@ -37,7 +37,7 @@ export class CookieConsentComponent implements AfterViewInit {
 			},
 
 			onConsent: ({ cookie }) => {
-				console.log('onConsent fired');
+				// console.log('onConsent fired');
 			},
 
 			onChange: ({ cookie, changedCategories, changedServices }) => {
