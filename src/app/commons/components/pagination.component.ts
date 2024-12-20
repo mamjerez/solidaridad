@@ -7,11 +7,11 @@ import { CommonModule } from '@angular/common';
 	imports: [CommonModule],
 	template: `
 		<div class="pagination">
-			<button [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Anterior</button>
+			<button [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">< Anterior</button>
 
 			<span>Pagina {{ currentPage }} de {{ totalPages }}</span>
 
-			<button [disabled]="currentPage === totalPages" (click)="onPageChange(currentPage + 1)">siguiente</button>
+			<button [disabled]="currentPage === totalPages" (click)="onPageChange(currentPage + 1)">Sguiente ></button>
 		</div>
 	`,
 	styles: [
@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
 				align-items: center;
 				justify-content: center;
 				gap: 15px;
+				margin-top: 20px;
 			}
 
 			button {
