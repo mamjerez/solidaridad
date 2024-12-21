@@ -3,7 +3,7 @@ import { NgClass } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
+// import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
 import GestionesComponent from '@app/commons/components/level/gestiones/gestiones/gestiones.component';
 import CargosComponent from '../cargos/cargos.component';
@@ -16,6 +16,7 @@ import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IGestion } from '@interfaces/gestion.interface';
+import ComentariosComponent from '@app/commons/components/comentarios/comentarios.component';
 
 interface IAsociaciones {
 	id: number;
