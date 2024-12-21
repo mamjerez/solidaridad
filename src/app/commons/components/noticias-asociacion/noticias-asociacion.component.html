@@ -1,5 +1,5 @@
 <section class="OCM-containerTable">
-	<header>Noticias de la Asociación Vecinal ({{ newsAsociacion.length }})</header>
+	<header>Noticias de la Asociación Vecinal ({{ newsAsociacion().length }})</header>
 	<table class="OCM-tableNoticiasDocumentos">
 		<thead>
 			<tr>
@@ -10,7 +10,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@for (new of newsAsociacion; track new) {
+			@for (new of newsAsociacion(); track new) {
 				<tr>
 					@if (new.URL !== '') {
 						<td>{{ new.date | date: 'd-MM-yyyy' }}</td>
