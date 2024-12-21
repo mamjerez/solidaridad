@@ -1,20 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
 	selector: 'app-card-menu',
 	templateUrl: './card-menu.component.html',
-	styleUrls: ['./card-menu.component.scss'],
-	standalone: true,
-	imports: []
+	styleUrls: ['./card-menu.component.scss']
 })
 export class CardMenuComponent {
-	@Input() rutaImagen?: string;
-	@Input() titulo: string;
-	public errorCargaImagen = false;
-
-	manejarErrorImagen() {
-		this.errorCargaImagen = true;
-	}
+	readonly rutaImagen = input<string>(undefined);
+	readonly titulo = input<string>(undefined);
 
 	isSvg(ruta: string | null): boolean {
 		return ruta?.toLowerCase().endsWith('.svg') ?? false;

@@ -1,14 +1,14 @@
-@if (rutaImagen) {
+@if (rutaImagen()) {
 	<div class="cardMenu">
 		<img
-			src="{{ rutaImagen }}"
+			src="{{ rutaImagen() }}"
 			alt="global"
-			class="cardMenu__image {{ isSvg(rutaImagen) ? 'cardMenu__svg' : 'cardMenu__image' }}"
+			class="cardMenu__image {{ isSvg(rutaImagen()) ? 'cardMenu__svg' : 'cardMenu__image' }}"
 		/>
-		<span class="cardMenu__title">{{ titulo }}</span>
+		<span class="cardMenu__title">{{ titulo() }}</span>
 	</div>
 } @else {
 	<div class="cardMenuNoImagen">
-		<span class="cardMenu__title">{{ titulo }}</span>
+		<span class="cardMenu__title">{{ titulo() }}</span>
 	</div>
 }
