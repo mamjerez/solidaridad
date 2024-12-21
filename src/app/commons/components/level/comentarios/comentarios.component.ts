@@ -1,17 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-
-// import { ICom } from '@interfaces/com.interface';
+import { Component, input } from '@angular/core';
 
 @Component({
 	selector: 'app-comentarios',
-	standalone: true,
 	imports: [CommonModule],
 	templateUrl: './comentarios.component.html'
 })
 export default class ComentariosComponent {
-	// TODO: Typar
-	@Input() coms: any[];
+	readonly coms = input<any[]>(undefined);
 	public canViewConfidencial = false;
 
 	admin(): void {

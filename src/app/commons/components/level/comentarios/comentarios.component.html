@@ -1,5 +1,5 @@
 <div class="OCM-flex OCM-flex--center">
-	<header style="font-size: 32px">Comentarios ({{ coms.length }})</header>
+	<header style="font-size: 32px">Comentarios ({{ coms().length }})</header>
 </div>
 
 <section class="OCM-containerTable">
@@ -12,7 +12,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@for (com of coms; track com) {
+			@for (com of coms(); track com) {
 				<tr>
 					@switch (com.confidencial) {
 						@case (true) {
