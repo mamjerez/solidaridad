@@ -5,7 +5,6 @@ import NoticiasComponent from '@app/commons/components/level/noticias/noticias.c
 
 @Component({
 	selector: 'app-resumen-prensa',
-	standalone: true,
 	imports: [NoticiasComponent],
 	templateUrl: './resumen-prensa.component.html',
 	styleUrl: './resumen-prensa.component.scss'
@@ -19,10 +18,6 @@ export default class ResumenPrensaComponent implements OnInit {
 	}
 
 	async fetchData() {
-		try {
-			this.news = await this._supabaseService.getTodayNews();
-		} catch (error) {
-			console.error('Error fetching news:', error);
-		}
+		this.news = await this._supabaseService.getTodayNews();
 	}
 }
