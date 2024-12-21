@@ -1,21 +1,21 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import ComentariosComponent from '@app/commons/components/level/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/level/documentos/documentos.component';
 import GestionesComponent from '@app/commons/components/level/gestiones/gestiones/gestiones.component';
 import CargosComponent from '../cargos/cargos.component';
+import { SocialMediaComponent } from '@app/commons/components/social-media/social-media.component';
+
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
+import { SupabaseService } from '@services/supabase.service';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IGestion } from '@interfaces/gestion.interface';
-
-import { SupabaseService } from '@services/supabase.service';
-import { SocialMediaComponent } from '@app/commons/components/social-media/social-media.component';
 
 interface IAsociaciones {
 	id: number;
@@ -55,10 +55,8 @@ interface ICargo {
 
 @Component({
 	selector: 'app-ficha',
-	standalone: true,
 	imports: [
 		NgClass,
-		FormsModule,
 		ReactiveFormsModule,
 		ComentariosComponent,
 		DocumentosComponent,
@@ -89,7 +87,6 @@ export default class FichaComponent implements OnInit {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		const navigation = this._router.getCurrentNavigation();
 		this.data = navigation?.extras.state?.['data'];
-		console.log('Data', this.data);
 	}
 
 	ngOnInit(): void {
