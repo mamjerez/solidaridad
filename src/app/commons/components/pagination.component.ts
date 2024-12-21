@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,9 +7,9 @@ import { CommonModule } from '@angular/common';
 	imports: [CommonModule],
 	template: `
 		<div class="pagination">
-			<button [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">< Anterior</button>
-			<span>Pagina {{ currentPage }} de {{ totalPages }}</span>
-			<button [disabled]="currentPage === totalPages" (click)="onPageChange(currentPage + 1)">Sguiente ></button>
+			<button [disabled]="currentPage() === 1" (click)="onPageChange(currentPage() - 1)">< Anterior</button>
+			<span>Pagina {{ currentPage() }} de {{ totalPages() }}</span>
+			<button [disabled]="currentPage() === totalPages()" (click)="onPageChange(currentPage() + 1)">Sguiente ></button>
 		</div>
 	`,
 	styles: [
@@ -42,12 +42,12 @@ import { CommonModule } from '@angular/common';
 	]
 })
 export class PaginationComponent {
-	@Input() currentPage = 1;
-	@Input() totalPages = 1;
+	readonly currentPage = input(1);
+	readonly totalPages = input(1);
 	@Output() pageChange = new EventEmitter<number>();
 
 	onPageChange(page: number) {
-		if (page >= 1 && page <= this.totalPages) {
+		if (page >= 1 && page <= this.totalPages()) {
 			this.pageChange.emit(page);
 		}
 	}
