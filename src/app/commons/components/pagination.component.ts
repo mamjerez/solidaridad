@@ -1,9 +1,7 @@
-import { Component, EventEmitter, Output, input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, input, output } from '@angular/core';
 
 @Component({
 	selector: 'app-pagination',
-	imports: [CommonModule],
 	template: `
 		<div class="pagination">
 			<button [disabled]="currentPage() === 1" (click)="onPageChange(currentPage() - 1)">< Anterior</button>
@@ -43,7 +41,8 @@ import { CommonModule } from '@angular/common';
 export class PaginationComponent {
 	readonly currentPage = input(1);
 	readonly totalPages = input(1);
-	@Output() pageChange = new EventEmitter<number>();
+	// @Output() pageChange = new EventEmitter<number>();
+	pageChange = output<number>();
 
 	onPageChange(page: number) {
 		if (page >= 1 && page <= this.totalPages()) {
