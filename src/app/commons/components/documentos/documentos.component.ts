@@ -1,18 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, inject, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, ViewChild, input } from '@angular/core';
 
 import { IsAdminService } from '@services/isAdmin.service';
 
-import { IDoc } from '@interfaces/doc.interface';
-
 @Component({
 	selector: 'app-documentos',
-	standalone: true,
 	imports: [CommonModule],
 	templateUrl: './documentos.component.html'
 })
 export default class DocumentosComponent implements OnInit {
-	@Input() docs: any[];
+	readonly docs = input<any[]>(undefined);
 	@ViewChild('dialog') dialog!: ElementRef<HTMLDialogElement>;
 
 	private _isAdminService = inject(IsAdminService);
