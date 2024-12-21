@@ -1,15 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
 	selector: 'app-gestiones',
-	standalone: true,
 	imports: [CommonModule],
 	templateUrl: './gestiones.component.html',
 	styleUrl: './gestiones.component.scss'
 })
 export default class GestionesComponent {
-	@Input() gestiones: any[];
+	readonly gestiones = input<any[]>(undefined);
 	public canViewConfidencial = false;
 
 	admin(): void {

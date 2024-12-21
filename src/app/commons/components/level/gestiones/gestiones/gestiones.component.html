@@ -1,5 +1,5 @@
 <div class="OCM-flex OCM-flex--center">
-	<header style="font-size: 32px">Gestiones ({{ gestiones.length }})</header>
+	<header style="font-size: 32px">Gestiones ({{ gestiones().length }})</header>
 </div>
 
 <section class="OCM-containerTable">
@@ -12,7 +12,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@for (gestion of gestiones; track gestion.id) {
+			@for (gestion of gestiones(); track gestion.id) {
 				<tr>
 					@switch (gestion.confidencial) {
 						@case (true) {
