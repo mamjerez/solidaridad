@@ -1,5 +1,5 @@
-@if (coms) {
-	<header>Comentarios ({{ coms.length }})</header>
+@if (coms()) {
+	<header>Comentarios ({{ coms().length }})</header>
 
 	<section class="OCM-containerTable">
 		<table class="OCM-tableComentariosGestiones">
@@ -11,7 +11,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				@for (com of coms; track com.id) {
+				@for (com of coms(); track com.id) {
 					<tr>
 						@switch (com.confidencial) {
 							@case (true) {
