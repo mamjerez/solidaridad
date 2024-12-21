@@ -3,7 +3,7 @@ import { NgClass } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import GestionesComponent from '@app/commons/components/level/gestiones/gestiones/gestiones.component';
+import GestionesComponent from '@app/commons/components/gestiones/gestiones.component';
 import CargosComponent from '../cargos/cargos.component';
 import { SocialMediaComponent } from '@app/commons/components/social-media/social-media.component';
 
