@@ -7,7 +7,7 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 
 @Component({
 	selector: 'app-circulacion',
-	standalone: true,
+
 	imports: [GaleriaFotosComponent, InformacionesComponent, BotonesAddComponent],
 	templateUrl: './circulacion.component.html',
 	styleUrl: './circulacion.component.scss'

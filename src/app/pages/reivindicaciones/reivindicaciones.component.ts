@@ -11,7 +11,7 @@ interface IReivindicacion {
 
 @Component({
 	selector: 'app-reivindicaciones',
-	standalone: true,
+
 	imports: [CardMenuComponent],
 	templateUrl: './reivindicaciones.component.html',
 	styleUrl: './reivindicaciones.component.scss'

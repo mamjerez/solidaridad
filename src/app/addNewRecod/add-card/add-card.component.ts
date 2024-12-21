@@ -6,7 +6,7 @@ import { SupabaseService } from '@services/supabase.service';
 
 @Component({
 	selector: 'app-add-card',
-	standalone: true,
+
 	imports: [FormsModule, ReactiveFormsModule],
 	templateUrl: './add-card.component.html'
 })

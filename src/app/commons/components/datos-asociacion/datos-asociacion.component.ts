@@ -28,7 +28,7 @@ interface IAsociaciones {
 
 @Component({
 	selector: 'app-datos-asociacion',
-	standalone: true,
+
 	imports: [],
 	templateUrl: './datos-asociacion.component.html',
 	styleUrl: './datos-asociacion.component.scss'

@@ -11,7 +11,6 @@ import { IsSecretariaService } from '@services/isSecretaria.service';
 import { UserService } from '@services/user.service';
 
 @Component({
-	standalone: true,
 	selector: 'app-password-check',
 	templateUrl: './auth.component.html',
 	styleUrls: ['./auth.component.scss'],

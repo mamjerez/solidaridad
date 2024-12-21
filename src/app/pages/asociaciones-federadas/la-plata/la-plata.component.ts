@@ -11,7 +11,7 @@ import { SupabaseService } from '@services/supabase.service';
 
 @Component({
 	selector: 'app-la-plata',
-	standalone: true,
+
 	imports: [
 		BotonesAddComponent,
 		CardMenuComponent,

@@ -6,7 +6,7 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 	selector: 'app-home',
 	templateUrl: './home.component.html',
 	styleUrls: ['./home.component.scss'],
-	standalone: true,
+
 	imports: [CardMenuComponent]
 })
 export default class HomeComponent implements OnInit {

@@ -7,7 +7,7 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 
 @Component({
 	selector: 'app-ascensores',
-	standalone: true,
+
 	imports: [GaleriaFotosComponent, InformacionesComponent, BotonesAddComponent],
 	templateUrl: './ascensores.component.html',
 	styleUrl: './ascensores.component.scss'

@@ -7,7 +7,7 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 
 @Component({
 	selector: 'app-acerado',
-	standalone: true,
+
 	imports: [GaleriaFotosComponent, InformacionesComponent, BotonesAddComponent],
 	templateUrl: './acerado.component.html',
 	styleUrl: './acerado.component.scss'

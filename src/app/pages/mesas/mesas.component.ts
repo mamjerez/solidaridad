@@ -4,7 +4,7 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 
 @Component({
 	selector: 'app-mesas',
-	standalone: true,
+
 	imports: [CardMenuComponent],
 	templateUrl: './mesas.component.html',
 	styleUrl: './mesas.component.scss'

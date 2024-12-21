@@ -4,7 +4,7 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 
 @Component({
 	selector: 'app-a2003',
-	standalone: true,
+
 	imports: [InformacionesComponent],
 
 	templateUrl: './a2003.component.html',

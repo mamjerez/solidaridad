@@ -4,7 +4,7 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 
 @Component({
 	selector: 'app-mesa-turismo',
-	standalone: true,
+
 	imports: [InformacionesComponent],
 
 	templateUrl: './mesa-turismo.component.html',

@@ -34,7 +34,7 @@ interface IAsociaciones {
 
 @Component({
 	selector: 'app-asociaciones-federadas',
-	standalone: true,
+
 	imports: [AgGridModule],
 	templateUrl: './asociaciones-federadas.component.html',
 	styleUrl: './asociaciones-federadas.component.scss'

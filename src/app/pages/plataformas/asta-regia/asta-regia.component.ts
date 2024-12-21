@@ -10,7 +10,7 @@ import { IGestion } from '@interfaces/gestion.interface';
 
 @Component({
 	selector: 'app-asta-regia',
-	standalone: true,
+
 	imports: [InformacionesComponent],
 
 	templateUrl: './asta-regia.component.html',

@@ -9,7 +9,7 @@ import { CookieConsentComponent } from './commons/components/cookie-consent.comp
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	standalone: true,
+
 	imports: [NavbarComponent, FooterComponent, RouterOutlet, CookieConsentComponent]
 })
 export class AppComponent implements OnInit {

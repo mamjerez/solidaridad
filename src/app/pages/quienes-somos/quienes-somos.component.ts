@@ -4,7 +4,7 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 
 @Component({
 	selector: 'app-quienes-somos',
-	standalone: true,
+
 	imports: [CardMenuComponent],
 	templateUrl: './quienes-somos.component.html',
 	styleUrl: './quienes-somos.component.scss'

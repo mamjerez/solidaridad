@@ -4,7 +4,7 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 
 @Component({
 	selector: 'app-mesa-seguridad',
-	standalone: true,
+
 	imports: [InformacionesComponent],
 	templateUrl: './mesa-seguridad.component.html',
 	styleUrl: './mesa-seguridad.component.scss'

@@ -4,7 +4,7 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 
 @Component({
 	selector: 'app-amigos-cartuja',
-	standalone: true,
+
 	imports: [InformacionesComponent],
 	templateUrl: './amigos-cartuja.component.html',
 	styleUrl: './amigos-cartuja.component.scss'

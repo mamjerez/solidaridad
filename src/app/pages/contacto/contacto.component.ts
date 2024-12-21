@@ -8,7 +8,7 @@ import { DialogService } from '@services/dialog.service';
 
 @Component({
 	selector: 'app-contacto',
-	standalone: true,
+
 	imports: [CommonModule, ReactiveFormsModule, DialogComponent],
 	templateUrl: './contacto.component.html',
 	styleUrl: './contacto.component.scss'

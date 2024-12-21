@@ -7,7 +7,7 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 
 @Component({
 	selector: 'app-casas-abandonadas',
-	standalone: true,
+
 	imports: [GaleriaFotosComponent, InformacionesComponent, BotonesAddComponent],
 	templateUrl: './casas-abandonadas.component.html',
 	styleUrl: './casas-abandonadas.component.scss'

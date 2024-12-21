@@ -7,7 +7,7 @@ import { IsAdminService } from '@services/isAdmin.service';
 
 @Component({
 	selector: 'app-fotos-historicas',
-	standalone: true,
+
 	imports: [GaleriaFotosComponent],
 	templateUrl: './fotos-historicas.component.html',
 	styleUrl: './fotos-historicas.component.scss'

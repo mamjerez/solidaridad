@@ -7,7 +7,7 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 
 @Component({
 	selector: 'app-aparcamiento',
-	standalone: true,
+
 	imports: [GaleriaFotosComponent, InformacionesComponent, BotonesAddComponent],
 	templateUrl: './aparcamiento.component.html',
 	styleUrl: './aparcamiento.component.scss'

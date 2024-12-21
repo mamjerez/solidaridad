@@ -7,7 +7,7 @@ import { Location } from '@angular/common';
 
 @Component({
 	selector: 'app-noticias',
-	standalone: true,
+
 	imports: [CommonModule],
 	templateUrl: './noticias.component.html'
 })

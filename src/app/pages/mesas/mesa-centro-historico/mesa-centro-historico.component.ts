@@ -4,7 +4,7 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 
 @Component({
 	selector: 'app-mesa-centro-historico',
-	standalone: true,
+
 	imports: [InformacionesComponent],
 	templateUrl: './mesa-centro-historico.component.html',
 	styleUrl: './mesa-centro-historico.component.scss'

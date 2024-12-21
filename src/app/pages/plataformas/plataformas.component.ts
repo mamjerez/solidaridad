@@ -5,7 +5,7 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 
 @Component({
 	selector: 'app-plataformas',
-	standalone: true,
+
 	imports: [CardMenuComponent],
 	templateUrl: './plataformas.component.html',
 	styleUrl: './plataformas.component.scss'

@@ -6,7 +6,7 @@ import { PaginationComponent } from '@app/commons/components/pagination.componen
 
 @Component({
 	selector: 'app-resumen-prensa-paginado',
-	standalone: true,
+
 	imports: [CommonModule, PaginationComponent],
 	templateUrl: './resumen-prensa-paginado.component.html',
 	styleUrl: './resumen-prensa-paginado.component.scss'

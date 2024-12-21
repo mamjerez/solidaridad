@@ -4,7 +4,7 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 
 @Component({
 	selector: 'app-consejo-social',
-	standalone: true,
+
 	imports: [InformacionesComponent],
 	templateUrl: './consejo-social.component.html',
 	styleUrl: './consejo-social.component.scss'

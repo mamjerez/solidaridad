@@ -4,7 +4,7 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 
 @Component({
 	selector: 'app-fecha20241210',
-	standalone: true,
+
 	imports: [InformacionesComponent],
 	templateUrl: './fecha20241210.component.html',
 	styleUrl: './fecha20241210.component.scss'

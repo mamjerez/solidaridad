@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 
 @Component({
 	selector: 'app-botones-add',
-	standalone: true,
+
 	templateUrl: './botones-add.component.html',
 	styleUrl: './botones-add.component.scss'
 })

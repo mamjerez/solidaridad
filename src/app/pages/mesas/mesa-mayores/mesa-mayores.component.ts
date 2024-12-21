@@ -4,7 +4,7 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 
 @Component({
 	selector: 'app-mayores',
-	standalone: true,
+
 	imports: [InformacionesComponent],
 	templateUrl: './mesa-mayores.component.html',
 	styleUrl: './mesa-mayores.component.scss'

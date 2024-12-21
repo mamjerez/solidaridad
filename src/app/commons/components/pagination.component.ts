@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
 	selector: 'app-pagination',
-	standalone: true,
+
 	imports: [CommonModule],
 	template: `
 		<div class="pagination">

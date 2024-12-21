@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-onda-jerez-radio',
-	standalone: true,
+
 	imports: [],
 	templateUrl: './onda-jerez-radio.component.html',
 	styleUrl: './onda-jerez-radio.component.scss'

@@ -4,7 +4,7 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 
 @Component({
 	selector: 'app-secretarias-reuniones',
-	standalone: true,
+
 	imports: [CardMenuComponent],
 	templateUrl: './secretarias-reuniones.component.html',
 	styleUrl: './secretarias-reuniones.component.scss'

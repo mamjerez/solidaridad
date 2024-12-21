@@ -7,7 +7,7 @@ import { IsAdminService } from '@services/isAdmin.service';
 
 @Component({
 	selector: 'app-personas',
-	standalone: true,
+
 	imports: [GaleriaFotosComponent],
 	templateUrl: './personas.component.html',
 	styleUrl: './personas.component.scss'

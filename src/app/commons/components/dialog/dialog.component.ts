@@ -6,7 +6,7 @@ import { Subscription, timer } from 'rxjs';
 
 @Component({
 	selector: 'app-dialog',
-	standalone: true,
+
 	imports: [CommonModule],
 	template: `
 		<dialog #dialog class="dialog-container">

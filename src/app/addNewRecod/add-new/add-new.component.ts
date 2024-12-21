@@ -6,7 +6,7 @@ import { SupabaseService } from '@services/supabase.service';
 
 @Component({
 	selector: 'app-news-form',
-	standalone: true,
+
 	imports: [FormsModule, ReactiveFormsModule],
 	templateUrl: './add-new.component.html'
 })

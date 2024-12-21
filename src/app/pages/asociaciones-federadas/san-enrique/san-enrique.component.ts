@@ -7,7 +7,7 @@ import { environment } from '@environments/environment';
 
 @Component({
 	selector: 'app-san-enrique',
-	standalone: true,
+
 	imports: [CardMenuComponent],
 
 	templateUrl: './san-enrique.component.html',
