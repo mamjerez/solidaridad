@@ -1,4 +1,8 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, OnInit, input } from '@angular/core';
+
+import ComentariosComponent from '../comentarios/comentarios.component';
+import DocumentosComponent from '../documentos/documentos.component';
+import NoticiasComponent from '../level/noticias/noticias.component';
 
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
@@ -7,34 +11,22 @@ import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IGestion } from '@interfaces/gestion.interface';
 
-import ComentariosComponent from '../comentarios/comentarios.component';
-import DocumentosComponent from '../documentos/documentos.component';
-import NoticiasComponent from '../level/noticias/noticias.component';
-
 @Component({
 	selector: 'app-informaciones',
-	standalone: true,
 	imports: [NoticiasComponent, DocumentosComponent, ComentariosComponent],
 	templateUrl: './informaciones.component.html',
 	styleUrl: './informaciones.component.scss'
 })
 export class InformacionesComponent implements OnInit {
-	@Input() tag: string;
-
+	readonly tag = input.required<string>();
 	private readonly _getNewsComsDocs = inject(GetNewsComsDocs);
-
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
 	public gestiones: IGestion[] = [];
 
 	async ngOnInit() {
-		// console.log('Tag', this.tag);
-
-		const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDataFromSupabase(this.tag)]);
+		const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDataFromSupabase(this.tag())]);
 		[this.news, this.coms, this.docs] = newsComsDocs;
-		// console.log('News', this.news);
-		// console.log('Coms', this.coms);
-		// console.log('docs', this.docs);
 	}
 }
