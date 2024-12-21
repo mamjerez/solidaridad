@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, input } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { SupabaseService } from '@services/supabase.service';
@@ -11,7 +11,7 @@ import { SupabaseService } from '@services/supabase.service';
 	templateUrl: './add-card.component.html'
 })
 export default class AddCardComponent implements OnInit {
-	@Input() tag: string;
+	readonly tag = input<string>(undefined);
 	private _formBuilder = inject(FormBuilder);
 	private _supabaseService = inject(SupabaseService);
 	private _location = inject(Location);
@@ -32,7 +32,7 @@ export default class AddCardComponent implements OnInit {
 		if (this.cardForm?.valid) {
 			const formData = {
 				...this.cardForm.value,
-				['levelUp']: this.tag
+				['levelUp']: this.tag()
 			};
 
 			try {

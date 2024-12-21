@@ -1,7 +1,7 @@
 <div class="OCM-dark-teme OCM-flex OCM-flex--center">
 	<form [formGroup]="cardForm" (ngSubmit)="guardar()">
 		<fieldset class="OCM-Fieldset">
-			<header class="OCM-subtitle-dark">Añadir card en {{ tag }}</header>
+			<header class="OCM-subtitle-dark">Añadir card en {{ tag() }}</header>
 
 			<label for="title" class="OCM-label-dark OCM-label-dark--marginTop">Titulo</label>
 			<input type="text" class="OCMInputLong" id="title" formControlName="title" />
