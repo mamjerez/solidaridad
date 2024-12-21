@@ -1,15 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
 	selector: 'app-cargos',
-	standalone: true,
-	imports: [CommonModule],
 	templateUrl: './cargos.component.html'
 })
 export default class CargosComponent {
-	// TODO: Typar
-	@Input() cargos: any[];
+	readonly cargos = input<any[]>(undefined);
 
 	public canViewConfidencial = false;
 
