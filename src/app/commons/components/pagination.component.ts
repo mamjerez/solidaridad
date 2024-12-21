@@ -8,9 +8,7 @@ import { CommonModule } from '@angular/common';
 	template: `
 		<div class="pagination">
 			<button [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">< Anterior</button>
-
 			<span>Pagina {{ currentPage }} de {{ totalPages }}</span>
-
 			<button [disabled]="currentPage === totalPages" (click)="onPageChange(currentPage + 1)">Sguiente ></button>
 		</div>
 	`,
