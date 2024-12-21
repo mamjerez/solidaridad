@@ -10,7 +10,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@for (new of news; track new.title) {
+			@for (new of news; track new.id) {
 				<tr>
 					@if (new.url_new !== '') {
 						<td>{{ new.date | date: 'd-MM-yyyy' }}</td>

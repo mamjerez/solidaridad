@@ -1,4 +1,5 @@
 export interface INew {
+	id?: string;
 	date: string;
 	medio: string;
 	media?: string;
