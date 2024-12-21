@@ -2,7 +2,7 @@ import { Component, inject, OnInit, input } from '@angular/core';
 
 import ComentariosComponent from '../comentarios/comentarios.component';
 import DocumentosComponent from '../documentos/documentos.component';
-import NoticiasComponent from '../level/noticias/noticias.component';
+import NoticiasComponent from '../noticias/noticias.component';
 
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
