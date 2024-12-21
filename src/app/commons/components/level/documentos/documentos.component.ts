@@ -1,17 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-// import { IDoc } from '@interfaces/doc.interface';
+import { Component, input } from '@angular/core';
 
 @Component({
 	selector: 'app-documentos',
-	standalone: true,
 	imports: [CommonModule],
 	templateUrl: './documentos.component.html'
 })
 export default class DocumentosComponent {
-	// TODO: Typar
-	@Input() docs: any[];
-
+	readonly docs = input<any[]>(undefined);
 	public canViewConfidencial = false;
 
 	admin(): void {

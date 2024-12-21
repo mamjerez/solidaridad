@@ -1,5 +1,5 @@
 <div class="OCM-flex OCM-flex--center">
-	<header style="font-size: 32px">Documentos ({{ docs.length }})</header>
+	<header style="font-size: 32px">Documentos ({{ docs().length }})</header>
 	<!-- <button class="OCM-buttonInvisible" (click)="admin()">+ admin</button> -->
 	<!-- <button class="OCM-buttonInvisible" (click)="admin()"></button> -->
 </div>
@@ -15,7 +15,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@for (doc of docs; track doc) {
+			@for (doc of docs(); track doc) {
 				<tr>
 					@switch (doc.confidencial) {
 						@case (true) {
