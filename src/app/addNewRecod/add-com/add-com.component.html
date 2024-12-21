@@ -1,8 +1,7 @@
 <div class="OCM-dark-teme OCM-flex OCM-flex--center">
 	<form [formGroup]="comForm" (ngSubmit)="guardar()">
 		<fieldset class="OCM-Fieldset">
-			<!-- <header class="OCM-subtitle-dark">Añadir comentario en {{ data[0].tag }}</header> -->
-			<header class="OCM-subtitle-dark">Añadir comentario</header>
+			<header class="OCM-subtitle-dark">Añadir comentario en {{ tag() }}</header>
 
 			<label for="date" class="OCM-label-dark">Fecha</label>
 			<input type="date" class="OCMInputDate" id="date" formControlName="date" />

@@ -14,9 +14,23 @@
 	width: 700px;
 }
 
-OCM-Fieldset {
+.OCM-Fieldset {
 	width: 300px;
 	margin: 20px;
+	padding: 20px;
+	// border: none;
+}
+
+.OCM-label-dark {
+	display: flex;
+	justify-content: left;
+	width: 100 hw;
+	color: rgb(248, 248, 248);
+	background-color: #15202b;
+	font-family: var(--fuente-principal);
+	font-size: clamp(0.778rem, 1vw + 0.5rem, 1.222rem);
+	padding-left: 20px;
+	margin-top: 20px;
 }
 
 .buscar {
@@ -30,7 +44,7 @@ OCM-Fieldset {
 		max-width: 300px;
 		width: 300px;
 	}
-	OCM-Fieldset {
+	.OCM-Fieldset {
 		width: 150px;
 		margin: 10px;
 	}
