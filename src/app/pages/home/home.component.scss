@@ -1,9 +1,5 @@
-.hero-image {
+.slider-image {
 	width: 100%;
 	margin: 0;
-	display: block; /* Añade esta línea */
-}
-
-.icon {
-	pointer-events: none; /* Asegúrate de que el SVG no capture los eventos de clic */
+	display: block;
 }
