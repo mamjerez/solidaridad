@@ -1,31 +1,30 @@
 <!-- https://www.svgrepo.com/ -->
 <img [src]="images[currentImageIndex]" alt="Slider image" class="slider-image" />
-<div>
-	<header class="OCM-title-dark">Nuestras áreas de trabajo</header>
 
-	<main class="OCM-gridMenu">
-		<app-card-menu
-			rutaImagen="assets/img/asociaciones255.svg"
-			titulo="Asociaciones vecinales federadas"
-			(click)="navigateTo('/asociacionesFederadas')"
-		/>
+<header class="OCM-title-dark">Nuestras áreas de trabajo</header>
 
-		<app-card-menu
-			rutaImagen="assets/img/ayto255.svg"
-			titulo="Mesas y consejos institucionales"
-			(click)="navigateTo('/mesas')"
-		/>
+<main class="OCM-gridMenu">
+	<app-card-menu
+		rutaImagen="assets/img/asociaciones255.svg"
+		titulo="Asociaciones vecinales federadas"
+		(click)="navigateTo('/asociacionesFederadas')"
+	/>
 
-		<app-card-menu
-			rutaImagen="assets/img/plataformas255.svg"
-			titulo="Plataformas ciudadanas"
-			(click)="navigateTo('/plataformas')"
-		/>
+	<app-card-menu
+		rutaImagen="assets/img/ayto255.svg"
+		titulo="Mesas y consejos institucionales"
+		(click)="navigateTo('/mesas')"
+	/>
 
-		<app-card-menu
-			rutaImagen="assets/img/reindivicaciones255.svg"
-			titulo="Reivindicaciones"
-			(click)="navigateTo('/reivindicaciones')"
-		/>
-	</main>
-</div>
+	<app-card-menu
+		rutaImagen="assets/img/plataformas255.svg"
+		titulo="Plataformas ciudadanas"
+		(click)="navigateTo('/plataformas')"
+	/>
+
+	<app-card-menu
+		rutaImagen="assets/img/reindivicaciones255.svg"
+		titulo="Reivindicaciones"
+		(click)="navigateTo('/reivindicaciones')"
+	/>
+</main>
