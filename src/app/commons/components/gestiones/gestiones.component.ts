@@ -1,9 +1,10 @@
-import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
+
+import { CustomDatePipe } from '@app/commons/pipes/custom-date.pipe';
 
 @Component({
 	selector: 'app-gestiones',
-	imports: [CommonModule],
+	imports: [CustomDatePipe],
 	templateUrl: './gestiones.component.html',
 	styleUrl: './gestiones.component.scss'
 })

@@ -1,9 +1,10 @@
-import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
+
+import { CustomDatePipe } from '@app/commons/pipes/custom-date.pipe';
 
 @Component({
 	selector: 'app-noticias-asociacion',
-	imports: [CommonModule],
+	imports: [CustomDatePipe],
 	templateUrl: './noticias-asociacion.component.html',
 	styleUrl: './noticias-asociacion.component.scss'
 })

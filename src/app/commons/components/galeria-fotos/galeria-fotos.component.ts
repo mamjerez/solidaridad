@@ -6,7 +6,6 @@ import { SupabaseService } from '@services/supabase.service';
 
 @Component({
 	selector: 'app-galeria-fotos',
-
 	imports: [DatePipe],
 	templateUrl: './galeria-fotos.component.html',
 	styleUrl: './galeria-fotos.component.scss'

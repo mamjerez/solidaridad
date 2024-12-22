@@ -17,13 +17,13 @@
 					@switch (gestion.confidencial) {
 						@case (true) {
 							@if (canViewConfidencial) {
-								<td>{{ gestion.date | date: 'd-MM-yyyy' }}</td>
+								<td>{{ gestion.date | customDate: 'd-MM-yyyy' }}</td>
 								<td style="color: red">CONFIDENCIAL {{ gestion.gestor }}</td>
 								<td>{{ gestion.text }}</td>
 							}
 						}
 						@case (false) {
-							<td>{{ gestion.date | date: 'd-MM-yyyy' }}</td>
+							<td>{{ gestion.date | customDate: 'd-MM-yyyy' }}</td>
 							<td>{{ gestion.gestor }}</td>
 							<td>{{ gestion.text }}</td>
 						}

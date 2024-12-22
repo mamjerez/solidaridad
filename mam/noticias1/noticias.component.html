@@ -16,7 +16,7 @@
 			<tbody>
 				@for (new of news; track new.title) {
 					<tr>
-						<td>{{ new.date | date: 'd-MM-yyyy' }}</td>
+						<td>{{ new.date | customDate: 'd-MM-yyyy' }}</td>
 						<td>{{ new.media }}</td>
 						<td>{{ new.title }}</td>
 						<td><a href="{{ new.url_new }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>

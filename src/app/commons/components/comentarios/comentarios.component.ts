@@ -1,9 +1,10 @@
-import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
+
+import { CustomDatePipe } from '@app/commons/pipes/custom-date.pipe';
 
 @Component({
 	selector: 'app-comentarios',
-	imports: [CommonModule],
+	imports: [CustomDatePipe],
 	templateUrl: './comentarios.component.html'
 })
 export default class ComentariosComponent {

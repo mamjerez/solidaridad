@@ -7,9 +7,7 @@ import { DatePipe } from '@angular/common';
 
 @Component({
 	selector: 'app-detalle-foto',
-
 	imports: [ComentariosComponent, BotonesAddComponent, DatePipe],
-
 	templateUrl: './detalle-foto.component.html',
 	styleUrl: './detalle-foto.component.scss'
 })

@@ -1,11 +1,12 @@
-import { CommonModule } from '@angular/common';
 import { Component, ElementRef, inject, OnInit, ViewChild, input } from '@angular/core';
 
 import { IsAdminService } from '@services/isAdmin.service';
 
+import { CustomDatePipe } from '@app/commons/pipes/custom-date.pipe';
+
 @Component({
 	selector: 'app-documentos',
-	imports: [CommonModule],
+	imports: [CustomDatePipe],
 	templateUrl: './documentos.component.html'
 })
 export default class DocumentosComponent implements OnInit {

@@ -1,14 +1,16 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { SupabaseService } from '@services/supabase.service';
-import { INew } from '@interfaces/new.interface';
-import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
+import { SupabaseService } from '@services/supabase.service';
+
+import { INew } from '@interfaces/new.interface';
+
+import { CustomDatePipe } from '@app/commons/pipes/custom-date.pipe';
+
 @Component({
 	selector: 'app-noticias',
-
-	imports: [CommonModule],
+	imports: [CustomDatePipe],
 	templateUrl: './noticias.component.html'
 })
 export default class NoticiasComponent implements OnInit {

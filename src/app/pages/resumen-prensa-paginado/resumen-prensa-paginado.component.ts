@@ -1,5 +1,4 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { PaginationComponent } from '@app/commons/components/pagination.component';
 
@@ -7,9 +6,11 @@ import { SupabaseService } from '@services/supabase.service';
 
 import { INew } from '@interfaces/new.interface';
 
+import { CustomDatePipe } from '@app/commons/pipes/custom-date.pipe';
+
 @Component({
 	selector: 'app-resumen-prensa-paginado',
-	imports: [CommonModule, PaginationComponent],
+	imports: [PaginationComponent, CustomDatePipe],
 	templateUrl: './resumen-prensa-paginado.component.html',
 	styleUrl: './resumen-prensa-paginado.component.scss'
 })

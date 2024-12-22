@@ -17,7 +17,7 @@
 						@switch (doc.confidencial) {
 							@case (true) {
 								@if (canViewConfidencial) {
-									<td>{{ doc.date | date: 'd-MM-yyyy' }}</td>
+									<td>{{ doc.date | customDate: 'd-MM-yyyy' }}</td>
 									<td>{{ doc.emisor }}</td>
 									<td style="color: red">{{ doc.title }}</td>
 									@if (doc.isPath) {
@@ -28,7 +28,7 @@
 								}
 							}
 							@case (false) {
-								<td>{{ doc.date | date: 'd-MM-yyyy' }}</td>
+								<td>{{ doc.date | customDate: 'd-MM-yyyy' }}</td>
 								<td>{{ doc.emisor }}</td>
 								<td>{{ doc.title }}</td>
 								<td><a href="{{ doc.url_doc }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>

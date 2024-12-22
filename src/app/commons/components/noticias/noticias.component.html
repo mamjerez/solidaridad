@@ -13,7 +13,7 @@
 			@for (new of news(); track new) {
 				<tr>
 					@if (new.URL !== '') {
-						<td>{{ new.date | date: 'd-MM-yyyy' }}</td>
+						<td>{{ new.date | customDate: 'd-MM-yyyy' }}</td>
 						<td>{{ new.media }}</td>
 						<td>{{ new.title }}</td>
 						@if (new.url_new !== null) {
