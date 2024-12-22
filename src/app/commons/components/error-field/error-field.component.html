@@ -1,0 +1,11 @@
+@if (control().errors && (control().touched || formDirective.submitted)) {
+	<ng-container>
+		{{ errorMessages() | validation: control().errors }}
+	</ng-container>
+}
+
+<!-- @if (control().errors && (control().touched || formDirective.submitted)) {
+	<ng-container>
+		<span class="blink">{{ errorMessages() | validation: control().errors }}</span>
+	</ng-container>
+} -->

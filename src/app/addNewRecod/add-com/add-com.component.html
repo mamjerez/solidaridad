@@ -3,35 +3,16 @@
 		<fieldset class="OCM-fieldset">
 			<header class="OCM-subtitle-dark">Añadir comentario en {{ tag() }}</header>
 
-			<label for="date" class="OCM-label-dark">Fecha</label>
-			<input type="date" class="OCMInputDate" id="date" formControlName="date" />
-			@if (comForm?.get('date')?.invalid && comForm?.get('date')?.touched) {
-				<div class="OCM-alert">Fecha es requerida.</div>
-			}
+			<label for="fecha" class="OCM-label-dark">Fecha</label>
+			<input type="date" class="OCMInputDate" id="fecha" formControlName="fecha" />
+			<app-error-field [control]="comForm.get('fecha')" [errorMessages]="validationMessages.fecha"></app-error-field>
 
-			<label for="sender" class="OCM-label-dark">Nombre de quien comenta OPCIONAL</label>
-			<input type="text" class="OCMInputMedia" id="media" formControlName="sender" />
-			@if (comForm?.get('sender')?.invalid && comForm?.get('sender')?.touched) {
-				<div class="OCM-alert">Emisor es requerido.</div>
-			}
+			<label for="nombre" class="OCM-label-dark">Nombre de quien comenta OPCIONAL</label>
+			<input type="text" class="OCMInputMedia" id="nombre" formControlName="nombre" />
 
 			<label for="texto" class="OCM-label-dark">Texto</label>
-			<input type="text" class="OCMInputLong" id="text" formControlName="text" />
-			@if (comForm?.get('text')?.invalid && comForm?.get('text')?.touched) {
-				<div class="OCM-alert">titulo es requerido.</div>
-			}
-			<!-- 
-			<label for="confidencial" class="OCM-label-dark OCM-label-dark--marginTop">¿Es confidencial?</label>
-			<input
-				type="checkbox"
-				style="width: auto"
-				class="OCM-flex OCM-flex--left"
-				id="confidencial"
-				formControlName="confidencial"
-			/>
-			@if (comForm?.get('confidencial')?.invalid && comForm?.get('confidencial')?.touched) {
-				<span class="OCM-alert">¿Es confidencial? es requerido.</span>
-			} -->
+			<input type="text" class="OCMInputLong" id="texto" formControlName="texto" />
+			<app-error-field [control]="comForm.get('texto')" [errorMessages]="validationMessages.texto"></app-error-field>
 
 			<button type="submit" [disabled]="!comForm.valid" class="OCM-button-container OCM-button">Grabar</button>
 		</fieldset>

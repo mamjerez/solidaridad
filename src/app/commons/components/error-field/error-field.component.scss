@@ -1,0 +1,21 @@
+:host {
+	animation: blink 1s infinite; /* Cambia 1s por la duración deseada */
+	color: rgb(245, 6, 6);
+	font-size: 24px;
+}
+
+// .blink {
+// 	animation: blink 1s infinite; /* Cambia 1s por la duración deseada */
+// 	color: rgb(245, 6, 6);
+// 	font-size: 24px;
+// }
+
+@keyframes blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
