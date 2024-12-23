@@ -1,7 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { SupabaseService } from '@services/supabase.service';
-import { INew } from '@interfaces/new.interface';
+
 import NoticiasComponent from '@app/commons/components/noticias/noticias.component';
+
+import { SupabaseService } from '@services/supabase.service';
+
+import { INew } from '@interfaces/new.interface';
 
 @Component({
 	selector: 'app-resumen-prensa',
