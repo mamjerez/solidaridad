@@ -15,11 +15,11 @@ import { UserService } from '@services/user.service';
 	imports: [RouterLink, DialogComponent]
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-	public readonly router = inject(Router);
 	private readonly _isAdminService = inject(IsAdminService);
 	private readonly _isSecretariaService = inject(IsSecretariaService);
 	private _userService = inject(UserService);
 	private avatarSubscription!: Subscription;
+	public readonly router = inject(Router);
 	public isAdmin: boolean;
 	public isSecretaria: boolean;
 	public avatarUrl: string = '';
