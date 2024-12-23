@@ -2,8 +2,14 @@
 	.video-container {
 		display: flex;
 		justify-content: center;
-		margin: 20px 0; /* Opcional: añade margen superior e inferior */
+		margin: 20px 0;
 	}
+
+	iframe {
+		border: 2px solid #ddd;
+		border-radius: 18px;
+	}
+
 	div {
 		margin: 20px;
 	}
@@ -75,6 +81,7 @@
 		font-size: clamp(0.667rem, 2vw + 0.25rem, 1.583rem);
 	}
 }
+
 /* Mostrar el div sólo en pantallas grandes (e.g., más de 1024px de ancho) */
 @media (max-width: 570px) {
 	.cabecera {
