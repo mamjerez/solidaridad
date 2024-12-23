@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
+
 import 'ag-grid-enterprise';
 import {
 	ColDef,
@@ -11,7 +13,7 @@ import {
 } from 'ag-grid-community/main';
 
 import localeTextESPes from '@assets/data/localeTextESPes.json';
-import { Router } from '@angular/router';
+
 import { SupabaseService } from '@services/supabase.service';
 
 interface IAsociaciones {
@@ -31,7 +33,6 @@ interface IAsociaciones {
 
 @Component({
 	selector: 'app-federaciones',
-
 	imports: [AgGridModule],
 	templateUrl: './federaciones.component.html',
 	styleUrl: './federaciones.component.scss'
