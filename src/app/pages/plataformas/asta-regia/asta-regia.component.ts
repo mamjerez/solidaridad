@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { InformacionesComponent } from '@app/commons/components/informaciones/informaciones.component';
+
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 
 import { ICom } from '@interfaces/com.interface';
@@ -10,9 +12,7 @@ import { IGestion } from '@interfaces/gestion.interface';
 
 @Component({
 	selector: 'app-asta-regia',
-
 	imports: [InformacionesComponent],
-
 	templateUrl: './asta-regia.component.html',
 	styleUrl: './asta-regia.component.scss'
 })
