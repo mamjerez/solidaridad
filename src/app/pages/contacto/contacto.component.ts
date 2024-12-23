@@ -1,14 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, ViewChild } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { DialogComponent } from '@app/commons/components/dialog/dialog.component';
 
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+
+import { DialogComponent } from '@app/commons/components/dialog/dialog.component';
+
 import { DialogService } from '@services/dialog.service';
 
 @Component({
 	selector: 'app-contacto',
-
 	imports: [CommonModule, ReactiveFormsModule, DialogComponent],
 	templateUrl: './contacto.component.html',
 	styleUrl: './contacto.component.scss'
@@ -16,8 +17,7 @@ import { DialogService } from '@services/dialog.service';
 export default class ContactoComponent {
 	@ViewChild('dialogComponent', { static: false }) dialogComponent!: DialogComponent;
 	private readonly _dialogService = inject(DialogService);
-
-	contactForm: FormGroup;
+	public contactForm: FormGroup;
 
 	constructor(private fb: FormBuilder) {
 		this.contactForm = this.fb.group({
