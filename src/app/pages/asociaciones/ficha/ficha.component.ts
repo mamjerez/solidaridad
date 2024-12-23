@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import GestionesComponent from '@app/commons/components/gestiones/gestiones.component';
+import ComentariosComponent from '@app/commons/components/comentarios/comentarios.component';
+import DocumentosComponent from '@app/commons/components/documentos/documentos.component';
 import CargosComponent from '../cargos/cargos.component';
 import { SocialMediaComponent } from '@app/commons/components/social-media/social-media.component';
 
@@ -14,8 +16,6 @@ import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IGestion } from '@interfaces/gestion.interface';
-import ComentariosComponent from '@app/commons/components/comentarios/comentarios.component';
-import DocumentosComponent from '@app/commons/components/documentos/documentos.component';
 
 interface IAsociaciones {
 	id: number;
@@ -72,8 +72,8 @@ export default class FichaComponent implements OnInit {
 	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	private _formBuilder = inject(FormBuilder);
-	asociacionForm: FormGroup;
-	activeTab = 1;
+	public asociacionForm: FormGroup;
+	public activeTab = 1;
 	public news: INew[] = [];
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];

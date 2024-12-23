@@ -1,13 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 import { GaleriaFotosComponent } from '@app/commons/components/galeria-fotos/galeria-fotos.component';
-import { Router } from '@angular/router';
+
 import { IsAdminService } from '@services/isAdmin.service';
 
 @Component({
 	selector: 'app-fotos-historicas',
-
 	imports: [GaleriaFotosComponent],
 	templateUrl: './fotos-historicas.component.html',
 	styleUrl: './fotos-historicas.component.scss'

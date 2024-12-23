@@ -6,7 +6,6 @@ import { Component, input } from '@angular/core';
 })
 export default class CargosComponent {
 	readonly cargos = input<any[]>(undefined);
-
 	public canViewConfidencial = false;
 
 	admin(): void {

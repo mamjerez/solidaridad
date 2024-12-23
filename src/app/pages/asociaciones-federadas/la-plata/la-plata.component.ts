@@ -1,17 +1,19 @@
 import { BotonesAddComponent } from '@app/commons/components/botones-add/botones-add.component';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 import { DatosAsociacionComponent } from '@app/commons/components/datos-asociacion/datos-asociacion.component';
 import { NoticiasAsociacionComponent } from '@app/commons/components/noticias-asociacion/noticias-asociacion.component';
 import { NoticiasBarrioComponent } from '@app/commons/components/noticias-barrio/noticias-barrio.component';
+
+import { SupabaseService } from '@services/supabase.service';
+
 import { ICard } from '@interfaces/card.interface';
 import { INew } from '@interfaces/new.interface';
-import { SupabaseService } from '@services/supabase.service';
 
 @Component({
 	selector: 'app-la-plata',
-
 	imports: [
 		BotonesAddComponent,
 		CardMenuComponent,

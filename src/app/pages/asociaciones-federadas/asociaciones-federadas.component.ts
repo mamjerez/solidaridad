@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import 'ag-grid-enterprise';
 import {
@@ -11,9 +12,10 @@ import {
 } from 'ag-grid-community/main';
 
 import localeTextESPes from '@assets/data/localeTextESPes.json';
-import { Router } from '@angular/router';
-import { SupabaseService } from '@services/supabase.service';
+
 import { DialogComponent } from '@app/commons/components/dialog/dialog.component';
+
+import { SupabaseService } from '@services/supabase.service';
 import { DialogService } from '@services/dialog.service';
 
 interface IAsociaciones {
@@ -34,7 +36,6 @@ interface IAsociaciones {
 
 @Component({
 	selector: 'app-asociaciones-federadas',
-
 	imports: [AgGridModule],
 	templateUrl: './asociaciones-federadas.component.html',
 	styleUrl: './asociaciones-federadas.component.scss'
@@ -42,13 +43,13 @@ interface IAsociaciones {
 export default class AsociacionesFederadasComponent implements OnInit {
 	@ViewChild('agGrid') agGrid: AgGridAngular;
 	@ViewChild('dialogComponent', { static: false }) dialogComponent!: DialogComponent;
-	public mensaje = '';
-	public gridOptions: GridOptions;
 	private _columnDefs: ColDef[];
 	private _router = inject(Router);
 	private _supabaseService = inject(SupabaseService);
 	private readonly _dialogService = inject(DialogService);
 	private _data: IAsociaciones[];
+	public mensaje = '';
+	public gridOptions: GridOptions;
 
 	navigateTo(path: string) {
 		if (path.startsWith('http')) {
