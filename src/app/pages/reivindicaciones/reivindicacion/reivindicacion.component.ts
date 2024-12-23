@@ -16,7 +16,6 @@ interface IReivindicacion {
 
 @Component({
 	selector: 'app-limpieza-viaria',
-
 	imports: [InformacionesComponent],
 	templateUrl: './reivindicacion.component.html',
 	styleUrl: './reivindicacion.component.scss'
