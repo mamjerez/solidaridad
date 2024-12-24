@@ -1,0 +1,61 @@
+<app-botones-add [tag]="tag"></app-botones-add>
+
+<div class="cabecera">
+	<header class="headerHome">¡Bienvenidos a {{ data.barrio }}!</header>
+	<p>Un barrio rebosante de historia y vitalidad, habitado por personas que lo consideran su propio hogar.</p>
+	<p>
+		Pretendemos recoger las inquitudes de la vida en el barrio, las necesidades de sus habitantes, las propuestas de
+		mejora y las denuncias de lo que no funciona.
+	</p>
+</div>
+
+<!-- <img
+	class="fotoCabecera"
+	src="https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/sanEnrique/2024.11.30%20Diario%20de%20Jerez.jpg?t=2024-11-30T10%3A37%3A33.500Z"
+	alt="Slider image"
+/> -->
+
+<!-- <div class="video-container">
+	<iframe
+		width="560"
+		height="315"
+		src="https://www.youtube.com/embed/isbuJw8lLCE"
+		title="YouTube video player"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+		allowfullscreen
+	></iframe>
+</div> -->
+
+<header class="problemas">
+	<span> Principales problemas de la barriada</span>
+</header>
+
+<section class="OCM-gridMenu">
+	@for (card of cards; track card.tag) {
+		<app-card-menu [rutaImagen]="card.rutaImagen" [titulo]="card.title" (click)="card.funcion()" />
+	}
+</section>
+
+<header class="problemas">
+	<span> Actividades programadas</span>
+</header>
+
+<section class="OCM-gridMenu">
+	@for (card of cardsActividades; track card.tag) {
+		<app-card-menu [rutaImagen]="card.rutaImagen" [titulo]="card.title" (click)="card.funcion()" />
+	}
+</section>
+
+<header class="problemas">
+	<span> Historia de la barriada</span>
+</header>
+
+<section class="OCM-gridMenu">
+	@for (card of cardsHistoria; track card.tag) {
+		<app-card-menu [rutaImagen]="card.rutaImagen" [titulo]="card.etiqueta" (click)="card.funcion()" />
+	}
+</section>
+
+<app-noticias-barrio [newsBarrio]="newsBarrio" />
+<app-noticias-asociacion [newsAsociacion]="newsAsociacion" />
+<app-datos-asociacion />
