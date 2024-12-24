@@ -1,1 +1,14 @@
 <header class="OCM-title-dark">Aquí recopilaremos datos sobre familias que viven o hayan en el barrio</header>
+
+<div class="OCM-button-container">
+	<button class="OCM-button-volver" (click)="volver()"></button>
+	@if (isAdmin) {
+		<button class="addFoto" (click)="addFoto()"></button>
+	}
+</div>
+
+<div>
+	<header>{{ data.title }}</header>
+</div>
+
+<app-galeria-fotos [tag]="tag"></app-galeria-fotos>

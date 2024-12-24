@@ -110,6 +110,21 @@
 		color: BLACK;
 		border: none;
 	}
+
+	.addFoto {
+		width: 40px;
+		height: 40px;
+		border: none;
+		margin-left: 40px;
+		margin-right: 10px;
+		cursor: pointer;
+		background-image: url('/assets/img/addFoto.svg');
+		background-size: cover;
+		&:hover {
+			box-shadow: 0 16px 32px 0 rgba(151, 4, 4, 0.82);
+			transform: scale(1.6);
+		}
+	}
 }
 
 @media screen and (max-width: 576px) {
