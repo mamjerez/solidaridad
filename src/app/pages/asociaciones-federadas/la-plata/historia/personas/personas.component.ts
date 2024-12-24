@@ -17,7 +17,16 @@ export default class PersonasComponent implements OnInit {
 	private readonly _router = inject(Router);
 	private readonly _isAdminService = inject(IsAdminService);
 	public isAdmin: boolean;
-	public tag = 'personasLaPlata';
+	public data: any;
+	public tag = '';
+
+	constructor() {
+		// Hay que hacerlo en el constructor de lo contrario no funciona
+		const navigation = this._router.getCurrentNavigation();
+		this.data = navigation?.extras.state?.['data'];
+		console.log(this.data);
+		this.tag = this.data.tag + this.data.asociacion;
+	}
 
 	ngOnInit(): void {
 		this._isAdminService.isAdmin$.subscribe((value) => {
