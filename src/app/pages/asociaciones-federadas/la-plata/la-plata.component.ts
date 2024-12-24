@@ -1,6 +1,6 @@
 import { BotonesAddComponent } from '@app/commons/components/botones-add/botones-add.component';
 import { Component, inject, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 import { DatosAsociacionComponent } from '@app/commons/components/datos-asociacion/datos-asociacion.component';
@@ -27,6 +27,7 @@ import { INew } from '@interfaces/new.interface';
 export default class LaPlataComponent implements OnInit {
 	private readonly _supabaseService = inject(SupabaseService);
 	private readonly _router = inject(Router);
+	private readonly _route = inject(ActivatedRoute);
 	private readonly _pathImage = 'https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/laPlata/';
 	public cards: ICard[] = [];
 	public cardsActividades: ICard[] = [];
@@ -34,17 +35,25 @@ export default class LaPlataComponent implements OnInit {
 	public newsBarrio: INew[] = [];
 	public newsAsociacion: INew[] = [];
 	public tag = null;
+	public data: any;
+
+	constructor() {
+		// Hay que hacerlo en el constructor de lo contrario no funciona
+		const navigation = this._router.getCurrentNavigation();
+		this.data = navigation?.extras.state?.['data'];
+		console.log(this.data);
+	}
 
 	ngOnInit() {
-		this.createCardMenu();
+		this.createCardProblemas();
 		this.createCardActividad();
 		this.createCardHistoria();
 		this.fetchNews();
 	}
 
-	async createCardMenu() {
+	async createCardProblemas() {
 		try {
-			const data = await this._supabaseService.fetchDataHomeAVV('laplata_menu_cards');
+			const data = await this._supabaseService.fetchAsociacionesProblemas(this.data.tag);
 			this.cards = data.map((card) => ({
 				...card,
 				rutaImagen: `${this._pathImage}${card.tag}.jpg`,
