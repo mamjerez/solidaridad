@@ -93,7 +93,14 @@ export default class PageAsociacionComponent implements OnInit {
 	}
 
 	async fetchNews() {
-		this.newsBarrio = await this._supabaseService.fetchDataByTagOrder('news', 'barriadaLaPlata', false);
-		this.newsAsociacion = await this._supabaseService.fetchDataByTagOrder('solidaridad_news', 'laPlata', false);
+		// para usar el tag en las news de OCM
+		const tagMapping: Record<string, string> = {
+			LaPlata: 'barriadaLaPlata',
+			SanEnrique: 'barriadaSanEnrique'
+		};
+		const avv = this.data.tag ? (tagMapping[this.data.tag] ?? null) : null;
+
+		this.newsBarrio = await this._supabaseService.fetchDataByTagOrder('news', avv, false);
+		this.newsAsociacion = await this._supabaseService.fetchDataByTagOrder('solidaridad_news', this.data.tag, false);
 	}
 }
