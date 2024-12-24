@@ -98,14 +98,6 @@ export default [
 		loadComponent: () => import('./pages/reivindicaciones/reivindicacion/reivindicacion.component')
 	},
 	{
-		path: 'sanEnrique',
-		loadComponent: () => import('./pages/asociaciones-federadas/san-enrique/san-enrique.component')
-	},
-	{
-		path: 'laPlata',
-		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/la-plata.component')
-	},
-	{
 		path: 'pageAsociacion',
 		loadComponent: () => import('./pages/asociaciones-federadas/page-asociacion/page-asociacion.component')
 	},
@@ -113,53 +105,19 @@ export default [
 		path: 'problema',
 		loadComponent: () => import('./pages/asociaciones-federadas/problema/problema.component')
 	},
-
 	{
 		path: 'actividad',
 		loadComponent: () => import('./pages/asociaciones-federadas/actividad/actividad.component')
 	},
-	{
-		path: 'aparcamientoLaPlata',
-		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/aparcamiento/aparcamiento.component')
-	},
-	{
-		path: 'basuraLaPlata',
-		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/basura/basura.component')
-	},
-	{
-		path: 'casaLaPlata',
-		loadComponent: () =>
-			import('./pages/asociaciones-federadas/la-plata/problemas/casas-abandonadas/casas-abandonadas.component')
-	},
-	{
-		path: 'aceraLaPlata',
-		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/acerado/acerado.component')
-	},
-	{
-		path: 'ascensorLaPlata',
-		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/ascensores/ascensores.component')
-	},
-	{
-		path: 'circulacionLaPlata',
-		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/circulacion/circulacion.component')
-	},
-	{
-		path: 'fotosHistoricasLaPlata',
-		loadComponent: () =>
-			import('./pages/asociaciones-federadas/la-plata/historia/fotos-historicas/fotos-historicas.component')
-	},
+
 	{
 		path: 'fotosHistoricas',
-		loadComponent: () =>
-			import('./pages/asociaciones-federadas/la-plata/historia/fotos-historicas/fotos-historicas.component')
+		loadComponent: () => import('./pages/asociaciones-federadas/historia/fotos-historicas/fotos-historicas.component')
 	},
-	{
-		path: 'personasLaPlata',
-		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/historia/personas/personas.component')
-	},
+
 	{
 		path: 'personas',
-		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/historia/personas/personas.component')
+		loadComponent: () => import('./pages/asociaciones-federadas/historia/personas/personas.component')
 	},
 	{
 		path: 'detalle-foto/:id',
