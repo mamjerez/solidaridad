@@ -28,7 +28,7 @@ export default class PageAsociacionComponent implements OnInit {
 	private readonly _supabaseService = inject(SupabaseService);
 	private readonly _router = inject(Router);
 	private readonly _route = inject(ActivatedRoute);
-	private readonly _pathImage = 'https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/laPlata/';
+	private _pathImage = 'https://cswdadlxiubwdzvqzywc.supabase.co/storage/v1/object/public/';
 	public cards: ICard[] = [];
 	public cardsActividades: ICard[] = [];
 	public cardsHistoria: ICard[] = [];
@@ -41,6 +41,9 @@ export default class PageAsociacionComponent implements OnInit {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		const navigation = this._router.getCurrentNavigation();
 		this.data = navigation?.extras.state?.['data'];
+		console.log(this.data);
+		this._pathImage = `${this._pathImage}${this.firstToLowerCase(this.data.tag)}/`;
+		console.log(this._pathImage);
 	}
 
 	ngOnInit() {
@@ -74,6 +77,7 @@ export default class PageAsociacionComponent implements OnInit {
 				// funcion: () => this._router.navigateByUrl(card.tag, { state: { avv: 'laPlata' } })
 				funcion: () => this._router.navigateByUrl('actividad', { state: { data: card } })
 			}));
+			console.log(this.cardsActividades);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
@@ -84,7 +88,7 @@ export default class PageAsociacionComponent implements OnInit {
 			const data = await this._supabaseService.fetchAsociacionesHistoria(this.data.tag);
 			this.cardsHistoria = data.map((card) => ({
 				...card,
-				rutaImagen: `${this._pathImage}${card.tag}${card.asociacion}.jpg`,
+				rutaImagen: `${this._pathImage}${card.tag}.jpg`,
 				funcion: () => this._router.navigateByUrl(card.tag, { state: { data: card } })
 			}));
 		} catch (error) {
@@ -102,5 +106,10 @@ export default class PageAsociacionComponent implements OnInit {
 
 		this.newsBarrio = await this._supabaseService.fetchDataByTagOrder('news', avv, false);
 		this.newsAsociacion = await this._supabaseService.fetchDataByTagOrder('solidaridad_news', this.data.tag, false);
+	}
+
+	firstToLowerCase(str: string): string {
+		if (!str) return str;
+		return str.charAt(0).toLowerCase() + str.slice(1);
 	}
 }
