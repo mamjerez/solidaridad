@@ -4,3 +4,36 @@ img {
 	display: block;
 	margin: 0 auto;
 }
+
+.flex-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+	margin-top: 20px;
+}
+
+.column {
+	flex: 1;
+	padding: 20px;
+	text-align: center;
+	font-size: clamp(1.2rem, 3vw + 0.2rem, 4.4rem);
+}
+
+.column-1 {
+	background-color: #008586;
+}
+
+.column-2 {
+	background-color: #11a09a;
+}
+
+.column-3 {
+	background-color: #c9e5e6;
+}
+
+.titulo {
+	font-size: clamp(1.2rem, 3vw + 0.2rem, 4.4rem);
+	color: #0b0c0c;
+	background-color: transparent;
+	margin-bottom: 30px;
+}
