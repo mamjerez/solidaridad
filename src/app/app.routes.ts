@@ -106,6 +106,19 @@ export default [
 		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/la-plata.component')
 	},
 	{
+		path: 'pageAsociacion',
+		loadComponent: () => import('./pages/asociaciones-federadas/page-asociacion/page-asociacion.component')
+	},
+	{
+		path: 'problema',
+		loadComponent: () => import('./pages/asociaciones-federadas/problema/problema.component')
+	},
+
+	{
+		path: 'actividad',
+		loadComponent: () => import('./pages/asociaciones-federadas/actividad/actividad.component')
+	},
+	{
 		path: 'aparcamientoLaPlata',
 		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/problemas/aparcamiento/aparcamiento.component')
 	},
@@ -136,7 +149,16 @@ export default [
 			import('./pages/asociaciones-federadas/la-plata/historia/fotos-historicas/fotos-historicas.component')
 	},
 	{
+		path: 'fotosHistoricas',
+		loadComponent: () =>
+			import('./pages/asociaciones-federadas/la-plata/historia/fotos-historicas/fotos-historicas.component')
+	},
+	{
 		path: 'personasLaPlata',
+		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/historia/personas/personas.component')
+	},
+	{
+		path: 'personas',
 		loadComponent: () => import('./pages/asociaciones-federadas/la-plata/historia/personas/personas.component')
 	},
 	{
