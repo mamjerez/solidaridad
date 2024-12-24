@@ -14,9 +14,4 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 export default class AparcamientoComponent {
 	private readonly router = inject(Router);
 	public tag = 'aparcamientoLaPlata';
-
-	addCom(): void {
-		console.log(this.tag);
-		this.router.navigateByUrl('addCom/' + this.tag);
-	}
 }
