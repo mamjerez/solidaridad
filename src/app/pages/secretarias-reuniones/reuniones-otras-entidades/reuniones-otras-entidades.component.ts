@@ -4,12 +4,12 @@ import { Router } from '@angular/router';
 import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.component';
 
 @Component({
-	selector: 'app-secretarias-reuniones',
+	selector: 'app-reuniones-otras-entidades',
 	imports: [CardMenuComponent],
-	templateUrl: './secretarias-reuniones.component.html',
-	styleUrl: './secretarias-reuniones.component.scss'
+	templateUrl: './reuniones-otras-entidades.component.html',
+	styleUrl: './reuniones-otras-entidades.component.scss'
 })
-export default class SecretariasReunionesComponent {
+export default class ReunionesOtrasEntidadesComponent {
 	private readonly router = inject(Router);
 	public tag = '20241210';
 	navigateTo(page: string): void {

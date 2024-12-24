@@ -22,6 +22,12 @@ export default [
 		path: 'secretariasReuniones',
 		loadComponent: () => import('./pages/secretarias-reuniones/secretarias-reuniones.component')
 	},
+
+	{
+		path: 'secretariasReunionesOtrasEntidades',
+		loadComponent: () =>
+			import('./pages/secretarias-reuniones/reuniones-otras-entidades/reuniones-otras-entidades.component')
+	},
 	{
 		path: 'OndaJerezRadio',
 		loadComponent: () => import('./pages/onda-jerez-radio/onda-jerez-radio.component')
