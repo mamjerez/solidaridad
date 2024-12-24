@@ -161,7 +161,7 @@ export class SupabaseService {
 	async fetchDataFederadas(): Promise<any[]> {
 		const { data, error } = await this._supabase
 			.from('solidaridad_asociaciones')
-			.select('nombre, distrito, barrio, cuota2024,junta_directiva')
+			.select('tag,nombre, distrito, barrio, cuota2024,junta_directiva')
 			.eq('solidaridad', true)
 			.order('cuota2024', { ascending: false });
 		if (error) {
