@@ -9,18 +9,7 @@ export default [
 		path: 'auth',
 		loadComponent: () => import('./pages/auth/auth.component')
 	},
-	{
-		path: 'mision',
-		loadComponent: () => import('./pages/quienes-somos/mision/mision.component')
-	},
-	{
-		path: 'vision',
-		loadComponent: () => import('./pages/quienes-somos/vision/vision.component')
-	},
-	{
-		path: 'valores',
-		loadComponent: () => import('./pages/quienes-somos/valores/valores.component')
-	},
+
 	{
 		path: 'asociaciones',
 		loadComponent: () => import('./pages/asociaciones/asociaciones/asociaciones.component')

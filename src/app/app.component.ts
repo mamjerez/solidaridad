@@ -12,7 +12,16 @@ import { CookieConsentComponent } from './commons/components/cookie-consent.comp
 })
 export class AppComponent implements OnInit {
 	private _router = inject(Router);
-	private _cadenasOcultarFooter = ['laPlata', 'LaPlata', 'foto', 'resumenPrensa'];
+	private _cadenasOcultarFooter = [
+		'pageAsociacion',
+		'personas',
+		'foto',
+		'historiaBarrio',
+		'familias',
+		'problema',
+		'actividad',
+		'resumenPrensa'
+	];
 	public showFooter = true;
 
 	ngOnInit() {
