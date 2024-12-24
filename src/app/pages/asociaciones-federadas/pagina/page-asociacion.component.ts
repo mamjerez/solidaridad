@@ -41,9 +41,7 @@ export default class PageAsociacionComponent implements OnInit {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		const navigation = this._router.getCurrentNavigation();
 		this.data = navigation?.extras.state?.['data'];
-		console.log(this.data);
 		this._pathImage = `${this._pathImage}${this.firstToLowerCase(this.data.tag)}/`;
-		console.log(this._pathImage);
 	}
 
 	ngOnInit() {
@@ -59,8 +57,6 @@ export default class PageAsociacionComponent implements OnInit {
 			this.cards = data.map((card) => ({
 				...card,
 				rutaImagen: `${this._pathImage}${card.tag}.jpg`,
-				// funcion: () => this._router.navigateByUrl(card.tag, { state: { avv: 'laPlata' } })
-				// funcion: () => this._router.navigateByUrl('problema', { state: { problema: card.tag } })
 				funcion: () => this._router.navigateByUrl('problema', { state: { data: card } })
 			}));
 		} catch (error) {
@@ -74,10 +70,8 @@ export default class PageAsociacionComponent implements OnInit {
 			this.cardsActividades = data.map((card) => ({
 				...card,
 				rutaImagen: `${this._pathImage}${card.tag}.jpg`,
-				// funcion: () => this._router.navigateByUrl(card.tag, { state: { avv: 'laPlata' } })
 				funcion: () => this._router.navigateByUrl('actividad', { state: { data: card } })
 			}));
-			console.log(this.cardsActividades);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}

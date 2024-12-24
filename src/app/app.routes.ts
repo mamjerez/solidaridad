@@ -114,10 +114,18 @@ export default [
 		path: 'fotosHistoricas',
 		loadComponent: () => import('./pages/asociaciones-federadas/historia/fotos-historicas/fotos-historicas.component')
 	},
-
+	{
+		path: 'historiaBarrio',
+		loadComponent: () => import('./pages/asociaciones-federadas/historia/datos-historicos/datos-historicos.component')
+	},
 	{
 		path: 'personas',
 		loadComponent: () => import('./pages/asociaciones-federadas/historia/personas/personas.component')
+	},
+	{
+		path: 'familias',
+		loadComponent: () =>
+			import('./pages/asociaciones-federadas/historia/familias-historicas/familias-historicas.component')
 	},
 	{
 		path: 'detalle-foto/:id',
