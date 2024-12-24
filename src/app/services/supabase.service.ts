@@ -113,6 +113,53 @@ export class SupabaseService {
 		return (data || []).sort((a, b) => a.orden - b.orden);
 	}
 
+	async fetchAsociacionesProblemas(asociacion: string): Promise<any[]> {
+		const { data, error } = await this._supabase
+			.from('solidaridad_asociaciones_problemas_cards')
+			.select('tag,title,has_imagen,is_visible,orden')
+			.eq('is_visible', true)
+			.eq('asociacion', asociacion);
+
+		if (error) {
+			console.error('Error fetching data:', error);
+			throw error;
+		}
+
+		return (data || []).sort((a, b) => a.orden - b.orden);
+	}
+
+	async fetchAsociacionesActividades(asociacion: string): Promise<any[]> {
+		const { data, error } = await this._supabase
+			.from('solidaridad_asociaciones_actividades_cards')
+			.select('tag,title,has_imagen,is_visible,orden')
+			.eq('is_visible', true)
+			.eq('asociacion', asociacion);
+
+		if (error) {
+			console.error('Error fetching data:', error);
+			throw error;
+		}
+
+		return (data || []).sort((a, b) => a.orden - b.orden);
+	}
+
+	async fetchAsociacionesHistoria(asociacion: string): Promise<any[]> {
+		console.log(asociacion);
+
+		const { data, error } = await this._supabase
+			.from('solidaridad_asociaciones_historia_cards')
+			.select('tag,title,etiqueta,has_imagen,is_visible,orden,asociacion')
+			.eq('is_visible', true)
+			.eq('asociacion', asociacion);
+
+		if (error) {
+			console.error('Error fetching data:', error);
+			throw error;
+		}
+
+		return (data || []).sort((a, b) => a.orden - b.orden);
+	}
+
 	async fetchDataFederadas(): Promise<any[]> {
 		const { data, error } = await this._supabase
 			.from('solidaridad_asociaciones')
