@@ -75,11 +75,6 @@ export default class AsociacionesFederadasComponent implements OnInit {
 
 	_setColumnDefs() {
 		this._columnDefs = [
-			// {
-			// 	headerName: 'id',
-			// 	field: 'id',
-			// 	width: 42
-			// },
 			{
 				headerName: 'Nombre',
 				field: 'nombre',
@@ -87,12 +82,6 @@ export default class AsociacionesFederadasComponent implements OnInit {
 				width: 400
 				// applyMiniFilterWhileTyping: true
 			} as ISetFilterParams,
-
-			// {
-			// 	headerName: 'Solidaridad',
-			// 	field: 'solidaridad',
-			// 	width: 65
-			// },
 			{
 				headerName: 'Barrio',
 				field: 'barrio',
@@ -101,6 +90,16 @@ export default class AsociacionesFederadasComponent implements OnInit {
 			{
 				headerName: 'Distrito',
 				field: 'distrito',
+				width: 100
+			},
+			{
+				headerName: 'Junta',
+				field: 'junta_directiva',
+				width: 100
+			},
+			{
+				headerName: 'Cuota2024',
+				field: 'cuota2024',
 				width: 100
 			}
 		];
@@ -149,8 +148,8 @@ export default class AsociacionesFederadasComponent implements OnInit {
 	onGridReady(params: GridReadyEvent) {
 		const defaultSortModel: ColumnState[] = [
 			{
-				colId: 'distrito',
-				sort: 'asc',
+				colId: 'junta_directiva',
+				sort: 'desc',
 				sortIndex: 0
 			}
 		];

@@ -161,8 +161,9 @@ export class SupabaseService {
 	async fetchDataFederadas(): Promise<any[]> {
 		const { data, error } = await this._supabase
 			.from('solidaridad_asociaciones')
-			.select('id, nombre, distrito, barrio, solidaridad, tag')
-			.eq('solidaridad', true);
+			.select('nombre, distrito, barrio, cuota2024,junta_directiva')
+			.eq('solidaridad', true)
+			.order('cuota2024', { ascending: false });
 		if (error) {
 			console.error('Error fetching data:', error);
 			throw error;
