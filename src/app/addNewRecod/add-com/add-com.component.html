@@ -3,16 +3,16 @@
 		<fieldset class="OCM-fieldset">
 			<header class="OCM-subtitle-dark">Añadir comentario en {{ tag() }}</header>
 
-			<label for="fecha" class="OCM-label-dark">Fecha</label>
-			<input type="date" class="OCMInputDate" id="fecha" formControlName="fecha" />
-			<app-error-field [control]="comForm.get('fecha')" [errorMessages]="validationMessages.fecha"></app-error-field>
+			<label for="date" class="OCM-label-dark">Fecha</label>
+			<input type="date" class="OCMInputDate" id="date" formControlName="date" />
+			<app-error-field [control]="comForm.get('date')" [errorMessages]="validationMessages.fecha"></app-error-field>
 
-			<label for="nombre" class="OCM-label-dark">Nombre de quien comenta OPCIONAL</label>
-			<input type="text" class="OCMInputMedia" id="nombre" formControlName="nombre" />
+			<label for="sender" class="OCM-label-dark">Nombre de quien comenta OPCIONAL</label>
+			<input type="text" class="OCMInputMedia" id="sender" formControlName="sender" />
 
-			<label for="texto" class="OCM-label-dark">Texto</label>
-			<input type="text" class="OCMInputLong" id="texto" formControlName="texto" />
-			<app-error-field [control]="comForm.get('texto')" [errorMessages]="validationMessages.texto"></app-error-field>
+			<label for="text" class="OCM-label-dark">Texto</label>
+			<input type="text" class="OCMInputLong" id="text" formControlName="text" />
+			<app-error-field [control]="comForm.get('text')" [errorMessages]="validationMessages.texto"></app-error-field>
 
 			<button type="submit" [disabled]="!comForm.valid" class="OCM-button-container OCM-button">Grabar</button>
 		</fieldset>

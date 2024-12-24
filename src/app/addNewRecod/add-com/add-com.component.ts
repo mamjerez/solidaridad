@@ -19,9 +19,9 @@ export default class AddComComponent implements OnInit {
 
 	async ngOnInit(): Promise<void> {
 		this.comForm = this._formBuilder.group({
-			fecha: ['', Validators.required],
-			nombre: [''],
-			texto: ['', Validators.required]
+			date: ['', Validators.required],
+			sender: [''],
+			text: ['', Validators.required]
 		});
 	}
 
@@ -39,7 +39,8 @@ export default class AddComComponent implements OnInit {
 		if (this.comForm?.valid) {
 			const formData = {
 				...this.comForm.value,
-				tag: this.tag()
+				tag: this.tag(),
+				confidencial: false
 			};
 
 			await this._supabaseService.insertRow('solidaridad_comentarios', formData);
