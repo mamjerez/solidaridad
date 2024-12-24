@@ -99,7 +99,7 @@ export default [
 	},
 	{
 		path: 'pageAsociacion',
-		loadComponent: () => import('./pages/asociaciones-federadas/page-asociacion/page-asociacion.component')
+		loadComponent: () => import('./pages/asociaciones-federadas/pagina/page-asociacion.component')
 	},
 	{
 		path: 'problema',
