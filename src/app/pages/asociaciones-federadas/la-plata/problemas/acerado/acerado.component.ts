@@ -15,9 +15,4 @@ import { InformacionesComponent } from '@app/commons/components/informaciones/in
 export default class AceradoComponent {
 	private readonly router = inject(Router);
 	public tag = 'aceraLaPlata';
-
-	addCom(): void {
-		console.log(this.tag);
-		this.router.navigateByUrl('addCom/' + this.tag);
-	}
 }
