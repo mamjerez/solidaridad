@@ -144,8 +144,6 @@ export class SupabaseService {
 	}
 
 	async fetchAsociacionesHistoria(asociacion: string): Promise<any[]> {
-		console.log(asociacion);
-
 		const { data, error } = await this._supabase
 			.from('solidaridad_asociaciones_historia_cards')
 			.select('tag,title,etiqueta,has_imagen,is_visible,orden,asociacion')
@@ -233,7 +231,6 @@ export class SupabaseService {
 
 	async updateRow(tableName: string, newValues, tag: string) {
 		console.log(newValues);
-
 		const { data, error } = await this._supabase.from(tableName).update(newValues).eq('tag', tag).select();
 
 		if (error) throw error;

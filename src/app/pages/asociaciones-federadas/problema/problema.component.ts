@@ -21,7 +21,6 @@ export default class ProblemaComponent {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		const navigation = this._router.getCurrentNavigation();
 		this.data = navigation?.extras.state?.['data'];
-		console.log(this.data);
 		this.tag = this.data.tag;
 	}
 }

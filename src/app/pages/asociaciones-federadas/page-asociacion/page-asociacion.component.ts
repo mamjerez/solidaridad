@@ -41,7 +41,6 @@ export default class PageAsociacionComponent implements OnInit {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		const navigation = this._router.getCurrentNavigation();
 		this.data = navigation?.extras.state?.['data'];
-		console.log(this.data);
 	}
 
 	ngOnInit() {
@@ -61,8 +60,6 @@ export default class PageAsociacionComponent implements OnInit {
 				// funcion: () => this._router.navigateByUrl('problema', { state: { problema: card.tag } })
 				funcion: () => this._router.navigateByUrl('problema', { state: { data: card } })
 			}));
-
-			console.log(this.cards);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
@@ -90,7 +87,6 @@ export default class PageAsociacionComponent implements OnInit {
 				rutaImagen: `${this._pathImage}${card.tag}${card.asociacion}.jpg`,
 				funcion: () => this._router.navigateByUrl(card.tag, { state: { data: card } })
 			}));
-			console.log(this.cardsHistoria);
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
