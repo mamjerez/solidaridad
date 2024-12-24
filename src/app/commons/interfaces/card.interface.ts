@@ -6,4 +6,5 @@ export interface ICard {
 	rutaImagen?: string;
 	tag: string;
 	title: string;
+	etiqueta?: string;
 }
