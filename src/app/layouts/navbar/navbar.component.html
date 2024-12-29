@@ -20,11 +20,11 @@
 				<li><a routerLink="resumenPrensa">Resumen noticias</a></li>
 			</ul>
 		</nav>
-		@if (router.url === '/home') {
-			<div>
-				<img (click)="auth()" class="avatar-button img" [src]="avatarUrl" alt="Avatar" />
-			</div>
-		}
+		<!-- @if (router.url === '/home') { -->
+		<div>
+			<img (click)="auth()" class="avatar-button img" [src]="avatarUrl" alt="Avatar" />
+		</div>
+		<!-- } -->
 	</div>
 	<app-dialog></app-dialog>
 </main>
