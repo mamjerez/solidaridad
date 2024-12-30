@@ -11,6 +11,8 @@ import { SupabaseService } from '@services/supabase.service';
 
 import { ICard } from '@interfaces/card.interface';
 import { INew } from '@interfaces/new.interface';
+import DocumentosComponent from '@app/commons/components/documentos/documentos.component';
+import { IDoc } from '@interfaces/doc.interface';
 
 @Component({
 	selector: 'app-page-asociacion',
@@ -19,7 +21,8 @@ import { INew } from '@interfaces/new.interface';
 		CardMenuComponent,
 		NoticiasBarrioComponent,
 		NoticiasAsociacionComponent,
-		DatosAsociacionComponent
+		DatosAsociacionComponent,
+		DocumentosComponent
 	],
 	templateUrl: './page-asociacion.component.html',
 	styleUrl: './page-asociacion.component.scss'
@@ -34,6 +37,7 @@ export default class PageAsociacionComponent implements OnInit {
 	public cardsHistoria: ICard[] = [];
 	public newsBarrio: INew[] = [];
 	public newsAsociacion: INew[] = [];
+	public docs: IDoc[] = [];
 	public tag = null;
 	public data: any;
 
@@ -49,6 +53,7 @@ export default class PageAsociacionComponent implements OnInit {
 		this.createCardActividad();
 		this.createCardHistoria();
 		this.fetchNews();
+		this.fetchDocs();
 	}
 
 	async createCardProblemas() {
@@ -100,6 +105,16 @@ export default class PageAsociacionComponent implements OnInit {
 
 		this.newsBarrio = await this._supabaseService.fetchDataByTagOrder('news', avv, false);
 		this.newsAsociacion = await this._supabaseService.fetchDataByTagOrder('solidaridad_news', this.data.tag, false);
+	}
+
+	async fetchDocs() {
+		// para usar el tag en las news de OCM
+		const tagMapping: Record<string, string> = {
+			LaPlata: 'barriadaLaPlata',
+			SanEnrique: 'barriadaSanEnrique'
+		};
+		const avv = this.data.tag ? (tagMapping[this.data.tag] ?? null) : null;
+		this.docs = await this._supabaseService.fetchDataByTagOrder('solidaridad_documentos', avv, false);
 	}
 
 	firstToLowerCase(str: string): string {
