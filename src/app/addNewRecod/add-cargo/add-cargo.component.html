@@ -1,0 +1,38 @@
+<div class="OCM-dark-teme OCM-flex OCM-flex--center">
+	<form [formGroup]="comForm" (ngSubmit)="guardar()">
+		<fieldset class="OCM-fieldset">
+			<header class="OCM-subtitle-dark">Añadir cargo en {{ tag() }}</header>
+
+			<label for="nombre" class="OCM-label-dark">nombre</label>
+			<input type="text" class="OCMInputMedia" id="nombre" formControlName="nombre" />
+			<app-error-field [control]="comForm.get('nombre')" [errorMessages]="validationMessages.nombre"></app-error-field>
+
+			<label for="apellido1" class="OCM-label-dark">apellido1</label>
+			<input type="text" class="OCMInputMedia" id="apellido1" formControlName="apellido1" />
+
+			<label for="apellido2" class="OCM-label-dark">apellido2</label>
+			<input type="text" class="OCMInputMedia" id="apellido2" formControlName="apellido2" />
+
+			<label for="cargo" class="OCM-label-dark">cargo</label>
+			<input type="text" class="OCMInputMedia" id="cargo" formControlName="cargo" />
+
+			<!-- <label for="telefono" class="OCM-label-dark">telefono</label>
+			<input type="text" class="OCMInputMedia" id="telefono" formControlName="telefono" />
+
+			<label for="email" class="OCM-label-dark">email</label>
+			<input type="text" class="OCMInputMedia" id="email" formControlName="email" /> -->
+
+			<button type="submit" [disabled]="!comForm.valid" class="OCM-button-container OCM-button">Grabar</button>
+		</fieldset>
+	</form>
+
+	<form [formGroup]="contactoForm">
+		<fieldset class="OCM-fieldset">
+			<label for="telefono" class="OCM-label-dark">telefono</label>
+			<input type="text" class="OCMInputMedia" id="telefono" formControlName="telefono" />
+
+			<label for="email" class="OCM-label-dark">email</label>
+			<input type="text" class="OCMInputMedia" id="email" formControlName="email" />
+		</fieldset>
+	</form>
+</div>

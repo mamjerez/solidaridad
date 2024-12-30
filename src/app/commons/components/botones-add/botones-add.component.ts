@@ -38,6 +38,10 @@ export class BotonesAddComponent implements OnInit {
 		this._router.navigateByUrl('addGestion/' + this.tag());
 	}
 
+	addCargo(): void {
+		this._router.navigateByUrl('addCargo/' + this.tag());
+	}
+
 	volver(): void {
 		this._location.back();
 	}

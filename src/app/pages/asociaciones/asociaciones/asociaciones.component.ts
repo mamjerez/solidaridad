@@ -50,7 +50,7 @@ export default class AsociacionesComponent implements OnInit {
 
 	async fetchData() {
 		try {
-			this._data = await this._supabaseService.fetchData('solidaridad_asociaciones');
+			this._data = await this._supabaseService.fetchAsociaciones('solidaridad_asociaciones');
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}

@@ -171,6 +171,10 @@ export default [
 		loadComponent: () => import('./addNewRecod/add-gestion/add-gestion.component')
 	},
 	{
+		path: 'addCargo/:tag',
+		loadComponent: () => import('./addNewRecod/add-cargo/add-cargo.component')
+	},
+	{
 		path: 'addFoto/:tag',
 		loadComponent: () => import('./addNewRecod/add-foto/add-foto.component')
 	},

@@ -19,6 +19,7 @@ import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IGestion } from '@interfaces/gestion.interface';
+import { ICargo } from '@interfaces/cargo.interface';
 
 interface IAsociaciones {
 	id: number;
@@ -42,18 +43,6 @@ interface IAsociaciones {
 	cuota2023: boolean;
 	cuota2024: boolean;
 	NIF: string;
-}
-
-interface ICargo {
-	persona_id: number;
-	email: string | null;
-	telefono: string | null;
-	nombre: string;
-	apellido1: string;
-	apellido2: string;
-	nombre_cargo: string;
-	id_entidad: number;
-	nombre_asociacion: string;
 }
 
 @Component({
