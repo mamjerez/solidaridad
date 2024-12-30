@@ -1,0 +1,20 @@
+<div class="OCM-dark-teme OCM-flex OCM-flex--center">
+	<form [formGroup]="comForm" (ngSubmit)="guardar()">
+		<fieldset class="OCM-fieldset">
+			<header class="OCM-subtitle-dark">Añadir gestión en {{ tag() }}</header>
+
+			<label for="date" class="OCM-label-dark">Fecha</label>
+			<input type="date" class="OCMInputDate" id="date" formControlName="date" />
+			<app-error-field [control]="comForm.get('date')" [errorMessages]="validationMessages.fecha"></app-error-field>
+
+			<label for="gestor" class="OCM-label-dark">Nombre de quien gestiona OPCIONAL</label>
+			<input type="text" class="OCMInputMedia" id="gestor" formControlName="gestor" />
+
+			<label for="text" class="OCM-label-dark">Texto</label>
+			<input type="text" class="OCMInputLong" id="text" formControlName="text" />
+			<app-error-field [control]="comForm.get('text')" [errorMessages]="validationMessages.texto"></app-error-field>
+
+			<button type="submit" [disabled]="!comForm.valid" class="OCM-button-container OCM-button">Grabar</button>
+		</fieldset>
+	</form>
+</div>

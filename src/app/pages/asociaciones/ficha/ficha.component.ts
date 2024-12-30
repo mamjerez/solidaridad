@@ -8,9 +8,12 @@ import ComentariosComponent from '@app/commons/components/comentarios/comentario
 import DocumentosComponent from '@app/commons/components/documentos/documentos.component';
 import CargosComponent from '../cargos/cargos.component';
 import { SocialMediaComponent } from '@app/commons/components/social-media/social-media.component';
+import { BotonesAddComponent } from '@app/commons/components/botones-add/botones-add.component';
+import NoticiasComponent from '@app/commons/components/noticias/noticias.component';
 
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 import { SupabaseService } from '@services/supabase.service';
+import { IsAdminService } from '@services/isAdmin.service';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
@@ -61,14 +64,17 @@ interface ICargo {
 		ComentariosComponent,
 		DocumentosComponent,
 		GestionesComponent,
+		NoticiasComponent,
 		CargosComponent,
-		SocialMediaComponent
+		SocialMediaComponent,
+		BotonesAddComponent
 	],
 	templateUrl: './ficha.component.html',
 	styleUrl: './ficha.component.scss'
 })
 export default class FichaComponent implements OnInit {
 	private readonly _supabaseService = inject(SupabaseService);
+	private readonly _isAdminService = inject(IsAdminService);
 	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	private _formBuilder = inject(FormBuilder);
@@ -82,14 +88,21 @@ export default class FichaComponent implements OnInit {
 	public cargos: ICargo[] = [];
 	public datosFederacion: any[] = [];
 	public nombreFederacion: string;
+	public isAdmin: boolean;
+	public tag = '';
 
 	constructor() {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		const navigation = this._router.getCurrentNavigation();
 		this.data = navigation?.extras.state?.['data'];
+		this.tag = this.data.id.toString();
 	}
 
 	ngOnInit(): void {
+		this._isAdminService.isAdmin$.subscribe((value) => {
+			this.isAdmin = value;
+		});
+
 		this.completaCargos();
 		this.fetchData();
 		this.completaFederacion();

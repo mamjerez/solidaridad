@@ -78,7 +78,7 @@ export default class AddNewComponent implements OnInit {
 			};
 
 			try {
-				await this._supabaseService.insertRow('news', formData);
+				await this._supabaseService.insertRow('solidaridad_news', formData);
 				this._location.back();
 			} catch (error) {
 				console.error('Error al insertar datos:', error);

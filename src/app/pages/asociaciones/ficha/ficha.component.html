@@ -4,6 +4,8 @@
 			<div class="tab-titles">
 				<button class="tab-link" (click)="selectTab(1)" [ngClass]="{ active: activeTab === 1 }">Datos</button>
 				<button class="tab-link" (click)="selectTab(2)" [ngClass]="{ active: activeTab === 2 }">Pagos</button>
+
+				<app-botones-add [tag]="tag"></app-botones-add>
 			</div>
 		}
 
@@ -60,9 +62,10 @@
 			@if (docs.length > 0) {
 				<app-documentos [docs]="docs" />
 			}
-			<!-- @if (news.length > 0) {
+
+			@if (news.length > 0) {
 				<app-noticias [news]="news" />
-			} -->
+			}
 
 			@if (coms.length > 0) {
 				<app-comentarios [coms]="coms" />

@@ -159,6 +159,18 @@ export default [
 		loadComponent: () => import('./addNewRecod/add-com/add-com.component')
 	},
 	{
+		path: 'addDoc/:tag',
+		loadComponent: () => import('./addNewRecod/add-doc/add-doc.component')
+	},
+	{
+		path: 'addNew/:tag',
+		loadComponent: () => import('./addNewRecod/add-new/add-new.component')
+	},
+	{
+		path: 'addGestion/:tag',
+		loadComponent: () => import('./addNewRecod/add-gestion/add-gestion.component')
+	},
+	{
 		path: 'addFoto/:tag',
 		loadComponent: () => import('./addNewRecod/add-foto/add-foto.component')
 	},
