@@ -1,5 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+// import { ActivatedRoute, Router } from '@angular/router';
+
 import { SupabaseService } from '@services/supabase.service';
 
 // interface IAsociaciones {
@@ -32,7 +34,7 @@ import { SupabaseService } from '@services/supabase.service';
 	styleUrl: './datos-asociacion.component.scss'
 })
 export class DatosAsociacionComponent implements OnInit {
-	private _router = inject(Router);
+	// private _router = inject(Router);
 	private _supabaseService = inject(SupabaseService);
 	private readonly _route = inject(ActivatedRoute);
 
