@@ -6,13 +6,15 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 import { DatosAsociacionComponent } from '@app/commons/components/datos-asociacion/datos-asociacion.component';
 import { NoticiasAsociacionComponent } from '@app/commons/components/noticias-asociacion/noticias-asociacion.component';
 import { NoticiasBarrioComponent } from '@app/commons/components/noticias-barrio/noticias-barrio.component';
+import DocumentosComponent from '@app/commons/components/documentos/documentos.component';
+import ComentariosComponent from '@app/commons/components/comentarios/comentarios.component';
 
 import { SupabaseService } from '@services/supabase.service';
 
 import { ICard } from '@interfaces/card.interface';
 import { INew } from '@interfaces/new.interface';
-import DocumentosComponent from '@app/commons/components/documentos/documentos.component';
 import { IDoc } from '@interfaces/doc.interface';
+import { ICom } from '@interfaces/com.interface';
 
 @Component({
 	selector: 'app-page-asociacion',
@@ -22,7 +24,8 @@ import { IDoc } from '@interfaces/doc.interface';
 		NoticiasBarrioComponent,
 		NoticiasAsociacionComponent,
 		DatosAsociacionComponent,
-		DocumentosComponent
+		DocumentosComponent,
+		ComentariosComponent
 	],
 	templateUrl: './page-asociacion.component.html',
 	styleUrl: './page-asociacion.component.scss'
@@ -38,6 +41,7 @@ export default class PageAsociacionComponent implements OnInit {
 	public newsBarrio: INew[] = [];
 	public newsAsociacion: INew[] = [];
 	public docs: IDoc[] = [];
+	public coms: ICom[] = [];
 	public tag = null;
 	public data: any;
 
@@ -54,6 +58,7 @@ export default class PageAsociacionComponent implements OnInit {
 		this.createCardHistoria();
 		this.fetchNews();
 		this.fetchDocs();
+		this.fetchComs();
 	}
 
 	async createCardProblemas() {
@@ -115,6 +120,18 @@ export default class PageAsociacionComponent implements OnInit {
 		};
 		const avv = this.data.tag ? (tagMapping[this.data.tag] ?? null) : null;
 		this.docs = await this._supabaseService.fetchDataByTagOrder('solidaridad_documentos', avv, false);
+	}
+
+	async fetchComs() {
+		// para usar el tag en las news de OCM
+		const tagMapping: Record<string, string> = {
+			LaPlata: 'LaPlata',
+			SanEnrique: 'barriadaSanEnrique'
+		};
+		const avv = this.data.tag ? (tagMapping[this.data.tag] ?? null) : null;
+		console.log('avv', avv);
+
+		this.coms = await this._supabaseService.fetchDataByTagOrder('solidaridad_comentarios', avv, false);
 	}
 
 	firstToLowerCase(str: string): string {

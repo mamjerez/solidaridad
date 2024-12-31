@@ -1,4 +1,4 @@
-<app-botones-add [tag]="tag"></app-botones-add>
+<app-botones-add [tag]="data.tag"></app-botones-add>
 
 <div class="cabecera">
 	<header class="headerHome">¡Bienvenidos a {{ data.barrio }}!</header>
@@ -59,4 +59,4 @@
 <app-noticias-barrio [newsBarrio]="newsBarrio" />
 <app-noticias-asociacion [newsAsociacion]="newsAsociacion" />
 <app-documentos [docs]="docs"></app-documentos>
-<app-datos-asociacion />
+<app-comentarios [coms]="coms"></app-comentarios><app-datos-asociacion />
