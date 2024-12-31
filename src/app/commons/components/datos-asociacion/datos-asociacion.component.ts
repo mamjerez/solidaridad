@@ -51,7 +51,6 @@ export class DatosAsociacionComponent implements OnInit {
 		// this.data = navigation?.extras.state?.['data'];
 
 		this.tag = this._route.snapshot.paramMap.get('tag');
-		console.log('this.tag', this.tag);
 	}
 
 	ngOnInit(): void {
@@ -65,8 +64,6 @@ export class DatosAsociacionComponent implements OnInit {
 
 	async fetchDatosAsociacion(tag: string): Promise<void> {
 		const datosAsociacion = await this._supabaseService.fetchDataByTag('solidaridad_asociaciones', tag);
-		console.log('this.datosAsociacion', datosAsociacion);
-
 		this.barrio = datosAsociacion[0].barrio;
 		this.sede = datosAsociacion[0].sede;
 		this.presidente = datosAsociacion[0].presidente;

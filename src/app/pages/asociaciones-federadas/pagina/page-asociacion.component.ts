@@ -42,7 +42,7 @@ export default class PageAsociacionComponent implements OnInit {
 	public newsAsociacion: INew[] = [];
 	public docs: IDoc[] = [];
 	public coms: ICom[] = [];
-	public tag = null;
+	public tag: string;
 	public data: any;
 	public barrio: string;
 
@@ -54,7 +54,6 @@ export default class PageAsociacionComponent implements OnInit {
 
 		this.tag = this._route.snapshot.paramMap.get('tag');
 		this._pathImage = `${this._pathImage}${this.firstToLowerCase(this.tag)}/`;
-		console.log('this.tag', this.tag);
 	}
 
 	ngOnInit() {
@@ -69,8 +68,6 @@ export default class PageAsociacionComponent implements OnInit {
 
 	async fetchDatosAsociacion(tag: string): Promise<void> {
 		const datosAsociacion = await this._supabaseService.fetchDataByTag('solidaridad_asociaciones', tag);
-		console.log('this.datosAsociacion', datosAsociacion);
-
 		this.barrio = datosAsociacion[0].barrio;
 	}
 
@@ -125,7 +122,6 @@ export default class PageAsociacionComponent implements OnInit {
 	}
 
 	async fetchDocs() {
-		// para usar el tag en las news de OCM
 		const tagMapping: Record<string, string> = {
 			LaPlata: 'barriadaLaPlata',
 			SanEnrique: 'barriadaSanEnrique'
@@ -135,7 +131,6 @@ export default class PageAsociacionComponent implements OnInit {
 	}
 
 	async fetchComs() {
-		// para usar el tag en las news de OCM
 		const tagMapping: Record<string, string> = {
 			LaPlata: 'LaPlata',
 			SanEnrique: 'barriadaSanEnrique'

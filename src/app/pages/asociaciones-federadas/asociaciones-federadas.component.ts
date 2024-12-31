@@ -18,7 +18,7 @@ import { DialogComponent } from '@app/commons/components/dialog/dialog.component
 import { SupabaseService } from '@services/supabase.service';
 import { DialogService } from '@services/dialog.service';
 
-interface IAsociaciones {
+interface IAsociacion {
 	id: number;
 	created_at: string;
 	nombre: string;
@@ -47,7 +47,7 @@ export default class AsociacionesFederadasComponent implements OnInit {
 	private _router = inject(Router);
 	private _supabaseService = inject(SupabaseService);
 	private readonly _dialogService = inject(DialogService);
-	private _data: IAsociaciones[];
+	private _data: IAsociacion[];
 	public mensaje = '';
 	public gridOptions: GridOptions;
 
