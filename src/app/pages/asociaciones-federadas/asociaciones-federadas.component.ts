@@ -160,14 +160,12 @@ export default class AsociacionesFederadasComponent implements OnInit {
 		if (!event.data.tag) {
 			this.mostrarDialog('Asociación sin datos de momento', true, false, 2000);
 			this._router.navigate(['asociacionesFederadas']);
-			// return;
 		} else {
 			if (event.data.tag === 'albarizuela') {
 				window.open('https://albarizuela.org/', '_blank');
 			} else {
-				// console.log('event.data:', event.data);
-				// this._router.navigate([event.data.tag], { state: { data: event.data } });
-				this._router.navigate(['pageAsociacion'], { state: { data: event.data } });
+				// this._router.navigate(['pageAsociacion'], { state: { data: event.data } });
+				this._router.navigate(['pageAsociacion', event.data.tag]);
 			}
 		}
 	}

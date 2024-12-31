@@ -92,8 +92,12 @@ export default [
 		path: 'reivindicaciones/:tag',
 		loadComponent: () => import('./pages/reivindicaciones/reivindicacion/reivindicacion.component')
 	},
+	// {
+	// 	path: 'pageAsociacion',
+	// 	loadComponent: () => import('./pages/asociaciones-federadas/pagina/page-asociacion.component')
+	// },
 	{
-		path: 'pageAsociacion',
+		path: 'pageAsociacion/:tag',
 		loadComponent: () => import('./pages/asociaciones-federadas/pagina/page-asociacion.component')
 	},
 	{

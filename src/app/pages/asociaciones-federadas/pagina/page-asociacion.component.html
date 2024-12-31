@@ -1,7 +1,8 @@
-<app-botones-add [tag]="data.tag"></app-botones-add>
+<app-botones-add [tag]="tag"></app-botones-add>
 
 <div class="cabecera">
-	<header class="headerHome">¡Bienvenidos a {{ data.barrio }}!</header>
+	<header class="headerHome">¡Bienvenidos a la {{ barrio }}!</header>
+
 	<p>Un barrio rebosante de historia y vitalidad, habitado por personas que lo consideran su propio hogar.</p>
 	<p>
 		Pretendemos recoger las inquitudes de la vida en el barrio, las necesidades de sus habitantes, las propuestas de
@@ -59,4 +60,5 @@
 <app-noticias-barrio [newsBarrio]="newsBarrio" />
 <app-noticias-asociacion [newsAsociacion]="newsAsociacion" />
 <app-documentos [docs]="docs"></app-documentos>
-<app-comentarios [coms]="coms"></app-comentarios><app-datos-asociacion />
+<app-comentarios [coms]="coms"></app-comentarios>
+<app-datos-asociacion />

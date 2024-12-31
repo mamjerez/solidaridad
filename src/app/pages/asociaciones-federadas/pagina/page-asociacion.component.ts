@@ -44,15 +44,21 @@ export default class PageAsociacionComponent implements OnInit {
 	public coms: ICom[] = [];
 	public tag = null;
 	public data: any;
+	public barrio: string;
 
 	constructor() {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
-		const navigation = this._router.getCurrentNavigation();
-		this.data = navigation?.extras.state?.['data'];
-		this._pathImage = `${this._pathImage}${this.firstToLowerCase(this.data.tag)}/`;
+		// const navigation = this._router.getCurrentNavigation();
+		// this.data = navigation?.extras.state?.['data'];
+		// this._pathImage = `${this._pathImage}${this.firstToLowerCase(this.data.tag)}/`;
+
+		this.tag = this._route.snapshot.paramMap.get('tag');
+		this._pathImage = `${this._pathImage}${this.firstToLowerCase(this.tag)}/`;
+		console.log('this.tag', this.tag);
 	}
 
 	ngOnInit() {
+		this.fetchDatosAsociacion(this.tag);
 		this.createCardProblemas();
 		this.createCardActividad();
 		this.createCardHistoria();
@@ -61,9 +67,16 @@ export default class PageAsociacionComponent implements OnInit {
 		this.fetchComs();
 	}
 
+	async fetchDatosAsociacion(tag: string): Promise<void> {
+		const datosAsociacion = await this._supabaseService.fetchDataByTag('solidaridad_asociaciones', tag);
+		console.log('this.datosAsociacion', datosAsociacion);
+
+		this.barrio = datosAsociacion[0].barrio;
+	}
+
 	async createCardProblemas() {
 		try {
-			const data = await this._supabaseService.fetchAsociacionesProblemas(this.data.tag);
+			const data = await this._supabaseService.fetchAsociacionesProblemas(this.tag);
 			this.cards = data.map((card) => ({
 				...card,
 				rutaImagen: `${this._pathImage}${card.tag}.jpg`,
@@ -76,7 +89,7 @@ export default class PageAsociacionComponent implements OnInit {
 
 	async createCardActividad() {
 		try {
-			const data = await this._supabaseService.fetchAsociacionesActividades(this.data.tag);
+			const data = await this._supabaseService.fetchAsociacionesActividades(this.tag);
 			this.cardsActividades = data.map((card) => ({
 				...card,
 				rutaImagen: `${this._pathImage}${card.tag}.jpg`,
@@ -89,7 +102,7 @@ export default class PageAsociacionComponent implements OnInit {
 
 	async createCardHistoria() {
 		try {
-			const data = await this._supabaseService.fetchAsociacionesHistoria(this.data.tag);
+			const data = await this._supabaseService.fetchAsociacionesHistoria(this.tag);
 			this.cardsHistoria = data.map((card) => ({
 				...card,
 				rutaImagen: `${this._pathImage}${card.tag}.jpg`,
@@ -106,10 +119,9 @@ export default class PageAsociacionComponent implements OnInit {
 			LaPlata: 'barriadaLaPlata',
 			SanEnrique: 'barriadaSanEnrique'
 		};
-		const avv = this.data.tag ? (tagMapping[this.data.tag] ?? null) : null;
-
+		const avv = this.tag ? (tagMapping[this.tag] ?? null) : null;
 		this.newsBarrio = await this._supabaseService.fetchDataByTagOrder('news', avv, false);
-		this.newsAsociacion = await this._supabaseService.fetchDataByTagOrder('solidaridad_news', this.data.tag, false);
+		this.newsAsociacion = await this._supabaseService.fetchDataByTagOrder('solidaridad_news', this.tag, false);
 	}
 
 	async fetchDocs() {
@@ -118,7 +130,7 @@ export default class PageAsociacionComponent implements OnInit {
 			LaPlata: 'barriadaLaPlata',
 			SanEnrique: 'barriadaSanEnrique'
 		};
-		const avv = this.data.tag ? (tagMapping[this.data.tag] ?? null) : null;
+		const avv = this.tag ? (tagMapping[this.tag] ?? null) : null;
 		this.docs = await this._supabaseService.fetchDataByTagOrder('solidaridad_documentos', avv, false);
 	}
 
@@ -128,9 +140,7 @@ export default class PageAsociacionComponent implements OnInit {
 			LaPlata: 'LaPlata',
 			SanEnrique: 'barriadaSanEnrique'
 		};
-		const avv = this.data.tag ? (tagMapping[this.data.tag] ?? null) : null;
-		console.log('avv', avv);
-
+		const avv = this.tag ? (tagMapping[this.tag] ?? null) : null;
 		this.coms = await this._supabaseService.fetchDataByTagOrder('solidaridad_comentarios', avv, false);
 	}
 
