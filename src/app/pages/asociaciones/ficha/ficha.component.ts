@@ -7,7 +7,6 @@ import GestionesComponent from '@app/commons/components/gestiones/gestiones.comp
 import ComentariosComponent from '@app/commons/components/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/documentos/documentos.component';
 import CargosComponent from '../cargos/cargos.component';
-import { SocialMediaComponent } from '@app/commons/components/social-media/social-media.component';
 import { BotonesAddComponent } from '@app/commons/components/botones-add/botones-add.component';
 import NoticiasComponent from '@app/commons/components/noticias/noticias.component';
 
@@ -55,7 +54,6 @@ interface IAsociaciones {
 		GestionesComponent,
 		NoticiasComponent,
 		CargosComponent,
-		SocialMediaComponent,
 		BotonesAddComponent
 	],
 	templateUrl: './ficha.component.html',
@@ -138,5 +136,15 @@ export default class FichaComponent implements OnInit {
 			this.data.id
 		);
 		this.nombreFederacion = this.datosFederacion[0].nombre_federacion;
+	}
+
+	printComponent() {
+		const printContent = document.getElementById('print-section');
+		const WindowPrt = window.open('', '', 'width=900,height=650');
+		WindowPrt.document.write(printContent.innerHTML);
+		WindowPrt.document.close();
+		WindowPrt.focus();
+		WindowPrt.print();
+		WindowPrt.close();
 	}
 }

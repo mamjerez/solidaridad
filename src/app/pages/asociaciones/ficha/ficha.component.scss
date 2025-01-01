@@ -1,3 +1,32 @@
+@media print {
+	.tab-titles,
+	.tab-link,
+	.OCM-title,
+	.containerAsociacion,
+	.activa,
+	.rma,
+	.nif,
+	.sede,
+	.distrito,
+	.barrio,
+	.federacion,
+	.email {
+		display: block;
+	}
+
+	.tab-link {
+		display: none;
+	}
+
+	.tab-content {
+		display: block;
+	}
+
+	button {
+		display: none;
+	}
+}
+
 @media screen and (max-width: 4200px) {
 	form {
 		display: flex;
