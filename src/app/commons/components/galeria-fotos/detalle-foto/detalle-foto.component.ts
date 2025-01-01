@@ -21,7 +21,9 @@ export default class DetalleFotoComponent implements OnInit {
 	async ngOnInit() {
 		const id = this._route.snapshot.paramMap.get('id');
 		if (id) {
-			const data = await this._supabaseService.fetchDataById('laPlata_fotos', id);
+			// const data = await this._supabaseService.fetchDataById('laPlata_fotos', id);
+			const data = await this._supabaseService.fetchDataById('solidaridad_asociaciones_fotos', id);
+
 			this.foto = data[0];
 			this.tag = this.foto.id;
 		} else {

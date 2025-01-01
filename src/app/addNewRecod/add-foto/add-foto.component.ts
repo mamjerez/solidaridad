@@ -34,7 +34,8 @@ export default class AddFotoComponent implements OnInit {
 				tag: this.tag()
 			};
 
-			await this._supabaseService.insertRow('laPlata_fotos', formData);
+			// await this._supabaseService.insertRow('laPlata_fotos', formData);
+			await this._supabaseService.insertRow('solidaridad_asociaciones_fotos', formData);
 			this._location.back();
 		}
 	}
