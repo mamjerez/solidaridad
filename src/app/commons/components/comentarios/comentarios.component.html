@@ -2,7 +2,7 @@
 	<header class="OCM-title">Comentarios ({{ coms().length }})</header>
 
 	<section class="OCM-containerTable">
-		<table class="OCM-tableComentariosGestiones">
+		<table class="OCM-tableNoticiasDocumentos">
 			<thead>
 				<tr>
 					<th>Fecha</th>
@@ -25,6 +25,9 @@
 								<td>{{ com.date | customDate: 'd-MM-yyyy' }}</td>
 								<td>{{ com.sender }}</td>
 								<td>{{ com.text }}</td>
+								@if (com.is_link) {
+									<td><a href="#" (click)="handleLinkClick(com.text, $event)">Enlace</a></td>
+								}
 							}
 						}
 					</tr>
