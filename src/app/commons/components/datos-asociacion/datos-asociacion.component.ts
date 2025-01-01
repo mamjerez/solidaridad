@@ -35,16 +35,16 @@ import { SupabaseService } from '@services/supabase.service';
 })
 export class DatosAsociacionComponent implements OnInit {
 	// private _router = inject(Router);
-	private _supabaseService = inject(SupabaseService);
-	private readonly _route = inject(ActivatedRoute);
-
 	// public data: IAsociaciones = null;
 	// public datosAsociacion: any = null;
+	private _supabaseService = inject(SupabaseService);
+	private readonly _route = inject(ActivatedRoute);
 	public barrio: string;
 	public sede: string;
 	public presidente: string;
 	public telefonoPresidente: string;
 	public email: string;
+	public facebook: string;
 	public tag = null;
 
 	constructor() {
@@ -71,5 +71,6 @@ export class DatosAsociacionComponent implements OnInit {
 		this.presidente = datosAsociacion[0].presidente;
 		this.telefonoPresidente = datosAsociacion[0].telefono_representante;
 		this.email = datosAsociacion[0].email;
+		this.facebook = datosAsociacion[0].facebook;
 	}
 }

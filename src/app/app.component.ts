@@ -20,7 +20,8 @@ export class AppComponent implements OnInit {
 		'familias',
 		'problema',
 		'actividad',
-		'resumenPrensa'
+		'resumenPrensa',
+		'ficha'
 	];
 	public showFooter = true;
 
