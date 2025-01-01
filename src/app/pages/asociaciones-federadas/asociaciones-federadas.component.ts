@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import 'ag-grid-enterprise';
 import {
@@ -43,10 +44,10 @@ interface IAsociacion {
 export default class AsociacionesFederadasComponent implements OnInit {
 	@ViewChild('agGrid') agGrid: AgGridAngular;
 	@ViewChild('dialogComponent', { static: false }) dialogComponent!: DialogComponent;
-	private _columnDefs: ColDef[];
-	private _router = inject(Router);
-	private _supabaseService = inject(SupabaseService);
+	private readonly _router = inject(Router);
+	private readonly _supabaseService = inject(SupabaseService);
 	private readonly _dialogService = inject(DialogService);
+	private _columnDefs: ColDef[];
 	private _data: IAsociacion[];
 	public mensaje = '';
 	public gridOptions: GridOptions;
