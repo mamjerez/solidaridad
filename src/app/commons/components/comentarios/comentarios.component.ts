@@ -14,4 +14,10 @@ export default class ComentariosComponent {
 	admin(): void {
 		this.canViewConfidencial = !this.canViewConfidencial;
 	}
+
+	handleLinkClick(url: string, event: MouseEvent): void {
+		event.preventDefault(); // Prevenir la navegación por defecto
+
+		window.open(url, '_blank', 'noopener,noreferrer');
+	}
 }
