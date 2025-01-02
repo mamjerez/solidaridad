@@ -13,7 +13,7 @@ import { CookieConsentComponent } from './commons/components/cookie-consent.comp
 export class AppComponent implements OnInit {
 	private _router = inject(Router);
 	private _cadenasOcultarFooter = [
-		'pageAsociacion',
+		'p',
 		'personas',
 		'foto',
 		'historiaBarrio',

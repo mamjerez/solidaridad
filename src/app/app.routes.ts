@@ -97,7 +97,7 @@ export default [
 	// 	loadComponent: () => import('./pages/asociaciones-federadas/pagina/page-asociacion.component')
 	// },
 	{
-		path: 'pageAsociacion/:tag',
+		path: 'p/:tag',
 		loadComponent: () => import('./pages/asociaciones-federadas/pagina/page-asociacion.component')
 	},
 	{
