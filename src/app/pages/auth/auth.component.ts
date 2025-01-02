@@ -9,18 +9,18 @@ import { UserService } from '@services/user.service';
 
 @Component({
 	selector: 'app-password-check',
+	imports: [FormsModule],
 	templateUrl: './auth.component.html',
-	styleUrls: ['./auth.component.scss'],
-	imports: [FormsModule]
+	styleUrls: ['./auth.component.scss']
 })
 export default class AuthComponent implements OnInit {
-	private readonly isAdminService = inject(IsAdminService);
-	private readonly isSecretariaService = inject(IsSecretariaService);
-	private readonly dialogService = inject(DialogService);
-	private readonly router = inject(Router);
-	private readonly userService = inject(UserService);
-	private readonly correctPassword: string[] = ['mam', '1919'];
-	private readonly passwordAvatarMap: Record<string, string> = {
+	private readonly _isAdminService = inject(IsAdminService);
+	private readonly _isSecretariaService = inject(IsSecretariaService);
+	private readonly _dialogService = inject(DialogService);
+	private readonly _router = inject(Router);
+	private readonly _userService = inject(UserService);
+	private readonly _correctPassword: string[] = ['mam', '1919'];
+	private readonly _passwordAvatarMap: Record<string, string> = {
 		mam: 'assets/img/mam.png',
 		1919: 'assets/img/ramos.jpg'
 	};
@@ -34,9 +34,9 @@ export default class AuthComponent implements OnInit {
 	}
 
 	private resetAdminState(): void {
-		if (this.isAdminService.getIsAdmin()) {
-			this.isAdminService.setIsAdmin(false);
-			this.userService.setAvatar('assets/img/anom.png');
+		if (this._isAdminService.getIsAdmin()) {
+			this._isAdminService.setIsAdmin(false);
+			this._userService.setAvatar('assets/img/anom.png');
 		}
 	}
 
@@ -46,12 +46,12 @@ export default class AuthComponent implements OnInit {
 		} else if (this.isSecretariaPassword()) {
 			this.grantSecretariaAccess();
 		} else {
-			this.handleIncorrectPassword();
+			this.handleIn_correctPassword();
 		}
 	}
 
 	private isPasswordCorrect(): boolean {
-		return this.correctPassword.includes(this.password);
+		return this._correctPassword.includes(this.password);
 	}
 
 	private isSecretariaPassword(): boolean {
@@ -59,33 +59,33 @@ export default class AuthComponent implements OnInit {
 	}
 
 	private grantAdminAccess(): void {
-		this.isAdminService.setIsAdmin(true);
-		this.userService.setAvatar(this.passwordAvatarMap[this.password]);
+		this._isAdminService.setIsAdmin(true);
+		this._userService.setAvatar(this._passwordAvatarMap[this.password]);
 		this.mensaje = 'Ahora eres administrador';
 		this.mostrarDialog('Ahora eres administrador', false, true);
 	}
 
 	private grantSecretariaAccess(): void {
-		this.isSecretariaService.setIsSecretaria(true);
+		this._isSecretariaService.setIsSecretaria(true);
 		this.mensaje = 'Ahora eres secretaria';
 		this.mostrarDialog('Ahora eres secretaria', false, false);
-		this.router.navigate(['/secretarias']);
+		this._router.navigate(['/secretarias']);
 	}
 
-	private handleIncorrectPassword(): void {
+	private handleIn_correctPassword(): void {
 		this.intentos++;
 		if (this.intentos >= 3) {
 			this.mensaje = 'Demasiados intentos';
 			this.mostrarDialog('Demasiados intentos', true, false, 1000);
-			this.router.navigate(['/home']);
+			this._router.navigate(['/home']);
 		} else {
-			this.isSecretariaService.setIsSecretaria(false);
+			this._isSecretariaService.setIsSecretaria(false);
 			this.mensaje = 'Contraseña incorrecta';
 			this.mostrarDialog('Contraseña incorrecta', true, false);
 		}
 	}
 
 	private mostrarDialog(mensaje: string, hasError: boolean, isBack: boolean, timeout?: number): void {
-		this.dialogService.openDialog(mensaje, hasError, isBack, timeout);
+		this._dialogService.openDialog(mensaje, hasError, isBack, timeout);
 	}
 }
