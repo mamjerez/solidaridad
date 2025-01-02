@@ -1,12 +1,12 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { DialogService } from '@services/dialog.service'; // Asegúrate de que la ruta es correcta
-import { Location } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
+
 import { Subscription, timer } from 'rxjs';
+
+import { DialogService } from '@services/dialog.service'; // Asegúrate de que la ruta es correcta
 
 @Component({
 	selector: 'app-dialog',
-
 	imports: [CommonModule],
 	template: `
 		<dialog #dialog class="dialog-container">
