@@ -10,18 +10,5 @@
 		(gridReady)="onGridReady($event)"
 		(rowClicked)="onRowClicked($event)"
 	>
-		>
 	</ag-grid-angular>
 }
-
-<dialog #dialog>
-	@if (mensaje === 'Contraseña incorrecta') {
-		<div class="error">
-			{{ mensaje }}
-		</div>
-	} @else {
-		<div class="success">
-			{{ mensaje }}
-		</div>
-	}
-</dialog>

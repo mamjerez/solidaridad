@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, OnInit, viewChild, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
@@ -13,8 +13,6 @@ import {
 } from 'ag-grid-community/main';
 
 import localeTextESPes from '@assets/data/localeTextESPes.json';
-
-import { DialogComponent } from '@app/commons/components/dialog/dialog.component';
 
 import { SupabaseService } from '@services/supabase.service';
 import { DialogService } from '@services/dialog.service';
@@ -42,8 +40,7 @@ interface IAsociacion {
 	styleUrl: './asociaciones-federadas.component.scss'
 })
 export default class AsociacionesFederadasComponent implements OnInit {
-	@ViewChild('agGrid') agGrid: AgGridAngular;
-	@ViewChild('dialogComponent', { static: false }) dialogComponent!: DialogComponent;
+	agGrid = viewChild(AgGridAngular);
 	private readonly _router = inject(Router);
 	private readonly _supabaseService = inject(SupabaseService);
 	private readonly _dialogService = inject(DialogService);
@@ -176,6 +173,6 @@ export default class AsociacionesFederadasComponent implements OnInit {
 	}
 
 	onQuickFilterChanged(event: any): void {
-		this.agGrid.api.setQuickFilter(event.target.value);
+		this.agGrid().api.setQuickFilter(event.target.value);
 	}
 }
