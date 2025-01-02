@@ -1,9 +1,6 @@
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-
-import { DialogComponent } from '@app/commons/components/dialog/dialog.component';
 
 import { IsAdminService } from '@services/isAdmin.service';
 import { DialogService } from '@services/dialog.service';
@@ -17,12 +14,10 @@ import { UserService } from '@services/user.service';
 	imports: [FormsModule]
 })
 export default class AuthComponent implements OnInit {
-	@ViewChild('dialogComponent', { static: false }) dialogComponent!: DialogComponent;
 	private readonly isAdminService = inject(IsAdminService);
 	private readonly isSecretariaService = inject(IsSecretariaService);
 	private readonly dialogService = inject(DialogService);
 	private readonly router = inject(Router);
-	private readonly location = inject(Location);
 	private readonly userService = inject(UserService);
 	private readonly correctPassword: string[] = ['mam', '1919'];
 	private readonly passwordAvatarMap: Record<string, string> = {
@@ -82,7 +77,7 @@ export default class AuthComponent implements OnInit {
 		if (this.intentos >= 3) {
 			this.mensaje = 'Demasiados intentos';
 			this.mostrarDialog('Demasiados intentos', true, false, 1000);
-			this.location.back();
+			this.router.navigate(['/home']);
 		} else {
 			this.isSecretariaService.setIsSecretaria(false);
 			this.mensaje = 'Contraseña incorrecta';
