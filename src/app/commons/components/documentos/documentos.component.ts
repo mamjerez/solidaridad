@@ -1,6 +1,7 @@
-import { Component, ElementRef, inject, OnInit, ViewChild, input } from '@angular/core';
+import { Component, inject, OnInit, input } from '@angular/core';
 
 import { IsAdminService } from '@services/isAdmin.service';
+import { DialogService } from '@services/dialog.service';
 
 import { CustomDatePipe } from '@app/commons/pipes/custom-date.pipe';
 
@@ -10,14 +11,10 @@ import { CustomDatePipe } from '@app/commons/pipes/custom-date.pipe';
 	templateUrl: './documentos.component.html'
 })
 export default class DocumentosComponent implements OnInit {
-	readonly docs = input<any[]>(undefined);
-	@ViewChild('dialog') dialog!: ElementRef<HTMLDialogElement>;
-
-	private _isAdminService = inject(IsAdminService);
+	private readonly _isAdminService = inject(IsAdminService);
+	private readonly _dialogService = inject(DialogService);
+	public readonly docs = input<any[]>(undefined);
 	public canViewConfidencial = false;
-	public enlace = '';
-	public mensaje = '';
-	public isError = false;
 
 	ngOnInit(): void {
 		this._isAdminService.isAdmin$.subscribe((value) => {
@@ -29,10 +26,8 @@ export default class DocumentosComponent implements OnInit {
 		event.preventDefault(); // Prevenir la navegación por defecto
 
 		if (this.isLocalPath(url)) {
-			this.enlace = 'Copiar al portapapeles';
 			this.copyToClipboard(url);
 		} else {
-			this.enlace = 'Enlace';
 			window.open(url, '_blank', 'noopener,noreferrer');
 		}
 	}
@@ -46,20 +41,14 @@ export default class DocumentosComponent implements OnInit {
 		navigator.clipboard
 			.writeText(text)
 			.then(() => {
-				this.mensaje = 'Ruta copiada al portapapeles';
-				this.closeDialogAfterDelay();
+				this.mostrarDialog('Ruta copiada al portapapeles', false, false);
 			})
 			.catch((err) => {
-				this.mensaje = 'Error al copiar la ruta en el portapapeles' + err;
-				this.isError = true;
-				this.closeDialogAfterDelay();
+				this.mostrarDialog('Error al copiar la ruta en el portapapeles' + err, true, false);
 			});
 	}
 
-	closeDialogAfterDelay(): void {
-		this.dialog.nativeElement.showModal();
-		setTimeout(() => {
-			this.dialog.nativeElement.close();
-		}, 2000);
+	private mostrarDialog(mensaje: string, hasError: boolean, isBack: boolean, timeout?: number): void {
+		this._dialogService.openDialog(mensaje, hasError, isBack, timeout);
 	}
 }

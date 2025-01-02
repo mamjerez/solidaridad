@@ -31,24 +31,16 @@
 								<td>{{ doc.date | customDate: 'd-MM-yyyy' }}</td>
 								<td>{{ doc.emisor }}</td>
 								<td>{{ doc.title }}</td>
-								<td><a href="{{ doc.url_doc }}" target="_blank" rel="noopener noreferrer">Enlace</a></td>
+								@if (doc.isPath) {
+									<td><a href="#" (click)="handleLinkClick(doc.url_doc, $event)">Copiar al portapapeles</a></td>
+								} @else {
+									<td><a href="#" (click)="handleLinkClick(doc.url_doc, $event)">Enlace</a></td>
+								}
 							}
 						}
 					</tr>
 				}
 			</tbody>
 		</table>
-
-		<dialog #dialog>
-			@if (isError) {
-				<div class="error">
-					{{ mensaje }}
-				</div>
-			} @else {
-				<div class="success">
-					{{ mensaje }}
-				</div>
-			}
-		</dialog>
 	</section>
 }
