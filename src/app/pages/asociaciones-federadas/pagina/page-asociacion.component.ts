@@ -86,7 +86,13 @@ export default class PageAsociacionComponent implements OnInit {
 
 	async createCardActividad() {
 		try {
-			const data = await this._supabaseService.fetchAsociacionesActividades(this.tag);
+			const tagMapping: Record<string, string> = {
+				LaPlata: 'barriadaLaPlata',
+				parqueAtlantico: 'barrioParqueAtlantico',
+				SanEnrique: 'barriadaSanEnrique'
+			};
+			const avv = this.tag ? (tagMapping[this.tag] ?? null) : null;
+			const data = await this._supabaseService.fetchAsociacionesActividades(avv);
 			this.cardsActividades = data.map((card) => ({
 				...card,
 				rutaImagen: `${this._pathImage}${card.tag}.jpg`,
@@ -99,7 +105,15 @@ export default class PageAsociacionComponent implements OnInit {
 
 	async createCardHistoria() {
 		try {
-			const data = await this._supabaseService.fetchAsociacionesHistoria(this.tag);
+			console.log('tag', this.tag);
+			const tagMapping: Record<string, string> = {
+				LaPlata: 'LaPlata',
+				parqueAtlantico: 'ParqueAtlantico',
+				SanEnrique: 'barriadaSanEnrique'
+			};
+			const avv = this.tag ? (tagMapping[this.tag] ?? null) : null;
+
+			const data = await this._supabaseService.fetchAsociacionesHistoria(avv);
 			this.cardsHistoria = data.map((card) => ({
 				...card,
 				rutaImagen: `${this._pathImage}${card.tag}.jpg`,
@@ -114,6 +128,7 @@ export default class PageAsociacionComponent implements OnInit {
 		// para usar el tag en las news de OCM
 		const tagMapping: Record<string, string> = {
 			LaPlata: 'barriadaLaPlata',
+			parqueAtlantico: 'barrioParqueAtlantico',
 			SanEnrique: 'barriadaSanEnrique'
 		};
 		const avv = this.tag ? (tagMapping[this.tag] ?? null) : null;
