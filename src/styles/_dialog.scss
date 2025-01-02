@@ -5,89 +5,25 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		padding: 20px;
-		background-color: white;
-		color: black;
 		border-radius: 8px;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-		width: 600px;
-		text-align: center;
 	}
 
 	.dialog-error {
-		padding: 4px;
+		padding: 8px;
 		background-color: red;
 		color: white;
 		font-size: 30px;
 	}
 
 	.dialog-success {
-		padding: 4px;
+		padding: 8px;
 		background-color: green;
 		color: white;
 		font-size: 30px;
 	}
 
-	/* Estado abierto del dialogo */
-	dialog[open] {
-		opacity: 1;
-		// transform: scale(1) translate(0, 0); /* Al abrir, mantiene el tamaño original y posición */
-	}
-
-	dialog:not([open]) {
-		opacity: 0;
-		transform: scale(0) translate(50px, 50px); /* Se mueve hacia abajo y derecha mientras disminuye su tamaño */
-	}
-
-	/* Estado cerrado del dialogo */
 	dialog {
-		position: fixed;
-		right: 30px;
-		top: 60px;
-
 		margin: unset;
-		inset-inline-start: unset;
-		color: white;
 		border-style: hidden;
-
-		padding: 0;
-		opacity: 0;
-		transform: scale(1) translate(0, 0); /* Inicia en su tamaño normal y sin desplazamiento */
-		transition:
-			opacity 0.7s ease-out,
-			transform 0.7s ease-out,
-			overlay 0.7s ease-out allow-discrete,
-			display 0.7s ease-out allow-discrete;
-	}
-
-	/* Before-open state */
-	@starting-style {
-		dialog[open] {
-			opacity: 0;
-			transform: scaleY(0);
-		}
-	}
-
-	/* Transition the :backdrop when the dialog modal is promoted to the top layer */
-	dialog::backdrop {
-		background-color: rgb(0 0 0 / 0%);
-		transition:
-			display 0.7s allow-discrete,
-			overlay 0.7s allow-discrete,
-			background-color 0.7s;
-		/* Equivalent to
-		transition: all 0.7s allow-discrete; */
-	}
-
-	dialog[open]::backdrop {
-		background-color: rgb(0 0 0 / 25%);
-	}
-
-	/* This starting-style rule cannot be nested inside the above selector
-	  because the nesting selector cannot represent pseudo-elements. */
-
-	@starting-style {
-		dialog[open]::backdrop {
-			background-color: rgb(0 0 0 / 0%);
-		}
 	}
 }
