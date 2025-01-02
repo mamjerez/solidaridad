@@ -24,9 +24,8 @@ export default class AuthComponent implements OnInit {
 		mam: 'assets/img/mam.png',
 		1919: 'assets/img/ramos.jpg'
 	};
-	private readonly correctSecretarias = 's';
-	private intentos = 0;
-	public mensaje = '';
+	private readonly _correctSecretarias = 's';
+	private _intentos = 0;
 	public password = '';
 
 	ngOnInit(): void {
@@ -55,32 +54,28 @@ export default class AuthComponent implements OnInit {
 	}
 
 	private isSecretariaPassword(): boolean {
-		return this.password === this.correctSecretarias;
+		return this.password === this._correctSecretarias;
 	}
 
 	private grantAdminAccess(): void {
 		this._isAdminService.setIsAdmin(true);
 		this._userService.setAvatar(this._passwordAvatarMap[this.password]);
-		this.mensaje = 'Ahora eres administrador';
 		this.mostrarDialog('Ahora eres administrador', false, true);
 	}
 
 	private grantSecretariaAccess(): void {
 		this._isSecretariaService.setIsSecretaria(true);
-		this.mensaje = 'Ahora eres secretaria';
 		this.mostrarDialog('Ahora eres secretaria', false, false);
 		this._router.navigate(['/secretarias']);
 	}
 
 	private handleIn_correctPassword(): void {
-		this.intentos++;
-		if (this.intentos >= 3) {
-			this.mensaje = 'Demasiados intentos';
+		this._intentos++;
+		if (this._intentos >= 3) {
 			this.mostrarDialog('Demasiados intentos', true, false, 1000);
 			this._router.navigate(['/home']);
 		} else {
 			this._isSecretariaService.setIsSecretaria(false);
-			this.mensaje = 'Contraseña incorrecta';
 			this.mostrarDialog('Contraseña incorrecta', true, false);
 		}
 	}
