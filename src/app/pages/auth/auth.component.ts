@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -22,10 +22,12 @@ export default class AuthComponent implements OnInit {
 	private readonly _correctPassword: string[] = ['mam', '1919'];
 	private readonly _passwordAvatarMap: Record<string, string> = {
 		mam: 'assets/img/mam.png',
-		1919: 'assets/img/ramos.jpg'
+		1919: 'assets/img/ramos.jpg',
+		s: 'assets/img/secretaria.jpg'
 	};
 	private readonly _correctSecretarias = 's';
 	private _intentos = 0;
+	private _admin = false;
 	public password = '';
 
 	ngOnInit(): void {
@@ -42,6 +44,8 @@ export default class AuthComponent implements OnInit {
 	checkPassword(): void {
 		if (this.isPasswordCorrect()) {
 			this.grantAdminAccess();
+			this._admin = true;
+			this.grantSecretariaAccess();
 		} else if (this.isSecretariaPassword()) {
 			this.grantSecretariaAccess();
 		} else {
@@ -65,8 +69,14 @@ export default class AuthComponent implements OnInit {
 
 	private grantSecretariaAccess(): void {
 		this._isSecretariaService.setIsSecretaria(true);
-		this.mostrarDialog('Ahora eres secretaria', false, false);
-		this._router.navigate(['/secretarias']);
+		if (this._admin) {
+			this.mostrarDialog('Ahora eres administrador', false, false);
+			this._router.navigate(['//home']);
+		} else {
+			this.mostrarDialog('Ahora eres secretaria', false, false);
+			this._userService.setAvatar(this._passwordAvatarMap[this.password]);
+			this._router.navigate(['/secretarias']);
+		}
 	}
 
 	private handleIn_correctPassword(): void {
