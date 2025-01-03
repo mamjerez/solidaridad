@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
 		'ficha',
 		'Fecha20250107'
 	];
-	public showFooter = true;
+	public showFooter = false;
 
 	ngOnInit() {
 		this._router.events.subscribe((event) => {
