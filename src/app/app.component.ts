@@ -21,7 +21,8 @@ export class AppComponent implements OnInit {
 		'problema',
 		'actividad',
 		'resumenPrensa',
-		'ficha'
+		'ficha',
+		'Fecha20250107'
 	];
 	public showFooter = true;
 

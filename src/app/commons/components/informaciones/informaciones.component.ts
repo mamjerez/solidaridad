@@ -24,9 +24,13 @@ export class InformacionesComponent implements OnInit {
 	public docs: IDoc[] = [];
 	public news: INew[] = [];
 	public gestiones: IGestion[] = [];
+	public has_noticias = true;
 
 	async ngOnInit() {
 		const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDataFromSupabase(this.tag())]);
 		[this.news, this.coms, this.docs] = newsComsDocs;
+		if (this.tag() === '20250107') {
+			this.has_noticias = false;
+		}
 	}
 }

@@ -37,6 +37,10 @@ export default [
 		loadComponent: () => import('./pages/secretarias-reuniones/reuniones/fecha20241210/fecha20241210.component')
 	},
 	{
+		path: 'Fecha20250107',
+		loadComponent: () => import('./pages/secretarias-reuniones/reuniones/fecha20250107/fecha20250107.component')
+	},
+	{
 		path: 'asociacionesFederadas',
 		loadComponent: () => import('./pages/asociaciones-federadas/asociaciones-federadas.component')
 	},
