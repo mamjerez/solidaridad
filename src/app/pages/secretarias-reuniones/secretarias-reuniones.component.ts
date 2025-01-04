@@ -10,9 +10,9 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 	styleUrl: './secretarias-reuniones.component.scss'
 })
 export default class SecretariasReunionesComponent {
-	private readonly router = inject(Router);
-	public tag = '20241210';
+	private readonly _router = inject(Router);
+
 	navigateTo(page: string): void {
-		this.router.navigate([page]);
+		this._router.navigate([page]);
 	}
 }
