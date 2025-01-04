@@ -13,7 +13,7 @@ import { CookieConsentComponent } from './commons/components/cookie-consent.comp
 export class AppComponent implements OnInit {
 	private _router = inject(Router);
 	private _cadenasOcultarFooter = [
-		'p',
+		'p/',
 		'personas',
 		'foto',
 		'historiaBarrio',
@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
 		'actividad',
 		'resumenPrensa',
 		'ficha',
-		'Fecha20250107'
+		'Fecha',
+		'/add'
 	];
 	public showFooter = false;
 
