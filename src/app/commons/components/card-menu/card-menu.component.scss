@@ -27,13 +27,10 @@
 		}
 		&__title {
 			color: rgba(237, 235, 240, 0.913);
-			// https://modern-fluid-typography.vercel.app?rootFontSize=12&minSize=8&fluidSize=1&relativeSize=0.5&maxSize=20
 			font-size: clamp(1.2rem, 2vw + 0.2rem, 1.4rem);
 			line-height: normal;
 			text-align: center;
 			padding-top: 1rem;
-			border-bottom-right-radius: 10px;
-			border-bottom-left-radius: 10px;
 			height: 40px;
 		}
 	}
@@ -56,8 +53,6 @@
 			line-height: normal;
 			text-align: center;
 			padding: 1rem;
-			border-bottom-right-radius: 10px;
-			border-bottom-left-radius: 10px;
 		}
 	}
 }
