@@ -23,7 +23,9 @@ export class AppComponent implements OnInit {
 		'resumenPrensa',
 		'ficha',
 		'Fecha',
-		'/add'
+		'/add',
+		'secretarias',
+		'auth'
 	];
 	public showFooter = false;
 
