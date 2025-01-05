@@ -86,6 +86,7 @@ export default class AuthComponent implements OnInit {
 			this._router.navigate(['/home']);
 		} else {
 			this._isSecretariaService.setIsSecretaria(false);
+			this._userService.setAvatar('assets/img/anom.png');
 			this.mostrarDialog('Contraseña incorrecta', true, false);
 		}
 	}
