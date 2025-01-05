@@ -43,7 +43,6 @@ export default class PageAsociacionComponent implements OnInit {
 	public docs: IDoc[] = [];
 	public coms: ICom[] = [];
 	public tag: string;
-	public data: any;
 	public barrio: string;
 
 	constructor() {
@@ -57,7 +56,7 @@ export default class PageAsociacionComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.fetchDatosAsociacion(this.tag);
+		this.fetchDatosAsociacion();
 		this.createCardProblemas();
 		this.createCardActividad();
 		this.createCardHistoria();
@@ -66,8 +65,8 @@ export default class PageAsociacionComponent implements OnInit {
 		this.fetchComs();
 	}
 
-	async fetchDatosAsociacion(tag: string): Promise<void> {
-		const datosAsociacion = await this._supabaseService.fetchDataByTag('solidaridad_asociaciones', tag);
+	async fetchDatosAsociacion(): Promise<void> {
+		const datosAsociacion = await this._supabaseService.fetchDataByTag('solidaridad_asociaciones', this.tag);
 		this.barrio = datosAsociacion[0].barrio;
 	}
 
@@ -105,7 +104,6 @@ export default class PageAsociacionComponent implements OnInit {
 
 	async createCardHistoria() {
 		try {
-			console.log('tag', this.tag);
 			const tagMapping: Record<string, string> = {
 				LaPlata: 'LaPlata',
 				parqueAtlantico: 'ParqueAtlantico',
