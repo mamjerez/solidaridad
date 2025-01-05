@@ -45,7 +45,8 @@ export default class PageAsociacionComponent implements OnInit {
 	public tag: string;
 	public barrio: string;
 
-	// para usar el tag en las news de OCM
+	// Para poder usar el tag en las news de OCM
+	// En solidaridad todos los tags empiezan por mayusculas para poder concatenar, por ejemplo: LaPlataFotosHistoricas
 	private readonly tagMapping: Record<string, string> = {
 		LaPlata: 'barriadaLaPlata',
 		ParqueAtlantico: 'barrioParqueAtlantico',
@@ -56,8 +57,6 @@ export default class PageAsociacionComponent implements OnInit {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		// const navigation = this._router.getCurrentNavigation();
 		// this.data = navigation?.extras.state?.['data'];
-		// this._pathImage = `${this._pathImage}${this.firstToLowerCase(this.data.tag)}/`;
-
 		this.tag = this._route.snapshot.paramMap.get('tag');
 		this._pathImage = `${this._pathImage}${this.firstToLowerCase(this.tag)}/`;
 	}
@@ -67,9 +66,7 @@ export default class PageAsociacionComponent implements OnInit {
 		this.createCardProblemas();
 		this.createCardActividad();
 		this.createCardHistoria();
-		this.fetchNews();
-		this.fetchDocs();
-		this.fetchComs();
+		this.fetchInfo();
 	}
 
 	async fetchDatosAsociacion(): Promise<void> {
@@ -116,16 +113,10 @@ export default class PageAsociacionComponent implements OnInit {
 		}
 	}
 
-	async fetchNews() {
+	async fetchInfo() {
 		this.newsBarrio = await this._supabaseService.fetchDataByTagOrder('news', this.tagMapping[this.tag], false);
 		this.newsAsociacion = await this._supabaseService.fetchDataByTagOrder('solidaridad_news', this.tag, false);
-	}
-
-	async fetchDocs() {
 		this.docs = await this._supabaseService.fetchDataByTagOrder('solidaridad_documentos', this.tag, false);
-	}
-
-	async fetchComs() {
 		this.coms = await this._supabaseService.fetchDataByTagOrder('solidaridad_comentarios', this.tag, false);
 	}
 
