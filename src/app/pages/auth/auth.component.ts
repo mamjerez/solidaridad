@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, LOCALE_ID } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
