@@ -40,7 +40,7 @@
 		margin: auto;
 	}
 
-	.problemas {
+	header {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -75,10 +75,6 @@
 		height: auto;
 		border-radius: 10px;
 		margin: 10px;
-	}
-
-	span {
-		font-size: clamp(0.667rem, 2vw + 0.25rem, 1.583rem);
 	}
 }
 

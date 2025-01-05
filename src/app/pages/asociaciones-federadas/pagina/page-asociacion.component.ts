@@ -45,6 +45,13 @@ export default class PageAsociacionComponent implements OnInit {
 	public tag: string;
 	public barrio: string;
 
+	// para usar el tag en las news de OCM
+	private readonly tagMapping: Record<string, string> = {
+		LaPlata: 'barriadaLaPlata',
+		ParqueAtlantico: 'barrioParqueAtlantico',
+		SanEnrique: 'barriadaSanEnrique'
+	};
+
 	constructor() {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		// const navigation = this._router.getCurrentNavigation();
@@ -85,13 +92,7 @@ export default class PageAsociacionComponent implements OnInit {
 
 	async createCardActividad() {
 		try {
-			const tagMapping: Record<string, string> = {
-				LaPlata: 'barriadaLaPlata',
-				parqueAtlantico: 'barrioParqueAtlantico',
-				SanEnrique: 'barriadaSanEnrique'
-			};
-			const avv = this.tag ? (tagMapping[this.tag] ?? null) : null;
-			const data = await this._supabaseService.fetchAsociacionesActividades(avv);
+			const data = await this._supabaseService.fetchAsociacionesActividades(this.tag);
 			this.cardsActividades = data.map((card) => ({
 				...card,
 				rutaImagen: `${this._pathImage}${card.tag}.jpg`,
@@ -104,14 +105,7 @@ export default class PageAsociacionComponent implements OnInit {
 
 	async createCardHistoria() {
 		try {
-			const tagMapping: Record<string, string> = {
-				LaPlata: 'LaPlata',
-				parqueAtlantico: 'ParqueAtlantico',
-				SanEnrique: 'barriadaSanEnrique'
-			};
-			const avv = this.tag ? (tagMapping[this.tag] ?? null) : null;
-
-			const data = await this._supabaseService.fetchAsociacionesHistoria(avv);
+			const data = await this._supabaseService.fetchAsociacionesHistoria(this.tag);
 			this.cardsHistoria = data.map((card) => ({
 				...card,
 				rutaImagen: `${this._pathImage}${card.tag}.jpg`,
@@ -123,33 +117,16 @@ export default class PageAsociacionComponent implements OnInit {
 	}
 
 	async fetchNews() {
-		// para usar el tag en las news de OCM
-		const tagMapping: Record<string, string> = {
-			LaPlata: 'barriadaLaPlata',
-			parqueAtlantico: 'barrioParqueAtlantico',
-			SanEnrique: 'barriadaSanEnrique'
-		};
-		const avv = this.tag ? (tagMapping[this.tag] ?? null) : null;
-		this.newsBarrio = await this._supabaseService.fetchDataByTagOrder('news', avv, false);
+		this.newsBarrio = await this._supabaseService.fetchDataByTagOrder('news', this.tagMapping[this.tag], false);
 		this.newsAsociacion = await this._supabaseService.fetchDataByTagOrder('solidaridad_news', this.tag, false);
 	}
 
 	async fetchDocs() {
-		const tagMapping: Record<string, string> = {
-			LaPlata: 'barriadaLaPlata',
-			SanEnrique: 'barriadaSanEnrique'
-		};
-		const avv = this.tag ? (tagMapping[this.tag] ?? null) : null;
-		this.docs = await this._supabaseService.fetchDataByTagOrder('solidaridad_documentos', avv, false);
+		this.docs = await this._supabaseService.fetchDataByTagOrder('solidaridad_documentos', this.tag, false);
 	}
 
 	async fetchComs() {
-		const tagMapping: Record<string, string> = {
-			LaPlata: 'LaPlata',
-			SanEnrique: 'barriadaSanEnrique'
-		};
-		const avv = this.tag ? (tagMapping[this.tag] ?? null) : null;
-		this.coms = await this._supabaseService.fetchDataByTagOrder('solidaridad_comentarios', avv, false);
+		this.coms = await this._supabaseService.fetchDataByTagOrder('solidaridad_comentarios', this.tag, false);
 	}
 
 	firstToLowerCase(str: string): string {
