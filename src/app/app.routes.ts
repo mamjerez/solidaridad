@@ -33,6 +33,36 @@ export default [
 		loadComponent: () => import('./pages/onda-jerez-radio/onda-jerez-radio.component')
 	},
 	{
+		path: 'intervencion20250108',
+		loadComponent: () =>
+			import('./pages/onda-jerez-radio/intervenciones/intervencion20250108/intervencion20250108.component')
+	},
+	{
+		path: 'intervencion20241204',
+		loadComponent: () =>
+			import('./pages/onda-jerez-radio/intervenciones/intervencion20241204/intervencion20241204.component')
+	},
+	{
+		path: 'intervencion20241120',
+		loadComponent: () =>
+			import('./pages/onda-jerez-radio/intervenciones/intervencion20241120/intervencion20241120.component')
+	},
+	{
+		path: 'intervencion20241211',
+		loadComponent: () =>
+			import('./pages/onda-jerez-radio/intervenciones/intervencion20241211/intervencion20241211.component')
+	},
+	{
+		path: 'intervencion20241127',
+		loadComponent: () =>
+			import('./pages/onda-jerez-radio/intervenciones/intervencion20241127/intervencion20241127.component')
+	},
+	{
+		path: 'intervencion20241218',
+		loadComponent: () =>
+			import('./pages/onda-jerez-radio/intervenciones/intervencion20241218/intervencion20241218.component')
+	},
+	{
 		path: 'Fecha20241210',
 		loadComponent: () => import('./pages/secretarias-reuniones/reuniones/fecha20241210/fecha20241210.component')
 	},

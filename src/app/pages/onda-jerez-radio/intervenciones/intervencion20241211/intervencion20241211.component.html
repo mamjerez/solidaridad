@@ -1,0 +1,21 @@
+<div class="OCM-button-container">
+	<button class="OCM-button-volver" (click)="volver()"></button>
+</div>
+<h3 class="OCM-title-dark">Intervención 11/12/2024 Manuel Cazorla + AVV La Cartuja (Rosa Alcobre)</h3>
+
+<main class="OCM-flex-dark OCM-flex-dark--center">
+	<app-card-menu
+		[titulo]="'Documento colaborativo guión'"
+		(click)="
+			navigateTo('https://docs.google.com/document/d/199wWCgTtwSpN4-UeviBBd3pKU2SHMixKAFBSe-CICow/edit?usp=sharing')
+		"
+	></app-card-menu>
+	<app-card-menu
+		[titulo]="'Foto'"
+		(click)="navigateTo('https://1drv.ms/i/s!AqUr6AaNBwpDpqwLaO5NVeWrM3RWdw?e=Ua1LaV')"
+	></app-card-menu>
+	<app-card-menu
+		[titulo]="'Audio'"
+		(click)="navigateTo('https://1drv.ms/v/s!AqUr6AaNBwpDpqtwQD4VCW4hU9MAIw?e=pqYegm')"
+	></app-card-menu>
+</main>

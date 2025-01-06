@@ -1,0 +1,21 @@
+<div class="OCM-button-container">
+	<button class="OCM-button-volver" (click)="volver()"></button>
+</div>
+<h3 class="OCM-title-dark">Intervención 04/12/2024 Manuel Cazorla + AVV "Vallesequillo II"</h3>
+
+<main class="OCM-flex-dark OCM-flex-dark--center">
+	<app-card-menu
+		[titulo]="'Documento colaborativo guión'"
+		(click)="
+			navigateTo('https://docs.google.com/document/d/1jWn6WA1UTqpRUzw_e_QrL8hiCFjFUPg7Pxqg80pDP-w/edit?usp=sharing')
+		"
+	></app-card-menu>
+	<app-card-menu
+		[titulo]="'Foto'"
+		(click)="navigateTo('https://1drv.ms/i/s!AqUr6AaNBwpDpqsonVhbPnqpMALGpw?e=SCGyhM')"
+	></app-card-menu>
+	<app-card-menu
+		[titulo]="'Audio'"
+		(click)="navigateTo('https://1drv.ms/v/s!AqUr6AaNBwpDpqsmA0Yy6PNNImedUw?e=1P3gUM')"
+	></app-card-menu>
+</main>
