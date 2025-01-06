@@ -11,13 +11,13 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 	styleUrl: './intervencion-onda-jerez.component.scss'
 })
 export default class IntervencionOndaJerezComponent {
+	private readonly _router = inject(Router);
+	private readonly _location = inject(Location);
 	public titulo: string;
 	public rutaDocumento: string;
 	public rutaFoto: string;
 	public rutaAudio: string;
 
-	private readonly _router = inject(Router);
-	private readonly _location = inject(Location);
 	constructor() {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		const navigation = this._router.getCurrentNavigation();
