@@ -33,6 +33,10 @@ export default [
 		loadComponent: () => import('./pages/onda-jerez-radio/onda-jerez-radio.component')
 	},
 	{
+		path: 'intervencionOndaJerez',
+		loadComponent: () => import('./commons/components/intervencion-onda-jerez/intervencion-onda-jerez.component')
+	},
+	{
 		path: 'intervencion20250108',
 		loadComponent: () =>
 			import('./pages/onda-jerez-radio/intervenciones/intervencion20250108/intervencion20250108.component')

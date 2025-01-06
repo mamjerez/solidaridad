@@ -18,6 +18,24 @@ export default class OndaJerezRadioComponent {
 		this._router.navigate([path]);
 	}
 
+	navigateToNew(titulo: string, rutaDocumento: string | null, rutaFoto: string, rutaAudio: string) {
+		this._router.navigate(['intervencionOndaJerez'], {
+			state: {
+				titulo,
+				rutaDocumento,
+				rutaFoto,
+				rutaAudio
+			}
+
+			// state: {
+			// 	titulo: 'Intervención 20/11/2024 Miguel A. Martinez + AVV "La Plata" Jerónimo Grosso',
+			// 	rutaDocumento: null,
+			// 	rutaFoto: 'https://1drv.ms/i/s!AqUr6AaNBwpDpqYlDcwhKta-6mPLwQ?e=rPKMHr',
+			// 	rutaAudio: 'https://1drv.ms/u/s!AqUr6AaNBwpDpqYnKCC0GiI70upD9Q?e=t7w2Ag'
+			// }
+		});
+	}
+
 	volver(): void {
 		this._location.back();
 	}
