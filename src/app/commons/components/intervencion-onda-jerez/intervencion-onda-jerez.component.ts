@@ -11,11 +11,6 @@ import { CardMenuComponent } from '@app/commons/components/card-menu/card-menu.c
 	styleUrl: './intervencion-onda-jerez.component.scss'
 })
 export default class IntervencionOndaJerezComponent {
-	// public readonly titulo = input<string>(undefined);
-	// readonly rutaDocumento = input<string>(undefined);
-	// readonly rutaFoto = input<string>(undefined);
-	// readonly rutaAudio = input<string>(undefined);
-
 	public titulo: string;
 	public rutaDocumento: string;
 	public rutaFoto: string;
@@ -26,15 +21,10 @@ export default class IntervencionOndaJerezComponent {
 	constructor() {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		const navigation = this._router.getCurrentNavigation();
-		console.log(navigation);
 		this.titulo = navigation?.extras.state?.['titulo'];
-		console.log(this.titulo);
 		this.rutaDocumento = navigation?.extras.state?.['rutaDocumento'];
-		console.log(this.rutaDocumento);
 		this.rutaFoto = navigation?.extras.state?.['rutaFoto'];
-		console.log(this.rutaFoto);
 		this.rutaAudio = navigation?.extras.state?.['rutaAudio'];
-		console.log(this.rutaAudio);
 	}
 
 	navigateTo(url: string): void {
