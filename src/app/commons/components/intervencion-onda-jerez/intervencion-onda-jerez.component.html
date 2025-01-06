@@ -4,9 +4,13 @@
 <header class="OCM-title-dark">{{ titulo }}</header>
 
 <main class="OCM-flex-dark OCM-flex-dark--center">
-	<app-card-menu [titulo]="'Foto'" (click)="navigateTo(rutaFoto)"></app-card-menu>
-	<app-card-menu
-		[titulo]="'Audio'"
-		(click)="navigateTo('https://1drv.ms/u/s!AqUr6AaNBwpDpqYnKCC0GiI70upD9Q?e=t7w2Ag')"
-	></app-card-menu>
+	@if (rutaDocumento) {
+		<app-card-menu [titulo]="'Documento colaborativo guion'" (click)="navigateTo(rutaDocumento)"></app-card-menu>
+	}
+	@if (rutaFoto) {
+		<app-card-menu [titulo]="'Foto'" (click)="navigateTo(rutaFoto)"></app-card-menu>
+	}
+	@if (rutaAudio) {
+		<app-card-menu [titulo]="'Audio'" (click)="navigateTo(rutaAudio)"></app-card-menu>
+	}
 </main>
