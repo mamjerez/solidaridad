@@ -2,12 +2,13 @@ import { Location } from '@angular/common';
 import { Component, OnInit, inject, input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ErrorFieldComponent } from '@app/commons/components/error-field/error-field.component';
+import { AutofocusDirective } from '@app/commons/directives/autofocus.directive';
 
 import { SupabaseService } from '@services/supabase.service';
 
 @Component({
 	selector: 'app-coms-form',
-	imports: [ReactiveFormsModule, ErrorFieldComponent],
+	imports: [ReactiveFormsModule, ErrorFieldComponent, AutofocusDirective],
 	templateUrl: './add-com.component.html'
 })
 export default class AddComComponent implements OnInit {
@@ -16,9 +17,11 @@ export default class AddComComponent implements OnInit {
 	private _supabaseService = inject(SupabaseService);
 	private _location = inject(Location);
 	public comForm: FormGroup;
+	public comentarioHora = false;
 
 	async ngOnInit(): Promise<void> {
 		if (this.tag().startsWith('2025')) {
+			this.comentarioHora = true;
 			this.comForm = this._formBuilder.group({
 				date: [''],
 				sender: ['', Validators.required],

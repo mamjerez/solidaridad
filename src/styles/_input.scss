@@ -1,17 +1,48 @@
 .OCMInputDate {
 	margin: 0;
 	max-width: 200px;
+	caret-color: auto; /* Asegúrate de que el color del cursor sea automático */
+	outline: none; /* Elimina el borde del navegador */
+	border: 1px solid #ccc; /* Añade un borde para que el campo sea visible */
+	padding: 8px;
+}
+
+.OCMInputDate:focus {
+	border-width: 4px;
+	border-color: red; /* Cambia el color del borde cuando el campo está enfocado */
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Añade una sombra para indicar el enfoque */
 }
 
 .OCMInputMedia {
 	margin: 0;
 	max-width: 300px;
+	caret-color: auto; /* Asegúrate de que el color del cursor sea automático */
+	outline: none; /* Elimina el borde del navegador */
+	border: 1px solid #ccc; /* Añade un borde para que el campo sea visible */
+	padding: 8px;
+	// font-size: 16px;
+}
+
+.OCMInputMedia:focus {
+	border-width: 4px;
+	border-color: red; /* Cambia el color del borde cuando el campo está enfocado */
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Añade una sombra para indicar el enfoque */
 }
 
 .OCMInputLong {
 	margin: 0;
 	max-width: 700px;
 	width: 700px;
+	caret-color: auto; /* Asegúrate de que el color del cursor sea automático */
+	outline: none; /* Elimina el borde del navegador */
+	border: 1px solid #ccc; /* Añade un borde para que el campo sea visible */
+	padding: 8px;
+}
+
+.OCMInputLong:focus {
+	border-width: 4px;
+	border-color: red; /* Cambia el color del borde cuando el campo está enfocado */
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Añade una sombra para indicar el enfoque */
 }
 
 .OCM-fieldset {
