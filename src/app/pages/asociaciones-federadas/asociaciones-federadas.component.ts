@@ -77,7 +77,7 @@ export default class AsociacionesFederadasComponent implements OnInit {
 				headerName: 'Nombre',
 				field: 'nombre',
 				// filter: 'agSetColumnFilter',
-				width: 400
+				width: 320
 				// applyMiniFilterWhileTyping: true
 			} as ISetFilterParams,
 			{
