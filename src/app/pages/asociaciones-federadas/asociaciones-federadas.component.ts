@@ -91,15 +91,15 @@ export default class AsociacionesFederadasComponent implements OnInit {
 				width: 100
 			},
 			{
-				headerName: 'Junta',
+				headerName: 'Junta Directiva',
 				field: 'junta_directiva',
-				width: 100
-			},
-			{
-				headerName: 'Cuota2024',
-				field: 'cuota2024',
-				width: 100
+				width: 140
 			}
+			// {
+			// 	headerName: 'Cuota2024',
+			// 	field: 'cuota2024',
+			// 	width: 100
+			// }
 		];
 	}
 
