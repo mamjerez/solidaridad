@@ -27,7 +27,8 @@ export class AppComponent implements OnInit {
 		'secretarias',
 		'auth',
 		'Onda',
-		'intervencion'
+		'intervencion',
+		'asociacionesFederadas'
 	];
 	public showFooter = false;
 
