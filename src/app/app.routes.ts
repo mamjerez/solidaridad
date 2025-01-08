@@ -13,7 +13,10 @@ export default [
 		path: 'auth',
 		loadComponent: () => import('./pages/auth/auth.component')
 	},
-
+	{
+		path: 'cuentas',
+		loadComponent: () => import('./pages/cuentas/cuentas.component')
+	},
 	{
 		path: 'asociaciones',
 		loadComponent: () => import('./pages/asociaciones/asociaciones/asociaciones.component')

@@ -2,21 +2,29 @@
 <img src="assets/img/Misión-Visión-Valores-Compromiso.jpg" alt="proposito" />
 
 <div class="flex-container">
-	<div class="column column-1">
-		<header class="titulo">Estatutos</header>
-		<button
-			class="OCM-button"
-			onclick="window.open('https://onedrive.live.com/view.aspx?resid=430A078D06E82BA5!623133&authkey=!AHi7rwoRFzeqmyo', '_blank')"
-		>
-			Ver
-		</button>
-	</div>
-	<div class="column column-2">
-		<header class="titulo">Código ético</header>
-		<button class="OCM-button">Ver</button>
-	</div>
-	<div class="column column-3">
-		<header class="titulo">Cuentas claras</header>
-		<button class="OCM-button">Ver</button>
+	<div class="info-container">
+		<div class="info-box">
+			<h2 class="info-title">Estatutos</h2>
+			<button
+				class="OCM-button"
+				onclick="window.open('https://onedrive.live.com/view.aspx?resid=430A078D06E82BA5!623133&authkey=!AHi7rwoRFzeqmyo', '_blank')"
+			>
+				Consultar
+			</button>
+		</div>
+
+		<div class="info-box">
+			<h2 class="info-title">Código ético</h2>
+			<button
+				class="OCM-button"
+				onclick="window.open('https://onedrive.live.com/view.aspx?resid=430A078D06E82BA5!628845&authkey=!AHutGC5hDyg9OE4', '_blank')"
+			>
+				Consultar
+			</button>
+		</div>
+		<div class="info-box">
+			<h2 class="info-title">Cuentas Claras</h2>
+			<button class="OCM-button" (click)="navigateTo('cuentas')">Consultar</button>
+		</div>
 	</div>
 </div>
