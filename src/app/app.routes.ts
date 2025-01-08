@@ -6,6 +6,10 @@ export default [
 		loadComponent: () => import('./pages/home/home.component')
 	},
 	{
+		path: 'avisoLegal',
+		loadComponent: () => import('./pages/aviso-legal/aviso-legal.component')
+	},
+	{
 		path: 'auth',
 		loadComponent: () => import('./pages/auth/auth.component')
 	},
