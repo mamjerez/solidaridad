@@ -13,32 +13,6 @@ img {
 	margin-bottom: 40px;
 }
 
-.column {
-	flex: 1;
-	padding: 20px;
-	text-align: center;
-	font-size: clamp(1.2rem, 3vw + 0.2rem, 4.4rem);
-}
-
-.column-1 {
-	background-color: #008586;
-}
-
-.column-2 {
-	background-color: #11a09a;
-}
-
-.column-3 {
-	background-color: #c9e5e6;
-}
-
-.titulo {
-	font-size: clamp(1.2rem, 3vw + 0.2rem, 4.4rem);
-	color: #0b0c0c;
-	background-color: transparent;
-	margin-bottom: 30px;
-}
-
 .info-container {
 	display: flex;
 	justify-content: center;
@@ -52,7 +26,7 @@ img {
 .info-box {
 	background-color: #e6f4f1;
 	padding: clamp(8px, 2vw, 22px);
-	width: clamp(150px, 30vw, 340px);
+	width: clamp(20px, 22vw, 340px);
 	position: relative;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -62,7 +36,7 @@ img {
 	top: clamp(-40px, -4vw, -60px);
 	left: 20px;
 	color: #007f7f;
-	font-size: clamp(12px, 4vw, 36px);
+	font-size: clamp(8px, 3vw, 36px);
 	font-weight: 900;
 }
 
@@ -73,5 +47,5 @@ button {
 	padding: clamp(8px, 1vw, 12px) clamp(8px, 1vw, 12px);
 	font-size: clamp(0.3rem, 2vw, 1.2rem);
 	cursor: pointer;
-	margin: 40px clamp(8px, 100px, 100px) 0;
+	margin: clamp(8px, 20px, 100px) clamp(8px, 20px, 100px) 0;
 }
