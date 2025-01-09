@@ -4,7 +4,7 @@
 			<header class="OCM-subtitle-dark">Añadir comentario en Reunión Comisión Ejecutiva día 07/01/2025</header>
 
 			<label for="text" class="OCM-label-dark">Texto</label>
-			<input type="text" class="OCMInputLong" id="text" formControlName="text" autofocus />
+			<input type="text" class="OCMInputLong" id="text" formControlName="text" appAutofocus />
 			<app-error-field [control]="comForm.get('text')" [errorMessages]="validationMessages.texto"></app-error-field>
 
 			<button type="submit" [disabled]="!comForm.valid" class="OCM-button-container OCM-button">Grabar</button>
