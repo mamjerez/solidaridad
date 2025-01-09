@@ -1,10 +1,13 @@
 import { Location } from '@angular/common';
 import { Component, OnInit, inject, input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
 import { ErrorFieldComponent } from '@app/commons/components/error-field/error-field.component';
+
 import { AutofocusDirective } from '@app/commons/directives/autofocus.directive';
 
 import { SupabaseService } from '@services/supabase.service';
+import { UserService } from '@services/user.service';
 
 @Component({
 	selector: 'app-add-com-ejecutiva',
@@ -15,48 +18,33 @@ import { SupabaseService } from '@services/supabase.service';
 export default class AddComEjecutivaComponent implements OnInit {
 	readonly tag = input.required<string>();
 	private _formBuilder = inject(FormBuilder);
+	private readonly _userService = inject(UserService);
 	private _supabaseService = inject(SupabaseService);
 	private _location = inject(Location);
+	private _user: string;
 	public comForm: FormGroup;
-	public comentarioHora = false;
 
 	async ngOnInit(): Promise<void> {
-		if (this.tag().startsWith('2025')) {
-			this.comentarioHora = true;
-			this.comForm = this._formBuilder.group({
-				date: [''],
-				sender: ['', Validators.required],
-				text: ['', Validators.required]
-			});
-		} else {
-			this.comForm = this._formBuilder.group({
-				date: ['', Validators.required],
-				sender: [''],
-				text: ['', Validators.required]
-			});
-		}
+		this._user = this._userService.getUserName();
+		this.comForm = this._formBuilder.group({
+			date: [''],
+			sender: [''],
+			text: ['', Validators.required]
+		});
 	}
 
 	validationMessages = {
-		fecha: {
-			required: 'La fecha es obligatoria'
-			// fecha: 'Please provide a valid fecha'
-		},
 		texto: {
 			required: 'Debes introducir un texto obligatoriamente'
 		}
 	};
 
 	async guardar(): Promise<void> {
-		if (this.tag().startsWith('2025')) {
-			const currentDate = new Date().toISOString().slice(0, 16); // Formato para datetime-local
-			const currentHour = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-			const senderValue = this.comForm.get('sender')?.value || '';
-			this.comForm.patchValue({ date: currentDate, sender: `${currentHour} ${senderValue}` });
-		}
-		if (this.comForm?.valid) {
-			console.log('tag', this.comForm.value);
+		const currentDate = new Date().toISOString().slice(0, 16); // Formato para datetime-local
+		const currentHour = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+		this.comForm.patchValue({ date: currentDate, sender: `${currentHour} ${this._user}` });
 
+		if (this.comForm?.valid) {
 			const formData = {
 				...this.comForm.value,
 				tag: this.tag(),
