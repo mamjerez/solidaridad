@@ -17,23 +17,13 @@ export default class AddComComponent implements OnInit {
 	private _supabaseService = inject(SupabaseService);
 	private _location = inject(Location);
 	public comForm: FormGroup;
-	public comentarioHora = false;
 
 	async ngOnInit(): Promise<void> {
-		if (this.tag().startsWith('2025')) {
-			this.comentarioHora = true;
-			this.comForm = this._formBuilder.group({
-				date: [''],
-				sender: ['', Validators.required],
-				text: ['', Validators.required]
-			});
-		} else {
-			this.comForm = this._formBuilder.group({
-				date: ['', Validators.required],
-				sender: [''],
-				text: ['', Validators.required]
-			});
-		}
+		this.comForm = this._formBuilder.group({
+			date: ['', Validators.required],
+			sender: [''],
+			text: ['', Validators.required]
+		});
 	}
 
 	validationMessages = {
@@ -47,15 +37,7 @@ export default class AddComComponent implements OnInit {
 	};
 
 	async guardar(): Promise<void> {
-		if (this.tag().startsWith('2025')) {
-			const currentDate = new Date().toISOString().slice(0, 16); // Formato para datetime-local
-			const currentHour = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-			const senderValue = this.comForm.get('sender')?.value || '';
-			this.comForm.patchValue({ date: currentDate, sender: `${currentHour} ${senderValue}` });
-		}
 		if (this.comForm?.valid) {
-			console.log('tag', this.comForm.value);
-
 			const formData = {
 				...this.comForm.value,
 				tag: this.tag(),
