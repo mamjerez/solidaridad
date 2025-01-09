@@ -19,11 +19,15 @@ export default class AuthComponent implements OnInit {
 	private readonly _dialogService = inject(DialogService);
 	private readonly _router = inject(Router);
 	private readonly _userService = inject(UserService);
-	private readonly _correctPassword: string[] = ['mam', '1919'];
+	private readonly _correctPassword: string[] = ['mam', '1919', 'mca', 'vcp', 'jsm', 'jzo'];
 	private readonly _passwordAvatarMap: Record<string, string> = {
-		mam: 'assets/img/mam.png',
-		1919: 'assets/img/ramos.jpg',
-		s: 'assets/img/secretaria.jpg'
+		mam: 'assets/img/directiva/mam.png',
+		1919: 'assets/img/directiva/ramos.jpg',
+		mca: 'assets/img/directiva/cazorla.jpg',
+		vcp: 'assets/img/directiva/vanessa.jpg',
+		jsm: 'assets/img/directiva/saborido.jpg',
+		jzo: 'assets/img/directiva/zarzuela.jpg',
+		s: 'assets/img/directiva/secretaria.jpg'
 	};
 	private readonly _correctSecretarias = 's';
 	private _intentos = 0;

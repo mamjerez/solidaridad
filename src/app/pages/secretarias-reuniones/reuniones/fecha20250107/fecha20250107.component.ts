@@ -14,6 +14,6 @@ export default class Fecha20250107Component {
 	public tag = '20250107';
 
 	addCom(): void {
-		this.router.navigateByUrl('addCom/' + this.tag);
+		this.router.navigateByUrl('addComEjecutiva/' + this.tag);
 	}
 }

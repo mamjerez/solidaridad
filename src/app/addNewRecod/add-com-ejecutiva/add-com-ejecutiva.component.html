@@ -1,0 +1,25 @@
+<div class="OCM-dark-teme OCM-flex OCM-flex--center">
+	<form [formGroup]="comForm" (ngSubmit)="guardar()">
+		<fieldset class="OCM-fieldset">
+			@if (comentarioHora) {
+				<header class="OCM-subtitle-dark">Añadir comentario en Reunión Comisión Ejecutiva día 07/01/2025</header>
+				<label for="sender" class="OCM-label-dark">Nombre de quien comenta</label>
+				<input type="text" class="OCMInputMedia" id="sender" formControlName="sender" appAutofocus />
+			} @else {
+				<header class="OCM-subtitle-dark">Añadir comentario en {{ tag() }}</header>
+				<label for="date" class="OCM-label-dark">Fecha</label>
+				<input type="date" class="OCMInputDate" id="date" formControlName="date" appAutofocus />
+				<app-error-field [control]="comForm.get('date')" [errorMessages]="validationMessages.fecha"></app-error-field>
+
+				<label for="sender" class="OCM-label-dark">Nombre de quien comenta OPCIONAL</label>
+				<input type="text" class="OCMInputMedia" id="sender" formControlName="sender" />
+			}
+
+			<label for="text" class="OCM-label-dark">Texto</label>
+			<input type="text" class="OCMInputLong" id="text" formControlName="text" />
+			<app-error-field [control]="comForm.get('text')" [errorMessages]="validationMessages.texto"></app-error-field>
+
+			<button type="submit" [disabled]="!comForm.valid" class="OCM-button-container OCM-button">Grabar</button>
+		</fieldset>
+	</form>
+</div>

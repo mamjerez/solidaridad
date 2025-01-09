@@ -29,7 +29,10 @@ export default [
 		path: 'secretariasReuniones',
 		loadComponent: () => import('./pages/secretarias-reuniones/secretarias-reuniones.component')
 	},
-
+	{
+		path: 'addComEjecutiva/:tag',
+		loadComponent: () => import('./addNewRecod/add-com-ejecutiva/add-com-ejecutiva.component')
+	},
 	{
 		path: 'secretariasReunionesOtrasEntidades',
 		loadComponent: () =>
