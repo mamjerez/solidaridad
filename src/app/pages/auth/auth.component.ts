@@ -32,6 +32,7 @@ export default class AuthComponent implements OnInit {
 	private readonly _correctSecretarias = 's';
 	private _intentos = 0;
 	private _admin = false;
+	private _user: string;
 	public password = '';
 
 	ngOnInit(): void {
@@ -74,7 +75,8 @@ export default class AuthComponent implements OnInit {
 	private grantSecretariaAccess(): void {
 		this._isSecretariaService.setIsSecretaria(true);
 		if (this._admin) {
-			this.mostrarDialog('Ahora eres administrador', false, false);
+			this._user = this._userService.getUserName();
+			this.mostrarDialog(`Hola ${this._user} `, false, false);
 			this._router.navigate(['//home']);
 		} else {
 			this.mostrarDialog('Ahora eres secretaria', false, false);
