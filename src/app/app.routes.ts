@@ -44,7 +44,7 @@ export default [
 	},
 	{
 		path: 'intervencionOndaJerez',
-		loadComponent: () => import('./commons/components/intervencion-onda-jerez/intervencion-onda-jerez.component')
+		loadComponent: () => import('./pages/onda-jerez-radio/intervencion-onda-jerez/intervencion-onda-jerez.component')
 	},
 
 	{
