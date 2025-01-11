@@ -5,16 +5,16 @@ import { Location } from '@angular/common';
 import { InformacionesComponent } from '@app/commons/components/informaciones/informaciones.component';
 
 @Component({
-	selector: 'app-fecha20250107',
+	selector: 'app-fecha20250114',
 	imports: [InformacionesComponent],
-	templateUrl: './fecha20250107.component.html',
-	styleUrl: './fecha20250107.component.scss'
+	templateUrl: './fecha20250114.component.html',
+	styleUrl: './fecha20250114.component.scss'
 })
-export default class Fecha20250107Component {
+export default class Fecha20250114Component {
 	private readonly router = inject(Router);
 	private readonly _location = inject(Location);
 
-	public tag = 'Fecha20250107';
+	public tag = 'Fecha20250114';
 
 	addCom(): void {
 		this.router.navigateByUrl('addComEjecutiva/' + this.tag);

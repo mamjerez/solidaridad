@@ -46,7 +46,6 @@ export default [
 		path: 'intervencionOndaJerez',
 		loadComponent: () => import('./pages/onda-jerez-radio/intervencion-onda-jerez/intervencion-onda-jerez.component')
 	},
-
 	{
 		path: 'Fecha20241210',
 		loadComponent: () => import('./pages/secretarias-reuniones/reuniones/fecha20241210/fecha20241210.component')
@@ -54,6 +53,10 @@ export default [
 	{
 		path: 'Fecha20250107',
 		loadComponent: () => import('./pages/secretarias-reuniones/reuniones/fecha20250107/fecha20250107.component')
+	},
+	{
+		path: 'Fecha20250114',
+		loadComponent: () => import('./pages/secretarias-reuniones/reuniones/fecha20250114/fecha20250114.component')
 	},
 	{
 		path: 'asociacionesFederadas',
