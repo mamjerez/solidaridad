@@ -86,7 +86,8 @@ export class SupabaseService {
 			.from(tableName)
 			.select('*')
 			.eq('tag', tag)
-			.order('date', { ascending: order });
+			.order('date', { ascending: order })
+			.order('orden', { ascending: true });
 		if (error) throw error;
 		return data;
 	}
