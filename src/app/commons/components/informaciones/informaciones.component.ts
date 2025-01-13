@@ -29,7 +29,7 @@ export class InformacionesComponent implements OnInit {
 	async ngOnInit() {
 		const [newsComsDocs] = await Promise.all([this._getNewsComsDocs.fetchDataFromSupabase(this.tag())]);
 		[this.news, this.coms, this.docs] = newsComsDocs;
-		if (this.tag().startsWith('2025')) {
+		if (this.tag().startsWith('Fecha')) {
 			this.has_noticias = false;
 		}
 	}
