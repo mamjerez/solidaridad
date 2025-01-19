@@ -1,12 +1,13 @@
 @defer (when data) {
 	<main [ngClass]="{ 'solidaridad-style': data.solidaridad }">
 		<button (click)="printComponent()">Imprimir</button>
+
+		<app-botones-add [tag]="tag"></app-botones-add>
+
 		@if (data.solidaridad) {
 			<div class="tab-titles">
 				<button class="tab-link" (click)="selectTab(1)" [ngClass]="{ active: activeTab === 1 }">Datos</button>
 				<button class="tab-link" (click)="selectTab(2)" [ngClass]="{ active: activeTab === 2 }">Pagos</button>
-
-				<app-botones-add [tag]="tag"></app-botones-add>
 			</div>
 		}
 		<div id="print-section">
