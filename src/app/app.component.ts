@@ -30,7 +30,11 @@ export class AppComponent implements OnInit {
 		'intervencion',
 		'asociacionesFederadas',
 		'avisoLegal',
-		'cuentas'
+		'cuentas',
+		'astaRegia',
+		'amigosCartuja',
+		'a2003',
+		'a2004'
 	];
 	public showFooter = false;
 
