@@ -6,6 +6,7 @@ import { IsAdminService } from '@services/isAdmin.service';
 import { DialogService } from '@services/dialog.service';
 import { IsSecretariaService } from '@services/isSecretaria.service';
 import { UserService } from '@services/user.service';
+import { IsAsociacionService } from '@services/isAsociacion.service';
 
 @Component({
 	selector: 'app-password-check',
@@ -16,10 +17,13 @@ import { UserService } from '@services/user.service';
 export default class AuthComponent implements OnInit {
 	private readonly _isAdminService = inject(IsAdminService);
 	private readonly _isSecretariaService = inject(IsSecretariaService);
+	private readonly _isAsociacionService = inject(IsAsociacionService);
+
 	private readonly _dialogService = inject(DialogService);
 	private readonly _router = inject(Router);
 	private readonly _userService = inject(UserService);
 	private readonly _correctPassword: string[] = ['mam', '1919', 'mca', 'vcp', 'jsm', 'jzo'];
+	private readonly _passwordAsociacion: string[] = ['viñedos2025'];
 	private readonly _passwordAvatarMap: Record<string, string> = {
 		mam: 'assets/img/directiva/mam.png',
 		1919: 'assets/img/directiva/ramos.jpg',
@@ -27,7 +31,8 @@ export default class AuthComponent implements OnInit {
 		vcp: 'assets/img/directiva/vanessa.jpg',
 		jsm: 'assets/img/directiva/saborido.jpg',
 		jzo: 'assets/img/directiva/zarzuela.jpg',
-		s: 'assets/img/directiva/secretaria.jpg'
+		s: 'assets/img/directiva/secretaria.jpg',
+		viñedos2025: 'assets/img/directiva/viñedos2025.jpg'
 	};
 	private readonly _correctSecretarias = 's';
 	private _intentos = 0;
@@ -53,6 +58,8 @@ export default class AuthComponent implements OnInit {
 			this.grantSecretariaAccess();
 		} else if (this.isSecretariaPassword()) {
 			this.grantSecretariaAccess();
+		} else if (this.isAsociacionPassword()) {
+			this.grantAsociacionAccess();
 		} else {
 			this.handleIn_correctPassword();
 		}
@@ -64,6 +71,11 @@ export default class AuthComponent implements OnInit {
 
 	private isSecretariaPassword(): boolean {
 		return this.password === this._correctSecretarias;
+	}
+
+	private isAsociacionPassword(): boolean {
+		console.log(this.password);
+		return this._passwordAsociacion.includes(this.password);
 	}
 
 	private grantAdminAccess(): void {
@@ -83,6 +95,45 @@ export default class AuthComponent implements OnInit {
 			this._userService.setAvatar(this._passwordAvatarMap[this.password]);
 			this._router.navigate(['/secretarias']);
 		}
+	}
+
+	private grantAsociacionAccess(): void {
+		this._isAsociacionService.setIsAsociacion(true);
+		this._userService.setAvatar(this._passwordAvatarMap[this.password]);
+		this._user = this._userService.getUserName();
+		this.mostrarDialog(`Hola ${this._user} `, false, false);
+
+		const data = {
+			id: 84,
+			nombre: 'Asociación Vecinal "Los Viñedos"',
+			rma: 316,
+			presidente: '',
+			sede: 'Plaza Las Viñas s/n. 11406',
+			barrio: 'Bda. Vid - Viñas',
+			telefono: '629 00 85 08',
+			contacto: '956025901; 629008508',
+			email: 'losvinedosaavv.general@gmail.com',
+			email1: null,
+			distrito: 'Este',
+			id_federacion: 7,
+			junta_directiva: true,
+			whatsapp: false,
+			solidaridad: true,
+			representante_junta_solidaridad: null,
+			telefono_representante: null,
+			cuota2023: false,
+			cuota2024: true,
+			mail: null,
+			web: null,
+			facebook: null,
+			instagram: null,
+			twitter: null,
+			adscrita: null,
+			is_activa: true,
+			tag: null,
+			NIF: 'G11667839'
+		};
+		this._router.navigate(['ficha'], { state: { data } });
 	}
 
 	private handleIn_correctPassword(): void {

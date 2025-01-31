@@ -13,12 +13,15 @@ import NoticiasComponent from '@app/commons/components/noticias/noticias.compone
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 import { SupabaseService } from '@services/supabase.service';
 import { IsAdminService } from '@services/isAdmin.service';
+import { IsAsociacionService } from '@services/isAsociacion.service';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { INew } from '@interfaces/new.interface';
 import { IGestion } from '@interfaces/gestion.interface';
 import { ICargo } from '@interfaces/cargo.interface';
+import { Subscription } from 'rxjs';
+import { UserService } from '@services/user.service';
 
 interface IAsociaciones {
 	id: number;
@@ -62,6 +65,10 @@ interface IAsociaciones {
 export default class FichaComponent implements OnInit {
 	private readonly _supabaseService = inject(SupabaseService);
 	private readonly _isAdminService = inject(IsAdminService);
+	private _userService = inject(UserService);
+	private readonly _isAsociacionService = inject(IsAsociacionService);
+	private avatarSubscription!: Subscription;
+
 	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	private _formBuilder = inject(FormBuilder);
@@ -77,6 +84,8 @@ export default class FichaComponent implements OnInit {
 	public nombreFederacion: string;
 	public isAdmin: boolean;
 	public tag = '';
+	public isAsociacion: boolean;
+	public avatarUrl: string = '';
 
 	constructor() {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
@@ -88,6 +97,13 @@ export default class FichaComponent implements OnInit {
 	ngOnInit(): void {
 		this._isAdminService.isAdmin$.subscribe((value) => {
 			this.isAdmin = value;
+		});
+
+		this._isAsociacionService.isAsociacion$.subscribe((value) => {
+			this.isAsociacion = value;
+		});
+		this.avatarSubscription = this._userService.avatarUrl$.subscribe((url) => {
+			this.avatarUrl = url;
 		});
 
 		this.completaCargos();

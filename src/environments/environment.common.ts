@@ -2,6 +2,7 @@ export const commonEnvironment = {
     production: false,
     isAdmin: false,
     isSecretaria: false,
+    isAsociacion: false,
     canAddRowSupabase: false,
         
     supabaseUrl: 'https://cswdadlxiubwdzvqzywc.supabase.co',
