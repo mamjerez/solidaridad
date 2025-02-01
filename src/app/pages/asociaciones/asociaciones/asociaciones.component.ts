@@ -157,8 +157,10 @@ export default class AsociacionesComponent implements OnInit {
 	}
 
 	onRowClicked(event: RowClickedEvent) {
-		console.log('Row clicked', event.data);
-		this._router.navigate(['ficha'], { state: { data: event.data } });
+		// console.log('Row clicked', event.data);
+		// this._router.navigate(['ficha'], { state: { data: event.data } });
+		const id = event.data.id;
+		this._router.navigate(['/ficha', id]);
 	}
 
 	onQuickFilterChanged(event: any): void {

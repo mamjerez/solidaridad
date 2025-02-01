@@ -1,59 +1,61 @@
 @defer (when datosAsociacion[0]) {
-	<main [ngClass]="{ 'solidaridad-style': data.solidaridad }">
+	@let datos = datosAsociacion[0];
+
+	<main [ngClass]="{ 'solidaridad-style': datos.solidaridad }">
 		<button (click)="printComponent()">Imprimir</button>
 
 		<app-botones-add [tag]="tag"></app-botones-add>
 
-		@if (data.solidaridad) {
+		@if (datos.solidaridad) {
 			<div class="tab-titles">
 				<button class="tab-link" (click)="selectTab(1)" [ngClass]="{ active: activeTab === 1 }">Datos</button>
 				<button class="tab-link" (click)="selectTab(2)" [ngClass]="{ active: activeTab === 2 }">Pagos</button>
 			</div>
 		}
+
 		<div id="print-section">
 			@if (activeTab === 1) {
-				<header class="OCM-title">{{ datosAsociacion[0].nombre }}</header>
+				<header class="OCM-title">{{ datos.nombre }}</header>
 
 				<div class="OCM-containerTableDatosAsociacion">
 					<table class="OCM-tableDatosAsociacion">
 						<tbody>
 							<tr>
 								<td><label>¿Está activa?</label></td>
-								<td><input type="checkbox" [checked]="datosAsociacion[0].is_activa" /></td>
+								<td><input type="checkbox" [checked]="datos.is_activa" /></td>
 							</tr>
 							<tr>
 								<td><label>Número en RMA</label></td>
 								<td>
-									<h2>{{ datosAsociacion[0].rma }}</h2>
+									<h2>{{ datos.rma }}</h2>
 								</td>
 							</tr>
 							<tr>
-								<td><label class="nif__label" for="rma">NIF</label></td>
+								<td><label class="nif__label">NIF</label></td>
 								<td>
-									<h2>{{ datosAsociacion[0].NIF }}</h2>
+									<h2>{{ datos.NIF }}</h2>
 								</td>
 							</tr>
 							<tr>
 								<td><label>Sede</label></td>
 								<td>
-									<h2>{{ datosAsociacion[0].sede }}</h2>
+									<h2>{{ datos.sede }}</h2>
 								</td>
 							</tr>
 						</tbody>
 					</table>
-
 					<table class="OCM-tableDatosAsociacion">
 						<tbody>
 							<tr>
 								<td><label>Distrito</label></td>
 								<td>
-									<h2>{{ datosAsociacion[0].distrito }}</h2>
+									<h2>{{ datos.distrito }}</h2>
 								</td>
 							</tr>
 							<tr>
 								<td><label>Barrio</label></td>
 								<td>
-									<h2>{{ datosAsociacion[0].barrio }}</h2>
+									<h2>{{ datos.barrio }}</h2>
 								</td>
 							</tr>
 							<tr>
@@ -63,9 +65,9 @@
 								</td>
 							</tr>
 							<tr>
-								<td><label for="email">Email</label></td>
+								<td><label>Email</label></td>
 								<td>
-									<h2>{{ datosAsociacion[0].email }}</h2>
+									<h2>{{ datos.email }}</h2>
 								</td>
 							</tr>
 						</tbody>
@@ -73,19 +75,15 @@
 				</div>
 
 				<app-cargos [cargos]="cargos" />
-
 				@if (docs.length > 0) {
 					<app-documentos [docs]="docs" />
 				}
-
 				@if (news.length > 0) {
 					<app-noticias [news]="news" />
 				}
-
 				@if (coms.length > 0) {
 					<app-comentarios [coms]="coms" />
 				}
-
 				@if (gestiones.length > 0) {
 					<app-gestiones [gestiones]="gestiones" />
 				}
@@ -94,12 +92,9 @@
 
 		@if (activeTab === 2) {
 			<div class="tab-content">
-				<div>
-					<h2>{{ data.nombre }}</h2>
-				</div>
-
-				<h1 [ngClass]="getCuotaClass(data.cuota2023)">Cuota 2023</h1>
-				<h1 [ngClass]="getCuotaClass(data.cuota2024)">Cuota 2024</h1>
+				<h2>{{ datos.nombre }}</h2>
+				<h1 [ngClass]="getCuotaClass(datos.cuota2023)">Cuota 2023</h1>
+				<h1 [ngClass]="getCuotaClass(datos.cuota2024)">Cuota 2024</h1>
 			</div>
 		}
 	</main>

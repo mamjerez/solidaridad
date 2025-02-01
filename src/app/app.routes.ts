@@ -160,7 +160,7 @@ export default [
 		loadComponent: () => import('./commons/components/galeria-fotos/detalle-foto/detalle-foto.component')
 	},
 	{
-		path: 'ficha',
+		path: 'ficha/:id',
 		loadComponent: () => import('./pages/asociaciones/ficha/ficha.component')
 	},
 	{

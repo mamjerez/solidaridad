@@ -50,7 +50,10 @@ export class SupabaseService {
 	}
 
 	async fetchAsociaciones(tableName: string): Promise<any> {
-		const { data, error } = await this._supabase.from(tableName).select('*').order('id', { ascending: true });
+		const { data, error } = await this._supabase
+			.from(tableName)
+			.select('id,nombre,solidaridad, junta_directiva, distrito,barrio,cuota2023,cuota2024')
+			.order('id', { ascending: true });
 		if (error) throw error;
 		return data;
 	}
@@ -179,8 +182,11 @@ export class SupabaseService {
 		return data || [];
 	}
 
-	async fetchDataAsociacionesById(id: number): Promise<any[]> {
-		const { data, error } = await this._supabase.from('solidaridad_asociaciones').select('*').eq('id', id);
+	async fetchDataAsociacionesById(id: string): Promise<any[]> {
+		const { data, error } = await this._supabase
+			.from('solidaridad_asociaciones')
+			.select('nombre,is_activa,rma,NIF,sede,distrito,barrio,email,solidaridad,cuota2023,cuota2024')
+			.eq('id', id);
 
 		if (error) {
 			console.error('Error fetching data:', error);
