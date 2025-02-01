@@ -1,48 +1,55 @@
-@media print {
-	.tab-titles,
-	.tab-link,
-	.OCM-title,
-	.containerAsociacion,
-	.activa,
-	.rma,
-	.nif,
-	.sede,
-	.distrito,
-	.barrio,
-	.federacion,
-	.email {
-		display: block;
-	}
+// @media print {
+// 	.tab-titles,
+// 	.tab-link,
+// 	.OCM-title,
+// 	.containerAsociacion,
+// 	.activa,
+// 	.rma,
+// 	.nif,
+// 	.sede,
+// 	.distrito,
+// 	.barrio,
+// 	.federacion,
+// 	.email {
+// 		display: block;
+// 	}
 
-	.tab-link {
-		display: none;
-	}
+// 	.tab-link {
+// 		display: none;
+// 	}
 
-	.tab-content {
-		display: block;
-	}
+// 	.tab-content {
+// 		display: block;
+// 	}
 
-	button {
-		display: none;
-	}
-}
+// 	button {
+// 		display: none;
+// 	}
+// }
 
 @media screen and (max-width: 4200px) {
-	form {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+	// form {
+	// 	display: flex;
+	// 	flex-direction: column;
+	// 	align-items: center;
+	// }
+
+	td input[type='checkbox'] {
+		width: 20px;
+		height: 20px;
+		accent-color: green;
 	}
 
 	label {
 		display: block;
 		font-weight: bold;
-		font-size: clamp(0.5rem, 1vw + 0.75rem, 1.2rem);
+		font-size: clamp(0.5rem, 1vw + 0.45rem, 1.6rem);
 	}
 
-	input {
+	h2 {
 		padding: 4px;
-		font-size: clamp(0.5rem, 1vw + 0.75rem, 1.6rem);
+		margin: 0px;
+		font-size: clamp(0.5rem, 1vw + 0.45rem, 1.6rem);
 	}
 
 	.solidaridad-style {
@@ -86,67 +93,70 @@
 		text-align: center;
 	}
 
-	.containerAsociacion {
-		display: grid;
-		// grid-template-columns: 16vw 16vw 16vw 16vw 16vw 16vw;
-		grid-template-columns: repeat(6, 16%);
-		justify-content: center;
-		grid-auto-flow: row;
-		grid-template-areas:
-			'activa rma nif vacia vacia vacia'
-			'sede sede sede sede sede sede'
-			'distrito distrito barrio barrio barrio barrio'
-			'federacion federacion federacion federacion federacion federacion'
-			'email email email email email email';
-		width: 100%;
-		max-width: 1200px;
-		margin: 0 auto;
-	}
+	// .containerAsociacion {
+	// 	display: grid;
+	// 	// grid-template-columns: 16vw 16vw 16vw 16vw 16vw 16vw;
+	// 	grid-template-columns: repeat(6, 16%);
+	// 	justify-content: center;
+	// 	grid-auto-flow: row;
+	// 	grid-template-areas:
+	// 		'activa rma nif vacia vacia vacia'
+	// 		'sede sede sede sede sede sede'
+	// 		'distrito distrito barrio barrio barrio barrio'
+	// 		'federacion federacion federacion federacion federacion federacion'
+	// 		'email email email email email email';
+	// 	width: 100%;
+	// 	max-width: 1200px;
+	// 	margin: 0 auto;
+	// }
 
-	.vacia {
-		grid-area: vacia;
-	}
-	.activa {
-		grid-area: activa;
-	}
+	// .vacia {
+	// 	grid-area: vacia;
+	// }
+	// .activa {
+	// 	grid-area: activa;
+	// }
 
-	.rma {
-		grid-area: rma;
-	}
+	// .rma {
+	// 	grid-area: rma;
+	// }
 
-	.nif {
-		grid-area: nif;
-	}
+	// .nif {
+	// 	grid-area: nif;
+	// }
 
-	.sede {
-		grid-area: sede;
-	}
+	// .sede {
+	// 	grid-area: sede;
+	// }
 
-	.distrito {
-		grid-area: distrito;
-	}
+	// .distrito {
+	// 	grid-area: distrito;
+	// }
 
-	.barrio {
-		grid-area: barrio;
-	}
+	// .barrio {
+	// 	grid-area: barrio;
+	// }
 
-	.federacion {
-		grid-area: federacion;
-	}
+	// .federacion {
+	// 	grid-area: federacion;
+	// }
 
-	.email {
-		grid-area: email;
-	}
+	// .email {
+	// 	grid-area: email;
+	// }
 }
 
 @media screen and (max-width: 570px) {
-	.containerAsociacion {
-		grid-template-areas:
-			'activa activa rma rma nif nif'
-			'sede sede sede sede sede sede'
-			'distrito distrito barrio barrio barrio barrio'
-			'federacion federacion federacion federacion federacion federacion'
-			'email email email email email email';
-		margin-left: 0px;
+	h2 {
+		padding: 0px;
 	}
+	// .containerAsociacion {
+	// 	grid-template-areas:
+	// 		'activa activa rma rma nif nif'
+	// 		'sede sede sede sede sede sede'
+	// 		'distrito distrito barrio barrio barrio barrio'
+	// 		'federacion federacion federacion federacion federacion federacion'
+	// 		'email email email email email email';
+	// 	margin-left: 0px;
+	// }
 }
