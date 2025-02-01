@@ -69,49 +69,9 @@ export default class AsociacionesComponent implements OnInit {
 				headerName: 'Nombre',
 				field: 'nombre',
 				// filter: 'agSetColumnFilter',
-				width: 375
+				width: 425
 				// applyMiniFilterWhileTyping: true
 			} as ISetFilterParams,
-			{
-				headerName: 'Presidente/a',
-				field: 'presidente',
-				width: 210
-			},
-			{
-				headerName: 'Teléfono',
-				field: 'telefono',
-				width: 90
-			},
-			{
-				headerName: 'Mail',
-				field: 'email',
-				width: 175
-			},
-			// {
-			// 	headerName: 'WEB',
-			// 	field: 'web',
-			// 	width: 175
-			// },
-			// {
-			// 	headerName: 'Facebook',
-			// 	field: 'facebook',
-			// 	width: 175
-			// },
-			// {
-			// 	headerName: 'Instagram',
-			// 	field: 'instagram',
-			// 	width: 175
-			// },
-			// {
-			// 	headerName: 'Twitter',
-			// 	field: 'twitter',
-			// 	width: 175
-			// },
-			// {
-			// 	headerName: 'Adscrita',
-			// 	field: 'adscrita',
-			// 	width: 175
-			// },
 			{
 				headerName: 'Solidaridad',
 				field: 'solidaridad',
@@ -122,21 +82,6 @@ export default class AsociacionesComponent implements OnInit {
 				field: 'junta_directiva',
 				width: 65
 			},
-			// {
-			// 	headerName: 'WhatsApp',
-			// 	field: 'whatsapp',
-			// 	width: 90
-			// },
-			// {
-			// 	headerName: 'Vocal',
-			// 	field: 'representante_junta_solidaridad',
-			// 	width: 210
-			// },
-			// {
-			// 	headerName: 'Teléfono Vocal',
-			// 	field: 'telefono_representante',
-			// 	width: 90
-			// },
 			{
 				headerName: 'Distrito',
 				field: 'distrito',
@@ -145,7 +90,7 @@ export default class AsociacionesComponent implements OnInit {
 			{
 				headerName: 'Barrio',
 				field: 'barrio',
-				width: 160
+				width: 200
 			},
 			{
 				headerName: '2023',
