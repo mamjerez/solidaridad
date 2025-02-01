@@ -30,13 +30,13 @@ export class UserService {
 
 	getUserName(): string {
 		const avatarUrl = this.getAvatar();
-		console.log('avatarUrl:', avatarUrl);
+		// console.log('avatarUrl:', avatarUrl);
 
 		// Suponiendo que el nombre de usuario está en la URL del avatar, por ejemplo: 'assets/img/username.png'
 		const parts = avatarUrl.split('/');
 		const fileName = parts[parts.length - 1];
 		const userName = fileName.split('.')[0]; // Elimina la extensión del archivo
-		console.log('userName:', userName);
+		// console.log('userName:', userName);
 
 		return this.userNameMapping[userName] || userName;
 	}
