@@ -16,7 +16,7 @@ export default class ComentariosComponent {
 	}
 
 	handleLinkClick(url: string, event: MouseEvent): void {
-		event.preventDefault(); // Prevenir la navegación por defecto
+		// event.preventDefault(); // Prevenir la navegación por defecto
 
 		window.open(url, '_blank', 'noopener,noreferrer');
 	}
