@@ -8,9 +8,11 @@ import { IsSecretariaService } from '@services/isSecretaria.service';
 import { UserService } from '@services/user.service';
 import { IsAsociacionService } from '@services/isAsociacion.service';
 
+import { AutofocusDirective } from '@app/commons/directives/autofocus.directive';
+
 @Component({
 	selector: 'app-password-check',
-	imports: [FormsModule],
+	imports: [FormsModule, AutofocusDirective],
 	templateUrl: './auth.component.html',
 	styleUrls: ['./auth.component.scss']
 })
