@@ -107,6 +107,13 @@ export default [
 		loadComponent: () => import('./pages/plataformas/a2004/a2004.component')
 	},
 	{
+		path: 'comisionParticipacionCiudadanaHospital',
+		loadComponent: () =>
+			import(
+				'./pages/plataformas/comision-participacion-ciudadana-hospital/comision-participacion-ciudadana-hospital.component'
+			)
+	},
+	{
 		path: 'reivindicaciones',
 		loadComponent: () => import('./pages/reivindicaciones/reivindicaciones.component')
 	},
