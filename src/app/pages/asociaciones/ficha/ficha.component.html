@@ -1,4 +1,4 @@
-@defer (when data) {
+@defer (when datosAsociacion[0]) {
 	<main [ngClass]="{ 'solidaridad-style': data.solidaridad }">
 		<button (click)="printComponent()">Imprimir</button>
 
@@ -12,51 +12,64 @@
 		}
 		<div id="print-section">
 			@if (activeTab === 1) {
-				<div class="tab-content">
-					<form [formGroup]="asociacionForm">
-						<header class="OCM-title">{{ data.nombre }}</header>
-						<div class="containerAsociacion">
-							<div class="activa">
-								<label for="is_activa">¿Esta activa?</label>
-								<input type="checkbox" id="is_activa" formControlName="is_activa" placeholder="{{ data.is_activa }}" />
-							</div>
+				<header class="OCM-title">{{ datosAsociacion[0].nombre }}</header>
 
-							<div class="rma">
-								<label for="rma">Número en RMA</label>
-								<input type="text" id="rma" formControlName="rma" placeholder="{{ data.rma }}" />
-							</div>
+				<div class="OCM-containerTableDatosAsociacion">
+					<table class="OCM-tableDatosAsociacion">
+						<tbody>
+							<tr>
+								<td><label>¿Está activa?</label></td>
+								<td><input type="checkbox" [checked]="datosAsociacion[0].is_activa" /></td>
+							</tr>
+							<tr>
+								<td><label>Número en RMA</label></td>
+								<td>
+									<h2>{{ datosAsociacion[0].rma }}</h2>
+								</td>
+							</tr>
+							<tr>
+								<td><label class="nif__label" for="rma">NIF</label></td>
+								<td>
+									<h2>{{ datosAsociacion[0].NIF }}</h2>
+								</td>
+							</tr>
+							<tr>
+								<td><label>Sede</label></td>
+								<td>
+									<h2>{{ datosAsociacion[0].sede }}</h2>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 
-							<div class="nif">
-								<label class="nif__label" for="rma">NIF</label>
-								<input type="text" class="nif__input" id="rma" formControlName="nif" placeholder="{{ data.NIF }}" />
-							</div>
-
-							<div class="sede">
-								<label for="sede">Sede</label>
-								<input class="sede__input" type="text" id="sede" formControlName="sede" placeholder="{{ data.sede }}" />
-							</div>
-
-							<div class="distrito" class="distrito">
-								<label for="distrito">Distrito</label>
-								<input type="text" id="distrito" formControlName="distrito" placeholder="{{ data.distrito }}" />
-							</div>
-
-							<div class="barrio">
-								<label for="barrio">Barrio</label>
-								<input type="text" id="barrio" formControlName="barrio" placeholder="{{ data.barrio }}" />
-							</div>
-
-							<div class="federacion">
-								<label for="federacion">Federación</label>
-								<input type="text" id="federacion" formControlName="federacion" placeholder="{{ nombreFederacion }}" />
-							</div>
-
-							<div class="email">
-								<label for="email">email</label>
-								<input type="text" id="email" formControlName="email" placeholder="{{ data.email }}" />
-							</div>
-						</div>
-					</form>
+					<table class="OCM-tableDatosAsociacion">
+						<tbody>
+							<tr>
+								<td><label>Distrito</label></td>
+								<td>
+									<h2>{{ datosAsociacion[0].distrito }}</h2>
+								</td>
+							</tr>
+							<tr>
+								<td><label>Barrio</label></td>
+								<td>
+									<h2>{{ datosAsociacion[0].barrio }}</h2>
+								</td>
+							</tr>
+							<tr>
+								<td><label>Federación</label></td>
+								<td>
+									<h2>{{ nombreFederacion }}</h2>
+								</td>
+							</tr>
+							<tr>
+								<td><label for="email">Email</label></td>
+								<td>
+									<h2>{{ datosAsociacion[0].email }}</h2>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 
 				<app-cargos [cargos]="cargos" />

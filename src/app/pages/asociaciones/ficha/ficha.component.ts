@@ -1,6 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import GestionesComponent from '@app/commons/components/gestiones/gestiones.component';
@@ -26,7 +25,7 @@ interface IAsociaciones {
 	rma: number;
 	presidente: string;
 	sede: string;
-	barrio: string | null; // 'null' explicitado como posible valor
+	barrio: string | null;
 	telefono: string | null;
 	telefono_representante: string | null;
 	contacto: string;
@@ -46,7 +45,6 @@ interface IAsociaciones {
 	selector: 'app-ficha',
 	imports: [
 		NgClass,
-		ReactiveFormsModule,
 		ComentariosComponent,
 		DocumentosComponent,
 		GestionesComponent,
@@ -61,9 +59,7 @@ export default class FichaComponent implements OnInit {
 	private readonly _supabaseService = inject(SupabaseService);
 	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
-	private _formBuilder = inject(FormBuilder);
 	private _idAsociacion: number;
-	public asociacionForm: FormGroup;
 	public activeTab = 1;
 	public news: INew[] = [];
 	public coms: ICom[] = [];
@@ -92,18 +88,6 @@ export default class FichaComponent implements OnInit {
 		this.completaCargos();
 		this.fetchData();
 		this.completaFederacion();
-
-		this.asociacionForm = this._formBuilder.group({
-			// nombre: [null],
-			is_activa: [this.data.is_activa],
-			rma: [null],
-			sede: [null],
-			nif: [null],
-			barrio: [null],
-			federacion: [null],
-			distrito: [null],
-			email: [this.data.email]
-		});
 	}
 
 	async completaDatosAsociacion() {
