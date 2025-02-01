@@ -62,6 +62,7 @@ export default class FichaComponent implements OnInit {
 	private _router = inject(Router);
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
 	private _formBuilder = inject(FormBuilder);
+	private _idAsociacion: number;
 	public asociacionForm: FormGroup;
 	public activeTab = 1;
 	public news: INew[] = [];
@@ -70,6 +71,7 @@ export default class FichaComponent implements OnInit {
 	public gestiones: IGestion[] = [];
 	public data: IAsociaciones = null;
 	public cargos: ICargo[] = [];
+	public datosAsociacion: any[] = [];
 	public datosFederacion: any[] = [];
 	public nombreFederacion: string;
 	public tag = '';
@@ -81,9 +83,12 @@ export default class FichaComponent implements OnInit {
 		const navigation = this._router.getCurrentNavigation();
 		this.data = navigation?.extras.state?.['data'];
 		this.tag = this.data.id.toString();
+		this._idAsociacion = this.data.id;
+		console.log(this._idAsociacion);
 	}
 
 	ngOnInit(): void {
+		this.completaDatosAsociacion();
 		this.completaCargos();
 		this.fetchData();
 		this.completaFederacion();
@@ -99,6 +104,11 @@ export default class FichaComponent implements OnInit {
 			distrito: [null],
 			email: [this.data.email]
 		});
+	}
+
+	async completaDatosAsociacion() {
+		this.datosAsociacion = await this._supabaseService.fetchDataAsociacionesById(this.data.id);
+		console.log(this.datosAsociacion);
 	}
 
 	async fetchData() {
