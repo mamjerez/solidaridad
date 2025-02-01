@@ -20,7 +20,6 @@ export default class AuthComponent implements OnInit {
 	private readonly _isAdminService = inject(IsAdminService);
 	private readonly _isSecretariaService = inject(IsSecretariaService);
 	private readonly _isAsociacionService = inject(IsAsociacionService);
-
 	private readonly _dialogService = inject(DialogService);
 	private readonly _router = inject(Router);
 	private readonly _userService = inject(UserService);
@@ -36,11 +35,15 @@ export default class AuthComponent implements OnInit {
 		s: 'assets/img/directiva/secretaria.jpg',
 		viñedos2025: 'assets/img/directiva/viñedos2025.jpg'
 	};
+	private readonly _idAsociacionMap: Record<string, string> = {
+		viñedos2025: '84'
+	};
 	private readonly _correctSecretarias = 's';
 	private _intentos = 0;
 	private _admin = false;
 	private _user: string;
 	public password = '';
+	public username = '';
 
 	ngOnInit(): void {
 		this.resetAdminState();
@@ -76,7 +79,7 @@ export default class AuthComponent implements OnInit {
 	}
 
 	private isAsociacionPassword(): boolean {
-		console.log(this.password);
+		// console.log(this.password);
 		return this._passwordAsociacion.includes(this.password);
 	}
 
@@ -104,38 +107,7 @@ export default class AuthComponent implements OnInit {
 		this._userService.setAvatar(this._passwordAvatarMap[this.password]);
 		this._user = this._userService.getUserName();
 		this.mostrarDialog(`Hola ${this._user} `, false, false);
-
-		const data = {
-			id: 84,
-			nombre: 'Asociación Vecinal "Los Viñedos"',
-			rma: 316,
-			presidente: '',
-			sede: 'Plaza Las Viñas s/n. 11406',
-			barrio: 'Bda. Vid - Viñas',
-			telefono: '629 00 85 08',
-			contacto: '956025901; 629008508',
-			email: 'losvinedosaavv.general@gmail.com',
-			email1: null,
-			distrito: 'Este',
-			id_federacion: 7,
-			junta_directiva: true,
-			whatsapp: false,
-			solidaridad: true,
-			representante_junta_solidaridad: null,
-			telefono_representante: null,
-			cuota2023: false,
-			cuota2024: true,
-			mail: null,
-			web: null,
-			facebook: null,
-			instagram: null,
-			twitter: null,
-			adscrita: null,
-			is_activa: true,
-			tag: null,
-			NIF: 'G11667839'
-		};
-		this._router.navigate(['ficha'], { state: { data } });
+		this._router.navigate(['/ficha', this._idAsociacionMap[this.password]]);
 	}
 
 	private handleIn_correctPassword(): void {

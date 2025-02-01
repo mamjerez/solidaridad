@@ -1,5 +1,18 @@
 <div class="password">
-	<label for="password">Teclea tu clave:</label>
-	<input type="password" id="password" [(ngModel)]="password" appAutofocus />
-	<button class="OCM-button" (click)="checkPassword()">Comprobar</button>
+	<form (ngSubmit)="checkPassword()">
+		<!-- Campo oculto para el nombre de usuario para evitar WARNING-->
+		<input type="text" name="username" [(ngModel)]="username" autocomplete="username" style="display: none" />
+
+		<label for="password">Contraseña:</label>
+		<input
+			type="password"
+			id="password"
+			[(ngModel)]="password"
+			name="password"
+			appAutofocus
+			required
+			autocomplete="current-password"
+		/>
+		<button type="submit" class="OCM-button">Comprobar</button>
+	</form>
 </div>
