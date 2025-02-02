@@ -185,7 +185,7 @@ export class SupabaseService {
 	async fetchDataAsociacionesById(id: string): Promise<any[]> {
 		const { data, error } = await this._supabase
 			.from('solidaridad_asociaciones')
-			.select('nombre,is_activa,rma,NIF,sede,distrito,barrio,email,solidaridad,cuota2023,cuota2024')
+			.select('id,nombre,is_activa,rma,NIF,sede,distrito,barrio,email,solidaridad,cuota2023,cuota2024')
 			.eq('id', id);
 
 		if (error) {
