@@ -21,6 +21,8 @@ export default class AddCargoComponent implements OnInit {
 	public contactoForm: FormGroup;
 
 	async ngOnInit(): Promise<void> {
+		console.log('tag', this.tag());
+
 		this.comForm = this._formBuilder.group({
 			nombre: ['', Validators.required],
 			apellido1: [''],
@@ -58,8 +60,8 @@ export default class AddCargoComponent implements OnInit {
 			if (this.comForm?.valid) {
 				const formDataCargo = {
 					...this.comForm.value,
-					id_asociacion: 38
-					// id_asociacion: this.tag()
+					// id_asociacion: 38
+					id_asociacion: this.tag()
 				};
 				const result = await this._supabaseService.insertRow('solidaridad_asociaciones_cargos', formDataCargo);
 				// const insertedId = result[0]?.id; // Asumiendo que el ID del registro insertado está en la propiedad 'id'
