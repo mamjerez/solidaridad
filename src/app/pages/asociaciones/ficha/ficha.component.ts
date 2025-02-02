@@ -95,6 +95,7 @@ export default class FichaComponent implements OnInit {
 
 	async completaDatosAsociacion(id: string) {
 		this.datosAsociacion = await this._supabaseService.fetchDataAsociacionesById(id);
+		this.tag = this.datosAsociacion[0].id;
 	}
 
 	async fetchData() {
