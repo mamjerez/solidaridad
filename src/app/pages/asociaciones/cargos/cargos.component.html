@@ -15,7 +15,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@for (cargo of cargos(); track cargo.id_cargo) {
+			@for (cargo of cargos(); track cargo.id_cargo || cargo.id) {
 				<tr>
 					<td>{{ cargo.cargo }}</td>
 					<td>{{ cargo.nombre_cargo }} {{ cargo.nombre }}</td>
