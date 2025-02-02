@@ -16,27 +16,22 @@ import { ICargo } from '@interfaces/cargo.interface';
 	styleUrl: './mesa-mayores.component.scss'
 })
 export default class MesaMayoresComponent implements OnInit {
-	ngOnInit(): void {
-		this.completaCargos();
-	}
 	private readonly router = inject(Router);
 	private readonly _supabaseService = inject(SupabaseService);
 	public tag = 'mesaMayores';
 	public cargos: ICargo[] = [];
+
+	ngOnInit(): void {
+		this.completaCargos();
+	}
 
 	addCom(): void {
 		this.router.navigateByUrl('addCom/' + this.tag);
 	}
 
 	async completaCargos() {
+		// Uso Funtion
 		this.cargos = await this._supabaseService.obtenerCargosByComision(1);
-
-		// this.cargos = await this._supabaseService.fetchDataFromViewAsociaciones(
-		// 	'view_solidaridad_comisiones_cargos1',
-		// 	'id_comision',
-		// 	1
-		// 	// this._idAsociacion
-		// );
 		console.log('cargos', this.cargos);
 	}
 }
