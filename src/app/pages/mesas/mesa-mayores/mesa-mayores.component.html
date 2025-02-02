@@ -7,8 +7,12 @@
 	/>
 </div> -->
 
-<div class="OCM-flex OCM-flex--right">
+<!-- <div class="OCM-flex OCM-flex--right">
 	<button class="OCM-button" (click)="addCom()">+ comentario</button>
-</div>
+</div> -->
+
+<app-botones-add [tag]="tag"></app-botones-add>
 
 <app-informaciones [tag]="tag"></app-informaciones>
+
+<app-cargos [cargos]="cargos" />

@@ -247,6 +247,17 @@ export class SupabaseService {
 		return data;
 	}
 
+	async obtenerCargosByComision(comisionId: number): Promise<any[]> {
+		const { data, error } = await this._supabase.rpc('obtener_cargos_por_comision', { comision_id: comisionId });
+
+		if (error) {
+			console.error('Error al obtener los cargos:', error);
+			throw error;
+		}
+
+		return data;
+	}
+
 	async insertRow(tableName: string, dataForm: any): Promise<any> {
 		const { data, error } = await this._supabase.from(tableName).insert([dataForm]).select();
 

@@ -41,22 +41,36 @@ export default class AddCargoComponent implements OnInit {
 	};
 
 	async guardar(): Promise<void> {
-		if (this.comForm?.valid) {
-			const formDataCargo = {
-				...this.comForm.value,
-				id_asociacion: this.tag()
-			};
+		console.log(this.tag());
 
-			const result = await this._supabaseService.insertRow('solidaridad_asociaciones_cargos', formDataCargo);
-			// const insertedId = result[0]?.id; // Asumiendo que el ID del registro insertado está en la propiedad 'id'
-			// console.log('ID del registro insertado:', insertedId);
-			const formDataContacto = {
-				...this.contactoForm.value,
-				id_cargo: result[0]?.id
-			};
+		if (this.tag() === 'mesaMayores') {
+			if (this.comForm?.valid) {
+				const formDataCargo = {
+					...this.comForm.value,
+					id_comision: 1
+				};
 
-			await this._supabaseService.insertRow('solidaridad_asociaciones_cargos_contactos', formDataContacto);
-			this._location.back();
+				const result = await this._supabaseService.insertRow('solidaridad_comisiones_cargos', formDataCargo);
+			}
+		} else {
+			console.log('conForm', this.comForm);
+
+			if (this.comForm?.valid) {
+				const formDataCargo = {
+					...this.comForm.value,
+					id_asociacion: 38
+					// id_asociacion: this.tag()
+				};
+				const result = await this._supabaseService.insertRow('solidaridad_asociaciones_cargos', formDataCargo);
+				// const insertedId = result[0]?.id; // Asumiendo que el ID del registro insertado está en la propiedad 'id'
+				// console.log('ID del registro insertado:', insertedId);
+				const formDataContacto = {
+					...this.contactoForm.value,
+					id_cargo: result[0]?.id
+				};
+				await this._supabaseService.insertRow('solidaridad_asociaciones_cargos_contactos', formDataContacto);
+				this._location.back();
+			}
 		}
 	}
 }
