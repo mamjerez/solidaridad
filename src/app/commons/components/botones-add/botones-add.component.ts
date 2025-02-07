@@ -9,7 +9,7 @@ import { IsAdminService } from '@services/isAdmin.service';
 	templateUrl: './botones-add.component.html',
 	styleUrl: './botones-add.component.scss'
 })
-export class BotonesAddComponent implements OnInit {
+export default class BotonesAddComponent implements OnInit {
 	tag = input.required<string>();
 	private readonly _router = inject(Router);
 	private readonly _location = inject(Location);

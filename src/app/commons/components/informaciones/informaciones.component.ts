@@ -17,7 +17,7 @@ import { IGestion } from '@interfaces/gestion.interface';
 	templateUrl: './informaciones.component.html',
 	styleUrl: './informaciones.component.scss'
 })
-export class InformacionesComponent implements OnInit {
+export default class InformacionesComponent implements OnInit {
 	readonly tag = input.required<string>();
 	private readonly _getNewsComsDocs = inject(GetNewsComsDocs);
 	public coms: ICom[] = [];

@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SupabaseService } from '@services/supabase.service';
-import { BotonesAddComponent } from '../../botones-add/botones-add.component';
+import BotonesAddComponent from '../../botones-add/botones-add.component';
 import ComentariosComponent from '../../comentarios/comentarios.component';
 import { DatePipe } from '@angular/common';
 

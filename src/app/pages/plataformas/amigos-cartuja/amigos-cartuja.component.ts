@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { BotonesAddComponent } from '@app/commons/components/botones-add/botones-add.component';
-import { InformacionesComponent } from '@app/commons/components/informaciones/informaciones.component';
+import BotonesAddComponent from '@app/commons/components/botones-add/botones-add.component';
+import InformacionesComponent from '@app/commons/components/informaciones/informaciones.component';
 
 @Component({
 	selector: 'app-amigos-cartuja',

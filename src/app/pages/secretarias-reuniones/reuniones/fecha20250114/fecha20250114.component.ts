@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { InformacionesComponent } from '@app/commons/components/informaciones/informaciones.component';
+import InformacionesComponent from '@app/commons/components/informaciones/informaciones.component';
 
 @Component({
 	selector: 'app-fecha20250114',

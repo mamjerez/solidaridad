@@ -1,10 +1,9 @@
-<header>Plataforma A-2003</header>
-<!-- <div class="OCM-flex OCM-flex--center">
-	<img class="fotoCabecera" src="" alt="Slider image" />
-</div> -->
+<header class="OCM-title-dark">Plataforma A-2003</header>
 
-<div class="OCM-flex OCM-flex--right">
-	<button class="OCM-button" (click)="addCom()">+ comentario</button>
-</div>
+<app-botones-add [tag]="tag"></app-botones-add>
 
 <app-informaciones [tag]="tag"></app-informaciones>
+
+<!-- @if (gestiones.length > 0) {
+	<app-gestiones [gestiones]="gestiones" />
+} -->

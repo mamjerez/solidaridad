@@ -10,7 +10,7 @@ import { SupabaseService } from '@services/supabase.service';
 	templateUrl: './galeria-fotos.component.html',
 	styleUrl: './galeria-fotos.component.scss'
 })
-export class GaleriaFotosComponent implements OnInit {
+export default class GaleriaFotosComponent implements OnInit {
 	tag = input.required<string>();
 	private readonly _supabaseService = inject(SupabaseService);
 	private readonly _router = inject(Router);

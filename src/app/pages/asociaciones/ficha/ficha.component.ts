@@ -6,7 +6,7 @@ import GestionesComponent from '@app/commons/components/gestiones/gestiones.comp
 import ComentariosComponent from '@app/commons/components/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/documentos/documentos.component';
 import CargosComponent from '../cargos/cargos.component';
-import { BotonesAddComponent } from '@app/commons/components/botones-add/botones-add.component';
+import BotonesAddComponent from '@app/commons/components/botones-add/botones-add.component';
 import NoticiasComponent from '@app/commons/components/noticias/noticias.component';
 
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';

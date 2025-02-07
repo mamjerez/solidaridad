@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { InformacionesComponent } from '@app/commons/components/informaciones/informaciones.component';
-import { BotonesAddComponent } from '@app/commons/components/botones-add/botones-add.component';
+import InformacionesComponent from '@app/commons/components/informaciones/informaciones.component';
+import BotonesAddComponent from '@app/commons/components/botones-add/botones-add.component';
 
 // import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
 

@@ -1,4 +1,4 @@
-import { BotonesAddComponent } from '@app/commons/components/botones-add/botones-add.component';
+import BotonesAddComponent from '@app/commons/components/botones-add/botones-add.component';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 

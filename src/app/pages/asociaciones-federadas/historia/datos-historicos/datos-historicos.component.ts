@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
-import { GaleriaFotosComponent } from '@app/commons/components/galeria-fotos/galeria-fotos.component';
+import GaleriaFotosComponent from '@app/commons/components/galeria-fotos/galeria-fotos.component';
 
 import { IsAdminService } from '@services/isAdmin.service';
 

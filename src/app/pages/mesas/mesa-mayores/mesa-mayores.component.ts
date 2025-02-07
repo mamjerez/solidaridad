@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { BotonesAddComponent } from '@app/commons/components/botones-add/botones-add.component';
-import { InformacionesComponent } from '@app/commons/components/informaciones/informaciones.component';
+import BotonesAddComponent from '@app/commons/components/botones-add/botones-add.component';
+import InformacionesComponent from '@app/commons/components/informaciones/informaciones.component';
 import CargosComponent from '@app/pages/asociaciones/cargos/cargos.component';
 
 import { SupabaseService } from '@services/supabase.service';

@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { InformacionesComponent } from '@app/commons/components/informaciones/informaciones.component';
+import InformacionesComponent from '@app/commons/components/informaciones/informaciones.component';
 import { SupabaseService } from '@services/supabase.service';
 // import { Location } from '@angular/common';
 

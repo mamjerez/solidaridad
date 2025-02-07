@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { InformacionesComponent } from '@app/commons/components/informaciones/informaciones.component';
+import InformacionesComponent from '@app/commons/components/informaciones/informaciones.component';
 
 @Component({
 	selector: 'app-consejo-social',
