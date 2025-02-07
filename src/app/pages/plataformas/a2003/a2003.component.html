@@ -2,7 +2,15 @@
 
 <app-botones-add [tag]="tag"></app-botones-add>
 
-<app-informaciones [tag]="tag"></app-informaciones>
+<app-documentos [docs]="docs" />
+
+<app-noticias [news]="news" />
+
+<app-comentarios [coms]="coms" />
+
+<app-gestiones [gestiones]="gestiones" />
+
+<!-- <app-informaciones [tag]="tag"></app-informaciones> -->
 
 <!-- @if (gestiones.length > 0) {
 	<app-gestiones [gestiones]="gestiones" />

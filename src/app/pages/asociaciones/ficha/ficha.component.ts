@@ -2,11 +2,11 @@ import { Component, OnInit, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
-import GestionesComponent from '@app/commons/components/gestiones/gestiones.component';
+import BotonesAddComponent from '@app/commons/components/botones-add/botones-add.component';
+import CargosComponent from '../cargos/cargos.component';
 import ComentariosComponent from '@app/commons/components/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/documentos/documentos.component';
-import CargosComponent from '../cargos/cargos.component';
-import BotonesAddComponent from '@app/commons/components/botones-add/botones-add.component';
+import GestionesComponent from '@app/commons/components/gestiones/gestiones.component';
 import NoticiasComponent from '@app/commons/components/noticias/noticias.component';
 
 import { GetNewsComsDocs } from '@services/getNewsComsDocs.service';
