@@ -24,9 +24,7 @@ import { IGestion } from '@interfaces/gestion.interface';
 export default class A2003Component implements OnInit {
 	private readonly router = inject(Router);
 	private readonly _supabaseService = inject(SupabaseService);
-
 	private _getNewsComsDocs = inject(GetNewsComsDocs);
-
 	public tag = 'a2003';
 	public news: INew[] = [];
 	public coms: ICom[] = [];
