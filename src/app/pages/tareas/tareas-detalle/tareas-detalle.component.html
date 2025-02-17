@@ -1,0 +1,45 @@
+<app-botones-add [tag]="tarea.titulo"></app-botones-add>
+
+<div class="OCM-containerTableDatosAsociacion">
+	<table class="OCM-tableDatosAsociacion">
+		<tbody>
+			<tr>
+				<td><label>Fecha inicio</label></td>
+				<td>
+					<h2>{{ tarea.fecha_inicio | customDate: 'd-MM-yyyy' }}</h2>
+				</td>
+			</tr>
+			<tr>
+				<td><label class="nif__label">Tarea</label></td>
+				<td>
+					<h2>{{ tarea.titulo }}</h2>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Responsable</label></td>
+				<td>
+					<h2>{{ tarea.responsable }}</h2>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Estado</label></td>
+				<td>
+					<h2>{{ tarea.status }}</h2>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<!-- @if (docs.length > 0) {
+	<app-documentos [docs]="docs" />
+}
+@if (news.length > 0) {
+	<app-noticias [news]="news" />
+}
+@if (coms.length > 0) {
+	<app-comentarios [coms]="coms" />
+} -->
+@if (gestiones.length > 0) {
+	<app-gestiones [gestiones]="gestiones" />
+}

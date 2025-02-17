@@ -211,5 +211,13 @@ export default [
 		path: 'addFoto/:tag',
 		loadComponent: () => import('./addNewRecod/add-foto/add-foto.component')
 	},
+	{
+		path: 'tareas',
+		loadComponent: () => import('./pages/tareas/tareas-lista/tareas-lista.component')
+	},
+	{
+		path: 'tarea_detalle',
+		loadComponent: () => import('./pages/tareas/tareas-detalle/tareas-detalle.component')
+	},
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }
 ] as Routes;

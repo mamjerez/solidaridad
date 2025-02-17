@@ -92,6 +92,8 @@ export class SupabaseService {
 			.order('date', { ascending: order })
 			.order('orden', { ascending: true });
 		if (error) throw error;
+		console.log(data);
+
 		return data;
 	}
 

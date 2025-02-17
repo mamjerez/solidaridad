@@ -34,7 +34,9 @@ export class AppComponent implements OnInit {
 		'astaRegia',
 		'amigosCartuja',
 		'a2003',
-		'a2004'
+		'a2004',
+		'tareas',
+		'tarea_detalle'
 	];
 	public showFooter = false;
 
