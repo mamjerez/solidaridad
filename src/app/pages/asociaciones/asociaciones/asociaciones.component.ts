@@ -93,14 +93,14 @@ export default class AsociacionesComponent implements OnInit {
 				width: 200
 			},
 			{
-				headerName: '2023',
-				field: 'cuota2023',
+				headerName: '2024',
+				field: 'cuota2024',
 				width: 80
 			},
 			{
-				headerName: '2024',
-				field: 'cuota2024',
-				width: 90
+				headerName: '2025',
+				field: 'cuota2025',
+				width: 80
 			}
 		];
 	}

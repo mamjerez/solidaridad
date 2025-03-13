@@ -52,7 +52,7 @@ export class SupabaseService {
 	async fetchAsociaciones(tableName: string): Promise<any> {
 		const { data, error } = await this._supabase
 			.from(tableName)
-			.select('id,nombre,solidaridad, junta_directiva, distrito,barrio,cuota2023,cuota2024')
+			.select('id,nombre,solidaridad, junta_directiva, distrito,barrio,cuota2024,cuota2025')
 			.order('id', { ascending: true });
 		if (error) throw error;
 		return data;
