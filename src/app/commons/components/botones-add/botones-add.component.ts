@@ -11,6 +11,7 @@ import { IsAdminService } from '@services/isAdmin.service';
 })
 export default class BotonesAddComponent implements OnInit {
 	tag = input.required<string>();
+	tarea = input<boolean>();
 	private readonly _router = inject(Router);
 	private readonly _location = inject(Location);
 	private readonly _isAdminService = inject(IsAdminService);
@@ -20,6 +21,8 @@ export default class BotonesAddComponent implements OnInit {
 		this._isAdminService.isAdmin$.subscribe((value) => {
 			this.isAdmin = value;
 		});
+
+		console.log(this.tarea());
 	}
 
 	addNew(): void {

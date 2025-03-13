@@ -5,7 +5,9 @@
 		<button class="OCM-button" (click)="addCom()">+ comentario</button>
 		<button class="OCM-button" (click)="addDoc()">+ documento</button>
 		<button class="OCM-button" (click)="addGes()">+ Gestión</button>
-		<button class="OCM-button" (click)="addCargo()">+ Cargo</button>
+		@if (!tarea()) {
+			<button class="OCM-button" (click)="addCargo()">+ Cargo</button>
+		}
 	} @else {
 		@if (tag()) {
 			<button class="OCM-button" (click)="addCom()">+ comentario</button>
