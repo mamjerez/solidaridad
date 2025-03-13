@@ -1,4 +1,4 @@
-<app-botones-add [tag]="tarea.titulo"></app-botones-add>
+<app-botones-add [tag]="tarea.titulo" [tarea]="true"></app-botones-add>
 
 <div class="OCM-containerTableDatosAsociacion">
 	<table class="OCM-tableDatosAsociacion">
@@ -31,7 +31,7 @@
 	</table>
 </div>
 
-<!-- @if (docs.length > 0) {
+@if (docs.length > 0) {
 	<app-documentos [docs]="docs" />
 }
 @if (news.length > 0) {
@@ -39,7 +39,7 @@
 }
 @if (coms.length > 0) {
 	<app-comentarios [coms]="coms" />
-} -->
+}
 @if (gestiones.length > 0) {
 	<app-gestiones [gestiones]="gestiones" />
 }
