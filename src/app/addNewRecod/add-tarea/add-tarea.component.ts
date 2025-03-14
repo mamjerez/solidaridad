@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, OnInit, inject, input } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ErrorFieldComponent } from '@app/commons/components/error-field/error-field.component';
 
@@ -12,7 +12,7 @@ import { SupabaseService } from '@services/supabase.service';
 	styleUrl: './add-tarea.component.scss'
 })
 export default class AddTareaComponent implements OnInit {
-	readonly tag = input.required<string>();
+	// readonly tag = input.required<string>();
 	private _formBuilder = inject(FormBuilder);
 	private _supabaseService = inject(SupabaseService);
 	private _location = inject(Location);
@@ -41,8 +41,8 @@ export default class AddTareaComponent implements OnInit {
 	async guardar(): Promise<void> {
 		if (this.comForm?.valid) {
 			const formData = {
-				...this.comForm.value,
-				tag: this.tag()
+				...this.comForm.value
+				// tag: this.tag()
 			};
 
 			await this._supabaseService.insertRow('solidaridad_tareas', formData);

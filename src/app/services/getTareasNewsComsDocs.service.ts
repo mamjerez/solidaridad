@@ -11,10 +11,9 @@ export class GetTareasNewsComsDocs {
 		console.log('Fetching data from Supabase with tag:', tag);
 
 		const dataTypes = [
-			// 'solidaridad_news',
-			// 'solidaridad_comentarios',
-			// 'solidaridad_documentos',
-			// 'solidaridad_tareas_gestiones',
+			'solidaridad_news',
+			'solidaridad_comentarios',
+			'solidaridad_documentos',
 			'solidaridad_gestiones'
 		];
 

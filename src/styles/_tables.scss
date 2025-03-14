@@ -223,6 +223,24 @@
 		}
 	}
 
+	.OCM-tableTarea {
+		// @extend .OCM-tableBase;
+		width: 97%;
+		margin: 20px;
+		td {
+			&:nth-child(1) {
+				width: 1%;
+				font-size: 15px;
+				font-weight: bold;
+			}
+			&:nth-child(2) {
+				width: 20%;
+				font-weight: 200;
+				// background-color: #003df6;
+			}
+		}
+	}
+
 	.OCM-tableCargos {
 		@extend .OCM-tableBase;
 

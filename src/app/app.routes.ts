@@ -208,7 +208,7 @@ export default [
 		loadComponent: () => import('./addNewRecod/add-cargo/add-cargo.component')
 	},
 	{
-		path: 'addTarea/:tag',
+		path: 'addTarea',
 		loadComponent: () => import('./addNewRecod/add-tarea/add-tarea.component')
 	},
 	{
