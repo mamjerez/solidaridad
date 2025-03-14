@@ -212,6 +212,10 @@ export default [
 		loadComponent: () => import('./addNewRecod/add-tarea/add-tarea.component')
 	},
 	{
+		path: 'addSubtarea',
+		loadComponent: () => import('./addNewRecod/add-subtarea/add-subtarea.component')
+	},
+	{
 		path: 'addFoto/:tag',
 		loadComponent: () => import('./addNewRecod/add-foto/add-foto.component')
 	},
