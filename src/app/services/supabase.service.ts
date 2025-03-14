@@ -92,7 +92,7 @@ export class SupabaseService {
 			.order('date', { ascending: order })
 			.order('orden', { ascending: true });
 		if (error) throw error;
-		console.log(data);
+		// console.log(data);
 
 		return data;
 	}
@@ -269,6 +269,13 @@ export class SupabaseService {
 
 	async updateRow(tableName: string, newValues, tag: string) {
 		console.log(newValues);
+		const { data, error } = await this._supabase.from(tableName).update(newValues).eq('tag', tag).select();
+
+		if (error) throw error;
+		return data;
+	}
+
+	async updateRowTarea(tableName: string, newValues, tag: string) {
 		const { data, error } = await this._supabase.from(tableName).update(newValues).eq('tag', tag).select();
 
 		if (error) throw error;
