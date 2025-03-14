@@ -1,28 +1,28 @@
-<app-botones-add [tag]="tarea.titulo" [tarea]="true"></app-botones-add>
+<app-botones-add [tag]="tarea.tag" [tarea]="true"></app-botones-add>
 
-<div class="OCM-containerTableDatosAsociacion">
-	<table class="OCM-tableDatosAsociacion">
+<div>
+	<table class="OCM-tableTarea">
 		<tbody>
 			<tr>
-				<td><label>Fecha inicio</label></td>
+				<td><label>Fecha inicio:</label></td>
 				<td>
 					<h2>{{ tarea.fecha_inicio | customDate: 'd-MM-yyyy' }}</h2>
 				</td>
 			</tr>
 			<tr>
-				<td><label class="nif__label">Tarea</label></td>
+				<td><label>Tarea:</label></td>
 				<td>
 					<h2>{{ tarea.titulo }}</h2>
 				</td>
 			</tr>
 			<tr>
-				<td><label>Responsable</label></td>
+				<td><label>Responsable:</label></td>
 				<td>
 					<h2>{{ tarea.responsable }}</h2>
 				</td>
 			</tr>
 			<tr>
-				<td><label>Estado</label></td>
+				<td><label>Estado:</label></td>
 				<td>
 					<h2>{{ tarea.status }}</h2>
 				</td>
@@ -31,7 +31,9 @@
 	</table>
 </div>
 
-<button (click)="toggleEdit()">Editar Tarea</button>
+@if (isAdmin) {
+	<button (click)="toggleEdit()">Editar Tarea</button>
+}
 
 @if (isEditing) {
 	<div>

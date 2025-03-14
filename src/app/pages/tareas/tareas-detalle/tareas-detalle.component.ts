@@ -17,6 +17,7 @@ import { INew } from '@interfaces/new.interface';
 import { ITarea } from '@interfaces/tarea.interface';
 import { GetTareasNewsComsDocs } from '@services/getTareasNewsComsDocs.service';
 import { SupabaseService } from '@services/supabase.service';
+import { IsAdminService } from '@services/isAdmin.service';
 
 @Component({
 	selector: 'app-tareas-detalle',
@@ -35,6 +36,7 @@ import { SupabaseService } from '@services/supabase.service';
 export default class TareasDetalleComponent implements OnInit {
 	private _supabaseService = inject(SupabaseService);
 	private _getTareasNewsComsDocs = inject(GetTareasNewsComsDocs);
+	private readonly _isAdminService = inject(IsAdminService);
 	private _formBuilder = inject(FormBuilder);
 	private _router = inject(Router);
 	public news: INew[] = [];
@@ -44,6 +46,7 @@ export default class TareasDetalleComponent implements OnInit {
 	public tarea: ITarea;
 	public isEditing = false;
 	public editForm: FormGroup;
+	public isAdmin: boolean;
 
 	constructor() {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
@@ -60,11 +63,17 @@ export default class TareasDetalleComponent implements OnInit {
 			status: [this.tarea.status, Validators.required],
 			tag: [this.tarea.tag, Validators.required]
 		});
+
+		this._isAdminService.isAdmin$.subscribe((value) => {
+			this.isAdmin = value;
+		});
 	}
 
 	async fetchData() {
-		// [this.news, this.coms, this.docs, this.gestiones] = await this._getTareasNewsComsDocs.fetchDataFromSupabase(
-		[this.gestiones] = await this._getTareasNewsComsDocs.fetchDataFromSupabase(this.tarea.tag);
+		[this.news, this.coms, this.docs, this.gestiones] = await this._getTareasNewsComsDocs.fetchDataFromSupabase(
+			this.tarea.tag
+		);
+		// [this.gestiones] = await this._getTareasNewsComsDocs.fetchDataFromSupabase(this.tarea.tag);
 		console.log(this.news, this.coms, this.docs, this.gestiones);
 	}
 
