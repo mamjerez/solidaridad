@@ -44,6 +44,10 @@ export default class BotonesAddComponent implements OnInit {
 		this._router.navigateByUrl('addCargo/' + this.tag());
 	}
 
+	addSubtarea(): void {
+		this._router.navigateByUrl('addSubtarea');
+	}
+
 	volver(): void {
 		this._location.back();
 	}
