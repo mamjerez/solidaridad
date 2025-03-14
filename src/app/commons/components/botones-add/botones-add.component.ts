@@ -21,8 +21,6 @@ export default class BotonesAddComponent implements OnInit {
 		this._isAdminService.isAdmin$.subscribe((value) => {
 			this.isAdmin = value;
 		});
-
-		console.log(this.tarea());
 	}
 
 	addNew(): void {
@@ -43,6 +41,10 @@ export default class BotonesAddComponent implements OnInit {
 
 	addCargo(): void {
 		this._router.navigateByUrl('addCargo/' + this.tag());
+	}
+
+	addTarea(): void {
+		this._router.navigateByUrl('addTarea/' + this.tag());
 	}
 
 	volver(): void {

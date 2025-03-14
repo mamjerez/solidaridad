@@ -8,6 +8,9 @@
 		@if (!tarea()) {
 			<button class="OCM-button" (click)="addCargo()">+ Cargo</button>
 		}
+		@if (tarea()) {
+			<button class="OCM-button" (click)="addTarea()">+ Tarea</button>
+		}
 	} @else {
 		@if (tag()) {
 			<button class="OCM-button" (click)="addCom()">+ comentario</button>

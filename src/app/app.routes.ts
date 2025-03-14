@@ -208,6 +208,10 @@ export default [
 		loadComponent: () => import('./addNewRecod/add-cargo/add-cargo.component')
 	},
 	{
+		path: 'addTarea/:tag',
+		loadComponent: () => import('./addNewRecod/add-tarea/add-tarea.component')
+	},
+	{
 		path: 'addFoto/:tag',
 		loadComponent: () => import('./addNewRecod/add-foto/add-foto.component')
 	},
