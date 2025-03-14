@@ -14,7 +14,8 @@ export class GetTareasNewsComsDocs {
 			'solidaridad_news',
 			'solidaridad_comentarios',
 			'solidaridad_documentos',
-			'solidaridad_gestiones'
+			'solidaridad_gestiones',
+			'solidaridad_subtareas'
 		];
 
 		return Promise.all(

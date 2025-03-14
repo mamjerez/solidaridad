@@ -18,6 +18,7 @@ import { ITarea } from '@interfaces/tarea.interface';
 import { GetTareasNewsComsDocs } from '@services/getTareasNewsComsDocs.service';
 import { SupabaseService } from '@services/supabase.service';
 import { IsAdminService } from '@services/isAdmin.service';
+import { SubtareasComponent } from '@app/commons/components/subtareas/subtareas.component';
 
 @Component({
 	selector: 'app-tareas-detalle',
@@ -28,7 +29,8 @@ import { IsAdminService } from '@services/isAdmin.service';
 		GestionesComponent,
 		NoticiasComponent,
 		BotonesAddComponent,
-		CustomDatePipe
+		CustomDatePipe,
+		SubtareasComponent
 	],
 	templateUrl: './tareas-detalle.component.html',
 	styleUrl: './tareas-detalle.component.scss'
@@ -43,6 +45,7 @@ export default class TareasDetalleComponent implements OnInit {
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public gestiones: IGestion[] = [];
+	public subtareas: any[] = [];
 	public tarea: ITarea;
 	public isEditing = false;
 	public editForm: FormGroup;
@@ -70,11 +73,11 @@ export default class TareasDetalleComponent implements OnInit {
 	}
 
 	async fetchData() {
-		[this.news, this.coms, this.docs, this.gestiones] = await this._getTareasNewsComsDocs.fetchDataFromSupabase(
-			this.tarea.tag
-		);
+		[this.news, this.coms, this.docs, this.gestiones, this.subtareas] =
+			await this._getTareasNewsComsDocs.fetchDataFromSupabase(this.tarea.tag);
 		// [this.gestiones] = await this._getTareasNewsComsDocs.fetchDataFromSupabase(this.tarea.tag);
-		console.log(this.news, this.coms, this.docs, this.gestiones);
+		// console.log(this.news, this.coms, this.docs, this.gestiones, this.subtareas);
+		console.log(this.subtareas);
 	}
 
 	toggleEdit() {

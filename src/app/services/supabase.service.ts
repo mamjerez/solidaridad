@@ -98,6 +98,8 @@ export class SupabaseService {
 	}
 
 	async fetchDataByLevel(level: string, tag?: string): Promise<any> {
+		console.log('Fetching data by level:', tag);
+
 		const { data, error } = await this._supabase
 			.from('albarizuela_menu_cards')
 			.select('id,tag,title,level,has_imagen,is_last_level,is_visible,orden,level_up,url_externa')
