@@ -7,6 +7,8 @@ import GestionesComponent from '@app/commons/components/gestiones/gestiones.comp
 import NoticiasComponent from '@app/commons/components/noticias/noticias.component';
 import { CustomDatePipe } from '@app/commons/pipes/custom-date.pipe';
 
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
 import { IGestion } from '@interfaces/gestion.interface';
@@ -19,6 +21,7 @@ import { SupabaseService } from '@services/supabase.service';
 @Component({
 	selector: 'app-tareas-detalle',
 	imports: [
+		ReactiveFormsModule,
 		ComentariosComponent,
 		DocumentosComponent,
 		GestionesComponent,
@@ -32,29 +35,48 @@ import { SupabaseService } from '@services/supabase.service';
 export default class TareasDetalleComponent implements OnInit {
 	private _supabaseService = inject(SupabaseService);
 	private _getTareasNewsComsDocs = inject(GetTareasNewsComsDocs);
-
+	private _formBuilder = inject(FormBuilder);
 	private _router = inject(Router);
 	public news: INew[] = [];
 	public coms: ICom[] = [];
 	public docs: IDoc[] = [];
 	public gestiones: IGestion[] = [];
-
 	public tarea: ITarea;
+	public isEditing = false;
+	public editForm: FormGroup;
 
 	constructor() {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		const navigation = this._router.getCurrentNavigation();
 		this.tarea = navigation?.extras.state?.['data'];
-		console.log(this.tarea);
 	}
 
 	ngOnInit(): void {
 		this.fetchData();
+		this.editForm = this._formBuilder.group({
+			fecha_inicio: [this.tarea.fecha_inicio, Validators.required],
+			titulo: [this.tarea.titulo, Validators.required],
+			responsable: [this.tarea.responsable, Validators.required],
+			status: [this.tarea.status, Validators.required],
+			tag: [this.tarea.tag, Validators.required]
+		});
 	}
 
 	async fetchData() {
 		// [this.news, this.coms, this.docs, this.gestiones] = await this._getTareasNewsComsDocs.fetchDataFromSupabase(
-		[this.gestiones] = await this._getTareasNewsComsDocs.fetchDataFromSupabase(this.tarea.id.toString());
+		[this.gestiones] = await this._getTareasNewsComsDocs.fetchDataFromSupabase(this.tarea.tag);
 		console.log(this.news, this.coms, this.docs, this.gestiones);
+	}
+
+	toggleEdit() {
+		this.isEditing = !this.isEditing;
+	}
+
+	async guardar() {
+		if (this.editForm.valid) {
+			await this._supabaseService.updateRowTarea('solidaridad_tareas', this.editForm.value, this.tarea.tag);
+			this.tarea = this.editForm.value;
+			this.toggleEdit();
+		}
 	}
 }

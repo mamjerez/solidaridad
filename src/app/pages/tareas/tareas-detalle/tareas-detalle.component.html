@@ -31,6 +31,32 @@
 	</table>
 </div>
 
+<button (click)="toggleEdit()">Editar Tarea</button>
+
+@if (isEditing) {
+	<div>
+		<form [formGroup]="editForm" (ngSubmit)="guardar()">
+			<label for="fecha">Fecha</label>
+			<input type="date" id="fecha" formControlName="fecha_inicio" />
+
+			<label for="titulo">Título</label>
+			<input id="titulo" formControlName="titulo" />
+
+			<label for="responsable">Responsable</label>
+			<textarea id="responsable" formControlName="responsable"></textarea>
+
+			<label for="status">Estado</label>
+			<textarea id="status" formControlName="status"></textarea>
+
+			<label for="tag">tag</label>
+			<textarea id="tag" formControlName="tag"></textarea>
+
+			<button type="submit" [disabled]="!editForm.valid">Guardar</button>
+			<button type="button" (click)="toggleEdit()">Cancelar</button>
+		</form>
+	</div>
+}
+
 @if (docs.length > 0) {
 	<app-documentos [docs]="docs" />
 }
