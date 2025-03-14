@@ -36,15 +36,12 @@ export default class BotonesAddComponent implements OnInit {
 	}
 
 	addGes(): void {
+		console.log('addGestion/' + this.tag());
 		this._router.navigateByUrl('addGestion/' + this.tag());
 	}
 
 	addCargo(): void {
 		this._router.navigateByUrl('addCargo/' + this.tag());
-	}
-
-	addTarea(): void {
-		this._router.navigateByUrl('addTarea/' + this.tag());
 	}
 
 	volver(): void {
