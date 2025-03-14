@@ -7,4 +7,5 @@ export interface ITarea {
 	fecha_inicio: Date;
 	fecha_fin: Date;
 	status: 'pendiente' | 'en-progreso' | 'completada';
+	tag: string;
 }

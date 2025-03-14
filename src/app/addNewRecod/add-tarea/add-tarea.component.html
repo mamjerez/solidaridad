@@ -1,0 +1,63 @@
+<!-- <div class="OCM-dark-teme OCM-flex OCM-flex--center">
+	<form [formGroup]="comForm" (ngSubmit)="guardar()">
+		<fieldset class="OCM-fieldset">
+			<header class="OCM-subtitle-dark">Añadir tarea</header>
+
+			<div>
+				<form [formGroup]="comForm" (ngSubmit)="guardar()">
+					<label for="fecha">Fecha</label>
+					<input type="date" id="fecha" formControlName="fecha_inicio" />
+
+					<label for="titulo">Título</label>
+					<input id="titulo" formControlName="titulo" />
+
+					<label for="responsable">Responsable</label>
+					<textarea id="responsable" formControlName="responsable"></textarea>
+
+					<label for="status">Estado</label>
+					<textarea id="status" formControlName="status"></textarea>
+
+					<label for="tag">tag</label>
+					<textarea id="tag" formControlName="tag"></textarea>
+
+					<button type="submit" [disabled]="!comForm.valid">Guardar</button>
+				</form>
+			</div>
+		</fieldset>
+	</form>
+</div> -->
+
+<div class="OCM-dark-teme OCM-flex OCM-flex--center">
+	<form [formGroup]="comForm" (ngSubmit)="guardar()">
+		<fieldset class="OCM-fieldset">
+			<header class="OCM-subtitle-dark">Añadir tarea</header>
+
+			<label for="fecha_inicio" class="OCM-label-dark">Fecha</label>
+			<input type="date" class="OCMInputDate" id="fecha_inicio" formControlName="fecha_inicio" />
+			<app-error-field
+				[control]="comForm.get('fecha_inicio')"
+				[errorMessages]="validationMessages.fecha"
+			></app-error-field>
+
+			<label for="titulo" class="OCM-label-dark">titulo</label>
+			<input type="text" class="OCMInputMedia" id="titulo" formControlName="titulo" />
+
+			<label for="responsable" class="OCM-label-dark">Responsable</label>
+			<input type="text" class="OCMInputLong" id="responsable" formControlName="responsable" />
+			<app-error-field
+				[control]="comForm.get('responsable')"
+				[errorMessages]="validationMessages.texto"
+			></app-error-field>
+
+			<label for="status" class="OCM-label-dark">status</label>
+			<input type="text" class="OCMInputLong" id="status" formControlName="status" />
+			<app-error-field [control]="comForm.get('status')" [errorMessages]="validationMessages.texto"></app-error-field>
+
+			<label for="tag" class="OCM-label-dark">tag</label>
+			<input type="text" class="OCMInputLong" id="tag" formControlName="tag" />
+			<app-error-field [control]="comForm.get('tag')" [errorMessages]="validationMessages.texto"></app-error-field>
+
+			<button type="submit" [disabled]="!comForm.valid" class="OCM-button-container OCM-button">Grabar</button>
+		</fieldset>
+	</form>
+</div>
