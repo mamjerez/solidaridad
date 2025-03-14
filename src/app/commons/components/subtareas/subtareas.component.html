@@ -1,0 +1,20 @@
+<header class="OCM-title">Subtareas ({{ subtareas().length }})</header>
+<section class="OCM-containerTable">
+	<table class="OCM-tableTarea">
+		<thead>
+			<tr>
+				<th>Fecha</th>
+				<th>Título</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for (subtarea of subtareas(); track subtarea) {
+				<tr>
+					<td>{{ subtarea.date | customDate: 'd-MM-yyyy' }}</td>
+					<td>{{ subtarea.titulo }}</td>
+					<td>{{ subtarea.responsable }}</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</section>
