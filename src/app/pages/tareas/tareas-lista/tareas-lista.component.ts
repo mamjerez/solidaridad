@@ -41,21 +41,22 @@ export default class TareasListaComponent implements OnInit {
 
 	_setColumnDefs() {
 		this._columnDefs = [
+			// {
+			// 	headerName: 'id',
+			// 	field: 'id',
+			// 	width: 42
+			// },
 			{
-				headerName: 'id',
-				field: 'id',
-				width: 42
-			},
-			{
-				headerName: 'Fecha inicio',
+				headerName: 'Fecha',
 				field: 'fecha_inicio',
-				width: 150
+				width: 80,
+				valueFormatter: (params) => this._formatDate(params.value)
 			},
-			{
-				headerName: 'Fecha final',
-				field: 'fecha_fin',
-				width: 65
-			},
+			// {
+			// 	headerName: 'Fecha final',
+			// 	field: 'fecha_fin',
+			// 	width: 65
+			// },
 			{
 				headerName: 'Tarea',
 				field: 'titulo',
@@ -64,7 +65,7 @@ export default class TareasListaComponent implements OnInit {
 			{
 				headerName: 'Responsable',
 				field: 'responsable',
-				width: 100
+				width: 120
 			},
 			{
 				headerName: 'Estado',
@@ -130,5 +131,20 @@ export default class TareasListaComponent implements OnInit {
 		this._router.navigate(['tarea_detalle'], { state: { data: event.data } });
 		// const id = event.data.id;
 		// this._router.navigate(['/tarea_detalle', id]);
+	}
+
+	navigateToAddTarea(): void {
+		this._router.navigate(['addTarea']);
+	}
+
+	private _formatDate(value: string): string {
+		if (value) {
+			const date = new Date(value);
+			const day = date.getDate().toString().padStart(2, '0');
+			const month = (date.getMonth() + 1).toString().padStart(2, '0');
+			const year = date.getFullYear();
+			return `${day}/${month}/${year}`;
+		}
+		return '';
 	}
 }
