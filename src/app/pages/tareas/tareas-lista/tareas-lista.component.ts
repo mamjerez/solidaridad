@@ -113,7 +113,7 @@ export default class TareasListaComponent implements OnInit {
 	}
 
 	onRowClicked(event: RowClickedEvent) {
-		console.log('Row clicked', event.data);
+		// console.log('Row clicked', event.data);
 		this._router.navigate(['tarea_detalle'], { state: { data: event.data } });
 		// const id = event.data.id;
 		// this._router.navigate(['/tarea_detalle', id]);
