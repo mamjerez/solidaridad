@@ -75,11 +75,13 @@ export default class TareasDetalleComponent implements OnInit {
 	}
 
 	async fetchData() {
+		console.log('Fetching data from Supabase with tag:', this.tarea.tag);
+
 		[this.news, this.coms, this.docs, this.gestiones, this.subtareas] =
 			await this._getTareasNewsComsDocs.fetchDataFromSupabase(this.tarea.tag);
 		// [this.gestiones] = await this._getTareasNewsComsDocs.fetchDataFromSupabase(this.tarea.tag);
 		// console.log(this.news, this.coms, this.docs, this.gestiones, this.subtareas);
-		console.log(this.subtareas);
+		// console.log(this.subtareas);
 	}
 
 	toggleEdit() {
