@@ -9,7 +9,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@for (subtarea of subtareas(); track subtarea) {
+			@for (subtarea of subtareas(); track subtarea.id) {
 				<tr (click)="openSubtareaDetail(subtarea)">
 					<td>{{ subtarea.date | customDate: 'd-MM-yyyy' }}</td>
 					<td>{{ subtarea.responsable }}</td>
