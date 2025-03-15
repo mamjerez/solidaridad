@@ -3,8 +3,8 @@
 		<fieldset class="OCM-fieldset">
 			<header class="OCM-subtitle-dark">Añadir subtarea a la tarea</header>
 
-			<label for="fecha_inicio" class="OCM-label-dark">Fecha</label>
-			<input type="date" class="OCMInputDate" id="fecha_inicio" formControlName="fecha_inicio" />
+			<label for="date" class="OCM-label-dark">Fecha</label>
+			<input type="date" class="OCMInputDate" id="date" formControlName="date" />
 			<app-error-field
 				[control]="comForm.get('fecha_inicio')"
 				[errorMessages]="validationMessages.fecha"

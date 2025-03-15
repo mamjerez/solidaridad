@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
 import { ErrorFieldComponent } from '@app/commons/components/error-field/error-field.component';
 
 import { SupabaseService } from '@services/supabase.service';
@@ -20,7 +21,7 @@ export default class AddSubtareaComponent implements OnInit {
 
 	async ngOnInit(): Promise<void> {
 		this.comForm = this._formBuilder.group({
-			fecha_inicio: ['', Validators.required],
+			date: ['', Validators.required],
 			titulo: ['', Validators.required],
 			responsable: ['', Validators.required],
 			status: ['', Validators.required],
@@ -46,7 +47,7 @@ export default class AddSubtareaComponent implements OnInit {
 				// tag: this.tag()
 			};
 
-			await this._supabaseService.insertRow('solidaridad_tareas', formData);
+			await this._supabaseService.insertRow('solidaridad_subtareas', formData);
 			this._location.back();
 		}
 	}
