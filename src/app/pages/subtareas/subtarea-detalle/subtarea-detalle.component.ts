@@ -1,13 +1,15 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
 import BotonesAddComponent from '@app/commons/components/botones-add/botones-add.component';
 import ComentariosComponent from '@app/commons/components/comentarios/comentarios.component';
 import DocumentosComponent from '@app/commons/components/documentos/documentos.component';
 import GestionesComponent from '@app/commons/components/gestiones/gestiones.component';
 import NoticiasComponent from '@app/commons/components/noticias/noticias.component';
-import { CustomDatePipe } from '@app/commons/pipes/custom-date.pipe';
+import { SubtareasComponent } from '../subtareas.component';
 
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CustomDatePipe } from '@app/commons/pipes/custom-date.pipe';
 
 import { ICom } from '@interfaces/com.interface';
 import { IDoc } from '@interfaces/doc.interface';
@@ -18,7 +20,6 @@ import { ITarea } from '@interfaces/tarea.interface';
 import { GetTareasNewsComsDocs } from '@services/getTareasNewsComsDocs.service';
 import { SupabaseService } from '@services/supabase.service';
 import { IsAdminService } from '@services/isAdmin.service';
-import { SubtareasComponent } from '../subtareas.component';
 
 @Component({
 	selector: 'app-subtarea-detalle',
@@ -55,12 +56,13 @@ export default class SubtareaDetalleComponent implements OnInit {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		const navigation = this._router.getCurrentNavigation();
 		this.tarea = navigation?.extras.state?.['data'];
+		// console.log(this.tarea);
 	}
 
 	ngOnInit(): void {
 		this.fetchData();
 		this.editForm = this._formBuilder.group({
-			fecha_inicio: [this.tarea.fecha_inicio, Validators.required],
+			date: [this.tarea.date, Validators.required],
 			titulo: [this.tarea.titulo, Validators.required],
 			responsable: [this.tarea.responsable, Validators.required],
 			status: [this.tarea.status, Validators.required],
@@ -74,10 +76,9 @@ export default class SubtareaDetalleComponent implements OnInit {
 
 	async fetchData() {
 		[this.news, this.coms, this.docs, this.gestiones, this.subtareas] =
-			await this._getTareasNewsComsDocs.fetchDataFromSupabase(this.tarea.tag);
+			await this._getTareasNewsComsDocs.fetchDataFromSupabase(this.tarea.subtag);
 		// [this.gestiones] = await this._getTareasNewsComsDocs.fetchDataFromSupabase(this.tarea.tag);
-		// console.log(this.news, this.coms, this.docs, this.gestiones, this.subtareas);
-		console.log(this.subtareas);
+		console.log(this.news, this.coms, this.docs, this.gestiones, this.subtareas);
 	}
 
 	toggleEdit() {
@@ -86,7 +87,7 @@ export default class SubtareaDetalleComponent implements OnInit {
 
 	async guardar() {
 		if (this.editForm.valid) {
-			await this._supabaseService.updateRowTarea('solidaridad_tareas', this.editForm.value, this.tarea.tag);
+			await this._supabaseService.updateRowTarea('solidaridad_subtareas', this.editForm.value, this.tarea.subtag);
 			this.tarea = this.editForm.value;
 			this.toggleEdit();
 		}

@@ -1,8 +1,8 @@
 <app-botones-add [tag]="tarea.tag" [tarea]="true"></app-botones-add>
 
-<h1>tarea {{ tarea.titulo }}</h1>
+<!-- <h1>tarea {{ tarea.titulo }}</h1>
 
-<h1>Subtarea</h1>
+<h1>Subtarea</h1> -->
 
 <div>
 	<table class="OCM-tableTarea">
@@ -10,7 +10,7 @@
 			<tr>
 				<td><label>Fecha inicio:</label></td>
 				<td>
-					<h2>{{ tarea.fecha_inicio | customDate: 'd-MM-yyyy' }}</h2>
+					<h2>{{ tarea.date | customDate: 'd-MM-yyyy' }}</h2>
 				</td>
 			</tr>
 			<tr>
