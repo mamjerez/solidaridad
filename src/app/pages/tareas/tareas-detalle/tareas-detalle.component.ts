@@ -18,7 +18,7 @@ import { ITarea } from '@interfaces/tarea.interface';
 import { GetTareasNewsComsDocs } from '@services/getTareasNewsComsDocs.service';
 import { SupabaseService } from '@services/supabase.service';
 import { IsAdminService } from '@services/isAdmin.service';
-import { SubtareasComponent } from '@app/commons/components/subtareas/subtareas.component';
+import { SubtareasComponent } from '@app/pages/subtareas/subtareas.component';
 
 @Component({
 	selector: 'app-tareas-detalle',
