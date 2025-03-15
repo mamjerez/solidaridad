@@ -1,0 +1,79 @@
+<app-botones-add [tag]="tarea.tag" [tarea]="true"></app-botones-add>
+
+<h1>tarea {{ tarea.titulo }}</h1>
+
+<h1>Subtarea</h1>
+
+<div>
+	<table class="OCM-tableTarea">
+		<tbody>
+			<tr>
+				<td><label>Fecha inicio:</label></td>
+				<td>
+					<h2>{{ tarea.fecha_inicio | customDate: 'd-MM-yyyy' }}</h2>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Tarea:</label></td>
+				<td>
+					<h2>{{ tarea.titulo }}</h2>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Responsable:</label></td>
+				<td>
+					<h2>{{ tarea.responsable }}</h2>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Estado:</label></td>
+				<td>
+					<h2>{{ tarea.status }}</h2>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+@if (isAdmin) {
+	<button (click)="toggleEdit()">Editar Tarea</button>
+}
+
+@if (isEditing) {
+	<div>
+		<form [formGroup]="editForm" (ngSubmit)="guardar()">
+			<label for="fecha">Fecha</label>
+			<input type="date" id="fecha" formControlName="fecha_inicio" />
+
+			<label for="titulo">Título</label>
+			<input id="titulo" formControlName="titulo" />
+
+			<label for="responsable">Responsable</label>
+			<textarea id="responsable" formControlName="responsable"></textarea>
+
+			<label for="status">Estado</label>
+			<textarea id="status" formControlName="status"></textarea>
+
+			<label for="tag">tag</label>
+			<textarea id="tag" formControlName="tag"></textarea>
+
+			<button type="submit" [disabled]="!editForm.valid">Guardar</button>
+			<button type="button" (click)="toggleEdit()">Cancelar</button>
+		</form>
+	</div>
+}
+
+@if (docs.length > 0) {
+	<app-documentos [docs]="docs" />
+}
+@if (news.length > 0) {
+	<app-noticias [news]="news" />
+}
+@if (coms.length > 0) {
+	<app-comentarios [coms]="coms" />
+}
+@if (gestiones.length > 0) {
+	<app-gestiones [gestiones]="gestiones" />
+}
+
+<!-- <app-subtareas [subtareas]="subtareas" /> -->

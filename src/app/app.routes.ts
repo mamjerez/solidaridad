@@ -227,5 +227,9 @@ export default [
 		path: 'tarea_detalle',
 		loadComponent: () => import('./pages/tareas/tareas-detalle/tareas-detalle.component')
 	},
+	{
+		path: 'subtarea_detalle',
+		loadComponent: () => import('./commons/components/subtareas/subtarea-detalle/subtarea-detalle.component')
+	},
 	{ path: '**', pathMatch: 'full', redirectTo: '/home' }
 ] as Routes;
