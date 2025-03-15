@@ -62,7 +62,9 @@ export default class TareasDetalleComponent implements OnInit {
 		this.editForm = this._formBuilder.group({
 			fecha_inicio: [this.tarea.fecha_inicio, Validators.required],
 			titulo: [this.tarea.titulo, Validators.required],
+			descripcion: [this.tarea.descripcion, Validators.required],
 			responsable: [this.tarea.responsable, Validators.required],
+
 			status: [this.tarea.status, Validators.required],
 			tag: [this.tarea.tag, Validators.required]
 		});

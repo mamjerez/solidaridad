@@ -16,6 +16,12 @@
 				</td>
 			</tr>
 			<tr>
+				<td><label>Descripción:</label></td>
+				<td>
+					<h2>{{ tarea.descripcion }}</h2>
+				</td>
+			</tr>
+			<tr>
 				<td><label>Responsable:</label></td>
 				<td>
 					<h2>{{ tarea.responsable }}</h2>
@@ -43,6 +49,9 @@
 
 			<label for="titulo">Título</label>
 			<input id="titulo" formControlName="titulo" />
+
+			<label for="titulo">Descripción</label>
+			<input id="descripcion" formControlName="descripcion" />
 
 			<label for="responsable">Responsable</label>
 			<textarea id="responsable" formControlName="responsable"></textarea>
