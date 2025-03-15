@@ -15,7 +15,6 @@ export class SubtareasComponent {
 
 	openSubtareaDetail(subtarea: any): void {
 		console.log(subtarea);
-
 		this._router.navigate(['subtarea_detalle'], { state: { data: subtarea } });
 		// this._router.navigate(['subtarea_detalle']);
 	}
