@@ -22,7 +22,8 @@ export default class AddGestionComponent implements OnInit {
 		this.comForm = this._formBuilder.group({
 			date: ['', Validators.required],
 			gestor: [''],
-			text: ['', Validators.required]
+			text: ['', Validators.required],
+			subtag: ['']
 		});
 	}
 
@@ -38,9 +39,18 @@ export default class AddGestionComponent implements OnInit {
 
 	async guardar(): Promise<void> {
 		if (this.comForm?.valid) {
+			let tagValue = this.tag;
+			const subtagValue = this.comForm.get('subtag')?.value;
+
+			if (subtagValue) {
+				tagValue = subtagValue;
+			}
+
+			const { subtag, ...formValues } = this.comForm.value;
+
 			const formData = {
-				...this.comForm.value,
-				tag: this.tag(),
+				...formValues,
+				tag: tagValue,
 				confidencial: false
 			};
 

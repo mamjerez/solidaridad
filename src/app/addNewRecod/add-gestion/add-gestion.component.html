@@ -14,6 +14,9 @@
 			<input type="text" class="OCMInputLong" id="text" formControlName="text" />
 			<app-error-field [control]="comForm.get('text')" [errorMessages]="validationMessages.texto"></app-error-field>
 
+			<label for="subtag" class="OCM-label-dark">Subtag</label>
+			<input type="text" class="OCMInputLong" id="subtag" formControlName="subtag" />
+
 			<button type="submit" [disabled]="!comForm.valid" class="OCM-button-container OCM-button">Grabar</button>
 		</fieldset>
 	</form>
