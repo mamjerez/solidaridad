@@ -23,7 +23,7 @@ export default class DocumentosComponent implements OnInit {
 	}
 
 	handleLinkClick(url: string, event: MouseEvent): void {
-		// event.preventDefault(); // Prevenir la navegación por defecto
+		event.preventDefault(); // Prevenir la navegación por defecto
 
 		if (this.isLocalPath(url)) {
 			this.copyToClipboard(url);
