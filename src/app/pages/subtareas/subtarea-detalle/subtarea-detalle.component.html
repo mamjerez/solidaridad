@@ -1,4 +1,4 @@
-<app-botones-add [tag]="tarea.tag" [tarea]="true"></app-botones-add>
+<app-botones-add [tag]="subtarea.tag" [tarea]="true"></app-botones-add>
 
 <!-- <h1>tarea {{ tarea.titulo }}</h1>
 
@@ -10,39 +10,41 @@
 			<tr>
 				<td><label>Fecha inicio:</label></td>
 				<td>
-					<h2>{{ tarea.date | customDate: 'd-MM-yyyy' }}</h2>
+					<h2>{{ subtarea.date | customDate: 'd-MM-yyyy' }}</h2>
 				</td>
 			</tr>
 			<tr>
-				<td><label>Tarea:</label></td>
+				<td><label>SubTarea:</label></td>
 				<td>
-					<h2>{{ tarea.titulo }}</h2>
+					<h2>{{ subtarea.titulo }}</h2>
 				</td>
 			</tr>
 			<tr>
 				<td><label>Responsable:</label></td>
 				<td>
-					<h2>{{ tarea.responsable }}</h2>
+					<h2>{{ subtarea.responsable }}</h2>
 				</td>
 			</tr>
 			<tr>
 				<td><label>Estado:</label></td>
 				<td>
-					<h2>{{ tarea.status }}</h2>
+					<h2>{{ subtarea.status }}</h2>
 				</td>
 			</tr>
-			<tr>
-				<td><label>tag:</label></td>
-				<td>
-					<h2>{{ tarea.tag }}</h2>
-				</td>
-			</tr>
-			<tr>
-				<td><label>subtag:</label></td>
-				<td>
-					<h2>{{ tarea.subtag }}</h2>
-				</td>
-			</tr>
+			@if (isAdmin) {
+				<tr>
+					<td><label>tag:</label></td>
+					<td>
+						<h2>{{ subtarea.tag }}</h2>
+					</td>
+				</tr>
+				<tr>
+					<td><label>subtag:</label></td>
+					<td>
+						<h2>{{ subtarea.subtag }}</h2>
+					</td>
+				</tr>
+			}
 		</tbody>
 	</table>
 </div>
@@ -87,5 +89,3 @@
 @if (gestiones.length > 0) {
 	<app-gestiones [gestiones]="gestiones" />
 }
-
-<!-- <app-subtareas [subtareas]="subtareas" /> -->

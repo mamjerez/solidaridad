@@ -7,7 +7,6 @@ import ComentariosComponent from '@app/commons/components/comentarios/comentario
 import DocumentosComponent from '@app/commons/components/documentos/documentos.component';
 import GestionesComponent from '@app/commons/components/gestiones/gestiones.component';
 import NoticiasComponent from '@app/commons/components/noticias/noticias.component';
-import { SubtareasComponent } from '../subtareas.component';
 
 import { CustomDatePipe } from '@app/commons/pipes/custom-date.pipe';
 
@@ -30,8 +29,7 @@ import { IsAdminService } from '@services/isAdmin.service';
 		GestionesComponent,
 		NoticiasComponent,
 		BotonesAddComponent,
-		CustomDatePipe,
-		SubtareasComponent
+		CustomDatePipe
 	],
 	templateUrl: './subtarea-detalle.component.html',
 	styleUrl: './subtarea-detalle.component.scss'
@@ -47,7 +45,7 @@ export default class SubtareaDetalleComponent implements OnInit {
 	public docs: IDoc[] = [];
 	public gestiones: IGestion[] = [];
 	public subtareas: any[] = [];
-	public tarea: ITarea;
+	public subtarea: ITarea;
 	public isEditing = false;
 	public editForm: FormGroup;
 	public isAdmin: boolean;
@@ -55,18 +53,18 @@ export default class SubtareaDetalleComponent implements OnInit {
 	constructor() {
 		// Hay que hacerlo en el constructor de lo contrario no funciona
 		const navigation = this._router.getCurrentNavigation();
-		this.tarea = navigation?.extras.state?.['data'];
-		// console.log(this.tarea);
+		this.subtarea = navigation?.extras.state?.['data'];
+		console.log(this.subtarea);
 	}
 
 	ngOnInit(): void {
 		this.fetchData();
 		this.editForm = this._formBuilder.group({
-			date: [this.tarea.date, Validators.required],
-			titulo: [this.tarea.titulo, Validators.required],
-			responsable: [this.tarea.responsable, Validators.required],
-			status: [this.tarea.status, Validators.required],
-			tag: [this.tarea.tag, Validators.required]
+			date: [this.subtarea.date, Validators.required],
+			titulo: [this.subtarea.titulo, Validators.required],
+			responsable: [this.subtarea.responsable, Validators.required],
+			status: [this.subtarea.status, Validators.required],
+			tag: [this.subtarea.tag, Validators.required]
 		});
 
 		this._isAdminService.isAdmin$.subscribe((value) => {
@@ -76,7 +74,7 @@ export default class SubtareaDetalleComponent implements OnInit {
 
 	async fetchData() {
 		[this.news, this.coms, this.docs, this.gestiones, this.subtareas] =
-			await this._getTareasNewsComsDocs.fetchDataFromSupabase(this.tarea.subtag);
+			await this._getTareasNewsComsDocs.fetchDataFromSupabase(this.subtarea.subtag);
 		// [this.gestiones] = await this._getTareasNewsComsDocs.fetchDataFromSupabase(this.tarea.tag);
 		console.log(this.news, this.coms, this.docs, this.gestiones, this.subtareas);
 	}
@@ -87,8 +85,8 @@ export default class SubtareaDetalleComponent implements OnInit {
 
 	async guardar() {
 		if (this.editForm.valid) {
-			await this._supabaseService.updateRowTarea('solidaridad_subtareas', this.editForm.value, this.tarea.subtag);
-			this.tarea = this.editForm.value;
+			await this._supabaseService.updateRowTarea('solidaridad_subtareas', this.editForm.value, this.subtarea.subtag);
+			this.subtarea = this.editForm.value;
 			this.toggleEdit();
 		}
 	}
