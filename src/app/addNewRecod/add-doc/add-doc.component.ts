@@ -22,15 +22,16 @@ export default class AddDocComponent implements OnInit {
 			emisor: ['', Validators.required],
 			title: ['', Validators.required],
 			url_doc: ['', Validators.required],
-			confidencial: [false, Validators.required]
+			confidencial: [false, Validators.required],
+			tag: [this.tag(), Validators.required]
 		});
 	}
 
 	async guardar(): Promise<void> {
 		if (this.docForm?.valid) {
 			const formData = {
-				...this.docForm.value,
-				tag: this.tag()
+				...this.docForm.value
+				// tag: this.tag()
 			};
 
 			try {
